@@ -156,7 +156,7 @@ elif menu == "Visualización de datos":
                 y=data_historico["prevalencia (%)"],
                 mode='lines+markers',
                 name='Prevalencia',
-                line=dict(color='#636efa', width=4),  # Línea MÁS gruesa
+                line=dict(color='#636efa', width=3),  
                 marker=dict(size=7, color='#636efa', symbol='circle', line=dict(color='white', width=2)),
                 hovertemplate="<b>Año:</b> %{x}<br><b>Prevalencia:</b> %{y:.2f}%<extra></extra>"
             ))
@@ -174,6 +174,7 @@ elif menu == "Visualización de datos":
                     title="Año",
                     tickmode="linear",
                     tickangle=45,  # Rotar los ticks para que no se apilen
+                    range=[2000, 2019],
                     showline=True,
                     linewidth=2,
                     linecolor='gray',
