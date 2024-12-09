@@ -141,7 +141,7 @@ elif menu == "Visualización de datos":
         with col3:
             st.metric(label="Número estimado de afectados (millones)", value="1400M", delta="+50M desde 2015")
 
-        col1, col2 = st.columns([1.6, 1.4])
+        col1, col2 = st.columns([1.9, 1.1])
 
         with col1:
             # Cargar los datos desde el archivo CSV
