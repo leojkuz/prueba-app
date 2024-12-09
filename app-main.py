@@ -141,7 +141,7 @@ elif menu == "Visualización de datos":
         with col3:
             st.metric(label="Número estimado de afectados (millones)", value="1400M", delta="+50M desde 2015")
 
-        col1, col2 = st.columns([2, 1])
+        col1, col2 = st.columns([1.6, 1.4])
 
         with col1:
             fig_line = go.Figure()
@@ -157,7 +157,7 @@ elif menu == "Visualización de datos":
             st.plotly_chart(fig_line)
 
         with col2:
-            fig_bar = go.Figure([go.Bar(x=prevalence, y=countries, orientation='h',
+            fig_bar = go.Figure([go.Bar(x=prevalence, y=countries[::-1], orientation='h',
                                         marker_color='indianred')])
             fig_bar.update_layout(title="Top 10 Países con Mayor Prevalencia de Anemia",
                                   xaxis_title="Prevalencia (%)",
