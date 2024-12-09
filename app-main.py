@@ -144,17 +144,70 @@ elif menu == "Visualización de datos":
         col1, col2 = st.columns([1.6, 1.4])
 
         with col1:
-            fig_line = go.Figure()
-            fig_line.add_trace(go.Scatter(x=years, y=anemia_global,
-                                          mode='lines+markers',
-                                          name='Tasa Global (%)',
-                                          line=dict(color='royalblue', width=3)))
-            fig_line.update_layout(title="Tendencia Mundial de la Anemia (2015-2021)",
-                                   xaxis_title="Año",
-                                   yaxis_title="Prevalencia (%)",
-                                   plot_bgcolor='rgba(240,240,240,0.9)')
+            fig_trend = go.Figure()
 
-            st.plotly_chart(fig_line)
+            # Agregamos una línea principal con puntos destacados
+            fig_trend.add_trace(go.Scatter(
+                x=years,
+                y=anemia_global,
+                mode='lines+markers',
+                name='Prevalencia Global (%)',
+                line=dict(color='royalblue', width=3),
+                marker=dict(color='darkblue', size=8, symbol='circle', line=dict(color='white', width=2)),
+                hovertemplate="<b>Año:</b> %{x}<br><b>Prevalencia:</b> %{y:.2f}%<extra></extra>"
+            ))
+
+            # Agregamos una banda sombreada para mostrar el rango de confianza o tendencia general
+            trend_upper = [value + 1 for value in anemia_global]  # Ejemplo: límite superior (ligeramente mayor)
+            trend_lower = [value - 1 for value in anemia_global]  # Ejemplo: límite inferior (ligeramente menor)
+            fig_trend.add_trace(go.Scatter(
+                x=years + years[::-1],
+                y=trend_upper + trend_lower[::-1],
+                fill='toself',
+                fillcolor='rgba(173,216,230,0.3)',  # Sombra azul claro
+                line=dict(color='rgba(255,255,255,0)'),
+                hoverinfo="skip",
+                showlegend=False
+            ))
+
+            # Configuración de estilo estético
+            fig_trend.update_layout(
+                title="<b>Tendencia Mundial de la Anemia (2015-2021)</b>",
+                title_font=dict(size=22, color='darkblue', family="Arial Black"),
+                xaxis=dict(
+                    title="Año",
+                    tickmode="linear",
+                    range=[2014.5, 2021.5],
+                    title_font=dict(size=16, color='black'),
+                    tickfont=dict(size=14),
+                    showgrid=True,
+                    gridcolor='rgba(200,200,200,0.4)'
+                ),
+                yaxis=dict(
+                    title="Prevalencia (%)",
+                    title_font=dict(size=16, color='black'),
+                    tickfont=dict(size=14),
+                    range=[26, 32],
+                    showgrid=True,
+                    gridcolor='rgba(200,200,200,0.4)'
+                ),
+                plot_bgcolor='rgba(240,248,255,0.8)',  # Fondo de gráfico azul claro
+                paper_bgcolor='white',
+                legend=dict(
+                    bgcolor="white",
+                    bordercolor="lightgray",
+                    borderwidth=1,
+                    font=dict(size=12)
+                )
+            )
+
+            # Mejora en la interacción de las etiquetas
+            fig_trend.update_traces(marker_line_width=1.5)
+
+            # Mostrar el gráfico en Streamlit (si estás usándolo)
+            import streamlit as st
+
+            st.plotly_chart(fig_trend)
 
         with col2:
             fig_bar = go.Figure([go.Bar(x=prevalence, y=countries[::-1], orientation='h',
