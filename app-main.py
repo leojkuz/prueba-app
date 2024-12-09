@@ -50,6 +50,7 @@ if menu == "Introducción":
     ---
     ## País 1: Brasil 🌴
     --
+    
     <!-- .slide: data-background-color="#283747" -->
     🌎 **Ubicación:** América del Sur
     🍖 **Cultura:** Famoso por su Carnaval y la samba.
@@ -57,6 +58,7 @@ if menu == "Introducción":
     ---
     ## País 2: Japón 🗾
     --
+    
     <!-- .slide: data-background-color="#283747" -->
     🎌 **Ubicación:** Asia Oriental
     🍣 **Cultura:** Punto focal de innovación tecnológica y cuna del sushi.
@@ -64,6 +66,7 @@ if menu == "Introducción":
     ---
     ## País 3: Egipto 🏺
     --
+    
     <!-- .slide: data-background-color="#283747" -->
     🌅 **Ubicación:** África (Noroeste)
     🕌 **Cultura:** Hogar de las pirámides y la rica historia faraónica.
