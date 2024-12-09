@@ -8,16 +8,18 @@ st.set_page_config(page_title="Análisis Global de la Anemia", layout="wide")
 
 # Colocar el logo de la universidad en la parte superior
 st.sidebar.image("imagenes/escudo-unalm.png", use_column_width=True)
+with st.sidebar:
+    # Menú principal (vertical) en el sidebar
+    menu = option_menu(
+        menu_title="Menú Principal",  # Título del menú
+        options=["Introducción", "Fuentes de datos", "Visualización de datos", "Conclusiones", "Equipo"],  # Opciones
+        icons=["info-circle", "database", "bar-chart", "clipboard", "people"],  # Íconos si quieres
+        menu_icon="cast",  # Ícono principal del menú
+        default_index=0,  # Primera opción seleccionada por defecto
+        orientation="vertical",
+    )
 
-# Menú principal (vertical) en el sidebar
-menu = option_menu(
-    menu_title="Menú Principal",  # Título del menú
-    options=["Introducción", "Fuentes de datos", "Visualización de datos", "Conclusiones", "Equipo"],  # Opciones
-    icons=["info-circle", "database", "bar-chart", "clipboard", "people"],  # Íconos si quieres
-    menu_icon="cast",  # Ícono principal del menú
-    default_index=0,  # Primera opción seleccionada por defecto
-    orientation="vertical",
-)
+
 
 # Contenido dinámico según opción seleccionada
 if menu == "Introducción":
