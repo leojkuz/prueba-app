@@ -152,15 +152,16 @@ elif menu == "Visualización de datos":
 
             # Agregar la línea principal al gráfico
             fig.add_trace(go.Scatter(
-                x=data_historico["year"],  # Eje X: Años
-                y=data_historico["prevalencia (%)"],  # Eje Y: Prevalencia (%)
-                mode='lines+markers',  # Línea con marcadores
-                name='Prevalencia Mundial (%)',
-                line=dict(color='darkblue', width=3),  # Línea azul oscuro y más gruesa para visibilidad
-                marker=dict(size=7, color='blue', symbol='circle', line=dict(color='white', width=2)),
-                # Marcadores estilizados
+                x=data_historico["year"],
+                y=data_historico["prevalencia (%)"],
+                mode='lines+markers',
+                name='Prevalencia',
+                line=dict(color='blue', width=5),  # Línea MÁS gruesa
+                marker=dict(size=8, color='blue', symbol='circle', line=dict(color='white', width=2)),
                 hovertemplate="<b>Año:</b> %{x}<br><b>Prevalencia:</b> %{y:.2f}%<extra></extra>"
             ))
+
+            fig.update_traces(line_shape='spline')
 
             # Personalización del diseño del gráfico
             fig.update_layout(
