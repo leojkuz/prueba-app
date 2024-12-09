@@ -1,0 +1,9 @@
+streamlit
+streamlit-option-menu
+streamlit-reveal-slides
+plotly
+sklearn
+plotnine
+seaborn
+matplotlib
+folium
