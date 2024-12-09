@@ -49,21 +49,21 @@ if menu == "Introducción":
     # Noticias de la anemia en el mundo
     ---
     ## País 1: Brasil 🌴
-    ---
+    --
     <!-- .slide: data-background-color="#283747" -->
     🌎 **Ubicación:** América del Sur
     🍖 **Cultura:** Famoso por su Carnaval y la samba.
     🏞 **Dato relevante:** Es uno de los principales productores de hierro y acero en el mundo.
     ---
     ## País 2: Japón 🗾
-    ---
+    --
     <!-- .slide: data-background-color="#283747" -->
     🎌 **Ubicación:** Asia Oriental
     🍣 **Cultura:** Punto focal de innovación tecnológica y cuna del sushi.
     🚄 **Dato relevante:** Poseen uno de los sistemas ferroviarios más veloces y precisos.
     ---
     ## País 3: Egipto 🏺
-    ---
+    --
     <!-- .slide: data-background-color="#283747" -->
     🌅 **Ubicación:** África (Noroeste)
     🕌 **Cultura:** Hogar de las pirámides y la rica historia faraónica.
