@@ -41,9 +41,9 @@ if menu == "Introducción":
     *(¡Inserta aquí más texto académico o markdown estilizado si lo necesitas!)*
     
     ### Un vistazo a la situación de la anemia en el mundo
-    
-    
     """)
+    st.write("")
+    st.write("")
     # Configuración del contenido en Markdown para los slides
     content_markdown = """
     # Noticias de la anemia en el mundo
