@@ -157,7 +157,7 @@ elif menu == "Visualización de datos":
                 mode='lines+markers',
                 name='Prevalencia',
                 line=dict(color='blue', width=5),  # Línea MÁS gruesa
-                marker=dict(size=8, color='blue', symbol='circle', line=dict(color='white', width=2)),
+                marker=dict(size=5, color='#636efa', symbol='circle', line=dict(color='white', width=2)),
                 hovertemplate="<b>Año:</b> %{x}<br><b>Prevalencia:</b> %{y:.2f}%<extra></extra>"
             ))
 
@@ -168,7 +168,7 @@ elif menu == "Visualización de datos":
                 title=dict(
                     text="<b>Prevalencia Histórica de Anemia (2000-2019)</b>",
                     font=dict(size=20, color='darkred', family="Arial"),
-                    x=0.1  # Centrar el título
+                    x=0.2  # Centrar el título
                 ),
                 xaxis=dict(
                     title="Año",
