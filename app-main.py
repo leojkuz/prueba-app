@@ -144,26 +144,67 @@ elif menu == "Visualización de datos":
         col1, col2 = st.columns([1.6, 1.4])
 
         with col1:
+            # Cargar los datos desde el archivo CSV
+            data_historico = pd.read_csv("data/world_bank_anemia_mundial_listo.csv")
+
+            # Crear el gráfico de líneas interactivo con Plotly
             fig = go.Figure()
 
+            # Agregar la línea principal al gráfico
             fig.add_trace(go.Scatter(
-                x=years,
-                y=anemia_global,
+                x=data_historico["year"],  # Eje X: Años
+                y=data_historico["prevalencia (%)"],  # Eje Y: Prevalencia (%)
                 mode='lines+markers',  # Línea con marcadores
-                name='Prevalencia Global (%)',
-                line=dict(color='blue', width=2),  # Línea azul sencilla
-                marker=dict(size=6)  # Marcadores limpios
+                name='Prevalencia Mundial (%)',
+                line=dict(color='darkblue', width=3),  # Línea azul oscuro y más gruesa para visibilidad
+                marker=dict(size=7, color='blue', symbol='circle', line=dict(color='white', width=2)),
+                # Marcadores estilizados
+                hovertemplate="<b>Año:</b> %{x}<br><b>Prevalencia:</b> %{y:.2f}%<extra></extra>"
             ))
 
-            # Configurar el diseño del gráfico
+            # Personalización del diseño del gráfico
             fig.update_layout(
-                title="Tendencia Mundial de Anemia (2015-2021)",
-                xaxis_title="Año",
-                yaxis_title="Prevalencia (%)",
-                template="simple_white",  # Plantilla limpia
+                title=dict(
+                    text="<b>Prevalencia Histórica de Anemia (2000-2019)</b>",
+                    font=dict(size=20, color='darkred', family="Arial"),
+                    x=0.5  # Centrar el título
+                ),
+                xaxis=dict(
+                    title="Año",
+                    tickmode="linear",
+                    tickangle=45,  # Rotar los ticks para que no se apilen
+                    showline=True,
+                    linewidth=2,
+                    linecolor='gray',
+                    gridcolor='lightgray'
+                ),
+                yaxis=dict(
+                    title="Prevalencia (%)",
+                    range=[10, 50],  # Ajustar el rango según los datos
+                    showline=True,
+                    linewidth=2,
+                    linecolor='gray',
+                    gridcolor='lightgray'
+                ),
+                plot_bgcolor='rgba(240,240,240,0.95)',  # Fondo claro para el gráfico
+                paper_bgcolor='white',  # Fondo general blanco
+                legend=dict(
+                    bgcolor="white",
+                    bordercolor="lightgray",
+                    borderwidth=1,
+                    x=1,  # Mover la leyenda un poco a la derecha
+                    y=1
+                )
             )
 
-            # Mostrar el gráfico en Streamlit
+            # Mejorar interactividad (opcional)
+            fig.update_traces(marker_line_width=1.5)
+            fig.update_layout(
+                hovermode="x",  # Mostrar valores al pasar sobre la línea
+                template="simple_white"
+            )
+
+            # Mostrar el gráfico en Streamlit (si lo necesitas)
             st.plotly_chart(fig)
 
         with col2:
