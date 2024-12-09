@@ -167,7 +167,7 @@ elif menu == "Visualización de datos":
                 title=dict(
                     text="<b>Prevalencia Histórica de Anemia (2000-2019)</b>",
                     font=dict(size=20, color='darkred', family="Arial"),
-                    x=0.5  # Centrar el título
+                    x=0.1  # Centrar el título
                 ),
                 xaxis=dict(
                     title="Año",
