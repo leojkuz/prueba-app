@@ -70,21 +70,10 @@ if menu == "Introducción":
     🛤 **Dato relevante:** El Nilo es la principal fuente de agua del país.
     """
 
-    # Crear un contenedor en Streamlit para centrar y limitar el ancho
-    with st.container():
-        st.markdown(
-            """
-            <style>
-            .reveal-slideshow {
-                max-width: 500px; /* Controla el ancho */
-                margin: auto; /* Centra el contenido */
-            }
-            </style>
-            """,
-            unsafe_allow_html=True,
-        )
+    # Creación del layout con columnas
+    col1, col2, col3 = st.columns([1, 2, 1])  # Relación: 1:2:1 para centrar
 
-        # Renderizar el slider dentro del contenedor con estilo
+    with col2:  # Contenido en la columna central
         response_dict = rs.slides(content_markdown)
 
 elif menu == "Fuentes de datos":
