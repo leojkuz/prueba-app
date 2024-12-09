@@ -2,7 +2,7 @@ streamlit
 streamlit-option-menu
 streamlit-reveal-slides
 plotly
-sklearn
+scikit-learn
 plotnine
 seaborn
 matplotlib
