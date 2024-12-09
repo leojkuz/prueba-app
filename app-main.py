@@ -2,6 +2,7 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 import pandas as pd
 import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 import reveal_slides as rs
 
 
@@ -120,18 +121,66 @@ elif menu == "Visualización de datos":
     if viz_menu == "Situación Global":
         st.subheader("Situación Global de la Anemia")
 
-        # Mini dashboard con gráficos simples inventados
-        col1, col2 = st.columns(2)
+        # Datos ficticios
+        years = [2015, 2016, 2017, 2018, 2019, 2020, 2021]
+        anemia_global = [30.1, 29.8, 29.3, 28.7, 28.4, 28.1, 27.8]  # Tendencia Mundial
+        countries = ['India', 'Nigeria', 'Pakistán', 'Bangladés', 'Etiopía',
+                     'República del Congo', 'Sudán', 'Afganistán', 'Angola', 'Yemen']
+        prevalence = [51.3, 49.2, 45.0, 44.8, 42.1, 41.3, 40.5, 39.8, 38.8, 37.3]
+
+        # Dashboard Principal
+        st.title("Visualización de Datos 🩸")
+        st.write("### Un análisis más detallado de la situación global e indicadores clave sobre la anemia.")
+
+        # Indicadores (Méritos)
+        col1, col2, col3 = st.columns(3)
 
         with col1:
-            fig, ax = plt.subplots()
-            ax.pie([70, 30], labels=["Población sin anemia", "Población con anemia"], autopct="%1.1f%%")
-            ax.set_ylabel("")
-            st.pyplot(fig)
+            st.metric(label="Prevalencia Global (%)", value="27.8%", delta="-0.6% respecto al año anterior")
 
         with col2:
-            st.metric(label="Prevalencia General (%)", value="30%")
             st.metric(label="Región más afectada", value="África Subsahariana")
+
+        with col3:
+            st.metric(label="Número estimado de afectados (millones)", value="1400M", delta="+50M desde 2015")
+
+        # Velocímetro (Indicador de Severidad)
+        fig_gauge = go.Figure(go.Indicator(
+            mode="gauge+number",
+            value=27.8,
+            title={'text': "Prevalencia Global (%)"},
+            gauge={'axis': {'range': [0, 100]},
+                   'bar': {'color': "red"},
+                   'steps': [
+                       {'range': [0, 20], 'color': "green"},
+                       {'range': [20, 50], 'color': "yellow"},
+                       {'range': [50, 100], 'color': "red"}],
+                   'threshold': {'line': {'color': "black", 'width': 4}, 'thickness': 0.75, 'value': 50}}))
+
+        st.plotly_chart(fig_gauge)
+
+        # Gráfico de Líneas (Tendencia Mundial de Anemia)
+        fig_line = go.Figure()
+        fig_line.add_trace(go.Scatter(x=years, y=anemia_global,
+                                      mode='lines+markers',
+                                      name='Tasa Global (%)',
+                                      line=dict(color='royalblue', width=3)))
+        fig_line.update_layout(title="Tendencia Mundial de la Anemia (2015-2021)",
+                               xaxis_title="Año",
+                               yaxis_title="Prevalencia (%)",
+                               plot_bgcolor='rgba(240,240,240,0.9)')
+
+        st.plotly_chart(fig_line)
+
+        # Gráfico de Barras (Top 10 Países con Mayor Prevalencia de Anemia)
+        fig_bar = go.Figure([go.Bar(x=countries, y=prevalence,
+                                    marker_color='indianred')])
+        fig_bar.update_layout(title="Top 10 Países con Mayor Prevalencia de Anemia",
+                              xaxis_title="Países",
+                              yaxis_title="Prevalencia (%)",
+                              plot_bgcolor='rgba(240,240,240,0.9)')
+
+        st.plotly_chart(fig_bar)
 
     elif viz_menu == "Análisis por País":
         st.subheader("Análisis por País")
