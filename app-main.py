@@ -46,31 +46,30 @@ if menu == "Introducción":
     st.write("")
     # Configuración del contenido en Markdown para los slides
     content_markdown = """
-    # Noticias de la anemia en el mundo
+    ## Presentation Features
+    - Create slides from markdown or markup <!-- .element: class="fragment" data-fragment-index="0" -->
+    - Touch, mouse, and keyboard navigation <!-- .element: class="fragment" data-fragment-index="1" -->
+    - Fullscreen and overview modes <!-- .element: class="fragment" data-fragment-index="2" -->
+    - Search and Zoom (plugins) <!-- .element: class="fragment" data-fragment-index="3" -->
+    - Display LaTeX and syntax highlighted code (plugins) <!-- .element: class="fragment" data-fragment-index="4" -->
     ---
-    ## País 1: Brasil 🌴
+    ## Slide Content Creation
+    A paragraph with some text and a markdown [link](https://hakim.se). 
+    Markdown links get displayed within the parent iframe.
     --
-    
-    <!-- .slide: data-background-color="#283747" -->
-    🌎 **Ubicación:** América del Sur
-    🍖 **Cultura:** Famoso por su Carnaval y la samba.
-    🏞 **Dato relevante:** Es uno de los principales productores de hierro y acero en el mundo.
+    Another paragraph containing the same <a target="_blank" href="https://hakim.se">link</a>.
+    However, this link will open in a new tab instead. 
+    This is done using an HTML `<a>` tag with `target="_blank"`.
     ---
-    ## País 2: Japón 🗾
+    ## Backgrounds
+    Reveal supports four different types of backgrounds: color, image, video and iframe.
     --
-    
     <!-- .slide: data-background-color="#283747" -->
-    🎌 **Ubicación:** Asia Oriental
-    🍣 **Cultura:** Punto focal de innovación tecnológica y cuna del sushi.
-    🚄 **Dato relevante:** Poseen uno de los sistemas ferroviarios más veloces y precisos.
+    Change the background to a solid color using the `data-background-color` attribute.
+    --
+    <!-- .slide: data-background-video="https://bouzidanas.github.io/videos/pexels-cottonbro-9665235.mp4" data-background-video-loop data-background-video-muted -->
+    Add a video as the background using the `data-background-video` attribute. Add `data-background-video-loop` to loop the video in the background and add `data-background-video-muted` to mute it.
     ---
-    ## País 3: Egipto 🏺
-    --
-    
-    <!-- .slide: data-background-color="#283747" -->
-    🌅 **Ubicación:** África (Noroeste)
-    🕌 **Cultura:** Hogar de las pirámides y la rica historia faraónica.
-    🛤 **Dato relevante:** El Nilo es la principal fuente de agua del país.
     """
 
     # Creación del layout con columnas
