@@ -39,30 +39,39 @@ if menu == "Introducción":
     Evaluar la prevalencia global y los factores asociados a la anemia es esencial para informar políticas públicas que mejoren la calidad de vida de las personas.
 
     *(¡Inserta aquí más texto académico o markdown estilizado si lo necesitas!)*
+    
+    ### Un vistazo a la situación de la anemia en el mundo
+    
+    
     """)
     # Configuración del contenido en Markdown para los slides
     content_markdown = """
-    # País 1: Brasil 🌴
+    # Noticias de la anemia en el mundo
     ---
+    ## País 1: Brasil 🌴
+    ---
+    <!-- .slide: data-background-color="#283747" -->
     🌎 **Ubicación:** América del Sur
     🍖 **Cultura:** Famoso por su Carnaval y la samba.
     🏞 **Dato relevante:** Es uno de los principales productores de hierro y acero en el mundo.
     ---
-    # País 2: Japón 🗾
+    ## País 2: Japón 🗾
     ---
+    <!-- .slide: data-background-color="#283747" -->
     🎌 **Ubicación:** Asia Oriental
     🍣 **Cultura:** Punto focal de innovación tecnológica y cuna del sushi.
     🚄 **Dato relevante:** Poseen uno de los sistemas ferroviarios más veloces y precisos.
     ---
-    # País 3: Egipto 🏺
+    ## País 3: Egipto 🏺
     ---
+    <!-- .slide: data-background-color="#283747" -->
     🌅 **Ubicación:** África (Noroeste)
     🕌 **Cultura:** Hogar de las pirámides y la rica historia faraónica.
     🛤 **Dato relevante:** El Nilo es la principal fuente de agua del país.
     """
 
     # Llamar a reveal_slides para el slideshow
-    response_dict = rs.slides(content_markdown)
+    response_dict = rs.slides(content_markdown, height = 300)
 
     # Mostrar la presentación en la app de Streamlit
 
