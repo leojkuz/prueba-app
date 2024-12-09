@@ -167,12 +167,13 @@ elif menu == "Visualización de datos":
             st.plotly_chart(fig)
 
         with col2:
-            fig_bar = go.Figure([go.Bar(x=prevalence, y=countries[::-1], orientation='h',
+            fig_bar = go.Figure([go.Bar(x=prevalence, y=countries, orientation='h',
                                         marker_color='indianred')])
             fig_bar.update_layout(title="Top 10 Países con Mayor Prevalencia de Anemia",
                                   xaxis_title="Prevalencia (%)",
                                   yaxis_title="Países",
-                                  plot_bgcolor='rgba(240,240,240,0.9)')
+                                  plot_bgcolor='rgba(240,240,240,0.9)',
+                                  yaxis=dict(autorange="reversed"))
 
             st.plotly_chart(fig_bar)
 
