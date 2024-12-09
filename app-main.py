@@ -2,6 +2,8 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 import pandas as pd
 import matplotlib.pyplot as plt
+import reveal_slides as rs
+
 
 # Configuración inicial de la página
 st.set_page_config(page_title="Análisis Global de la Anemia", layout="wide")
@@ -38,6 +40,31 @@ if menu == "Introducción":
 
     *(¡Inserta aquí más texto académico o markdown estilizado si lo necesitas!)*
     """)
+    # Configuración del contenido en Markdown para los slides
+    content_markdown = """
+    # País 1: Brasil 🌴
+    ---
+    🌎 **Ubicación:** América del Sur
+    🍖 **Cultura:** Famoso por su Carnaval y la samba.
+    🏞 **Dato relevante:** Es uno de los principales productores de hierro y acero en el mundo.
+    ---
+    # País 2: Japón 🗾
+    ---
+    🎌 **Ubicación:** Asia Oriental
+    🍣 **Cultura:** Punto focal de innovación tecnológica y cuna del sushi.
+    🚄 **Dato relevante:** Poseen uno de los sistemas ferroviarios más veloces y precisos.
+    ---
+    # País 3: Egipto 🏺
+    ---
+    🌅 **Ubicación:** África (Noroeste)
+    🕌 **Cultura:** Hogar de las pirámides y la rica historia faraónica.
+    🛤 **Dato relevante:** El Nilo es la principal fuente de agua del país.
+    """
+
+    # Llamar a reveal_slides para el slideshow
+    response_dict = rs.slides(content_markdown)
+
+    # Mostrar la presentación en la app de Streamlit
 
 elif menu == "Fuentes de datos":
     st.title("Fuentes de Datos")
