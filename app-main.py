@@ -181,7 +181,7 @@ elif menu == "Visualización de datos":
                 ),
                 yaxis=dict(
                     title="Prevalencia (%)",
-                    range=[25, 50],  # Ajustar el rango según los datos
+                    range=[30, 50],  # Ajustar el rango según los datos
                     showline=True,
                     linewidth=2,
                     linecolor='gray',
