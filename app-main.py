@@ -193,7 +193,7 @@ elif menu == "Visualización de datos":
                 ),
                 plot_bgcolor='rgba(240,240,240,0.95)',  # Fondo claro para el gráfico
                 paper_bgcolor='white',
-                font_color = 'black'
+                margin=dict(t=100, b=100, l=80, r=80)
             )
 
             # Mejorar interactividad (opcional)
