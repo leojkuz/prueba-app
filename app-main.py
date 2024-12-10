@@ -6,6 +6,7 @@ import plotly.graph_objects as go
 import reveal_slides as rs
 import folium
 from streamlit_folium import st_folium
+from streamlit_folium import folium_static
 from geopy.geocoders import Nominatim
 from tqdm import tqdm
 from folium.plugins import MarkerCluster
