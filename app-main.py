@@ -361,3 +361,5 @@ elif menu == "Equipo":
     # Mapa 2: Países
         mapa2 = crear_mapa_por_paises(data_country)
         st_folium(mapa2, width=900)
+        submit_button = st.form_submit_button()
+        if submit_button: pass
