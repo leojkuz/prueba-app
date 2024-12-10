@@ -228,6 +228,7 @@ elif menu == "Visualización de datos":
     elif viz_menu == "Análisis geográfico":
         # Lectura del archivo csv de prevalencia de anemia para país y continente
         data_country = pd.read_csv("data/world_bank_continentes.csv")
+        st.header("Test")
 
         with st.form(key='myform', border=False):
             # Mapa 1: Anemia por Continentes
