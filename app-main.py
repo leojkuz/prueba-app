@@ -280,23 +280,28 @@ elif menu == "Visualización de datos":
 
                 # Crear el mapa
                 m2 = folium.Map(location=[0, 0], zoom_start=2)
-                #marker_cluster = MarkerCluster().add_to(m2)
+                marker_cluster = MarkerCluster().add_to(m2)
 
-                for _, row in df.iterrows():
-                    tooltip_text = (
-                        f"País: {row['country.value']}<br>"
-                        f"Año: {row['date']}<br>"
-                        f"Prevalencia: {row['value']}"
-                    )
-                    folium.CircleMarker(
-                        location=[row['latitude'], row['longitude']],
-                        radius=10,
-                        color='blue',
-                        fill=True,
-                        fill_color='cyan',
-                        fill_opacity=0.7,
-                        tooltip=tooltip_text,
-                    ).add_to(m2)
+                # Agrupar por país
+                grouped = df.groupby("country.value")
+
+                for country, group in grouped:
+                    for _, row in group.iterrows():
+                        popup_text = (
+                            f"<b>{row['country.value']}</b><br>"
+                            f"<i>Año:</i> {row['date']}<br>"
+                            f"<i>Prevalencia:</i> {row['value']}%"
+                        )
+
+                        folium.CircleMarker(
+                            location=[row['latitude'], row['longitude']],
+                            radius=10,
+                            color='blue',
+                            fill=True,
+                            fill_color='cyan',
+                            fill_opacity=0.7,
+                            popup=folium.Popup(popup_text, max_width=300),
+                        ).add_to(marker_cluster)
                 return m2
 
 
