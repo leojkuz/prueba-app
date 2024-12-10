@@ -189,13 +189,7 @@ elif menu == "Visualización de datos":
                 ),
                 plot_bgcolor='rgba(240,240,240,0.95)',  # Fondo claro para el gráfico
                 paper_bgcolor='white',
-                legend=dict(
-                    bgcolor="white",
-                    bordercolor="lightgray",
-                    borderwidth=1,
-                    x=1,  # Mover la leyenda un poco a la derecha
-                    y=1
-                )
+                font_color = 'black'
             )
 
             # Mejorar interactividad (opcional)
