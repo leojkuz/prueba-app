@@ -171,6 +171,8 @@ elif menu == "Visualización de datos":
                 ),
                 xaxis=dict(
                     title="Año",
+                    title_font=dict(size=16, color='black'),
+                    tickfont=dict(size=14, color='black'),
                     tickmode="linear",
                     tickangle=45,  # Rotar los ticks para que no se apilen
                     range=[1999.5, 2019.5],
@@ -181,6 +183,8 @@ elif menu == "Visualización de datos":
                 ),
                 yaxis=dict(
                     title="Prevalencia (%)",
+                    title_font=dict(size=16, color='black'),
+                    tickfont=dict(size=14, color='black'),
                     range=[25, 50],  # Ajustar el rango según los datos
                     showline=True,
                     linewidth=2,
