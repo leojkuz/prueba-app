@@ -345,35 +345,8 @@ elif menu == "Equipo":
     st_mapa = st_folium(m, width=900)
     st.subheader("Un vistazo a la anemia infantil en cada país")
     # Mapa 2---
-    # Configurar el geolocalizador
-    geolocator = Nominatim(user_agent="geoapi")
-
-    # Diccionario para cachear las coordenadas
-    cache_coordinates = {}
-
-
-    # Función para obtener coordenadas con cache
-    def obtener_coordenadas(pais):
-        if pais in cache_coordinates:
-            return cache_coordinates[pais]
-
-        try:
-            location = geolocator.geocode(pais)
-            if location:
-                cache_coordinates[pais] = (location.latitude, location.longitude)
-                return location.latitude, location.longitude
-            else:
-                return None, None
-        except Exception as e:
-            print(f"Error obteniendo coordenadas para {pais}: {e}")
-            return None, None
-
-
     # Agregar columnas de latitud y longitud al DataFrame con la barra de progreso
     tqdm.pandas()
-    data_country["latitude"], data_country["longitude"] = zip(
-        *data_country["country.value"].progress_apply(obtener_coordenadas))
-
     # Filtrar filas sin coordenadas
     df = data_country.dropna(subset=["latitude", "longitude"])
 
