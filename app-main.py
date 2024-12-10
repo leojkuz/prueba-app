@@ -370,7 +370,7 @@ elif menu == "Equipo":
         tooltip_text = (
             f"País: {row['country.value']}<br>"
             f"Año: {row['date']}<br>"
-            f"Prevalencia: {row['value']}"
+            f"Prevalencia: {row['value']:.2f}"
         )
 
         folium.CircleMarker(
@@ -385,5 +385,5 @@ elif menu == "Equipo":
 
     # Mostrar el mapa en Streamlit
     st.title("Mapa de Prevalencia Interactivo 🌍")
-    st.write("Generando el mapa más rápido gracias al GeoJSON 🚀")
+    st.write("Aquí podemos ver un mapa con los niveles de anemia de cada país")
     st_mapa_2 = st_folium(world_map, width=900)
