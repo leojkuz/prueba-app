@@ -267,114 +267,97 @@ elif menu == "Equipo":
     # Lectura del archivo csv de prevalencia de anemia para país y continente
     data_country = pd.read_csv("data/world_bank_continentes.csv")
 
-    # Creación de diccionario sobre continentes
-    data_recent = data_country.loc[
-        data_country.groupby("Continente")["date"].idxmax()]  # Datos con año más reciente
-    data_dict = data_recent.set_index("Continente")["value"].to_dict()  # Conversión de dataframe a diccionario
 
-    # Creación dataframe con mayor y menor prevalencia por país en cada continente
-    data_2019 = data_country[data_country["date"] == 2019]  # Filtrar datos para 2019 (año más reciente)
-
-
-    # Agrupar por continente y obtener los países con mayor y menor prevalencia
-    def get_prevalence_stats(group):
-        # País con mayor prevalencia
-        max_row = group.loc[group["value"].idxmax()]
-        # País con menor prevalencia
-        min_row = group.loc[group["value"].idxmin()]
-
-        return pd.Series({
-            "max_prevalence_country": max_row["country.value"],  # País con mayor prevalencia
-            "max_prevalence_value": max_row["value"],  # Valor de mayor prevalencia
-            "min_prevalence_country": min_row["country.value"],  # País con menor prevalencia
-            "min_prevalence_value": min_row["value"]  # Valor de menor prevalencia
-        })
-
-
-    # Aplicar la función para cada continente excluyendo las columnas de agrupación
-    continent_stats = (
-        data_2019.groupby("Continente")[["country.value", "value", "date"]]
-        .apply(get_prevalence_stats)
-        .reset_index(
-    ))
-
-    # Convertir a diccionario para vincularlo con el mapa mundi
-    continent_dict = continent_stats.set_index("Continente").to_dict(orient="index")
-
-    # Crear el mapa centrado en el mundo
-    m = folium.Map(location=[0, 0], zoom_start=2)
-
-    # Coordenadas aproximadas de los centros de cada continente (ajusta según sea necesario)
-    locations = {
-        "Africa": [9.1, 23.7],
-        "Asia": [34.0, 100.0],
-        "Europe": [54.0, 15.0],
-        "North America": [37.0, -98.0],
-        "South America": [-15.0, -60.0],
-        "Oceania": [-20.0, 130.0]
-    }
-
-    # Agregar tooltips con los datos de prevalencia para cada continente
-    for _, row in continent_stats.iterrows():
-        continent = row["Continente"]
-        max_country = row["max_prevalence_country"]
-        max_value = row["max_prevalence_value"]
-        min_country = row["min_prevalence_country"]
-        min_value = row["min_prevalence_value"]
-
-        # Texto del tooltip
-        tooltip_text = f"""
-                <b>{continent}</b><br>
-                <i>País con mayor prevalencia:</i> {max_country} ({max_value}%)<br>
-                <i>País con menor prevalencia:</i> {min_country} ({min_value}%)
-                """
-
-        # Agregar el tooltip con la información de prevalencia
-        folium.CircleMarker(
-            location=locations[continent],
-            radius=10,
-            color="blue",
-            fill=True,
-            fill_color="blue",
-            fill_opacity=0.6,
-            popup=f"{continent}",
-            tooltip=tooltip_text
-        ).add_to(m)
-
-    # Mostrar el mapa
-    st_mapa = st_folium(m, width=900)
-    st.subheader("Un vistazo a la anemia infantil en cada país")
-    # Mapa 2---
-    # Agregar columnas de latitud y longitud al DataFrame con la barra de progreso
-    tqdm.pandas()
-    df = data_country.dropna(subset=["latitude", "longitude"])
-    # Crear mapa base
-    @st.cache_data
-    def crear_mapa_por_paises(df):
-        # Crear el mapa base
-        world_map = folium.Map(location=[0, 0], zoom_start=2)
-        marker_cluster = MarkerCluster().add_to(world_map)
-
-        # Loop para añadir marcadores por país
-        for _, row in df.iterrows():
-            tooltip_text = (
-                f"País: {row['country.value']}<br>"
-                f"Año: {row['date']}<br>"
-                f"Prevalencia: {row['value']:.2f}"
+    # Mapa 1: Anemia por Continentes
+    def crear_mapa_por_continentes(data_country):
+        if "mapa1" not in st.session_state or st.session_state.mapa1 is None:
+            # Crear diccionario sobre continentes
+            data_recent = data_country.loc[data_country.groupby("Continente")["date"].idxmax()]
+            continent_stats = (
+                data_country[data_country["date"] == 2019]
+                .groupby("Continente")[["country.value", "value", "date"]]
+                .apply(lambda group: pd.Series({
+                    "max_prevalence_country": group.loc[group["value"].idxmax()]["country.value"],
+                    "max_prevalence_value": group["value"].max(),
+                    "min_prevalence_country": group.loc[group["value"].idxmin()]["country.value"],
+                    "min_prevalence_value": group["value"].min()
+                }))
+                .reset_index()
             )
-            folium.CircleMarker(
-                location=[row['latitude'], row['longitude']],
-                radius=10,
-                color='blue',
-                fill=True,
-                fill_color='cyan',
-                fill_opacity=0.7,
-                tooltip=tooltip_text,
-            ).add_to(marker_cluster)
 
-        return world_map
+            # Coordenadas aproximadas de los continentes
+            locations = {
+                "Africa": [9.1, 23.7],
+                "Asia": [34.0, 100.0],
+                "Europe": [54.0, 15.0],
+                "North America": [37.0, -98.0],
+                "South America": [-15.0, -60.0],
+                "Oceania": [-20.0, 130.0]
+            }
+
+            # Crear el mapa
+            m1 = folium.Map(location=[0, 0], zoom_start=2)
+
+            for _, row in continent_stats.iterrows():
+                continent = row["Continente"]
+                tooltip_text = f"""
+                    <b>{continent}</b><br>
+                    <i>País con mayor prevalencia:</i> {row['max_prevalence_country']} ({row['max_prevalence_value']}%)<br>
+                    <i>País con menor prevalencia:</i> {row['min_prevalence_country']} ({row['min_prevalence_value']}%)
+                """
+                folium.CircleMarker(
+                    location=locations[continent],
+                    radius=10,
+                    color="blue",
+                    fill=True,
+                    fill_color="blue",
+                    fill_opacity=0.6,
+                    tooltip=tooltip_text,
+                ).add_to(m1)
+
+            # Guardamos el mapa en session_state
+            st.session_state.mapa1 = m1
+
+        return st.session_state.mapa1
+
+
+    # Mapa 2: Anemia por Países
+    def crear_mapa_por_paises(data_country):
+        if "mapa2" not in st.session_state or st.session_state.mapa2 is None:
+            df = data_country.dropna(subset=["latitude", "longitude"])
+
+            # Crear el mapa
+            m2 = folium.Map(location=[0, 0], zoom_start=2)
+            marker_cluster = MarkerCluster().add_to(m2)
+
+            for _, row in df.iterrows():
+                tooltip_text = (
+                    f"País: {row['country.value']}<br>"
+                    f"Año: {row['date']}<br>"
+                    f"Prevalencia: {row['value']:.2f}"
+                )
+                folium.CircleMarker(
+                    location=[row['latitude'], row['longitude']],
+                    radius=10,
+                    color='blue',
+                    fill=True,
+                    fill_color='cyan',
+                    fill_opacity=0.7,
+                    tooltip=tooltip_text,
+                ).add_to(marker_cluster)
+
+            # Guardamos el mapa en session_state
+            st.session_state.mapa2 = m2
+
+        return st.session_state.mapa2
+
 
     # Mostrar el mapa en Streamlit
-    st.title("Mapa de Prevalencia Interactivo 🌍")
-    st.write("Aquí podemos ver un mapa con los niveles de anemia de cada país")
-    st_mapa_2 = st_folium(crear_mapa_por_paises(df), width=900)
+    # Mapa 1: Continentes
+    mapa1 = crear_mapa_por_continentes(data_country)
+    st_folium(mapa1, width=900)
+
+    st.subheader("Un vistazo a la anemia infantil en cada país")
+    # Mapa 2: Países
+    mapa2 = crear_mapa_por_paises(data_country)
+    st_folium(mapa2, width=900)
