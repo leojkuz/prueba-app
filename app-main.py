@@ -304,7 +304,7 @@ elif menu == "Visualización de datos":
             ).add_to(m)
 
         # Mostrar el mapa
-        st_mapa = st_folium(m, width=725)
+        st_mapa = st_folium(m, width=900)
 
     elif viz_menu == "Proyecciones":
         st.subheader("Proyecciones Futuras")
