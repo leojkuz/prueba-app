@@ -267,7 +267,7 @@ elif menu == "Equipo":
     # Lectura del archivo csv de prevalencia de anemia para país y continente
     data_country = pd.read_csv("data/world_bank_continentes.csv")
 
-    with st.form(key='myform'):
+    with st.form(key='myform', border=False):
         # Mapa 1: Anemia por Continentes
         def crear_mapa_por_continentes(data_country):
             # Crear diccionario sobre continentes
@@ -351,5 +351,5 @@ elif menu == "Equipo":
     # Mapa 2: Países
         mapa2 = crear_mapa_por_paises(data_country)
         st_folium(mapa2, width=900)
-        submit_button = st.form_submit_button()
+        submit_button = st.form_submit_button(disabled = False)
         if submit_button: pass
