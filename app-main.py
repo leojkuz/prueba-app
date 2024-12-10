@@ -170,8 +170,8 @@ elif menu == "Visualización de datos":
             # Personalización del diseño del gráfico
             fig.update_layout(
                 title=dict(
-                    text="<span style='font-size:26px; color:#1f77b4; font-family:Roboto;'><b>🌎 Prevalencia Histórica de Anemia infantil(2000-2019) 🩸</b></span>",
-                    x=0.16 # Centrar el título
+                    text="<span style='font-size:26px; color:#1f77b4; font-family:Roboto;'><b>🌎 Prevalencia Histórica de Anemia infantil (2000-2019) 🩸</b></span>",
+                    x=0.14 # Centrar el título
                 ),
                 xaxis=dict(
                     title="Año",
