@@ -349,7 +349,7 @@ elif menu == "Equipo":
     tqdm.pandas()
     df = data_country.dropna(subset=["latitude", "longitude"])
     # Filtrar filas sin coordenadas
-    df = df[df['country.value'].isin(['México', 'Brasil', 'Perú'])]
+    df = df[df['country.value'].isin(['Algeria'])]
 
 
     # Crear mapa base
