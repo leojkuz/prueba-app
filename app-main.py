@@ -282,26 +282,22 @@ elif menu == "Visualización de datos":
                 m2 = folium.Map(location=[0, 0], zoom_start=2)
                 marker_cluster = MarkerCluster().add_to(m2)
 
-                # Agrupar por país
-                grouped = df.groupby("country.value")
-
-                for country, group in grouped:
-                    for _, row in group.iterrows():
-                        popup_text = (
-                            f"<b>{row['country.value']}</b><br>"
-                            f"<i>Año:</i> {row['date']}<br>"
-                            f"<i>Prevalencia:</i> {row['value']}%"
-                        )
-
-                        folium.CircleMarker(
-                            location=[row['latitude'], row['longitude']],
-                            radius=10,
-                            color='blue',
-                            fill=True,
-                            fill_color='cyan',
-                            fill_opacity=0.7,
-                            popup=folium.Popup(popup_text, max_width=300),
-                        ).add_to(marker_cluster)
+                for _, row in df.iterrows():
+                    tooltip_text = (
+                        f"País: {row['country.value']}<br>"
+                        f"Año: {row['date']}<br>"
+                        f"Prevalencia: {row['value']}"
+                    )
+                    folium.CircleMarker(
+                        location=[row['latitude'], row['longitude']],
+                        radius=10,
+                        color='blue',
+                        fill=True,
+                        fill_color='cyan',
+                        fill_opacity=0.7,
+                        tooltip=tooltip_text,
+                    ).add_to(marker_cluster)
+                st.write(df.iterrows())
                 return m2
 
 
@@ -312,8 +308,10 @@ elif menu == "Visualización de datos":
 
             st.subheader("Un vistazo a la anemia infantil en cada país")
             # Mapa 2: Países
-            mapa2 = crear_mapa_por_paises(data_country)
-            st_folium(mapa2, width=900)
+            # Read file and keep in variable
+            with open("/data/mapa_prevalencia_optimizado.html", 'r') as f:
+                html_data = f.read()
+            st.components.v1.html(html_data, height=200)
             submit_button = st.form_submit_button(label="Puedes hacer zoom al mapa para ver los datos 🌍👀", disabled=True)
             if submit_button: pass
 
