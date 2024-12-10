@@ -349,7 +349,7 @@ elif menu == "Equipo":
     tqdm.pandas()
     df = data_country.dropna(subset=["latitude", "longitude"])
     # Crear mapa base
-    @st.cache_resource
+    @st.cache_data
     def crear_mapa_por_paises(df):
         # Crear el mapa base
         world_map = folium.Map(location=[0, 0], zoom_start=2)
