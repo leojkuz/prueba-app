@@ -355,9 +355,9 @@ elif menu == "Equipo":
     # Mostrar el mapa en Streamlit
     # Mapa 1: Continentes
     mapa1 = crear_mapa_por_continentes(data_country)
-    st_folium(mapa1, width=900)
+    folium_static(mapa1, width=900)
 
     st.subheader("Un vistazo a la anemia infantil en cada país")
     # Mapa 2: Países
     mapa2 = crear_mapa_por_paises(data_country)
-    st_folium(mapa2, width=900)
+    folium_static(mapa2, width=900)
