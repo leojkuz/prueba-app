@@ -309,7 +309,7 @@ elif menu == "Visualización de datos":
             # Mapa 2: Países
             mapa2 = crear_mapa_por_paises(data_country)
             st_folium(mapa2, width=900)
-            submit_button = st.form_submit_button(label="Puedes hacer zoom al mapa para ver los datos 🌍👀")
+            submit_button = st.form_submit_button(label="Puedes hacer zoom al mapa para ver los datos 🌍👀", disabled=True)
             if submit_button: pass
 
     elif viz_menu == "Proyecciones":
