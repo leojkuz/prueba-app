@@ -297,7 +297,7 @@ elif menu == "Visualización de datos":
                         fill_opacity=0.7,
                         tooltip=tooltip_text,
                     ).add_to(marker_cluster)
-                st.dataframe(df.iterrows())
+                st.write(df.iterrows())
                 return m2
 
 
