@@ -350,26 +350,43 @@ elif menu == "Equipo":
     # Filtrar filas sin coordenadas
     df = data_country.dropna(subset=["latitude", "longitude"])
 
-    # Crear un mapa base
+    # Crear GeoJSON rápidamente desde pandas
+    from itertools import starmap
+    import json
+
+
+    # Convertir DataFrame a GeoJSON
+    def df_to_geojson(df, properties, lat='latitude', lon='longitude'):
+        geojson = {'type': 'FeatureCollection', 'features': []}
+        for _, row in df.iterrows():
+            feature = {
+                'type': 'Feature',
+                'geometry': {
+                    'type': 'Point',
+                    'coordinates': [row[lon], row[lat]],
+                },
+                'properties': {prop: row[prop] for prop in properties},
+            }
+            geojson['features'].append(feature)
+        return geojson
+
+
+    # Aquí selecciona las propiedades que quieres que aparezcan en el `tooltip`
+    geojson_data = df_to_geojson(df, properties=["country.value", "date", "value"])
+
+    # Crear mapa base
     world_map = folium.Map(location=[0, 0], zoom_start=2)
 
-    # Agregar marcadores al mapa
-    for _, row in df.iterrows():
-        tooltip_text = (
-            f"País: {row['country.value']}<br>"
-            f"Año: {row['date']}<br>"
-            f"Prevalencia: {row['value']}"
+    # Añadir GeoJSON al mapa con tooltips
+    folium.GeoJson(
+        geojson_data,
+        tooltip=folium.GeoJsonTooltip(
+            fields=["country.value", "date", "value"],
+            aliases=["País:", "Año:", "Prevalencia:"],
         )
+    ).add_to(world_map)
 
-        folium.CircleMarker(
-            location=[row['latitude'], row['longitude']],
-            radius=10,
-            color='blue',
-            fill=True,
-            fill_color='cyan',
-            fill_opacity=0.7,
-            tooltip=tooltip_text,
-        ).add_to(world_map)
-
-    # Mostrar el mapa interactivo
+    # Mostrar el mapa en Streamlit
+    st.title("Mapa de Prevalencia Interactivo 🌍")
+    st.write("Generando el mapa más rápido gracias al GeoJSON 🚀")
     st_mapa_2 = st_folium(world_map, width=900)
