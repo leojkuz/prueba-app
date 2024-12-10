@@ -226,7 +226,7 @@ elif menu == "Visualización de datos":
 
 
     elif viz_menu == "Análisis geográfico":
-
+        st.write("Hola")
 
     elif viz_menu == "Proyecciones":
         st.subheader("Proyecciones Futuras")
