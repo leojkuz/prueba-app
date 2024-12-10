@@ -8,7 +8,7 @@ import folium
 from streamlit_folium import st_folium
 from geopy.geocoders import Nominatim
 from tqdm import tqdm
-
+from folium.plugins import MarkerCluster
 
 # Configuración inicial de la página
 st.set_page_config(page_title="Análisis Global de la Anemia", layout="wide")
@@ -348,42 +348,33 @@ elif menu == "Equipo":
     # Agregar columnas de latitud y longitud al DataFrame con la barra de progreso
     tqdm.pandas()
     df = data_country.dropna(subset=["latitude", "longitude"])
-    # Filtrar filas sin coordenadas
-
-
     # Crear mapa base
-    world_map = folium.Map(location=[0, 0], zoom_start=2)
+    @st.cache_resource
+    def crear_mapa_por_paises():
+        # Crear el mapa base
+        world_map = folium.Map(location=[0, 0], zoom_start=2)
+        marker_cluster = MarkerCluster().add_to(world_map)
 
-    # Añadir GeoJSON al mapa con tooltips
-    #folium.GeoJson(
-    #    geojson_data,
-    #    tooltip=folium.GeoJsonTooltip(
-    #        fields=["country.value", "date", "value"],
-    #        aliases=["País:", "Año:", "Prevalencia:"],
-    #    )
-    #).add_to(world_map)
-    from folium.plugins import MarkerCluster
+        # Loop para añadir marcadores por país
+        for _, row in df.iterrows():
+            tooltip_text = (
+                f"País: {row['country.value']}<br>"
+                f"Año: {row['date']}<br>"
+                f"Prevalencia: {row['value']:.2f}"
+            )
+            folium.CircleMarker(
+                location=[row['latitude'], row['longitude']],
+                radius=10,
+                color='blue',
+                fill=True,
+                fill_color='cyan',
+                fill_opacity=0.7,
+                tooltip=tooltip_text,
+            ).add_to(marker_cluster)
 
-    marker_cluster = MarkerCluster().add_to(world_map)
-
-    for _, row in df.iterrows():
-        tooltip_text = (
-            f"País: {row['country.value']}<br>"
-            f"Año: {row['date']}<br>"
-            f"Prevalencia: {row['value']:.2f}"
-        )
-
-        folium.CircleMarker(
-            location=[row['latitude'], row['longitude']],
-            radius=10,
-            color='blue',
-            fill=True,
-            fill_color='cyan',
-            fill_opacity=0.7,
-            tooltip=tooltip_text,
-        ).add_to(marker_cluster)
+        return world_map
 
     # Mostrar el mapa en Streamlit
     st.title("Mapa de Prevalencia Interactivo 🌍")
     st.write("Aquí podemos ver un mapa con los niveles de anemia de cada país")
-    st_mapa_2 = st_folium(world_map, width=900)
+    st_mapa_2 = st_folium(crear_mapa_por_paises(), width=900)
