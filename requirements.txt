@@ -7,3 +7,4 @@ plotnine
 seaborn
 matplotlib
 folium
+streamlit-folium
