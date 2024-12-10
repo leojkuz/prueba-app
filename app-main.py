@@ -222,11 +222,9 @@ elif menu == "Visualización de datos":
             st.plotly_chart(fig_bar)
 
 
-        # Gráfico de Barras (Top 10 Países con Mayor Prevalencia de Anemia)
-
-
     elif viz_menu == "Análisis geográfico":
         # Lectura del archivo csv de prevalencia de anemia para país y continente
+        st.header("Test")
         data_country = pd.read_csv("data/world_bank_continentes.csv")
         st.header("Test")
 
