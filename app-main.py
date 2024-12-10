@@ -295,8 +295,8 @@ elif menu == "Equipo":
     continent_stats = (
         data_2019.groupby("Continente")[["country.value", "value", "date"]]
         .apply(get_prevalence_stats)
-        .reset_index()
-    )
+        .reset_index(
+    ))
 
     # Convertir a diccionario para vincularlo con el mapa mundi
     continent_dict = continent_stats.set_index("Continente").to_dict(orient="index")
@@ -347,6 +347,7 @@ elif menu == "Equipo":
     # Mapa 2---
     # Agregar columnas de latitud y longitud al DataFrame con la barra de progreso
     tqdm.pandas()
+    df = df.dropna(subset=["latitude", "longitude"])
     # Filtrar filas sin coordenadas
     df = data_country[data_country['country.value'].isin(['México', 'Brasil', 'Perú'])]
 
@@ -378,13 +379,13 @@ elif menu == "Equipo":
     world_map = folium.Map(location=[0, 0], zoom_start=2)
 
     # Añadir GeoJSON al mapa con tooltips
-    folium.GeoJson(
-        geojson_data,
-        tooltip=folium.GeoJsonTooltip(
-            fields=["country.value", "date", "value"],
-            aliases=["País:", "Año:", "Prevalencia:"],
-        )
-    ).add_to(world_map)
+    #folium.GeoJson(
+    #    geojson_data,
+    #    tooltip=folium.GeoJsonTooltip(
+    #        fields=["country.value", "date", "value"],
+    #        aliases=["País:", "Año:", "Prevalencia:"],
+    #    )
+    #).add_to(world_map)
 
     # Mostrar el mapa en Streamlit
     st.title("Mapa de Prevalencia Interactivo 🌍")
