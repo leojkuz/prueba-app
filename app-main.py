@@ -348,7 +348,7 @@ elif menu == "Equipo":
     # Agregar columnas de latitud y longitud al DataFrame con la barra de progreso
     tqdm.pandas()
     # Filtrar filas sin coordenadas
-    df = data_country.dropna(subset=["latitude", "longitude"])
+    df = data_country
 
     # Crear GeoJSON rápidamente desde pandas
     from itertools import starmap
