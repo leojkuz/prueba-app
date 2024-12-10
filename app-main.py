@@ -350,7 +350,7 @@ elif menu == "Equipo":
     df = data_country.dropna(subset=["latitude", "longitude"])
     # Crear mapa base
     @st.cache_resource
-    def crear_mapa_por_paises():
+    def crear_mapa_por_paises(df):
         # Crear el mapa base
         world_map = folium.Map(location=[0, 0], zoom_start=2)
         marker_cluster = MarkerCluster().add_to(world_map)
@@ -377,4 +377,4 @@ elif menu == "Equipo":
     # Mostrar el mapa en Streamlit
     st.title("Mapa de Prevalencia Interactivo 🌍")
     st.write("Aquí podemos ver un mapa con los niveles de anemia de cada país")
-    st_mapa_2 = st_folium(crear_mapa_por_paises(), width=900)
+    st_mapa_2 = st_folium(crear_mapa_por_paises(df), width=900)
