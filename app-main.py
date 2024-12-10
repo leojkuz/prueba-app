@@ -286,7 +286,7 @@ elif menu == "Visualización de datos":
                     tooltip_text = (
                         f"País: {row['country.value']}<br>"
                         f"Año: {row['date']}<br>"
-                        f"Prevalencia: {row['value']:.2f}"
+                        f"Prevalencia: {row['value']}"
                     )
                     folium.CircleMarker(
                         location=[row['latitude'], row['longitude']],
@@ -295,7 +295,7 @@ elif menu == "Visualización de datos":
                         fill=True,
                         fill_color='cyan',
                         fill_opacity=0.7,
-                        tooltip=tooltip_text,
+                        popup=folium.Popup(tooltip_text, max_width=300),
                     ).add_to(marker_cluster)
                 return m2
 
