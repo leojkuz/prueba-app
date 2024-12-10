@@ -288,7 +288,7 @@ elif menu == "Visualización de datos":
                         f"Año: {row['date']}<br>"
                         f"Prevalencia: {row['value']}"
                     )
-                    folium.Marker(
+                    folium.CircleMarker(
                         location=[row['latitude'], row['longitude']],
                         radius=10,
                         color='blue',
@@ -297,6 +297,7 @@ elif menu == "Visualización de datos":
                         fill_opacity=0.7,
                         tooltip=tooltip_text,
                     ).add_to(marker_cluster)
+                st.dataframe(df.iterrows())
                 return m2
 
 
