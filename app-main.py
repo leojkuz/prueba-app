@@ -188,6 +188,7 @@ elif menu == "Visualización de datos":
                     gridcolor='lightgray'
                 ),
                 plot_bgcolor='rgba(240,240,240,0.95)',  # Fondo claro para el gráfico
+                paper_bgcolor='rgba(240,240,240,0.95)',
                 legend=dict(
                     bgcolor="white",
                     bordercolor="lightgray",
