@@ -309,7 +309,7 @@ elif menu == "Visualización de datos":
             st.subheader("Un vistazo a la anemia infantil en cada país")
             # Mapa 2: Países
             # Read file and keep in variable
-            with open("/data/mapa_prevalencia_optimizado.html", 'r') as f:
+            with open("data/mapa_prevalencia_optimizado.html", 'r') as f:
                 html_data = f.read()
             st.components.v1.html(html_data, height=200)
             submit_button = st.form_submit_button(label="Puedes hacer zoom al mapa para ver los datos 🌍👀", disabled=True)
