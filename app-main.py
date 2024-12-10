@@ -127,19 +127,19 @@ elif menu == "Visualización de datos":
         prevalence = [51.3, 49.2, 45.0, 44.8, 42.1, 41.3, 40.5, 39.8, 38.8, 37.3]
 
         # Dashboard Principal
-        st.write("### Un análisis más detallado de la situación global e indicadores clave sobre la anemia.")
+        st.write("### Un análisis más detallado de la situación global e indicadores clave sobre la anemia infantil en 2019.")
 
         # Indicadores (Méritos)
         col1, col2, col3 = st.columns(3)
 
         with col1:
-            st.metric(label="Prevalencia Global (%)", value="27.8%", delta="-0.6% respecto al año anterior")
+            st.metric(label="Prevalencia Global (%)", value="39.8%", delta="-0.5% respecto al año 2015")
 
         with col2:
             st.metric(label="Región más afectada", value="África Subsahariana")
 
         with col3:
-            st.metric(label="Número estimado de afectados (millones)", value="1400M", delta="+50M desde 2015")
+            st.metric(label="Número estimado de afectados (millones)", value="274M")
 
         col1, col2 = st.columns([1.9, 1.1])
 
@@ -166,8 +166,8 @@ elif menu == "Visualización de datos":
             # Personalización del diseño del gráfico
             fig.update_layout(
                 title=dict(
-                    text="<span style='font-size:26px; color:#1f77b4; font-family:Roboto;'><b>🌎 Prevalencia Histórica de Anemia (2000-2019) 🩸</b></span>",
-                    x=0.19 # Centrar el título
+                    text="<span style='font-size:26px; color:#1f77b4; font-family:Roboto;'><b>🌎 Prevalencia Histórica de Anemia infantil(2000-2019) 🩸</b></span>",
+                    x=0.16 # Centrar el título
                 ),
                 xaxis=dict(
                     title="Año",
