@@ -351,29 +351,6 @@ elif menu == "Equipo":
     # Filtrar filas sin coordenadas
     df = df[df['country.value'].isin(['México', 'Brasil', 'Perú'])]
 
-    # Crear GeoJSON rápidamente desde pandas
-    from itertools import starmap
-    import json
-
-
-    # Convertir DataFrame a GeoJSON
-    def df_to_geojson(df, properties, lat='latitude', lon='longitude'):
-        geojson = {'type': 'FeatureCollection', 'features': []}
-        for _, row in df.iterrows():
-            feature = {
-                'type': 'Feature',
-                'geometry': {
-                    'type': 'Point',
-                    'coordinates': [row[lon], row[lat]],
-                },
-                'properties': {prop: row[prop] for prop in properties},
-            }
-            geojson['features'].append(feature)
-        return geojson
-
-
-    # Aquí selecciona las propiedades que quieres que aparezcan en el `tooltip`
-    geojson_data = df_to_geojson(df, properties=["country.value", "date", "value"])
 
     # Crear mapa base
     world_map = folium.Map(location=[0, 0], zoom_start=2)
@@ -386,6 +363,26 @@ elif menu == "Equipo":
     #        aliases=["País:", "Año:", "Prevalencia:"],
     #    )
     #).add_to(world_map)
+    from folium.plugins import MarkerCluster
+
+    marker_cluster = MarkerCluster().add_to(world_map)
+
+    for _, row in df.iterrows():
+        tooltip_text = (
+            f"País: {row['country.value']}<br>"
+            f"Año: {row['date']}<br>"
+            f"Prevalencia: {row['value']}"
+        )
+
+        folium.CircleMarker(
+            location=[row['latitude'], row['longitude']],
+            radius=10,
+            color='blue',
+            fill=True,
+            fill_color='cyan',
+            fill_opacity=0.7,
+            tooltip=tooltip_text,
+        ).add_to(marker_cluster)
 
     # Mostrar el mapa en Streamlit
     st.title("Mapa de Prevalencia Interactivo 🌍")
