@@ -280,7 +280,7 @@ elif menu == "Visualización de datos":
 
                 # Crear el mapa
                 m2 = folium.Map(location=[0, 0], zoom_start=2)
-                marker_cluster = MarkerCluster().add_to(m2)
+                #marker_cluster = MarkerCluster().add_to(m2)
 
                 for _, row in df.iterrows():
                     tooltip_text = (
@@ -296,8 +296,7 @@ elif menu == "Visualización de datos":
                         fill_color='cyan',
                         fill_opacity=0.7,
                         tooltip=tooltip_text,
-                    ).add_to(marker_cluster)
-                st.write(df.iterrows())
+                    ).add_to(m2)
                 return m2
 
 
