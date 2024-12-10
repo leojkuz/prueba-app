@@ -227,7 +227,7 @@ elif menu == "Visualización de datos":
         st.subheader("Análisis por País")
 
         # Lectura del archivo csv de prevalencia de anemia para país y continente
-        data_country = pd.read_csv(r"world_bank_continentes.csv")
+        data_country = pd.read_csv("data/world_bank_continentes.csv")
 
         # Creación de diccionario sobre continentes
         data_recent = data_country.loc[
