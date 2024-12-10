@@ -6,6 +6,8 @@ import plotly.graph_objects as go
 import reveal_slides as rs
 import folium
 from streamlit_folium import st_folium
+from geopy.geocoders import Nominatim
+from tqdm import tqdm
 
 
 # Configuración inicial de la página
@@ -223,8 +225,8 @@ elif menu == "Visualización de datos":
         # Gráfico de Barras (Top 10 Países con Mayor Prevalencia de Anemia)
 
 
-    elif viz_menu == "Análisis por País":
-        st.subheader("Análisis por País")
+    elif viz_menu == "Análisis geográfico":
+        st.subheader("¿Cómo la anemia infantil a afectado a cada contintente?")
 
         # Lectura del archivo csv de prevalencia de anemia para país y continente
         data_country = pd.read_csv("data/world_bank_continentes.csv")
@@ -305,6 +307,62 @@ elif menu == "Visualización de datos":
 
         # Mostrar el mapa
         st_mapa = st_folium(m, width=900)
+        st.subheader("Un vistazo a la anemia infantil en cada país")
+        # Mapa 2---
+        # Configurar el geolocalizador
+        geolocator = Nominatim(user_agent="geoapi")
+
+        # Diccionario para cachear las coordenadas
+        cache_coordinates = {}
+
+
+        # Función para obtener coordenadas con cache
+        def obtener_coordenadas(pais):
+            if pais in cache_coordinates:
+                return cache_coordinates[pais]
+
+            try:
+                location = geolocator.geocode(pais)
+                if location:
+                    cache_coordinates[pais] = (location.latitude, location.longitude)
+                    return location.latitude, location.longitude
+                else:
+                    return None, None
+            except Exception as e:
+                print(f"Error obteniendo coordenadas para {pais}: {e}")
+                return None, None
+
+
+        # Agregar columnas de latitud y longitud al DataFrame con la barra de progreso
+        tqdm.pandas()
+        data_country["latitude"], data_country["longitude"] = zip(*data_country["country.value"].progress_apply(obtener_coordenadas))
+
+        # Filtrar filas sin coordenadas
+        df = data_country.dropna(subset=["latitude", "longitude"])
+
+        # Crear un mapa base
+        world_map = folium.Map(location=[0, 0], zoom_start=2)
+
+        # Agregar marcadores al mapa
+        for _, row in df.iterrows():
+            tooltip_text = (
+                f"País: {row['country.value']}<br>"
+                f"Año: {row['date']}<br>"
+                f"Prevalencia: {row['value']}"
+            )
+
+            folium.CircleMarker(
+                location=[row['latitude'], row['longitude']],
+                radius=10,
+                color='blue',
+                fill=True,
+                fill_color='cyan',
+                fill_opacity=0.7,
+                tooltip=tooltip_text,
+            ).add_to(world_map)
+
+        # Mostrar el mapa interactivo
+        st_mapa_2 = st_folium(world_map, width=900)
 
     elif viz_menu == "Proyecciones":
         st.subheader("Proyecciones Futuras")
