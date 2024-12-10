@@ -311,7 +311,7 @@ elif menu == "Visualización de datos":
             # Se mostrará como HTML debido a que Streamlit-folium no tiene compatibilidad con MarkerCluster
             with open("data/mapa_prevalencia_optimizado.html", 'r') as f:
                 html_data = f.read()
-            st.components.v1.html(html_data, width=900)
+            st.components.v1.html(html_data, width=900, height = 900)
             submit_button = st.form_submit_button(label="Puedes hacer zoom al mapa para ver los datos 🌍👀", disabled=True)
             if submit_button: pass
 
