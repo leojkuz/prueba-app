@@ -288,14 +288,14 @@ elif menu == "Visualización de datos":
                         f"Año: {row['date']}<br>"
                         f"Prevalencia: {row['value']}"
                     )
-                    folium.CircleMarker(
+                    folium.Marker(
                         location=[row['latitude'], row['longitude']],
                         radius=10,
                         color='blue',
                         fill=True,
                         fill_color='cyan',
                         fill_opacity=0.7,
-                        popup=folium.Popup(tooltip_text, max_width=300),
+                        tooltip=tooltip_text,
                     ).add_to(marker_cluster)
                 return m2
 
