@@ -136,7 +136,7 @@ elif menu == "Visualización de datos":
             st.metric(label="Prevalencia Global (%)", value="39.8%", delta="-0.5% respecto al año 2015")
 
         with col2:
-            st.metric(label="Región más afectada", value="África Subsahariana")
+            st.metric(label="Continente más afectado", value="Asia (45.1 %)")
 
         with col3:
             st.metric(label="Número estimado de afectados (millones)", value="274M")
