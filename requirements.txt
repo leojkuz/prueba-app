@@ -8,3 +8,5 @@ seaborn
 matplotlib
 folium
 streamlit-folium
+geopy
+tqdm
