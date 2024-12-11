@@ -224,7 +224,6 @@ elif menu == "Visualización de datos":
 
     elif viz_menu == "Análisis geográfico":
         # Lectura del archivo csv de prevalencia de anemia para país y continente
-        st.subheader("¿Cómo la anemia infantil a afectado a cada contintente?")
         data_country = pd.read_csv("data/world_bank_continentes.csv")
 
         col1, col2 = st.columns([1.4, 1.6])
@@ -270,6 +269,7 @@ elif menu == "Visualización de datos":
             st.plotly_chart(fig)
 
         with col2:
+            st.subheader("¿Cómo la anemia infantil a afectado a cada contintente?")
             with st.form(key='myform', border=False):
                 # Mapa 1: Anemia por Continentes
                 # Crear diccionario sobre continentes
