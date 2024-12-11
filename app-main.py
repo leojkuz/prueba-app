@@ -257,7 +257,7 @@ elif menu == "Visualización de datos":
 
             # Configurar el diseño del gráfico
             fig.update_layout(
-                title=f"Top 10 países con mayor anemia infanitl en {anio}",
+                title=f"Top 10 países con mayor anemia infantil en {anio}",
                 xaxis=dict(title="País", tickangle=-45),
                 yaxis=dict(title="Porcentaje de Anemia", range=(0, 101)),
                 template="plotly_white",
