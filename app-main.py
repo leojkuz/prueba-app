@@ -259,7 +259,7 @@ elif menu == "Visualización de datos":
             fig.update_layout(
                 title=f"Top 10 países con más anemia en {anio}",
                 xaxis=dict(title="País", tickangle=-45),
-                yaxis=dict(title="Porcentaje de Anemia"),
+                yaxis=dict(title="Porcentaje de Anemia", range=(0, 100)),
                 template="plotly_white",
                 title_font=dict(size=20),
                 margin=dict(l=40, r=40, t=60, b=40),
@@ -332,7 +332,7 @@ elif menu == "Visualización de datos":
         # Además no es necesario la interacción dinámica con el usuario por lo que el HTML es suficiente
         with open("data/mapa_prevalencia_optimizado.html", 'r') as f:
             html_data = f.read()
-        st.components.v1.html(html_data, width=900, height=700)
+        st.components.v1.html(html_data, width=1200, height=700)
 
     elif viz_menu == "Proyecciones":
         st.subheader("Proyecciones Futuras")
