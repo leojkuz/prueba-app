@@ -340,7 +340,7 @@ elif menu == "Visualización de datos":
         # Mapa 2: Países
         # Se mostrará como HTML debido a que Streamlit-folium no tiene compatibilidad con MarkerCluster
         # Además no es necesario la interacción dinámica con el usuario por lo que el HTML es suficiente
-        tog = tog.st_toggle_switch(label="Total/max-min",
+        tog = tog.st_toggle_switch(label="Mostrar datos totales",
                              key="Key1",
                              default_value=True,
                              label_after=False,
