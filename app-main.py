@@ -229,7 +229,7 @@ elif menu == "Visualización de datos":
         col1, col2, col3 = st.columns([1.2, 0.1, 1.7])
 
         with col1:
-            st.subheader("Veamos la situación de la anemia en cada año 🌍👀")
+            st.subheader("Veamos la situación de la anemia infantil en cada año 🌍👀")
             anio = st.slider("Seleccione un año para visualizar", 2000, 2019, 2019)
             # Filtrar los datos para el año seleccionado
             data_filtrada = data_country[data_country['date'] == anio]
