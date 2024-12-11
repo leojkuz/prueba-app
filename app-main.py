@@ -331,7 +331,7 @@ elif menu == "Visualización de datos":
                     </style>
                 """
                 st.markdown(hide_button_style, unsafe_allow_html=True)
-                submit_button = st.form_submit_button(label="Puedes hacer zoom al mapa para ver los datos 🌍👀",
+                submit_button = st.form_submit_button(label="",
                                                       disabled=True)
                 if submit_button: pass
 
