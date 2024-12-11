@@ -226,7 +226,7 @@ elif menu == "Visualización de datos":
         # Lectura del archivo csv de prevalencia de anemia para país y continente
         data_country = pd.read_csv("data/world_bank_continentes.csv")
 
-        col1, col2 = st.columns([1.3, 1.7])
+        col1, col2, col3 = st.columns([1.1, 0.2, 1.7])
 
         with col1:
             st.subheader("Veamos la situación de la anemia en cada año 🌍👀")
@@ -268,7 +268,7 @@ elif menu == "Visualización de datos":
             # Mostrar el gráfico
             st.plotly_chart(fig)
 
-        with col2:
+        with col3:
             st.subheader(f"¿Cómo la anemia infantil a afectado a cada contintente en {anio}?")
             with st.form(key='myform', border=False):
                 # Mapa 1: Anemia por Continentes
