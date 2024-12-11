@@ -213,7 +213,7 @@ elif menu == "Visualización de datos":
         with col2:
             fig_bar = go.Figure([go.Bar(x=prevalence, y=countries, orientation='h',
                                         marker_color='indianred')])
-            fig_bar.update_layout(title="Top 10 Países con Mayor Prevalencia de Anemia",
+            fig_bar.update_layout(title="Esto no va. AAA. NO SÉ Q WEA PONER ACÁ",
                                   xaxis_title="Prevalencia (%)",
                                   yaxis_title="Países",
                                   plot_bgcolor='rgba(240,240,240,0.9)',
