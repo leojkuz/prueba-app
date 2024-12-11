@@ -269,7 +269,7 @@ elif menu == "Visualización de datos":
             st.plotly_chart(fig)
 
         with col2:
-            st.subheader("¿Cómo la anemia infantil a afectado a cada contintente?")
+            st.subheader(f"¿Cómo la anemia infantil a afectado a cada contintente en {anio}?")
             with st.form(key='myform', border=False):
                 # Mapa 1: Anemia por Continentes
                 # Crear diccionario sobre continentes
