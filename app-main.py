@@ -227,9 +227,9 @@ elif menu == "Visualización de datos":
         st.subheader("¿Cómo la anemia infantil a afectado a cada contintente?")
         data_country = pd.read_csv("data/world_bank_continentes.csv")
 
-        col1, col2 = st.columns([1.6, 1.4])
+        col1, col2 = st.columns([1.4, 1.6])
 
-        with col2:
+        with col1:
             st.subheader("Veamos la situación de la anemia en cada año 🌍👀")
             anio = st.slider("Seleccione un año para visualizar", 2000, 2019, 2019)
             # Filtrar los datos para el año seleccionado
@@ -269,7 +269,7 @@ elif menu == "Visualización de datos":
             # Mostrar el gráfico
             st.plotly_chart(fig)
 
-        with col1:
+        with col2:
             with st.form(key='myform', border=False):
                 # Mapa 1: Anemia por Continentes
                 # Crear diccionario sobre continentes
