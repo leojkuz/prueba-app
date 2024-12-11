@@ -227,7 +227,7 @@ elif menu == "Visualización de datos":
         # Lectura del archivo csv de prevalencia de anemia para país y continente
         data_country = pd.read_csv("data/world_bank_continentes.csv")
 
-        col1, col2, col3 = st.columns([1.15, 0.1, 1.65])
+        col1, col2, col3 = st.columns([1.2, 0.1, 1.7])
 
         with col1:
             st.subheader("Veamos la situación de la anemia infantil en cada año 🌍👀")
