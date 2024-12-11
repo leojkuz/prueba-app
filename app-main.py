@@ -336,7 +336,7 @@ elif menu == "Visualización de datos":
                                                       disabled=True)
                 if submit_button: pass
 
-        st.subheader("Ahora un vistazo más completo")
+        st.subheader("Ahora un vistazo más completo en cada país")
         # Mapa 2: Países
         # Se mostrará como HTML debido a que Streamlit-folium no tiene compatibilidad con MarkerCluster
         # Además no es necesario la interacción dinámica con el usuario por lo que el HTML es suficiente
