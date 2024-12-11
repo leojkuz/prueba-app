@@ -322,6 +322,15 @@ elif menu == "Visualización de datos":
                 # Mapa 1: Continentes
                 mapa1 = m1
                 st_folium(mapa1, width=900)
+                # Esconder el boton
+                hide_button_style = """
+                    <style>
+                    button[data-testid="stFormSubmitButton"] {
+                        visibility: hidden;
+                    }
+                    </style>
+                """
+                st.markdown(hide_button_style, unsafe_allow_html=True)
                 submit_button = st.form_submit_button(label="Puedes hacer zoom al mapa para ver los datos 🌍👀",
                                                       disabled=True)
                 if submit_button: pass
