@@ -9,6 +9,7 @@ from streamlit_folium import st_folium
 from geopy.geocoders import Nominatim
 from tqdm import tqdm
 from folium.plugins import MarkerCluster
+import  streamlit_toggle as tog
 
 # Configuración inicial de la página
 st.set_page_config(page_title="Análisis Global de la Anemia", layout="wide")
@@ -339,9 +340,22 @@ elif menu == "Visualización de datos":
         # Mapa 2: Países
         # Se mostrará como HTML debido a que Streamlit-folium no tiene compatibilidad con MarkerCluster
         # Además no es necesario la interacción dinámica con el usuario por lo que el HTML es suficiente
-        with open("data/mapa_prevalencia_optimizado.html", 'r') as f:
-            html_data = f.read()
-        st.components.v1.html(html_data, width=1200, height=700)
+        tog = tog.st_toggle_switch(label="Total/max-min",
+                             key="Key1",
+                             default_value=True,
+                             label_after=False,
+                             inactive_color='#D3D3D3',
+                             active_color="#D3D3D3",
+                             track_color="#29B5E8"
+                             )
+        if tog:
+            with open("data/mapa_prevalencia_optimizado.html", 'r') as f:
+                html_data = f.read()
+                st.components.v1.html(html_data, width=1200, height=700)
+        else:
+            with open("mapa_prevalencia_max_min.html", 'r') as f:
+                html_data = f.read()
+                st.components.v1.html(html_data, width=1200, height=700)
 
     elif viz_menu == "Proyecciones":
         st.subheader("Proyecciones Futuras")
