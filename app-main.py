@@ -325,7 +325,7 @@ elif menu == "Visualización de datos":
                 # Esconder el boton
                 hide_button_style = """
                     <style>
-                    button[data-testid="stFormSubmitButton"] {
+                    button[data-testid="stBaseButton-secondaryFormSubmit"] {
                         visibility: hidden;
                     }
                     </style>
