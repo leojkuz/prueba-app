@@ -353,7 +353,7 @@ elif menu == "Visualización de datos":
                 html_data = f.read()
                 st.components.v1.html(html_data, width=1200, height=700)
         else:
-            with open("mapa_prevalencia_max_min.html", 'r') as f:
+            with open("data/mapa_prevalencia_max_min.html", 'r') as f:
                 html_data = f.read()
                 st.components.v1.html(html_data, width=1200, height=700)
 
