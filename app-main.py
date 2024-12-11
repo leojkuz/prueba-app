@@ -227,7 +227,7 @@ elif menu == "Visualización de datos":
         st.subheader("¿Cómo la anemia infantil a afectado a cada contintente?")
         data_country = pd.read_csv("data/world_bank_continentes.csv")
 
-        col1, col2 = st.columns([2, 1])
+        col1, col2 = st.columns([1.6, 1.4])
 
         with col2:
             st.subheader("Veamos la situación de la anemia en cada año 🌍👀")
