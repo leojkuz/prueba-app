@@ -259,7 +259,7 @@ elif menu == "Visualización de datos":
             fig.update_layout(
                 title=f"Top 10 países con más anemia en {anio}",
                 xaxis=dict(title="País", tickangle=-45),
-                yaxis=dict(title="Porcentaje de Anemia", range=(0, 100)),
+                yaxis=dict(title="Porcentaje de Anemia", range=(0, 101)),
                 template="plotly_white",
                 title_font=dict(size=20),
                 margin=dict(l=40, r=40, t=60, b=40),
