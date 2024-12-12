@@ -413,15 +413,6 @@ elif menu == "Visualización de datos":
             x_arrow = x_center + radius*np.cos(np.pi - angle_rad)
             y_arrow = y_center + radius*np.sin(np.pi - angle_rad)
 
-            fig.add_trace(go.Scatter(
-                x=[x_center, x_arrow],
-                y=[y_center, y_arrow],
-                mode="markers+text",
-                name="Markers and Text",
-                text=[(x_center, x_arrow), (y_center, y_arrow)],
-                textposition="bottom center"
-            ))
-
             # Agregar la flecha al gráfico
             fig.add_shape(
                 type="line",
@@ -439,9 +430,6 @@ elif menu == "Visualización de datos":
                 xaxis=dict(scaleanchor="y"),  # Vincular la escala del eje X con el eje Y
 
             )
-            # Mostrar cuadrícula para facilitar el debug
-            fig.update_xaxes(range=[0, 1], zeroline=False, showgrid=False)  # Fijar rango del eje X
-            fig.update_yaxes(range=[0, 1], zeroline=False, showgrid=False)  # Fijar rango del eje Y
             return fig
 
 
