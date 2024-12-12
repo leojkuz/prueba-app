@@ -83,7 +83,7 @@ if menu == "Introducción":
     """
 
     # Creación del layout con columnas
-    col1, col2, col3 = st.columns([1, 1.4, 1.3])  # Relación: 1:2:1 para centrar
+    col1, col2, col3 = st.columns([0.9, 0.8, 1.3])  # Relación: 1:2:1 para centrar
 
     with col2:  # Contenido en la columna central
         response_dict = rs.slides(content_markdown, height=500, markdown_props={"data-separator-vertical":"^--$"})
