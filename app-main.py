@@ -7,7 +7,7 @@ import reveal_slides as rs
 import folium
 from streamlit_folium import st_folium
 from geopy.geocoders import Nominatim
-from sklearn.linear_model import LinearRegression
+from scipy.stats import linregress
 from folium.plugins import MarkerCluster
 import  streamlit_toggle as tog
 import random
