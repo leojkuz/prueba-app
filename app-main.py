@@ -229,38 +229,33 @@ elif menu == "Visualización de datos":
             # Obtener los niveles de ingresos únicos
             income_levels = sorted(data_nivelingresos['nivel de ingresos'].unique())
 
-            # Asignar colores personalizados a cada nivel de ingresos
             colors = {
                 "Bajos ingresos": "#FF5733",  # Rojo ladrillo
-                "Ingresos bajos y medios": "#FFBD33",  # Amarillo cálido
+                "Ingresos bajos y medios": "#FF8C42",  # Naranja cálido
                 "Ingreso medio": "#33FF57",  # Verde vibrante
                 "Ingreso medio alto": "#3380FF",  # Azul moderno
                 "Ingresos altos": "#9B33FF"  # Morado sofisticado
             }
 
-            # Crear la figura Plotly
+            # Crear la figura Plotly mejorada
             fig = go.Figure()
 
-            # Añadir las trazas de datos
-            for i, level in enumerate(income_levels):
-                # Filtrar datos por nivel de ingresos
+            # Añadir las trazas de cada nivel de ingresos
+            for level in income_levels:
                 level_data = data_nivelingresos[data_nivelingresos['nivel de ingresos'] == level]
-
-                # Añadir la línea al gráfico
                 fig.add_trace(
                     go.Scatter(
                         x=level_data['year'],
                         y=level_data['prevalencia (%)'],
                         mode="lines+markers",
-                        line=dict(color=colors.get(level, "gray"), width=2),  # Usar colores predefinidos si existen
-                        marker=dict(size=6),  # Tamaño de los marcadores
-                        name=level,  # Nombre del nivel de ingresos
-                        hovertemplate="<b>%{name}</b><br>Año: %{x}<br>Prevalencia: %{y:.2f}%<extra></extra>",
+                        line=dict(color=colors.get(level, "gray"), width=3),  # Líneas más gruesas para impacto visual
+                        marker=dict(size=7),  # Marcadores ligeramente más grandes
+                        name=level,
+                        hovertemplate=f"<b>{level}</b><br>Año: %{x}<br>Prevalencia: %{y:.2f}%<extra></extra>",
                     )
                 )
 
-            # Añadir anotaciones cerca del último punto para cada nivel de ingresos
-            y_offset = 0.5  # Ajuste vertical entre las anotaciones (evitar superposición)
+            # Añadir anotaciones para el último punto de cada nivel de ingresos
             for i, level in enumerate(income_levels):
                 level_data = data_nivelingresos[data_nivelingresos['nivel de ingresos'] == level]
                 last_row = level_data[level_data['year'] == level_data['year'].max()]
@@ -269,41 +264,57 @@ elif menu == "Visualización de datos":
                     last_year = last_row['year'].values[0]
                     last_value = last_row['prevalencia (%)'].values[0]
 
-                    # Añadir la anotación
+                    # Añadir la anotación en el último punto
                     fig.add_annotation(
-                        x=last_year + 0.5,  # Un poco a la derecha del último año
-                        y=last_value + (y_offset * i),  # Ajuste vertical por nivel
-                        text=f"<b>{level}</b>",  # Texto del nivel de ingresos
-                        font=dict(size=10, color="black"),  # Personalización de la fuente
+                        x=last_year + 0.4,  # Ligeramente desplazado a la derecha del último año
+                        y=last_value,
+                        text=f"<b>{level}</b>",  # Texto con el nombre del nivel
                         showarrow=False,
-                        xanchor="left",
+                        font=dict(size=12, color=colors[level]),  # Color del texto igual al de la línea
                         align="left",
                     )
 
-            # Configurar diseño del gráfico
+            # Configurar el diseño mejorado del gráfico
             fig.update_layout(
-                title= "",
+                title={
+                    'text': 'Prevalencia histórica de anemia por nivel de ingresos',
+                    'x': 0.5,
+                    'xanchor': 'center',
+                    'yanchor': 'top',
+                    'font': dict(size=20, color="#333333"),  # Fuente mejorada para el título
+                },
                 xaxis=dict(
                     title='Año',
                     tickmode='array',
                     tickvals=sorted(data_nivelingresos['year'].unique()),
+                    tickangle=-45,  # Rotar los ticks del eje X ligeramente
+                    gridcolor="#E5ECF6",  # Grid sutil en azul claro
+                    zeroline=False,
                     showline=True,
-                    linecolor='black',
-                    ticks='outside',  # Marcas fuera del eje
-                    tickwidth=1,
+                    showgrid=True,
+                    linecolor='#333333',
                 ),
                 yaxis=dict(
                     title='Prevalencia (%)',
+                    gridcolor="#E5ECF6",  # Grid sutil en azul claro
+                    zeroline=True,
+                    zerolinewidth=1,
+                    zerolinecolor="lightgray",
                     showline=True,
-                    linewidth=1,
-                    linecolor='black',
+                    linecolor='#333333',
                 ),
-                plot_bgcolor='white',  # Fondo blanco para mayor legibilidad
-                showlegend=False,  # Eliminamos la leyenda; usamos anotaciones dinámicas
-                template="plotly_white",
-                width=900,
-                height=600,  # Ajustar el tamaño del gráfico en Streamlit
-                margin=dict(t=10)
+                plot_bgcolor='rgba(240,240,240,0.9)',  # Fondo sutilmente gris para resaltar
+                width=1000,
+                height=650,  # Más espacio para evitar el sentimiento "apretado"
+                legend=dict(
+                    title="Niveles de Ingreso",
+                    orientation="h",
+                    yanchor="bottom",
+                    y=-0.3,  # Posicionar la leyenda debajo del gráfico
+                    xanchor="center",
+                    x=0.5,
+                ),
+                margin=dict(l=40, r=20, t=50, b=80),  # Ajustamos los márgenes internos del gráfico
             )
 
             # Mostrar gráfico en Streamlit
