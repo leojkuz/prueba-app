@@ -387,7 +387,6 @@ elif menu == "Visualización de datos":
                 go.Indicator(
                     mode="gauge",
                     value=value,
-                    domain={'x': [0, 1], 'y': [0, 1]},
                     title={'text': f"<b>{estado}</b>", 'font': {'size': 20, 'color': "white"}},
                     gauge={
                         'axis': {'range': [0, 100], 'tickwidth': 2, 'tickcolor': "#000"},
@@ -446,7 +445,7 @@ elif menu == "Visualización de datos":
                 margin=dict(t=50, b=50, l=50, r=50),  # Márgenes compactos
                 font=dict(color="white", family="Arial"),  # Estilo tipográfico (limpio)
                 xaxis={'showgrid': False, 'showticklabels': False, 'range': [-1, 1]},
-                yaxis={'showgrid': False, 'showticklabels': False, 'range': [0, 1]},
+                yaxis={'showgrid': False, 'showticklabels': False, 'range': [-0.5, 1]},
 
             )
             # Mostrar cuadrícula para facilitar el debug
