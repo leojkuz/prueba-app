@@ -356,7 +356,7 @@ elif menu == "Visualización de datos":
             st.warning("Por favor selecciona al menos un país.")
         # Cargar los datos
         # Cargar los datos
-        data_ind_anemia = pd.read_csv(r"dhs_anemia_final.csv")
+        data_ind_anemia = pd.read_csv("data/dhs_anemia_final.csv")
 
         # Limpiar y renombrar columnas
         data_ind_anemia.drop(data_ind_anemia.columns[[3, 4, 5, 6, 7, 8, 9, 10]], axis=1, inplace=True)
