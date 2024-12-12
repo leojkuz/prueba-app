@@ -397,7 +397,7 @@ elif menu == "Visualización de datos":
                         line=dict(color=colors.get(level, "gray"), width=2),  # Usar colores predefinidos si existen
                         marker=dict(size=6),  # Tamaño de los marcadores
                         name=level,  # Nombre del nivel de ingresos
-                        hovertemplate=f"<b>{level}</b><br>Año: %{x}<br>Prevalencia: %{y:.2f}%<extra></extra>",
+                        hovertemplate="<b>%{name}</b><br>Año: %{x}<br>Prevalencia: %{y:.2f}%<extra></extra>",
                     )
                 )
 
