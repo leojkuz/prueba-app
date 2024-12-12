@@ -83,7 +83,7 @@ if menu == "Introducción":
     """
 
     # Creación del layout con columnas
-    col1, col2, col3 = st.columns([1, 2, 1])  # Relación: 1:2:1 para centrar
+    col1, col2, col3 = st.columns([1, 1.4, 1.3])  # Relación: 1:2:1 para centrar
 
     with col2:  # Contenido en la columna central
         response_dict = rs.slides(content_markdown, height=500, markdown_props={"data-separator-vertical":"^--$"})
@@ -151,7 +151,7 @@ elif menu == "Visualización de datos":
             st.subheader("Prevalencia histórica de anemia por niveles de ingresos")
             st.markdown("Los datos muestran una diferencia en los niveles de anemia infantil según el nivel de ingresos")
 
-        col1, col2 = st.columns([1.9, 1.1])
+        col1, col2 = st.columns([1.7, 1.3])
 
         with col1:
             # Cargar los datos desde el archivo CSV
