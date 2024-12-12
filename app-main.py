@@ -7,7 +7,7 @@ import reveal_slides as rs
 import folium
 from streamlit_folium import st_folium
 from geopy.geocoders import Nominatim
-from scipy.stats import linregress
+from sklearn.linear_model import LinearRegression
 from folium.plugins import MarkerCluster
 import  streamlit_toggle as tog
 import random
@@ -239,7 +239,6 @@ elif menu == "Visualización de datos":
 
 
             # Asignar un color único a cada país
-            global assign_colors
             def assign_colors(countries):
                 colors = {}
                 for country in countries:
@@ -270,7 +269,6 @@ elif menu == "Visualización de datos":
 
 
             # Función para graficar prevalencias históricas basadas en los países seleccionados
-            global plot_selected_countries_plotly
             def plot_selected_countries_plotly(countries_selected):
                 if not countries_selected:
                     st.warning("Por favor selecciona al menos un país.")
@@ -283,38 +281,19 @@ elif menu == "Visualización de datos":
                     # Completar los años faltantes
                     country_data = completar_anios(data_historico_pais_est, country)
 
-                    # Dividir los datos en tres segmentos
-                    before_2020 = country_data[country_data['year'] < 2020]
-                    between_2020_2030 = country_data[(country_data['year'] >= 2020) & (country_data['year'] <= 2030)]
-                    after_2030 = country_data[country_data['year'] > 2030]
-
                     # Obtener el color para el país
                     country_color = colors[country]
 
                     # Añadir el segmento antes de 2020 (línea continua)
                     fig.add_trace(
                         go.Scatter(
-                            x=before_2020['year'],
-                            y=before_2020['prevalencia (%)'],
+                            x=country_data['year'],
+                            y=country_data['prevalencia (%)'],
                             mode='lines+markers',
                             name=country,
                             hovertemplate="Prevalencia: %{y:.2f}<extra></extra>",
                             # Personalizar el tooltip sin el símbolo '%'
                             line=dict(color=country_color)  # Usamos el color del país
-                        )
-                    )
-
-                    # Añadir el segmento entre 2020 y 2030 (línea punteada)
-                    fig.add_trace(
-                        go.Scatter(
-                            x=between_2020_2030['year'],
-                            y=between_2020_2030['prevalencia (%)'],
-                            mode='lines+markers',
-                            name=country,
-                            hovertemplate="Prevalencia: %{y:.2f}<extra></extra>",
-                            # Personalizar el tooltip sin el símbolo '%'
-                            line=dict(dash='dot', color=country_color)
-
                         )
                     )
 
@@ -837,87 +816,140 @@ elif menu == "Visualización de datos":
                 En esta sección, hemos adaptado el gráfico interactivo presentado en el capítulo anterior, que permitía comparar la prevalencia de anemia infantil entre diferentes países hasta el año 2019.
                 Ahora, este gráfico no solo sigue permitiendo la selección y comparación de múltiples países, sino que también **incorpora las proyecciones calculadas para cada uno**, basándonos en las tendencias estimadas. Esta extensión resulta esencial para evaluar cómo podrían afectar los patrones globales y locales a cada región, permitiéndonos identificar posibles diferencias entre naciones en el futuro cercano.
                 """)
-            data = pd.read_csv("data/world_bank_anemia_paises_listo.csv")
 
-            # Limpiar nombres de columnas (por si tienen espacios adicionales)
-            data.columns = data.columns.str.strip()
-
-            # Lista para almacenar los datos originales y las estimaciones
-            datos_con_estimaciones = []
-
-            # Obtener la lista de países únicos
-            paises_unicos = data['pais'].unique()
-
-            for pais in paises_unicos:
-                # Filtrar los datos para el país actual
-                datos_pais = data[data['pais'] == pais].sort_values(by='year')
-
-                # Calcular las variaciones anuales porcentuales
-                datos_pais['variacion'] = datos_pais['prevalencia (%)'].pct_change()
-
-                # Calcular el promedio de la variación porcentual (ignorando valores nulos)
-                factor_crecimiento = datos_pais[
-                                         'variacion'].mean() + 1  # Agregar 1 para obtener el factor multiplicativo
-
-                # Agregar los datos originales del país al conjunto de datos
-                for _, row in datos_pais.iterrows():
-                    datos_con_estimaciones.append({
-                        'year': row['year'],
-                        'pais': row['pais'],
-                        'prevalencia (%)': row['prevalencia (%)']
-                    })
-
-                # Proyectar valores desde 2020 hasta 2030 usando el factor de crecimiento
-                ultima_prevalencia = datos_pais['prevalencia (%)'].iloc[-1]  # Último valor conocido (2019)
-                for year in range(2020, 2031):
-                    ultima_prevalencia *= factor_crecimiento  # Aplicar el factor de crecimiento
-                    datos_con_estimaciones.append({
-                        'year': year,
-                        'pais': pais,
-                        'prevalencia (%)': ultima_prevalencia
-                    })
-
-            # Convertir los resultados a un DataFrame
-            data_historico_pais_est = pd.DataFrame(datos_con_estimaciones)  # Data con estimación hasta el 2030
-
-            # Transformar la variable 'year' a entero
+            st.subheader("Comparador futuro de anemia infantil para cada país")
+            data_historico_pais_est = pd.read_csv("data/world_bank_anemia_paises_listo.csv")
             data_historico_pais_est['year'] = pd.to_numeric(data_historico_pais_est['year'], errors='coerce')
             data_historico_pais_est['year'] = data_historico_pais_est['year'].astype(int)
 
             # Obtener la lista de países únicos
             countries = sorted(data_historico_pais_est['pais'].unique())
 
-            # Generar colores aleatorios para cada país
-            colors = {country: f"#{random.randint(0, 0xFFFFFF):06x}" for country in countries}
+
+            # Asignar un color único a cada país
+            def assign_colors(countries):
+                colors = {}
+                for country in countries:
+                    # Asignamos un color aleatorio a cada país
+                    colors[
+                        country] = f'rgba({random.randint(0, 255)},{random.randint(0, 255)},{random.randint(0, 255)}, 0.8)'
+                return colors
 
 
-            # Función para obtener estadísticas y generar mensajes
-            def obtener_estadisticas_mensaje(country_df):
-                # Calcular el promedio histórico entre 2000 y 2019
-                historical_data = country_df[(country_df['year'] >= 2000) & (country_df['year'] <= 2019)]
-                avg_prevalence_2000_2019 = historical_data['prevalencia (%)'].mean()
+            colors = assign_colors(countries)
 
-                # Calcular la tasa de disminución promedio anual hasta 2030
-                future_data = country_df[(country_df['year'] > 2019) & (country_df['year'] <= 2030)]
-                if len(future_data) > 1:
-                    slope, _, _, _, _ = linregress(future_data['year'], future_data['prevalencia (%)'])
-                    annual_decrease_rate = -slope
-                else:
-                    annual_decrease_rate = 0
 
-                mensaje = (
-                    f"Para {country_df['pais'].iloc[0]}, la prevalencia de anemia tuvo un promedio de "
-                    f"{avg_prevalence_2000_2019:.2f}% entre 2000 y 2019. "
-                    f"Con base en las proyecciones, se estima que la prevalencia disminuirá a una tasa promedio anual de "
-                    f"{annual_decrease_rate:.2f}% hacia el año 2030."
+            # Función para completar los años faltantes y hacer líneas continuas
+            def completar_anios_con_proyecciones(data, country):
+                country_data = data[data['pais'] == country].copy()
+
+                # Generar el rango completo de años (históricos y proyectados hasta 2030)
+                all_years = pd.DataFrame({'year': range(country_data['year'].min(), 2031)})
+
+                # Unir datos originales con años faltantes y llenar valores mediante interpolación
+                completed_data = pd.merge(all_years, country_data, on='year', how='left')
+                completed_data['prevalencia (%)'] = completed_data['prevalencia (%)'].interpolate()
+
+                # Añadir el nombre del país
+                completed_data['pais'] = country
+                return completed_data
+
+
+            # Función para graficar prevalencias históricas y proyectadas por país
+            def plot_selected_countries_plotly_with_projections(countries_selected):
+                if not countries_selected:
+                    st.warning("Por favor selecciona al menos un país.")
+                    return
+
+                # Crear la figura de Plotly
+                fig = go.Figure()
+
+                for country in countries_selected:
+                    # Completar años históricos y proyectados
+                    country_data = completar_anios_con_proyecciones(data_historico_pais_est, country)
+
+                    # Obtener segmentos antes y después del 2020
+                    before_2020 = country_data[country_data['year'] < 2020]  # Datos históricos
+                    from_2020_onwards = country_data[country_data['year'] >= 2020]  # Datos proyectados
+
+                    # Obtener color asociado al país
+                    country_color = colors[country]
+
+                    # Segmento antes del 2020 (línea sólida)
+                    fig.add_trace(
+                        go.Scatter(
+                            x=before_2020['year'],
+                            y=before_2020['prevalencia (%)'],
+                            mode='lines+markers',
+                            name=f"{country} (Histórico)",
+                            hovertemplate="Prevalencia: %{y:.2f}<extra></extra>",
+                            line=dict(color=country_color)
+                        )
+                    )
+
+                    # Segmento después del 2020 (línea punteada)
+                    fig.add_trace(
+                        go.Scatter(
+                            x=from_2020_onwards['year'],
+                            y=from_2020_onwards['prevalencia (%)'],
+                            mode='lines+markers',
+                            name=f"{country} (Proyectado)",
+                            hovertemplate="Prevalencia: %{y:.2f}<extra></extra>",
+                            line=dict(color=country_color, dash='dot')  # Línea punteada
+                        )
+                    )
+
+                    # Colocar la etiqueta del país ligeramente desplazada a la derecha de 2030
+                    year_2030_data = from_2020_onwards[from_2020_onwards['year'] == 2030]
+                    if not year_2030_data.empty:
+                        prev_2030 = year_2030_data['prevalencia (%)'].values[0]
+                        fig.add_annotation(
+                            x=2031,  # Desplazar un poco a la derecha de 2030
+                            y=prev_2030,
+                            text=country,
+                            showarrow=False,
+                            font=dict(size=10, color='black'),
+                            xanchor='left',
+                            align='left'
+                        )
+
+                # Configuración del diseño del gráfico
+                fig.update_layout(
+                    title={
+                        'text': 'Prevalencia histórica y futura de anemia',
+                        'x': 0.5,
+                        'xanchor': 'center',
+                    },
+                    xaxis=dict(
+                        title=None,
+                        tickangle=-90,
+                        showline=True,
+                        linecolor='black',
+                        ticks='outside',
+                        tickwidth=1,
+                    ),
+                    yaxis=dict(
+                        title="Prevalencia (%)",
+                        showline=True,
+                        linewidth=1,
+                        linecolor='black',
+                    ),
+                    showlegend=True,
+                    legend_title='Países',
+                    template="plotly_white",
+                    width=850,
                 )
-                return mensaje
-            # Crear checkbox para seleccionar países
+
+                # Mostrar el gráfico en Streamlit
+                st.plotly_chart(fig)
+
+
+            # Crear multiselect para seleccionar países
             selected_countries = st.multiselect('Selecciona los países', countries)
 
-            # Actualizar y mostrar gráfico dinámicamente según selección de países
+            # Mostrar gráfico dinámicamente según los países seleccionados
             if selected_countries:
-                plot_selected_countries_plotly(selected_countries)
+                plot_selected_countries_plotly_with_projections(selected_countries)
             else:
                 st.warning("Por favor selecciona al menos un país.")
 
