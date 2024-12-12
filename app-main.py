@@ -495,9 +495,13 @@ elif menu == "Visualización de datos":
                 st.markdown(f"""
                     <div style="text-align: center; margin-left: 50px; margin-top: -10px; margin-bottom: -20px;">
                         <h1 style='color: white; display: inline-block;'>{valor_real}%</h1>
-                        <p style='color: white; font-size: 18px; display: inline;'><b>{pais_seleccionado}</b></p>
                     </div>
                 """, unsafe_allow_html=True)
+                st.markdown(f"""
+                            <div style="text-align: center; margin-left: 50px; margin-top: -10px; margin-bottom: -20px;">
+                                <h1 style='color: white; display: inline-block;'>{pais_seleccionado}%</h1>
+                            </div>
+                                """, unsafe_allow_html=True)
 
                 # Tabla bonita con Streamlit
                 st.subheader("Reportes de gravedad por año")
