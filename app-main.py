@@ -224,7 +224,7 @@ elif menu == "Visualización de datos":
             st.plotly_chart(fig_bar)
 
         # Cargar los datos
-        data_historico_pais_est = pd.read_csv("world_bank_anemia_paises_listo.csv")
+        data_historico_pais_est = pd.read_csv("data/world_bank_anemia_paises_listo.csv")
         data_historico_pais_est['year'] = pd.to_numeric(data_historico_pais_est['year'], errors='coerce')
         data_historico_pais_est['year'] = data_historico_pais_est['year'].astype(int)
 
