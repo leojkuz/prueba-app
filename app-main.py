@@ -349,7 +349,7 @@ elif menu == "Visualización de datos":
                              track_color="#29B5E8"
                              )
         if tog:
-            with open("data/mapa_prevalencia_optimizado.html", 'r') as f:
+            with open("data/mapa_pais.html", 'r') as f:
                 html_data = f.read()
                 st.components.v1.html(html_data, width=1200, height=700)
         else:
