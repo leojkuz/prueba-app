@@ -359,6 +359,101 @@ elif menu == "Visualización de datos":
                 st.warning("Por favor selecciona al menos un país.")
 
         with col2:
+            st.subheader("Prevalencia histórica de anemia por niveles de ingresos")
+
+            # Cargar datos del CSV
+            data_nivelingresos = pd.read_csv("data/world_bank_anemia_ingresos_listo.csv")
+
+            # Asegurarse de que los datos de 'year' sean numéricos
+            data_nivelingresos['year'] = pd.to_numeric(data_nivelingresos['year'], errors='coerce')
+            data_nivelingresos = data_nivelingresos.dropna(subset=['year', 'prevalencia (%)'])  # Eliminar filas con NaN
+            data_nivelingresos['year'] = data_nivelingresos['year'].astype(int)
+
+            # Obtener los niveles de ingresos únicos
+            income_levels = sorted(data_nivelingresos['nivel de ingresos'].unique())
+
+            # Asignar colores personalizados a cada nivel de ingresos
+            colors = {
+                "Ingresos bajos": "#EF553B",
+                "Ingresos medianos bajos": "#00CC96",
+                "Ingresos medianos altos": "#636EFA",
+                "Ingresos altos": "#AB63FA"
+            }
+
+            # Crear la figura Plotly
+            fig = go.Figure()
+
+            # Añadir las trazas de datos
+            for i, level in enumerate(income_levels):
+                # Filtrar datos por nivel de ingresos
+                level_data = data_nivelingresos[data_nivelingresos['nivel de ingresos'] == level]
+
+                # Añadir la línea al gráfico
+                fig.add_trace(
+                    go.Scatter(
+                        x=level_data['year'],
+                        y=level_data['prevalencia (%)'],
+                        mode="lines+markers",
+                        line=dict(color=colors.get(level, "gray"), width=2),  # Usar colores predefinidos si existen
+                        marker=dict(size=6),  # Tamaño de los marcadores
+                        name=level,  # Nombre del nivel de ingresos
+                        hovertemplate=f"<b>{level}</b><br>Año: %{x}<br>Prevalencia: %{y:.2f}%<extra></extra>",
+                    )
+                )
+
+            # Añadir anotaciones cerca del último punto para cada nivel de ingresos
+            y_offset = 0.5  # Ajuste vertical entre las anotaciones (evitar superposición)
+            for i, level in enumerate(income_levels):
+                level_data = data_nivelingresos[data_nivelingresos['nivel de ingresos'] == level]
+                last_row = level_data[level_data['year'] == level_data['year'].max()]
+
+                if not last_row.empty:
+                    last_year = last_row['year'].values[0]
+                    last_value = last_row['prevalencia (%)'].values[0]
+
+                    # Añadir la anotación
+                    fig.add_annotation(
+                        x=last_year + 0.5,  # Un poco a la derecha del último año
+                        y=last_value + (y_offset * i),  # Ajuste vertical por nivel
+                        text=f"<b>{level}</b>",  # Texto del nivel de ingresos
+                        font=dict(size=10, color="black"),  # Personalización de la fuente
+                        showarrow=False,
+                        xanchor="left",
+                        align="left",
+                    )
+
+            # Configurar diseño del gráfico
+            fig.update_layout(
+                title={
+                    'text': 'Prevalencia histórica de anemia por nivel de ingresos',
+                    'x': 0.5,  # Centrar título horizontalmente
+                    'xanchor': 'center',
+                    'font': dict(size=16),  # Tamaño de la fuente del título
+                },
+                xaxis=dict(
+                    title='Año',
+                    tickmode='array',
+                    tickvals=sorted(data_nivelingresos['year'].unique()),
+                    showline=True,
+                    linecolor='black',
+                    ticks='outside',  # Marcas fuera del eje
+                    tickwidth=1,
+                ),
+                yaxis=dict(
+                    title='Prevalencia (%)',
+                    showline=True,
+                    linewidth=1,
+                    linecolor='black',
+                ),
+                plot_bgcolor='white',  # Fondo blanco para mayor legibilidad
+                showlegend=False,  # Eliminamos la leyenda; usamos anotaciones dinámicas
+                template="plotly_white",
+                width=900,
+                height=600,  # Ajustar el tamaño del gráfico en Streamlit
+            )
+
+            # Mostrar gráfico en Streamlit
+            st.plotly_chart(fig)
             # Cargar los datos
             data_ind_anemia = pd.read_csv("data/dhs_anemia_final.csv")
 
