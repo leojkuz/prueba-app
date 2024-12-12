@@ -486,7 +486,8 @@ elif menu == "Visualización de datos":
                 st.subheader(f"Prevalencia de anemia en {pais_seleccionado} según el reporte más reciente")
 
                 # Filtrar datos del país
-                data_paises = data_ind_anemia[data_ind_anemia["Pais"] == pais_seleccionado].reset_index()
+                data_paises = data_ind_anemia[data_ind_anemia["Pais"] == pais_seleccionado]
+                data_paises=data_paises.reset_index()
 
                 # Obtener el valor más reciente de "Valor Real"
                 latest_year = data_paises["Year"].max()
@@ -503,7 +504,7 @@ elif menu == "Visualización de datos":
                     "Valor Leve": "{:.2f}%",
                     "Valor Moderado": "{:.2f}%",
                     "Valor Severo": "{:.2f}%"
-                }).background_gradient(cmap="turbo", vmin=0, vmax=100,
+                }).background_gradient(cmap="blackbody", vmin=0, vmax=100,
                                        subset=["Valor General", "Valor Leve", "Valor Moderado", "Valor Severo"])
                              .set_properties(**{"text-align": "center"}))  # Centrar contenido de la tabla
 
