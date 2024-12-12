@@ -239,6 +239,7 @@ elif menu == "Visualización de datos":
 
 
             # Asignar un color único a cada país
+            global assign_colors
             def assign_colors(countries):
                 colors = {}
                 for country in countries:
@@ -269,6 +270,7 @@ elif menu == "Visualización de datos":
 
 
             # Función para graficar prevalencias históricas basadas en los países seleccionados
+            global plot_selected_countries_plotly
             def plot_selected_countries_plotly(countries_selected):
                 if not countries_selected:
                     st.warning("Por favor selecciona al menos un país.")
@@ -281,19 +283,38 @@ elif menu == "Visualización de datos":
                     # Completar los años faltantes
                     country_data = completar_anios(data_historico_pais_est, country)
 
+                    # Dividir los datos en tres segmentos
+                    before_2020 = country_data[country_data['year'] < 2020]
+                    between_2020_2030 = country_data[(country_data['year'] >= 2020) & (country_data['year'] <= 2030)]
+                    after_2030 = country_data[country_data['year'] > 2030]
+
                     # Obtener el color para el país
                     country_color = colors[country]
 
                     # Añadir el segmento antes de 2020 (línea continua)
                     fig.add_trace(
                         go.Scatter(
-                            x=country_data['year'],
-                            y=country_data['prevalencia (%)'],
+                            x=before_2020['year'],
+                            y=before_2020['prevalencia (%)'],
                             mode='lines+markers',
                             name=country,
                             hovertemplate="Prevalencia: %{y:.2f}<extra></extra>",
                             # Personalizar el tooltip sin el símbolo '%'
                             line=dict(color=country_color)  # Usamos el color del país
+                        )
+                    )
+
+                    # Añadir el segmento entre 2020 y 2030 (línea punteada)
+                    fig.add_trace(
+                        go.Scatter(
+                            x=between_2020_2030['year'],
+                            y=between_2020_2030['prevalencia (%)'],
+                            mode='lines+markers',
+                            name=country,
+                            hovertemplate="Prevalencia: %{y:.2f}<extra></extra>",
+                            # Personalizar el tooltip sin el símbolo '%'
+                            line=dict(dash='dot', color=country_color)
+
                         )
                     )
 
@@ -816,6 +837,19 @@ elif menu == "Visualización de datos":
                 En esta sección, hemos adaptado el gráfico interactivo presentado en el capítulo anterior, que permitía comparar la prevalencia de anemia infantil entre diferentes países hasta el año 2019.
                 Ahora, este gráfico no solo sigue permitiendo la selección y comparación de múltiples países, sino que también **incorpora las proyecciones calculadas para cada uno**, basándonos en las tendencias estimadas. Esta extensión resulta esencial para evaluar cómo podrían afectar los patrones globales y locales a cada región, permitiéndonos identificar posibles diferencias entre naciones en el futuro cercano.
                 """)
+            # Obtener la lista de países únicos
+            countries = sorted(data_historico_est['pais'].unique())
+
+            # Asignar un color único a cada país
+            colors = assign_colors(countries)
+            # Crear checkbox para seleccionar países
+            selected_countries = st.multiselect('Selecciona los países', countries)
+
+            # Actualizar y mostrar gráfico dinámicamente según selección de países
+            if selected_countries:
+                plot_selected_countries_plotly(selected_countries)
+            else:
+                st.warning("Por favor selecciona al menos un país.")
 
             st.markdown("""
             ## 📊 Reflexiones sobre los Datos y Proyecciones
