@@ -494,7 +494,7 @@ elif menu == "Visualización de datos":
                 st.plotly_chart(create_gauge(valor_real, pais_seleccionado), use_container_width=True)
 
                 # Tabla bonita con Streamlit
-                st.subheader("Detalles por Año")
+                st.subheader("Reportes de gravedad por año")
                 st.dataframe(data_paises.style.format({
                     "Año": "{:.0f}",
                     "Valor General": "{:.2f}%",
