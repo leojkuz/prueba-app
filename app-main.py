@@ -706,74 +706,82 @@ elif menu == "Visualización de datos":
 
         # Reordenar las columnas para que aparezcan como 'year', 'prevalencia (%)' y 'nivel_geografico'
         data_historico_est = data_historico_est[['year', 'prevalencia (%)', 'nivel geográfico']]
-        # Crear el gráfico de línea con estimaciones
+        # Crear el gráfico de líneas interactivo con Plotly
         fig = go.Figure()
 
-        # Datos históricos (2000-2019)
-        fig.add_trace(
-            go.Scatter(
-                x=data_historico_est[data_historico_est['year'] < 2020]['year'],
-                y=data_historico_est[data_historico_est['year'] < 2020]['prevalencia (%)'],
-                mode='lines+markers',
-                line=dict(color='#1f77b4', width=3),  # Línea sólida azul oscura
-                marker=dict(size=6),
-                name="Datos Históricos"
-            )
-        )
+        # Agregar la línea de datos históricos al gráfico
+        fig.add_trace(go.Scatter(
+            x=data_historico_est[data_historico_est['year'] < 2020]['year'],
+            y=data_historico_est[data_historico_est['year'] < 2020]['prevalencia (%)'],
+            mode='lines+markers',
+            name='Datos Históricos',
+            line=dict(color='#636efa', width=3, shape='spline'),  # Agregamos 'spline' para suavizar la línea
+            marker=dict(size=7, color='#636efa', symbol='circle', line=dict(color='white', width=2)),
+            hovertemplate="<b>Año:</b> %{x}<br><b>Prevalencia:</b> %{y:.2f}%<extra></extra>"
+        ))
 
-        # Datos proyectados (2020-2030)
-        fig.add_trace(
-            go.Scatter(
-                x=data_historico_est[data_historico_est['year'] >= 2019]['year'],
-                y=data_historico_est[data_historico_est['year'] >= 2019]['prevalencia (%)'],
-                mode='lines+markers',
-                line=dict(dash='dot', color='#FF5733', width=3),  # Punteada naranja
-                marker=dict(size=6),
-                name="Proyección"
-            )
-        )
+        # Agregar la línea de datos proyectados al gráfico
+        fig.add_trace(go.Scatter(
+            x=data_historico_est[data_historico_est['year'] >= 2019]['year'],
+            y=data_historico_est[data_historico_est['year'] >= 2019]['prevalencia (%)'],
+            mode='lines+markers',
+            name='Proyección',
+            line=dict(color='#EF553B', width=3, dash='dot'),  # Línea punteada para diferenciar los proyectados
+            marker=dict(size=7, color='#EF553B', symbol='diamond', line=dict(color='white', width=2)),
+            hovertemplate="<b>Año:</b> %{x}<br><b>Proyección:</b> %{y:.2f}%<extra></extra>"
+        ))
 
         # Personalización del diseño general
         fig.update_layout(
-            title={
-                'text': "📉 Prevalencia Global de Anemia Infantil (2000-2030)",
-                'y': 0.9,
-                'x': 0.5,
-                'xanchor': 'center',
-                'yanchor': 'top',
-                'font': dict(color="black")
-            },
+            title=dict(
+                text="<span style='font-size:24px; color:#1f77b4; font-family:Arial;'><b>📉 Prevalencia Global de Anemia Infantil (2000-2030)</b></span>",
+                x=0.5  # Centrar el título
+            ),
             xaxis=dict(
                 title="Año",
-                tickangle=-90,  # Inclinar etiquetas del eje X para mayor claridad
-                tickmode='array',
-                tickvals=list(range(2000, 2031)),  # Desde 2000 a 2030
-                gridcolor='rgba(200, 200, 200, 0.4)',  # Línea sutil del grid
+                title_font=dict(size=16, color='black'),
+                tickfont=dict(size=14, color='black'),
+                tickmode="linear",
+                tickangle=45,  # Rotar los ticks para mayor claridad
+                range=[1999.5, 2030.5],  # Desde justo antes del 2000 hasta 2030
+                showline=True,
+                linewidth=2,
+                linecolor='gray',
+                gridcolor='lightgray'
             ),
             yaxis=dict(
                 title="Prevalencia (%)",
-                range=[10, 50],  # Ajusta según el rango de interés
-                ticksuffix="%",  # Añade símbolo de porcentaje a las etiquetas del eje Y
-                gridcolor='rgba(200, 200, 200, 0.4)'
+                title_font=dict(size=16, color='black'),
+                tickfont=dict(size=14, color='black'),
+                range=[25, 50],  # Ajustar el rango según los datos observados
+                showline=True,
+                linewidth=2,
+                linecolor='gray',
+                gridcolor='lightgray'
             ),
+            plot_bgcolor='rgba(240,240,240,0.95)',  # Fondo claro para el gráfico
+            paper_bgcolor='white',
+            margin=dict(t=100, b=100, l=80, r=80),
             legend=dict(
-                orientation="h",  # Leyenda horizontal
+                orientation="h",  # Leyenda en formato horizontal
+                yanchor="bottom",
+                y=-0.2,
+                xanchor="center",
                 x=0.5,
-                y=-0.15,
-                xanchor="center"
-            ),
-            plot_bgcolor='rgba(245, 246, 249, 1)',  # Fondo muy claro
-            margin=dict(t=50, b=50, l=50, r=50),
-            template="simple_white",
+                title=None  # Ocultar encabezado "Legend"
+            )
         )
 
-        # Configuración del tooltip para el hover
-        fig.update_traces(
-            hovertemplate="Año: %{x}<br>Prevalencia: %{y:.2f}%",
+        # Mejorar interactividad
+        fig.update_traces(marker_line_width=1.5)
+        fig.update_layout(
+            hovermode="x",  # Mostrar tooltip alineado a los valores en X
+            template="simple_white"
         )
 
-        # Mostrar el gráfico con Streamlit
+        # Mostrar el gráfico en Streamlit
         st.plotly_chart(fig, use_container_width=True)
+
         st.markdown("""
         ## 🤔 Reflexiones
 
