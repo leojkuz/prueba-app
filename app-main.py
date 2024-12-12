@@ -652,180 +652,182 @@ elif menu == "Visualización de datos":
                 st.components.v1.html(html_data, width=1200, height=700)
 
     elif viz_menu == "Proyecciones":
-        st.markdown("""
-        # 🌍 Estimaciones Futuras: Mirando hacia el 2030
+        c1, c2 = st.columns([1.2, 0.8])
+        with c1:
+            st.markdown("""
+            # 🌍 Estimaciones Futuras: Mirando hacia el 2030
+    
+            El análisis de datos históricos no solo nos permite comprender lo que ha sucedido, sino que también nos da las herramientas necesarias para **proyectar escenarios futuros**. Al observar cómo han evolucionado los niveles globales de anemia infantil en el pasado, es posible extrapolar esas tendencias para anticipar qué rumbo podrían tomar las próximas décadas.
+    
+            La capacidad de realizar estas estimaciones no es trivial. La posibilidad de **predecir escenarios futuros**, por simplificados que sean, ofrece una base importante para:
+            - **Planificación preventiva:** Si entendemos cómo podría comportarse la prevalencia según las tendencias actuales, es más fácil priorizar estrategias a largo plazo.
+            - **Asignación de recursos:** Países con falta de progreso podrían recibir atención focalizada para cambiar su trayectoria.
+            - **Creación de políticas públicas:** Las proyecciones generan argumentos sólidos para justificar acciones inmediatas en salud pública.
+    
+            El siguiente gráfico, presenta datos a comparar que muestra:
+            1. Los datos históricos disponibles desde el año 2000 hasta el 2019.
+            2. Una extrapolación proyectada de esos patrones basada en tendencias observadas, extendiendo el análisis hasta el 2030.
+            """)
 
-        El análisis de datos históricos no solo nos permite comprender lo que ha sucedido, sino que también nos da las herramientas necesarias para **proyectar escenarios futuros**. Al observar cómo han evolucionado los niveles globales de anemia infantil en el pasado, es posible extrapolar esas tendencias para anticipar qué rumbo podrían tomar las próximas décadas.
+            # Cargar los datos históricos
+            data_historico_est = pd.read_csv("data/world_bank_anemia_mundial_listo.csv")
 
-        La capacidad de realizar estas estimaciones no es trivial. La posibilidad de **predecir escenarios futuros**, por simplificados que sean, ofrece una base importante para:
-        - **Planificación preventiva:** Si entendemos cómo podría comportarse la prevalencia según las tendencias actuales, es más fácil priorizar estrategias a largo plazo.
-        - **Asignación de recursos:** Países con falta de progreso podrían recibir atención focalizada para cambiar su trayectoria.
-        - **Creación de políticas públicas:** Las proyecciones generan argumentos sólidos para justificar acciones inmediatas en salud pública.
+            # Ordenamos los datos por año de forma ascendente (aseguramos que estén en orden cronológico)
+            data_historico_est = data_historico_est.sort_values(by='year', ascending=True)
 
-        El siguiente gráfico, presenta datos a comparar que muestra:
-        1. Los datos históricos disponibles desde el año 2000 hasta el 2019.
-        2. Una extrapolación proyectada de esos patrones basada en tendencias observadas, extendiendo el análisis hasta el 2030.
-        """)
+            # Calcular el factor de crecimiento promedio (promedio de las variaciones porcentuales año tras año)
+            factor_crecimiento = (data_historico_est[
+                                      'prevalencia (%)'].pct_change().mean() + 1)  # Para que sea un factor de multiplicación
 
-        # Cargar los datos históricos
-        data_historico_est = pd.read_csv("data/world_bank_anemia_mundial_listo.csv")
+            # Lista para almacenar los datos con las estimaciones proyectadas
+            datos_con_estimaciones = []
 
-        # Ordenamos los datos por año de forma ascendente (aseguramos que estén en orden cronológico)
-        data_historico_est = data_historico_est.sort_values(by='year', ascending=True)
+            # Agregar los datos originales al conjunto de datos de estimaciones
+            for _, row in data_historico_est.iterrows():
+                datos_con_estimaciones.append({
+                    'year': row['year'],
+                    'nivel geográfico': row['nivel geográfico'],  # Usar nivel_geografico
+                    'prevalencia (%)': row['prevalencia (%)']
+                })
 
-        # Calcular el factor de crecimiento promedio (promedio de las variaciones porcentuales año tras año)
-        factor_crecimiento = (data_historico_est[
-                                  'prevalencia (%)'].pct_change().mean() + 1)  # Para que sea un factor de multiplicación
+            # Proyectar valores desde 2020 hasta 2030 usando el factor de crecimiento
+            ultima_prevalencia = data_historico_est['prevalencia (%)'].iloc[-1]  # Último valor conocido (2019)
 
-        # Lista para almacenar los datos con las estimaciones proyectadas
-        datos_con_estimaciones = []
+            # El último valor de 'nivel_geografico' será el mismo en las proyecciones
+            nivel_geografico = data_historico_est['nivel geográfico'].iloc[0]
 
-        # Agregar los datos originales al conjunto de datos de estimaciones
-        for _, row in data_historico_est.iterrows():
-            datos_con_estimaciones.append({
-                'year': row['year'],
-                'nivel geográfico': row['nivel geográfico'],  # Usar nivel_geografico
-                'prevalencia (%)': row['prevalencia (%)']
-            })
+            for year in range(2020, 2031):
+                ultima_prevalencia *= factor_crecimiento  # Aplicar el factor de crecimiento
+                datos_con_estimaciones.append({
+                    'year': year,
+                    'nivel geográfico': 'Mundial',  # Mantener el mismo nivel_geografico
+                    'prevalencia (%)': ultima_prevalencia
+                })
 
-        # Proyectar valores desde 2020 hasta 2030 usando el factor de crecimiento
-        ultima_prevalencia = data_historico_est['prevalencia (%)'].iloc[-1]  # Último valor conocido (2019)
+            # Convertir los datos con estimaciones a un DataFrame
+            data_historico_est = pd.DataFrame(datos_con_estimaciones)
 
-        # El último valor de 'nivel_geografico' será el mismo en las proyecciones
-        nivel_geografico = data_historico_est['nivel geográfico'].iloc[0]
+            # Reordenar las columnas para que aparezcan como 'year', 'prevalencia (%)' y 'nivel_geografico'
+            data_historico_est = data_historico_est[['year', 'prevalencia (%)', 'nivel geográfico']]
+            # Crear el gráfico de líneas interactivo con Plotly
+            fig = go.Figure()
 
-        for year in range(2020, 2031):
-            ultima_prevalencia *= factor_crecimiento  # Aplicar el factor de crecimiento
-            datos_con_estimaciones.append({
-                'year': year,
-                'nivel geográfico': 'Mundial',  # Mantener el mismo nivel_geografico
-                'prevalencia (%)': ultima_prevalencia
-            })
+            # Agregar la línea de datos históricos al gráfico
+            fig.add_trace(go.Scatter(
+                x=data_historico_est[data_historico_est['year'] < 2020]['year'],
+                y=data_historico_est[data_historico_est['year'] < 2020]['prevalencia (%)'],
+                mode='lines+markers',
+                name='Datos Históricos',
+                line=dict(color='#636efa', width=3, shape='spline'),  # Agregamos 'spline' para suavizar la línea
+                marker=dict(size=7, color='#636efa', symbol='circle', line=dict(color='white', width=2)),
+                hovertemplate="<b>Año:</b> %{x}<br><b>Prevalencia:</b> %{y:.2f}%<extra></extra>"
+            ))
+            # Agregar la interseccion
+            fig.add_trace(go.Scatter(
+                x=data_historico_est[(data_historico_est['year'] >= 2019) & (data_historico_est['year'] <= 2020)]['year'],
+                y=data_historico_est[(data_historico_est['year'] >= 2019) & (data_historico_est['year'] <= 2020)]['prevalencia (%)'],
+                mode='lines+markers',
+                name='Datos Históricos',
+                line=dict(color='#636efa', width=3, shape='spline'),  # Agregamos 'spline' para suavizar la línea
+                marker=dict(size=7, color='#636efa', symbol='circle', line=dict(color='white', width=2)),
+                hoverinfo="skip",
+                showlegend=False
+            ))
 
-        # Convertir los datos con estimaciones a un DataFrame
-        data_historico_est = pd.DataFrame(datos_con_estimaciones)
+            # Agregar la línea de datos proyectados al gráfico
+            fig.add_trace(go.Scatter(
+                x=data_historico_est[data_historico_est['year'] >= 2020]['year'],
+                y=data_historico_est[data_historico_est['year'] >= 2020]['prevalencia (%)'],
+                mode='lines+markers',
+                name='Proyección',
+                line=dict(color='#EF553B', width=3, dash='dot'),  # Línea punteada para diferenciar los proyectados
+                marker=dict(size=7, color='#EF553B', symbol='diamond', line=dict(color='white', width=2)),
+                hovertemplate="<b>Año:</b> %{x}<br><b>Proyección:</b> %{y:.2f}%<extra></extra>"
+            ))
 
-        # Reordenar las columnas para que aparezcan como 'year', 'prevalencia (%)' y 'nivel_geografico'
-        data_historico_est = data_historico_est[['year', 'prevalencia (%)', 'nivel geográfico']]
-        # Crear el gráfico de líneas interactivo con Plotly
-        fig = go.Figure()
-
-        # Agregar la línea de datos históricos al gráfico
-        fig.add_trace(go.Scatter(
-            x=data_historico_est[data_historico_est['year'] < 2020]['year'],
-            y=data_historico_est[data_historico_est['year'] < 2020]['prevalencia (%)'],
-            mode='lines+markers',
-            name='Datos Históricos',
-            line=dict(color='#636efa', width=3, shape='spline'),  # Agregamos 'spline' para suavizar la línea
-            marker=dict(size=7, color='#636efa', symbol='circle', line=dict(color='white', width=2)),
-            hovertemplate="<b>Año:</b> %{x}<br><b>Prevalencia:</b> %{y:.2f}%<extra></extra>"
-        ))
-        # Agregar la interseccion
-        fig.add_trace(go.Scatter(
-            x=data_historico_est[(data_historico_est['year'] >= 2019) & (data_historico_est['year'] <= 2020)]['year'],
-            y=data_historico_est[(data_historico_est['year'] >= 2019) & (data_historico_est['year'] <= 2020)]['prevalencia (%)'],
-            mode='lines+markers',
-            name='Datos Históricos',
-            line=dict(color='#636efa', width=3, shape='spline'),  # Agregamos 'spline' para suavizar la línea
-            marker=dict(size=7, color='#636efa', symbol='circle', line=dict(color='white', width=2)),
-            hoverinfo="skip",
-            showlegend=False
-        ))
-
-        # Agregar la línea de datos proyectados al gráfico
-        fig.add_trace(go.Scatter(
-            x=data_historico_est[data_historico_est['year'] >= 2020]['year'],
-            y=data_historico_est[data_historico_est['year'] >= 2020]['prevalencia (%)'],
-            mode='lines+markers',
-            name='Proyección',
-            line=dict(color='#EF553B', width=3, dash='dot'),  # Línea punteada para diferenciar los proyectados
-            marker=dict(size=7, color='#EF553B', symbol='diamond', line=dict(color='white', width=2)),
-            hovertemplate="<b>Año:</b> %{x}<br><b>Proyección:</b> %{y:.2f}%<extra></extra>"
-        ))
-
-        # Personalización del diseño general
-        fig.update_layout(
-            title=dict(
-                text="<span style='font-size:24px; color:#1f77b4; font-family:Arial;'><b>📉 Estimación Futura de Anemia Infantil (2000-2030)</b></span>",
-                x=0.2),
-            xaxis=dict(
-                title="Año",
-                title_font=dict(size=16, color='black'),
-                tickfont=dict(size=14, color='black'),
-                tickmode="linear",
-                tickangle=45,  # Rotar los ticks para mayor claridad
-                range=[1999.5, 2030.5],  # Desde justo antes del 2000 hasta 2030
-                showline=True,
-                linewidth=2,
-                linecolor='gray',
-                gridcolor='lightgray'
-            ),
-            yaxis=dict(
-                title="Prevalencia (%)",
-                title_font=dict(size=16, color='black'),
-                tickfont=dict(size=14, color='black'),
-                range=[25, 50],  # Ajustar el rango según los datos observados
-                showline=True,
-                linewidth=2,
-                linecolor='gray',
-                gridcolor='lightgray'
-            ),
-            plot_bgcolor='rgba(240,240,240,0.95)',  # Fondo claro para el gráfico
-            paper_bgcolor='white',
-            margin=dict(t=100, b=100, l=80, r=80),
-            legend=dict(
-                orientation="h",  # Leyenda en formato horizontal
-                yanchor="bottom",
-                y=-0.2,
-                xanchor="center",
-                x=0.5,
-                title=None  # Ocultar encabezado "Legend"
-            )
-        )
-
-        # Mejorar interactividad
-        fig.update_traces(marker_line_width=1.5)
-        fig.update_layout(
-            hovermode="x",  # Mostrar tooltip alineado a los valores en X
-            template="simple_white"
-        )
-        # Leyenda
-        fig.update_layout(
-            legend=dict(
-                orientation="v",  # Leyenda en formato vertical
-                yanchor="top",  # Alinear la parte superior con el margen
-                y=1,  # Mantener la posición de la leyenda en la parte superior
-                xanchor="left",  # Anclar al lado izquierdo
-                x=1.02,  # Empujar la leyenda fuera de la gráfica (a la derecha)
-                font=dict(
-                    size=12,  # Ajustar tamaño de la fuente
-                    color="black"  # Establecer el color de la fuente como negro
+            # Personalización del diseño general
+            fig.update_layout(
+                title=dict(
+                    text="<span style='font-size:24px; color:#1f77b4; font-family:Arial;'><b>📉 Estimación Futura de Anemia Infantil (2000-2030)</b></span>",
+                    x=0.2),
+                xaxis=dict(
+                    title="Año",
+                    title_font=dict(size=16, color='black'),
+                    tickfont=dict(size=14, color='black'),
+                    tickmode="linear",
+                    tickangle=45,  # Rotar los ticks para mayor claridad
+                    range=[1999.5, 2030.5],  # Desde justo antes del 2000 hasta 2030
+                    showline=True,
+                    linewidth=2,
+                    linecolor='gray',
+                    gridcolor='lightgray'
                 ),
-                bordercolor="gray",  # (opcional) Borde alrededor de la leyenda para resaltarla
-                borderwidth=1  # Ancho del borde de la leyenda (opcional)
+                yaxis=dict(
+                    title="Prevalencia (%)",
+                    title_font=dict(size=16, color='black'),
+                    tickfont=dict(size=14, color='black'),
+                    range=[25, 50],  # Ajustar el rango según los datos observados
+                    showline=True,
+                    linewidth=2,
+                    linecolor='gray',
+                    gridcolor='lightgray'
+                ),
+                plot_bgcolor='rgba(240,240,240,0.95)',  # Fondo claro para el gráfico
+                paper_bgcolor='white',
+                margin=dict(t=100, b=100, l=80, r=80),
+                legend=dict(
+                    orientation="h",  # Leyenda en formato horizontal
+                    yanchor="bottom",
+                    y=-0.2,
+                    xanchor="center",
+                    x=0.5,
+                    title=None  # Ocultar encabezado "Legend"
+                )
             )
-        )
-        # Mostrar el gráfico en Streamlit
-        st.plotly_chart(fig, use_container_width=True)
 
-        st.markdown("""
-        ## 📊 Reflexiones sobre los Datos y Proyecciones
+            # Mejorar interactividad
+            fig.update_traces(marker_line_width=1.5)
+            fig.update_layout(
+                hovermode="x",  # Mostrar tooltip alineado a los valores en X
+                template="simple_white"
+            )
+            # Leyenda
+            fig.update_layout(
+                legend=dict(
+                    orientation="v",  # Leyenda en formato vertical
+                    yanchor="top",  # Alinear la parte superior con el margen
+                    y=1,  # Mantener la posición de la leyenda en la parte superior
+                    xanchor="left",  # Anclar al lado izquierdo
+                    x=1.02,  # Empujar la leyenda fuera de la gráfica (a la derecha)
+                    font=dict(
+                        size=12,  # Ajustar tamaño de la fuente
+                        color="black"  # Establecer el color de la fuente como negro
+                    ),
+                    bordercolor="gray",  # (opcional) Borde alrededor de la leyenda para resaltarla
+                    borderwidth=1  # Ancho del borde de la leyenda (opcional)
+                )
+            )
+            # Mostrar el gráfico en Streamlit
+            st.plotly_chart(fig, use_container_width=True)
 
-        El análisis de los datos históricos revela un comportamiento importante: si bien la prevalencia global de la anemia infantil ha mostrado una **tendencia decreciente desde los años 2000**, esta mejora ha ocurrido a un ritmo **moderado a lento**. Este hecho es significativo porque refleja que, aunque existen avances globales en nutrición y desarrollo infantil, estos no han sido lo suficientemente acelerados como para lograr una reducción más sustancial.
-
-        #### Puntos Clave:
-        1. **Tendencia General:** La prevalencia promedio a nivel mundial ha disminuido desde niveles cercanos al 45% en el año 2000 hasta valores alrededor del 35% al cierre del 2019 (según los datos históricos). Sin embargo, esta reducción representa menos del 1% anual en promedio.
-        
-        2. **Proyección Futura:** El modelo predictivo sugiere que, si las condiciones observadas en las últimas dos décadas permanecen constantes, el porcentaje global podría alcanzar valores cercanos al 35% para el año 2030. Aunque esto indica una mejora progresiva en términos absolutos, podría argumentarse que el ritmo no es lo suficientemente acelerado para cumplir objetivos globales más ambiciosos.
-        
-        3. **Limitaciones del Análisis:** Es crucial tener presente que las proyecciones aquí expuestas asumen que las tendencias pasadas continuarán inalteradas. Factores disruptivos —por ejemplo, pandemias globales o intervenciones masivas— podrían cambiar radicalmente las trayectorias proyectadas.
-        
-        #### Conclusión:
-        El principal aprendizaje extraído de este análisis es que los esfuerzos por combatir la anemia infantil globalmente han tenido un impacto positivo pero **marginal** en términos estadísticos. El descenso observado en las últimas dos décadas da lugar a una tendencia predecible pero insuficiente para la eliminación total del problema a mediano plazo.
-        
-        Este comportamiento resalta la importancia de continuar monitoreando indicadores clave y ajustar periódicamente estos modelos predictivos utilizando información actualizada. De esta manera, se pueden construir escenarios futuros más dinámicos que reflejen mejor los contextos globales cambiantes.
-
-        """)
+            st.markdown("""
+            ## 📊 Reflexiones sobre los Datos y Proyecciones
+    
+            El análisis de los datos históricos revela un comportamiento importante: si bien la prevalencia global de la anemia infantil ha mostrado una **tendencia decreciente desde los años 2000**, esta mejora ha ocurrido a un ritmo **moderado a lento**. Este hecho es significativo porque refleja que, aunque existen avances globales en nutrición y desarrollo infantil, estos no han sido lo suficientemente acelerados como para lograr una reducción más sustancial.
+    
+            #### Puntos Clave:
+            1. **Tendencia General:** La prevalencia promedio a nivel mundial ha disminuido desde niveles cercanos al 45% en el año 2000 hasta valores alrededor del 35% al cierre del 2019 (según los datos históricos). Sin embargo, esta reducción representa menos del 1% anual en promedio.
+            
+            2. **Proyección Futura:** El modelo predictivo sugiere que, si las condiciones observadas en las últimas dos décadas permanecen constantes, el porcentaje global podría alcanzar valores cercanos al 35% para el año 2030. Aunque esto indica una mejora progresiva en términos absolutos, podría argumentarse que el ritmo no es lo suficientemente acelerado para cumplir objetivos globales más ambiciosos.
+            
+            3. **Limitaciones del Análisis:** Es crucial tener presente que las proyecciones aquí expuestas asumen que las tendencias pasadas continuarán inalteradas. Factores disruptivos —por ejemplo, pandemias globales o intervenciones masivas— podrían cambiar radicalmente las trayectorias proyectadas.
+            
+            #### Conclusión:
+            El principal aprendizaje extraído de este análisis es que los esfuerzos por combatir la anemia infantil globalmente han tenido un impacto positivo pero **marginal** en términos estadísticos. El descenso observado en las últimas dos décadas da lugar a una tendencia predecible pero insuficiente para la eliminación total del problema a mediano plazo.
+            
+            Este comportamiento resalta la importancia de continuar monitoreando indicadores clave y ajustar periódicamente estos modelos predictivos utilizando información actualizada. De esta manera, se pueden construir escenarios futuros más dinámicos que reflejen mejor los contextos globales cambiantes.
+    
+            """)
 
 
 
