@@ -428,7 +428,7 @@ elif menu == "Visualización de datos":
                 arrowhead=3,
                 arrowsize=1,
                 arrowwidth=4,
-                arrowcolor="white"
+                arrowcolor="#e3e7e8"
             )
 
             # Agregar el texto del valor debajo del gráfico
