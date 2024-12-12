@@ -426,6 +426,8 @@ elif menu == "Visualización de datos":
                 height=300,  # Altura del gráfico
                 margin=dict(t=50, b=0, l=50, r=50),  # Márgenes compactos
                 font=dict(color="white", family="Arial"),  # Estilo tipográfico (limpio)
+                paper_bgcolor="#1E1E1E",  # Fondo oscuro profesional
+                plot_bgcolor="#1E1E1E"
             )
             return fig
 
