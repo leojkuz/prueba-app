@@ -409,7 +409,7 @@ elif menu == "Visualización de datos":
             # Calcular la posición de la flecha en coordenadas polares
             angle = (value / 100) * 180  # Convertir el valor a un ángulo en grados
             angle_rad = np.radians(angle)  # Convertir a radianes
-            unit = np.array([np.cos(np.pi-angle), np.sin(np.pi-angle)])
+            unit = np.array([np.cos(np.pi-angle_rad), np.sin(np.pi-angle_rad)])
             ro = 0.9
             ri = 0
             ax, ay = ri * unit
