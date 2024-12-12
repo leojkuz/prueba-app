@@ -384,7 +384,7 @@ elif menu == "Visualización de datos":
                     title={'text': f"<b>{country}</b><br>Prevalencia de Anemia", 'font': {'size': 20}},
                     gauge={
                         'axis': {'range': [0, 100], 'tickwidth': 2, 'tickcolor': "#000"},
-                        'bar': {'color': "#FF4D4D"},  # Barra roja
+                        'bar': {'color': "#295491"},  # Barra roja
                         'steps': [
                             {'range': [0, 20], 'color': "#32CD32"},  # Verde
                             {'range': [20, 40], 'color': "#FFD700"},  # Amarillo
