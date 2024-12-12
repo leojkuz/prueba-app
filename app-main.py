@@ -135,7 +135,8 @@ elif menu == "Visualización de datos":
         prevalence = [51.3, 49.2, 45.0, 44.8, 42.1, 41.3, 40.5, 39.8, 38.8, 37.3]
 
         # Dashboard Principal
-        st.write("### Un análisis más detallado de la situación global e indicadores clave sobre la anemia infantil en 2019.")
+        st.write("### Un análisis más detallado de la situación global e histórica de la anemia infantil")
+        st.write("### Indicadores de resumen en 2019")
 
         # Indicadores (Méritos)
         col1, col2, col3 = st.columns(3)
