@@ -432,7 +432,6 @@ elif menu == "Visualización de datos":
             # Configuración del diseño
             fig.update_layout(
                 height=300,  # Altura del gráfico
-                width=300,
                 margin=dict(t=50, b=50, l=50, r=50),  # Márgenes compactos
                 font=dict(color="white", family="Arial"),  # Estilo tipográfico (limpio)
                 xaxis=dict(scaleanchor="y"),  # Vincular la escala del eje X con el eje Y
