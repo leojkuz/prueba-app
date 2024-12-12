@@ -653,17 +653,105 @@ elif menu == "Visualización de datos":
 
     elif viz_menu == "Proyecciones":
         st.subheader("Proyecciones Futuras")
+        st.markdown("""
+        # 🌍 Proyección Global: La Anemia Infantil hasta el 2030
 
-        # Gráfico de líneas inventado
-        years = [2023, 2024, 2025, 2026]
-        prevalence = [28, 27.5, 27, 26.3]
+        Previamente hemos explorado los datos históricos que reflejan la prevalencia de anemia infantil a nivel global. Estos análisis permiten entender cómo los niveles de anemia han afectado a nuestra población en las últimas décadas.
 
-        fig, ax = plt.subplots()
-        ax.plot(years, prevalence, marker="o")
-        ax.set_title("Disminución Proyectada de Anemia (%)")
-        ax.set_xlabel("Año")
-        ax.set_ylabel("Prevalencia (%)")
-        st.pyplot(fig)
+        Sin embargo, para poder planificar estrategias efectivas de mitigación, también es fundamental **mirar hacia el futuro**. Si las condiciones actuales persisten, podemos hacer estimaciones basadas en los patrones históricos que nos permitan anticiparnos y actuar.
+
+        A continuación, se presenta un análisis combinado: los datos históricos desde el año 2000 hasta 2019 y **una proyección hasta el año 2030** si las tasas de crecimiento observadas se mantienen constantes.
+
+        🌟 **¿Qué esperarás ver aquí?**
+        - Una representación clara de cómo hemos estado afectados hasta ahora.
+        - Una estimación tentativa para comprender dónde podríamos estar en el futuro.
+        """)
+        # Crear el gráfico de línea con estimaciones
+        fig = go.Figure()
+
+        # Datos históricos (2000-2019)
+        fig.add_trace(
+            go.Scatter(
+                x=data_historico_est[data_historico_est['year'] < 2020]['year'],
+                y=data_historico_est[data_historico_est['year'] < 2020]['prevalencia (%)'],
+                mode='lines+markers',
+                line=dict(color='#1f77b4', width=3),  # Línea sólida azul oscura
+                marker=dict(size=6),
+                name="Datos Históricos"
+            )
+        )
+
+        # Datos proyectados (2020-2030)
+        fig.add_trace(
+            go.Scatter(
+                x=data_historico_est[data_historico_est['year'] >= 2020]['year'],
+                y=data_historico_est[data_historico_est['year'] >= 2020]['prevalencia (%)'],
+                mode='lines+markers',
+                line=dict(dash='dot', color='#FF5733', width=3),  # Punteada naranja
+                marker=dict(size=6),
+                name="Proyección"
+            )
+        )
+
+        # Personalización del diseño general
+        fig.update_layout(
+            title={
+                'text': "📉 Prevalencia Global de Anemia Infantil (2000-2030)",
+                'y': 0.9,
+                'x': 0.5,
+                'xanchor': 'center',
+                'yanchor': 'top'
+            },
+            xaxis=dict(
+                title="Año",
+                tickangle=-90,  # Inclinar etiquetas del eje X para mayor claridad
+                tickmode='array',
+                tickvals=list(range(2000, 2031)),  # Desde 2000 a 2030
+                gridcolor='rgba(200, 200, 200, 0.4)',  # Línea sutil del grid
+            ),
+            yaxis=dict(
+                title="Prevalencia (%)",
+                range=[10, 50],  # Ajusta según el rango de interés
+                ticksuffix="%",  # Añade símbolo de porcentaje a las etiquetas del eje Y
+                gridcolor='rgba(200, 200, 200, 0.4)'
+            ),
+            legend=dict(
+                orientation="h",  # Leyenda horizontal
+                x=0.5,
+                y=-0.15,
+                xanchor="center"
+            ),
+            plot_bgcolor='rgba(245, 246, 249, 1)',  # Fondo muy claro
+            margin=dict(t=50, b=50, l=50, r=50),
+            template="simple_white",
+        )
+
+        # Configuración del tooltip para el hover
+        fig.update_traces(
+            hovertemplate="Año: %{x}<br>Prevalencia: %{y:.2f}%",
+        )
+
+        # Mostrar el gráfico con Streamlit
+        st.plotly_chart(fig, use_container_width=True)
+        st.markdown("""
+        ## 🤔 Reflexiones
+
+        Este análisis destaca cómo hemos estado afectados por la anemia infantil en las últimas dos décadas y cómo, bajo las mismas condiciones observadas hasta ahora, podríamos enfrentarnos a un panorama preocupante si no actuamos prontamente.
+
+        📌 **Datos Clave:**
+        1. Las tasas globales de anemia infantil han mostrado una disminución modesta desde el año 2000.
+        2. Si bien las proyecciones hacia el futuro sugieren una tendencia hacia mejoras continuas, aún existen riesgos significativos en regiones más vulnerables.
+
+        🔍 **¿Qué sigue?**
+        Este no es solo un ejercicio informativo. Este tipo de modelos nos permite:
+        - **Evaluar riesgos futuros y planificar soluciones proactivas.**
+        - Identificar áreas donde la intervención es más urgente.
+        - Monitorear el impacto de políticas específicas a lo largo del tiempo.
+
+        🌟 **¿Cuáles son tus ideas?** Si alguna región o tendencia llama tu atención, ¡profundicemos juntos!
+        """)
+
+
 
     elif viz_menu == "Factores Relacionados":
         st.subheader("Factores Relacionados")
