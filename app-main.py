@@ -837,7 +837,7 @@ elif menu == "Visualización de datos":
                 En esta sección, hemos adaptado el gráfico interactivo presentado en el capítulo anterior, que permitía comparar la prevalencia de anemia infantil entre diferentes países hasta el año 2019.
                 Ahora, este gráfico no solo sigue permitiendo la selección y comparación de múltiples países, sino que también **incorpora las proyecciones calculadas para cada uno**, basándonos en las tendencias estimadas. Esta extensión resulta esencial para evaluar cómo podrían afectar los patrones globales y locales a cada región, permitiéndonos identificar posibles diferencias entre naciones en el futuro cercano.
                 """)
-            data = pd.read_csv(r"world_bank_anemia_paises_listo.csv")
+            data = pd.read_csv("data/world_bank_anemia_paises_listo.csv")
 
             # Limpiar nombres de columnas (por si tienen espacios adicionales)
             data.columns = data.columns.str.strip()
@@ -888,7 +888,7 @@ elif menu == "Visualización de datos":
             countries = sorted(data_historico_pais_est['pais'].unique())
 
             # Generar colores aleatorios para cada país
-            colors = {country: f"#{random.randint(0, 0xFFFFFF):06x}" for country in country_data}
+            colors = {country: f"#{random.randint(0, 0xFFFFFF):06x}" for country in countries}
 
 
             # Función para obtener estadísticas y generar mensajes
