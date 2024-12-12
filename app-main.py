@@ -387,6 +387,7 @@ elif menu == "Visualización de datos":
                 go.Indicator(
                     mode="gauge+number",
                     value=value,
+                    domain={'x': [0, 1], 'y': [0, 1]},
                     title={'text': f"<b>{estado}</b>", 'font': {'size': 20, 'color': "white"}},
                     gauge={
                         'axis': {'range': [0, 100], 'tickwidth': 2, 'tickcolor': "#000"},
