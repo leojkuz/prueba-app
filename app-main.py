@@ -740,8 +740,7 @@ elif menu == "Visualización de datos":
                 'y': 0.9,
                 'x': 0.5,
                 'xanchor': 'center',
-                'yanchor': 'top',
-                'color': 'black'
+                'yanchor': 'top'
             },
             xaxis=dict(
                 title="Año",
