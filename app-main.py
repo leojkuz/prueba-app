@@ -771,6 +771,7 @@ elif menu == "Visualización de datos":
 
         🌟 **¿Cuáles son tus ideas?** Si alguna región o tendencia llama tu atención, ¡profundicemos juntos!
         """)
+        st.dataframe(data_historico_y_proyectado)
 
 
 
