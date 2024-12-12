@@ -148,6 +148,74 @@ elif menu == "Visualización de datos":
             st.metric(label="Continente más afectado", value="Asia (???? %) Pendiente")
 
         with col3:
+            print("s")
+
+        col1, col2 = st.columns([1.9, 1.1])
+
+        with col1:
+            # Cargar los datos desde el archivo CSV
+            data_historico = pd.read_csv("data/world_bank_anemia_mundial_listo.csv")
+
+            # Crear el gráfico de líneas interactivo con Plotly
+            fig = go.Figure()
+
+            # Agregar la línea principal al gráfico
+            fig.add_trace(go.Scatter(
+                x=data_historico["year"],
+                y=data_historico["prevalencia (%)"],
+                mode='lines+markers',
+                name='Prevalencia',
+                line=dict(color='#636efa', width=3),
+                marker=dict(size=7, color='#636efa', symbol='circle', line=dict(color='white', width=2)),
+                hovertemplate="<b>Año:</b> %{x}<br><b>Prevalencia:</b> %{y:.2f}%<extra></extra>"
+            ))
+
+            fig.update_traces(line_shape='spline')
+
+            # Personalización del diseño del gráfico
+            fig.update_layout(
+                title=dict(
+                    text="<span style='font-size:26px; color:#1f77b4; font-family:Roboto;'><b>🌎 Prevalencia Histórica de Anemia infantil (2000-2019) 🩸</b></span>",
+                    x=0.12 # Centrar el título
+                ),
+                xaxis=dict(
+                    title="Año",
+                    title_font=dict(size=16, color='black'),
+                    tickfont=dict(size=14, color='black'),
+                    tickmode="linear",
+                    tickangle=45,  # Rotar los ticks para que no se apilen
+                    range=[1999.5, 2019.5],
+                    showline=True,
+                    linewidth=2,
+                    linecolor='gray',
+                    gridcolor='lightgray'
+                ),
+                yaxis=dict(
+                    title="Prevalencia (%)",
+                    title_font=dict(size=16, color='black'),
+                    tickfont=dict(size=14, color='black'),
+                    range=[25, 50],  # Ajustar el rango según los datos
+                    showline=True,
+                    linewidth=2,
+                    linecolor='gray',
+                    gridcolor='lightgray'
+                ),
+                plot_bgcolor='rgba(240,240,240,0.95)',  # Fondo claro para el gráfico
+                paper_bgcolor='white',
+                margin=dict(t=100, b=100, l=80, r=80)
+            )
+
+            # Mejorar interactividad (opcional)
+            fig.update_traces(marker_line_width=1.5)
+            fig.update_layout(
+                hovermode="x",  # Mostrar valores al pasar sobre la línea
+                template="simple_white"
+            )
+
+            # Mostrar el gráfico en Streamlit (si lo necesitas)
+            st.plotly_chart(fig)
+
+        with col2:
             st.subheader("Prevalencia histórica de anemia por niveles de ingresos")
 
             # Cargar datos del CSV
@@ -243,74 +311,6 @@ elif menu == "Visualización de datos":
 
             # Mostrar gráfico en Streamlit
             st.plotly_chart(fig)
-
-        col1, col2 = st.columns([1.9, 1.1])
-
-        with col1:
-            # Cargar los datos desde el archivo CSV
-            data_historico = pd.read_csv("data/world_bank_anemia_mundial_listo.csv")
-
-            # Crear el gráfico de líneas interactivo con Plotly
-            fig = go.Figure()
-
-            # Agregar la línea principal al gráfico
-            fig.add_trace(go.Scatter(
-                x=data_historico["year"],
-                y=data_historico["prevalencia (%)"],
-                mode='lines+markers',
-                name='Prevalencia',
-                line=dict(color='#636efa', width=3),
-                marker=dict(size=7, color='#636efa', symbol='circle', line=dict(color='white', width=2)),
-                hovertemplate="<b>Año:</b> %{x}<br><b>Prevalencia:</b> %{y:.2f}%<extra></extra>"
-            ))
-
-            fig.update_traces(line_shape='spline')
-
-            # Personalización del diseño del gráfico
-            fig.update_layout(
-                title=dict(
-                    text="<span style='font-size:26px; color:#1f77b4; font-family:Roboto;'><b>🌎 Prevalencia Histórica de Anemia infantil (2000-2019) 🩸</b></span>",
-                    x=0.12 # Centrar el título
-                ),
-                xaxis=dict(
-                    title="Año",
-                    title_font=dict(size=16, color='black'),
-                    tickfont=dict(size=14, color='black'),
-                    tickmode="linear",
-                    tickangle=45,  # Rotar los ticks para que no se apilen
-                    range=[1999.5, 2019.5],
-                    showline=True,
-                    linewidth=2,
-                    linecolor='gray',
-                    gridcolor='lightgray'
-                ),
-                yaxis=dict(
-                    title="Prevalencia (%)",
-                    title_font=dict(size=16, color='black'),
-                    tickfont=dict(size=14, color='black'),
-                    range=[25, 50],  # Ajustar el rango según los datos
-                    showline=True,
-                    linewidth=2,
-                    linecolor='gray',
-                    gridcolor='lightgray'
-                ),
-                plot_bgcolor='rgba(240,240,240,0.95)',  # Fondo claro para el gráfico
-                paper_bgcolor='white',
-                margin=dict(t=100, b=100, l=80, r=80)
-            )
-
-            # Mejorar interactividad (opcional)
-            fig.update_traces(marker_line_width=1.5)
-            fig.update_layout(
-                hovermode="x",  # Mostrar valores al pasar sobre la línea
-                template="simple_white"
-            )
-
-            # Mostrar el gráfico en Streamlit (si lo necesitas)
-            st.plotly_chart(fig)
-
-        with col2:
-            print("d")
 
         col1, col2 = st.columns([1.2, 0.8])
         with col1:
