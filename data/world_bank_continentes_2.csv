@@ -419,26 +419,26 @@ date,value,country.value,Continente,latitude,longitude
 2002,67.4,Gabon,Africa,-0.8999695,11.6899699
 2001,67.9,Gabon,Africa,-0.8999695,11.6899699
 2000,68.3,Gabon,Africa,-0.8999695,11.6899699
-"2019,52.3,""Gambia, The"",Africa,13.443182,-15.310196"
-"2018,55.3,""Gambia, The"",Africa,13.443182,-15.310196"
-"2017,58.3,""Gambia, The"",Africa,13.443182,-15.310196"
-"2016,61.2,""Gambia, The"",Africa,13.443182,-15.310196"
-"2015,63.8,""Gambia, The"",Africa,13.443182,-15.310196"
-"2014,65.9,""Gambia, The"",Africa,13.443182,-15.310196"
-"2013,67.6,""Gambia, The"",Africa,13.443182,-15.310196"
-"2012,69.0,""Gambia, The"",Africa,13.443182,-15.310196"
-"2011,70.1,""Gambia, The"",Africa,13.443182,-15.310196"
-"2010,71.0,""Gambia, The"",Africa,13.443182,-15.310196"
-"2009,71.8,""Gambia, The"",Africa,13.443182,-15.310196"
-"2008,72.5,""Gambia, The"",Africa,13.443182,-15.310196"
-"2007,73.1,""Gambia, The"",Africa,13.443182,-15.310196"
-"2006,73.6,""Gambia, The"",Africa,13.443182,-15.310196"
-"2005,74.1,""Gambia, The"",Africa,13.443182,-15.310196"
-"2004,74.4,""Gambia, The"",Africa,13.443182,-15.310196"
-"2003,74.7,""Gambia, The"",Africa,13.443182,-15.310196"
-"2002,74.9,""Gambia, The"",Africa,13.443182,-15.310196"
-"2001,75.0,""Gambia, The"",Africa,13.443182,-15.310196"
-"2000,75.0,""Gambia, The"",Africa,13.443182,-15.310196"
+2019,52.3,"Gambia, The",Africa,13.443182,-15.310196
+2018,55.3,"Gambia, The",Africa,13.443182,-15.310196
+2017,58.3,"Gambia, The",Africa,13.443182,-15.310196
+2016,61.2,"Gambia, The",Africa,13.443182,-15.310196
+2015,63.8,"Gambia, The",Africa,13.443182,-15.310196
+2014,65.9,"Gambia, The",Africa,13.443182,-15.310196
+2013,67.6,"Gambia, The",Africa,13.443182,-15.310196
+2012,69.0,"Gambia, The",Africa,13.443182,-15.310196
+2011,70.1,"Gambia, The",Africa,13.443182,-15.310196
+2010,71.0,"Gambia, The",Africa,13.443182,-15.310196
+2009,71.8,"Gambia, The",Africa,13.443182,-15.310196
+2008,72.5,"Gambia, The",Africa,13.443182,-15.310196
+2007,73.1,"Gambia, The",Africa,13.443182,-15.310196
+2006,73.6,"Gambia, The",Africa,13.443182,-15.310196
+2005,74.1,"Gambia, The",Africa,13.443182,-15.310196
+2004,74.4,"Gambia, The",Africa,13.443182,-15.310196
+2003,74.7,"Gambia, The",Africa,13.443182,-15.310196
+2002,74.9,"Gambia, The",Africa,13.443182,-15.310196
+2001,75.0,"Gambia, The",Africa,13.443182,-15.310196
+2000,75.0,"Gambia, The",Africa,13.443182,-15.310196
 2019,59.5,Ghana,Africa,8.0300284,-1.0800271
 2018,61.0,Ghana,Africa,8.0300284,-1.0800271
 2017,62.6,Ghana,Africa,8.0300284,-1.0800271
@@ -1339,26 +1339,26 @@ date,value,country.value,Continente,latitude,longitude
 2002,42.1,Indonesia,Asia,-2.4833826,117.8902853
 2001,43.0,Indonesia,Asia,-2.4833826,117.8902853
 2000,43.9,Indonesia,Asia,-2.4833826,117.8902853
-"2019,26.5,""Iran, Islamic Rep."",Asia,,"
-"2018,26.4,""Iran, Islamic Rep."",Asia,,"
-"2017,26.5,""Iran, Islamic Rep."",Asia,,"
-"2016,26.8,""Iran, Islamic Rep."",Asia,,"
-"2015,27.2,""Iran, Islamic Rep."",Asia,,"
-"2014,27.7,""Iran, Islamic Rep."",Asia,,"
-"2013,28.3,""Iran, Islamic Rep."",Asia,,"
-"2012,29.0,""Iran, Islamic Rep."",Asia,,"
-"2011,29.8,""Iran, Islamic Rep."",Asia,,"
-"2010,30.7,""Iran, Islamic Rep."",Asia,,"
-"2009,31.6,""Iran, Islamic Rep."",Asia,,"
-"2008,32.5,""Iran, Islamic Rep."",Asia,,"
-"2007,33.5,""Iran, Islamic Rep."",Asia,,"
-"2006,34.5,""Iran, Islamic Rep."",Asia,,"
-"2005,35.5,""Iran, Islamic Rep."",Asia,,"
-"2004,36.5,""Iran, Islamic Rep."",Asia,,"
-"2003,37.5,""Iran, Islamic Rep."",Asia,,"
-"2002,38.5,""Iran, Islamic Rep."",Asia,,"
-"2001,39.6,""Iran, Islamic Rep."",Asia,,"
-"2000,40.9,""Iran, Islamic Rep."",Asia,,"
+2019,26.5,"Iran, Islamic Rep.",Asia,53,32
+2018,26.4,"Iran, Islamic Rep.",Asia,53,32
+2017,26.5,"Iran, Islamic Rep.",Asia,53,32
+2016,26.8,"Iran, Islamic Rep.",Asia,53,32
+2015,27.2,"Iran, Islamic Rep.",Asia,53,32
+2014,27.7,"Iran, Islamic Rep.",Asia,53,32
+2013,28.3,"Iran, Islamic Rep.",Asia,53,32
+2012,29.0,"Iran, Islamic Rep.",Asia,53,32
+2011,29.8,"Iran, Islamic Rep.",Asia,53,32
+2010,30.7,"Iran, Islamic Rep.",Asia,53,32
+2009,31.6,"Iran, Islamic Rep.",Asia,53,32
+2008,32.5,"Iran, Islamic Rep.",Asia,53,32
+2007,33.5,"Iran, Islamic Rep.",Asia,53,32
+2006,34.5,"Iran, Islamic Rep.",Asia,53,32
+2005,35.5,"Iran, Islamic Rep.",Asia,53,32
+2004,36.5,"Iran, Islamic Rep.",Asia,53,32
+2003,37.5,"Iran, Islamic Rep.",Asia,53,32
+2002,38.5,"Iran, Islamic Rep.",Asia,53,32
+2001,39.6,"Iran, Islamic Rep.",Asia,53,32
+2000,40.9,"Iran, Islamic Rep.",Asia,53,32
 2019,29.4,Iraq,Asia,33.0955793,44.1749775
 2018,28.9,Iraq,Asia,33.0955793,44.1749775
 2017,28.6,Iraq,Asia,33.0955793,44.1749775
@@ -1459,46 +1459,46 @@ date,value,country.value,Continente,latitude,longitude
 2002,37.6,Kazakhstan,Asia,48.1012954,66.7780818
 2001,39.6,Kazakhstan,Asia,48.1012954,66.7780818
 2000,41.9,Kazakhstan,Asia,48.1012954,66.7780818
-"2019,31.6,""Korea, Dem. People's Rep."",Asia,40.3398520,127.5100930"
-"2018,31.4,""Korea, Dem. People's Rep."",Asia,40.3398520,127.5100930"
-"2017,31.2,""Korea, Dem. People's Rep."",Asia,40.3398520,127.5100930"
-"2016,31.0,""Korea, Dem. People's Rep."",Asia,40.3398520,127.5100930"
-"2015,30.9,""Korea, Dem. People's Rep."",Asia,40.3398520,127.5100930"
-"2014,31.0,""Korea, Dem. People's Rep."",Asia,40.3398520,127.5100930"
-"2013,31.1,""Korea, Dem. People's Rep."",Asia,40.3398520,127.5100930"
-"2012,31.4,""Korea, Dem. People's Rep."",Asia,40.3398520,127.5100930"
-"2011,31.9,""Korea, Dem. People's Rep."",Asia,40.3398520,127.5100930"
-"2010,32.5,""Korea, Dem. People's Rep."",Asia,40.3398520,127.5100930"
-"2009,32.9,""Korea, Dem. People's Rep."",Asia,40.3398520,127.5100930"
-"2008,33.2,""Korea, Dem. People's Rep."",Asia,40.3398520,127.5100930"
-"2007,33.4,""Korea, Dem. People's Rep."",Asia,40.3398520,127.5100930"
-"2006,33.5,""Korea, Dem. People's Rep."",Asia,40.3398520,127.5100930"
-"2005,33.8,""Korea, Dem. People's Rep."",Asia,40.3398520,127.5100930"
-"2004,34.5,""Korea, Dem. People's Rep."",Asia,40.3398520,127.5100930"
-"2003,35.9,""Korea, Dem. People's Rep."",Asia,40.3398520,127.5100930"
-"2002,37.9,""Korea, Dem. People's Rep."",Asia,40.3398520,127.5100930"
-"2001,40.4,""Korea, Dem. People's Rep."",Asia,40.3398520,127.5100930"
-"2000,42.9,""Korea, Dem. People's Rep."",Asia,40.3398520,127.5100930"
-"2019,15.0,""Korea, Rep."",Asia,36.5761000,127.2850000"
-"2018,14.7,""Korea, Rep."",Asia,36.5761000,127.2850000"
-"2017,14.4,""Korea, Rep."",Asia,36.5761000,127.2850000"
-"2016,14.2,""Korea, Rep."",Asia,36.5761000,127.2850000"
-"2015,14.1,""Korea, Rep."",Asia,36.5761000,127.2850000"
-"2014,13.9,""Korea, Rep."",Asia,36.5761000,127.2850000"
-"2013,13.9,""Korea, Rep."",Asia,36.5761000,127.2850000"
-"2012,13.8,""Korea, Rep."",Asia,36.5761000,127.2850000"
-"2011,13.8,""Korea, Rep."",Asia,36.5761000,127.2850000"
-"2010,13.8,""Korea, Rep."",Asia,36.5761000,127.2850000"
-"2009,13.8,""Korea, Rep."",Asia,36.5761000,127.2850000"
-"2008,13.9,""Korea, Rep."",Asia,36.5761000,127.2850000"
-"2007,14.1,""Korea, Rep."",Asia,36.5761000,127.2850000"
-"2006,14.2,""Korea, Rep."",Asia,36.5761000,127.2850000"
-"2005,14.3,""Korea, Rep."",Asia,36.5761000,127.2850000"
-"2004,14.4,""Korea, Rep."",Asia,36.5761000,127.2850000"
-"2003,14.5,""Korea, Rep."",Asia,36.5761000,127.2850000"
-"2002,14.5,""Korea, Rep."",Asia,36.5761000,127.2850000"
-"2001,14.6,""Korea, Rep."",Asia,36.5761000,127.2850000"
-"2000,14.7,""Korea, Rep."",Asia,36.5761000,127.2850000"
+2019,31.6,"Korea, Dem. People's Rep.",Asia,40.3398520,127.5100930
+2018,31.4,"Korea, Dem. People's Rep.",Asia,40.3398520,127.5100930
+2017,31.2,"Korea, Dem. People's Rep.",Asia,40.3398520,127.5100930
+2016,31.0,"Korea, Dem. People's Rep.",Asia,40.3398520,127.5100930
+2015,30.9,"Korea, Dem. People's Rep.",Asia,40.3398520,127.5100930
+2014,31.0,"Korea, Dem. People's Rep.",Asia,40.3398520,127.5100930
+2013,31.1,"Korea, Dem. People's Rep.",Asia,40.3398520,127.5100930
+2012,31.4,"Korea, Dem. People's Rep.",Asia,40.3398520,127.5100930
+2011,31.9,"Korea, Dem. People's Rep.",Asia,40.3398520,127.5100930
+2010,32.5,"Korea, Dem. People's Rep.",Asia,40.3398520,127.5100930
+2009,32.9,"Korea, Dem. People's Rep.",Asia,40.3398520,127.5100930
+2008,33.2,"Korea, Dem. People's Rep.",Asia,40.3398520,127.5100930
+2007,33.4,"Korea, Dem. People's Rep.",Asia,40.3398520,127.5100930
+2006,33.5,"Korea, Dem. People's Rep.",Asia,40.3398520,127.5100930
+2005,33.8,"Korea, Dem. People's Rep.",Asia,40.3398520,127.5100930
+2004,34.5,"Korea, Dem. People's Rep.",Asia,40.3398520,127.5100930
+2003,35.9,"Korea, Dem. People's Rep.",Asia,40.3398520,127.5100930
+2002,37.9,"Korea, Dem. People's Rep.",Asia,40.3398520,127.5100930
+2001,40.4,"Korea, Dem. People's Rep.",Asia,40.3398520,127.5100930
+2000,42.9,"Korea, Dem. People's Rep.",Asia,40.3398520,127.5100930
+2019,15.0,"Korea, Rep.",Asia,36.5761000,127.2850000
+2018,14.7,"Korea, Rep.",Asia,36.5761000,127.2850000
+2017,14.4,"Korea, Rep.",Asia,36.5761000,127.2850000
+2016,14.2,"Korea, Rep.",Asia,36.5761000,127.2850000
+2015,14.1,"Korea, Rep.",Asia,36.5761000,127.2850000
+2014,13.9,"Korea, Rep.",Asia,36.5761000,127.2850000
+2013,13.9,"Korea, Rep.",Asia,36.5761000,127.2850000
+2012,13.8,"Korea, Rep.",Asia,36.5761000,127.2850000
+2011,13.8,"Korea, Rep.",Asia,36.5761000,127.2850000
+2010,13.8,"Korea, Rep.",Asia,36.5761000,127.2850000
+2009,13.8,"Korea, Rep.",Asia,36.5761000,127.2850000
+2008,13.9,"Korea, Rep.",Asia,36.5761000,127.2850000
+2007,14.1,"Korea, Rep.",Asia,36.5761000,127.2850000
+2006,14.2,"Korea, Rep.",Asia,36.5761000,127.2850000
+2005,14.3,"Korea, Rep.",Asia,36.5761000,127.2850000
+2004,14.4,"Korea, Rep.",Asia,36.5761000,127.2850000
+2003,14.5,"Korea, Rep.",Asia,36.5761000,127.2850000
+2002,14.5,"Korea, Rep.",Asia,36.5761000,127.2850000
+2001,14.6,"Korea, Rep.",Asia,36.5761000,127.2850000
+2000,14.7,"Korea, Rep.",Asia,36.5761000,127.2850000
 2019,19.8,Kuwait,Asia,29.3796532,47.9734174
 2018,19.4,Kuwait,Asia,29.3796532,47.9734174
 2017,19.2,Kuwait,Asia,29.3796532,47.9734174
@@ -1979,26 +1979,26 @@ date,value,country.value,Continente,latitude,longitude
 2002,30.8,Viet Nam,Asia,15.9266657,107.9650855
 2001,32.2,Viet Nam,Asia,15.9266657,107.9650855
 2000,33.6,Viet Nam,Asia,15.9266657,107.9650855
-"2019,79.5,""Yemen, Rep."",Asia,15.5521380,48.5163880"
-"2018,79.7,""Yemen, Rep."",Asia,15.5521380,48.5163880"
-"2017,79.8,""Yemen, Rep."",Asia,15.5521380,48.5163880"
-"2016,79.9,""Yemen, Rep."",Asia,15.5521380,48.5163880"
-"2015,79.9,""Yemen, Rep."",Asia,15.5521380,48.5163880"
-"2014,79.9,""Yemen, Rep."",Asia,15.5521380,48.5163880"
-"2013,79.9,""Yemen, Rep."",Asia,15.5521380,48.5163880"
-"2012,79.9,""Yemen, Rep."",Asia,15.5521380,48.5163880"
-"2011,79.9,""Yemen, Rep."",Asia,15.5521380,48.5163880"
-"2010,80.0,""Yemen, Rep."",Asia,15.5521380,48.5163880"
-"2009,80.2,""Yemen, Rep."",Asia,15.5521380,48.5163880"
-"2008,80.5,""Yemen, Rep."",Asia,15.5521380,48.5163880"
-"2007,80.9,""Yemen, Rep."",Asia,15.5521380,48.5163880"
-"2006,81.3,""Yemen, Rep."",Asia,15.5521380,48.5163880"
-"2005,81.7,""Yemen, Rep."",Asia,15.5521380,48.5163880"
-"2004,82.0,""Yemen, Rep."",Asia,15.5521380,48.5163880"
-"2003,82.4,""Yemen, Rep."",Asia,15.5521380,48.5163880"
-"2002,82.8,""Yemen, Rep."",Asia,15.5521380,48.5163880"
-"2001,83.2,""Yemen, Rep."",Asia,15.5521380,48.5163880"
-"2000,83.6,""Yemen, Rep."",Asia,15.5521380,48.5163880"
+2019,79.5,"Yemen, Rep.",Asia,15.5521380,48.5163880
+2018,79.7,"Yemen, Rep.",Asia,15.5521380,48.5163880
+2017,79.8,"Yemen, Rep.",Asia,15.5521380,48.5163880
+2016,79.9,"Yemen, Rep.",Asia,15.5521380,48.5163880
+2015,79.9,"Yemen, Rep.",Asia,15.5521380,48.5163880
+2014,79.9,"Yemen, Rep.",Asia,15.5521380,48.5163880
+2013,79.9,"Yemen, Rep.",Asia,15.5521380,48.5163880
+2012,79.9,"Yemen, Rep.",Asia,15.5521380,48.5163880
+2011,79.9,"Yemen, Rep.",Asia,15.5521380,48.5163880
+2010,80.0,"Yemen, Rep.",Asia,15.5521380,48.5163880
+2009,80.2,"Yemen, Rep.",Asia,15.5521380,48.5163880
+2008,80.5,"Yemen, Rep.",Asia,15.5521380,48.5163880
+2007,80.9,"Yemen, Rep.",Asia,15.5521380,48.5163880
+2006,81.3,"Yemen, Rep.",Asia,15.5521380,48.5163880
+2005,81.7,"Yemen, Rep.",Asia,15.5521380,48.5163880
+2004,82.0,"Yemen, Rep.",Asia,15.5521380,48.5163880
+2003,82.4,"Yemen, Rep.",Asia,15.5521380,48.5163880
+2002,82.8,"Yemen, Rep.",Asia,15.5521380,48.5163880
+2001,83.2,"Yemen, Rep.",Asia,15.5521380,48.5163880
+2000,83.6,"Yemen, Rep.",Asia,15.5521380,48.5163880
 2019,30.9,Albania,Europe,41.3275000,19.8189000
 2018,29.6,Albania,Europe,41.3275000,19.8189000
 2017,28.4,Albania,Europe,41.3275000,19.8189000
@@ -2839,26 +2839,26 @@ date,value,country.value,Continente,latitude,longitude
 2002,26.4,Antigua and Barbuda,North America,17.2234721,-61.9554608
 2001,27.0,Antigua and Barbuda,North America,17.2234721,-61.9554608
 2000,27.4,Antigua and Barbuda,North America,17.2234721,-61.9554608
-"2019,17.9,""Bahamas, The"",North America,25.0343000,-77.396300"
-"2018,17.7,""Bahamas, The"",North America,25.0343000,-77.396300"
-"2017,17.5,""Bahamas, The"",North America,25.0343000,-77.396300"
-"2016,17.6,""Bahamas, The"",North America,25.0343000,-77.396300"
-"2015,17.6,""Bahamas, The"",North America,25.0343000,-77.396300"
-"2014,17.7,""Bahamas, The"",North America,25.0343000,-77.396300"
-"2013,17.8,""Bahamas, The"",North America,25.0343000,-77.396300"
-"2012,18.0,""Bahamas, The"",North America,25.0343000,-77.396300"
-"2011,18.4,""Bahamas, The"",North America,25.0343000,-77.396300"
-"2010,18.9,""Bahamas, The"",North America,25.0343000,-77.396300"
-"2009,19.2,""Bahamas, The"",North America,25.0343000,-77.396300"
-"2008,19.6,""Bahamas, The"",North America,25.0343000,-77.396300"
-"2007,19.8,""Bahamas, The"",North America,25.0343000,-77.396300"
-"2006,19.9,""Bahamas, The"",North America,25.0343000,-77.396300"
-"2005,19.9,""Bahamas, The"",North America,25.0343000,-77.396300"
-"2004,19.8,""Bahamas, The"",North America,25.0343000,-77.396300"
-"2003,19.6,""Bahamas, The"",North America,25.0343000,-77.396300"
-"2002,19.4,""Bahamas, The"",North America,25.0343000,-77.396300"
-"2001,19.3,""Bahamas, The"",North America,25.0343000,-77.396300"
-"2000,19.4,""Bahamas, The"",North America,25.0343000,-77.396300"
+2019,17.9,"Bahamas, The",North America,25.0343000,-77.396300
+2018,17.7,"Bahamas, The",North America,25.0343000,-77.396300
+2017,17.5,"Bahamas, The",North America,25.0343000,-77.396300
+2016,17.6,"Bahamas, The",North America,25.0343000,-77.396300
+2015,17.6,"Bahamas, The",North America,25.0343000,-77.396300
+2014,17.7,"Bahamas, The",North America,25.0343000,-77.396300
+2013,17.8,"Bahamas, The",North America,25.0343000,-77.396300
+2012,18.0,"Bahamas, The",North America,25.0343000,-77.396300
+2011,18.4,"Bahamas, The",North America,25.0343000,-77.396300
+2010,18.9,"Bahamas, The",North America,25.0343000,-77.396300
+2009,19.2,"Bahamas, The",North America,25.0343000,-77.396300
+2008,19.6,"Bahamas, The",North America,25.0343000,-77.396300
+2007,19.8,"Bahamas, The",North America,25.0343000,-77.396300
+2006,19.9,"Bahamas, The",North America,25.0343000,-77.396300
+2005,19.9,"Bahamas, The",North America,25.0343000,-77.396300
+2004,19.8,"Bahamas, The",North America,25.0343000,-77.396300
+2003,19.6,"Bahamas, The",North America,25.0343000,-77.396300
+2002,19.4,"Bahamas, The",North America,25.0343000,-77.396300
+2001,19.3,"Bahamas, The",North America,25.0343000,-77.396300
+2000,19.4,"Bahamas, The",North America,25.0343000,-77.396300
 2019,20.0,Barbados,North America,13.1500331,-59.5250305
 2018,20.1,Barbados,North America,13.1500331,-59.5250305
 2017,20.3,Barbados,North America,13.1500331,-59.5250305
@@ -3359,26 +3359,26 @@ date,value,country.value,Continente,latitude,longitude
 2002,40.9,Marshall Islands,Oceania,8.230816999999998,167.7953223704529
 2001,40.3,Marshall Islands,Oceania,8.230816999999998,167.7953223704529
 2000,39.7,Marshall Islands,Oceania,8.230816999999998,167.7953223704529
-"2019,36.7,""Micronesia, Fed. Sts."",Oceania,6.9100000,158.2500000"
-"2018,36.8,""Micronesia, Fed. Sts."",Oceania,6.9100000,158.2500000"
-"2017,37.0,""Micronesia, Fed. Sts."",Oceania,6.9100000,158.2500000"
-"2016,37.2,""Micronesia, Fed. Sts."",Oceania,6.9100000,158.2500000"
-"2015,37.3,""Micronesia, Fed. Sts."",Oceania,6.9100000,158.2500000"
-"2014,37.5,""Micronesia, Fed. Sts."",Oceania,6.9100000,158.2500000"
-"2013,37.7,""Micronesia, Fed. Sts."",Oceania,6.9100000,158.2500000"
-"2012,37.8,""Micronesia, Fed. Sts."",Oceania,6.9100000,158.2500000"
-"2011,38.0,""Micronesia, Fed. Sts."",Oceania,6.9100000,158.2500000"
-"2010,38.0,""Micronesia, Fed. Sts."",Oceania,6.9100000,158.2500000"
-"2009,38.2,""Micronesia, Fed. Sts."",Oceania,6.9100000,158.2500000"
-"2008,38.3,""Micronesia, Fed. Sts."",Oceania,6.9100000,158.2500000"
-"2007,38.3,""Micronesia, Fed. Sts."",Oceania,6.9100000,158.2500000"
-"2006,38.1,""Micronesia, Fed. Sts."",Oceania,6.9100000,158.2500000"
-"2005,37.8,""Micronesia, Fed. Sts."",Oceania,6.9100000,158.2500000"
-"2004,37.4,""Micronesia, Fed. Sts."",Oceania,6.9100000,158.2500000"
-"2003,37.0,""Micronesia, Fed. Sts."",Oceania,6.9100000,158.2500000"
-"2002,36.6,""Micronesia, Fed. Sts."",Oceania,6.9100000,158.2500000"
-"2001,36.2,""Micronesia, Fed. Sts."",Oceania,6.9100000,158.2500000"
-"2000,35.9,""Micronesia, Fed. Sts."",Oceania,6.9100000,158.2500000"
+2019,36.7,"Micronesia, Fed. Sts.",Oceania,6.9100000,158.2500000
+2018,36.8,"Micronesia, Fed. Sts.",Oceania,6.9100000,158.2500000
+2017,37.0,"Micronesia, Fed. Sts.",Oceania,6.9100000,158.2500000
+2016,37.2,"Micronesia, Fed. Sts.",Oceania,6.9100000,158.2500000
+2015,37.3,"Micronesia, Fed. Sts.",Oceania,6.9100000,158.2500000
+2014,37.5,"Micronesia, Fed. Sts.",Oceania,6.9100000,158.2500000
+2013,37.7,"Micronesia, Fed. Sts.",Oceania,6.9100000,158.2500000
+2012,37.8,"Micronesia, Fed. Sts.",Oceania,6.9100000,158.2500000
+2011,38.0,"Micronesia, Fed. Sts.",Oceania,6.9100000,158.2500000
+2010,38.0,"Micronesia, Fed. Sts.",Oceania,6.9100000,158.2500000
+2009,38.2,"Micronesia, Fed. Sts.",Oceania,6.9100000,158.2500000
+2008,38.3,"Micronesia, Fed. Sts.",Oceania,6.9100000,158.2500000
+2007,38.3,"Micronesia, Fed. Sts.",Oceania,6.9100000,158.2500000
+2006,38.1,"Micronesia, Fed. Sts.",Oceania,6.9100000,158.2500000
+2005,37.8,"Micronesia, Fed. Sts.",Oceania,6.9100000,158.2500000
+2004,37.4,"Micronesia, Fed. Sts.",Oceania,6.9100000,158.2500000
+2003,37.0,"Micronesia, Fed. Sts.",Oceania,6.9100000,158.2500000
+2002,36.6,"Micronesia, Fed. Sts.",Oceania,6.9100000,158.2500000
+2001,36.2,"Micronesia, Fed. Sts.",Oceania,6.9100000,158.2500000
+2000,35.9,"Micronesia, Fed. Sts.",Oceania,6.9100000,158.2500000
 2019,41.8,Nauru,Oceania,-0.5252306,166.9324426
 2018,42.3,Nauru,Oceania,-0.5252306,166.9324426
 2017,43.0,Nauru,Oceania,-0.5252306,166.9324426
@@ -3779,23 +3779,23 @@ date,value,country.value,Continente,latitude,longitude
 2002,23.8,Uruguay,South America,-32.8755548,-56.0201525
 2001,23.4,Uruguay,South America,-32.8755548,-56.0201525
 2000,23.4,Uruguay,South America,-32.8755548,-56.0201525
-"2019,27.9,""Venezuela, RB"",South America,10.0736612,-69.35359440708659"
-"2018,27.7,""Venezuela, RB"",South America,10.0736612,-69.35359440708659"
-"2017,27.3,""Venezuela, RB"",South America,10.0736612,-69.35359440708659"
-"2016,27.0,""Venezuela, RB"",South America,10.0736612,-69.35359440708659"
-"2015,26.7,""Venezuela, RB"",South America,10.0736612,-69.35359440708659"
-"2014,26.3,""Venezuela, RB"",South America,10.0736612,-69.35359440708659"
-"2013,25.8,""Venezuela, RB"",South America,10.0736612,-69.35359440708659"
-"2012,25.6,""Venezuela, RB"",South America,10.0736612,-69.35359440708659"
-"2011,25.5,""Venezuela, RB"",South America,10.0736612,-69.35359440708659"
-"2010,25.8,""Venezuela, RB"",South America,10.0736612,-69.35359440708659"
-"2009,26.1,""Venezuela, RB"",South America,10.0736612,-69.35359440708659"
-"2008,26.5,""Venezuela, RB"",South America,10.0736612,-69.35359440708659"
-"2007,27.1,""Venezuela, RB"",South America,10.0736612,-69.35359440708659"
-"2006,27.7,""Venezuela, RB"",South America,10.0736612,-69.35359440708659"
-"2005,28.2,""Venezuela, RB"",South America,10.0736612,-69.35359440708659"
-"2004,28.6,""Venezuela, RB"",South America,10.0736612,-69.35359440708659"
-"2003,28.7,""Venezuela, RB"",South America,10.0736612,-69.35359440708659"
-"2002,28.7,""Venezuela, RB"",South America,10.0736612,-69.35359440708659"
-"2001,28.8,""Venezuela, RB"",South America,10.0736612,-69.35359440708659"
-"2000,29.1,""Venezuela, RB"",South America,10.0736612,-69.35359440708659"
+2019,27.9,"Venezuela, RB",South America,10.0736612,-69.35359440708659
+2018,7.7,"Venezuela, RB",South America,10.0736612,-69.35359440708659
+2017,27.3,"Venezuela, RB",South America,10.0736612,-69.35359440708659
+2016,27.0,"Venezuela, RB",South America,10.0736612,-69.35359440708659
+2015,26.7,"Venezuela, RB",South America,10.0736612,-69.35359440708659
+2014,26.3,"Venezuela, RB",South America,10.0736612,-69.35359440708659
+2013,25.8,"Venezuela, RB",South America,10.0736612,-69.35359440708659
+2012,25.6,"Venezuela, RB",South America,10.0736612,-69.35359440708659
+2011,25.5,"Venezuela, RB",South America,10.0736612,-69.35359440708659
+2010,25.8,"Venezuela, RB",South America,10.0736612,-69.35359440708659
+2009,26.1,"Venezuela, RB",South America,10.0736612,-69.35359440708659
+2008,26.5,"Venezuela, RB",South America,10.0736612,-69.35359440708659
+2007,27.1,"Venezuela, RB",South America,10.0736612,-69.35359440708659
+2006,27.7,"Venezuela, RB",South America,10.0736612,-69.35359440708659
+2005,28.2,"Venezuela, RB",South America,10.0736612,-69.35359440708659
+2004,28.6,"Venezuela, RB",South America,10.0736612,-69.35359440708659
+2003,28.7,"Venezuela, RB",South America,10.0736612,-69.35359440708659
+2002,28.7,"Venezuela, RB",South America,10.0736612,-69.35359440708659
+2001,28.8,"Venezuela, RB",South America,10.0736612,-69.35359440708659
+2000,29.1,"Venezuela, RB",South America,10.0736612,-69.35359440708659
