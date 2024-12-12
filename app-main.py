@@ -362,7 +362,7 @@ elif menu == "Visualización de datos":
             data_ind_anemia = pd.read_csv("data/dhs_anemia_final.csv")
 
             # Limpiar y renombrar columnas
-            data_ind_anemia.drop(data_ind_anemia.columns[[3, 4, 6, 7, 9, 10, 11, 12]], axis=1, inplace=True)
+            data_ind_anemia.drop(data_ind_anemia.columns[[3, 4, 6, 7, 9, 10, 12, 13]], axis=1, inplace=True)
             data_ind_anemia.rename(
                 columns={
                     'Valor Cualquier': 'Valor General',
