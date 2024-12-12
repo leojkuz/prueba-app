@@ -342,7 +342,7 @@ elif menu == "Visualización de datos":
         # Además no es necesario la interacción dinámica con el usuario por lo que el HTML es suficiente
         tog = tog.st_toggle_switch(label="Mostrar datos totales",
                              key="Key1",
-                             default_value=True,
+                             default_value=False,
                              label_after=False,
                              inactive_color='#D3D3D3',
                              active_color="#D3D3D3",
