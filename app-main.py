@@ -885,7 +885,7 @@ elif menu == "Visualización de datos":
             data_historico_pais_est['year'] = data_historico_pais_est['year'].astype(int)
 
             # Obtener la lista de países únicos
-            country_data = sorted(data_historico_pais_est['pais'].unique())
+            countries = sorted(data_historico_pais_est['pais'].unique())
 
             # Generar colores aleatorios para cada país
             colors = {country: f"#{random.randint(0, 0xFFFFFF):06x}" for country in country_data}
