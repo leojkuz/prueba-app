@@ -447,7 +447,6 @@ elif menu == "Visualización de datos":
                 hovertext=f"Estado: {estado}<br>Valor: {value}%",  # Texto interactivo dentro del popup
                 hoverlabel=dict(bgcolor="black", font_size=14)  # Estilo del popup
             )
-            )
 
 
             # Configuración del diseño
