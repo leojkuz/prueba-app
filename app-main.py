@@ -493,12 +493,12 @@ elif menu == "Visualización de datos":
                 # Gauge para el valor actual
                 st.plotly_chart(create_gauge(valor_real, pais_seleccionado), use_container_width=True)
                 st.markdown(f"""
-                    <div style="text-align: center; margin-left: 40px; margin-top: -10px; margin-bottom: -20px;">
+                    <div style="text-align: center; margin-left: 40px;">
                         <h2 style='color: white; display: inline-block;'>{valor_real}%</h2>
                     </div>
                 """, unsafe_allow_html=True)
                 st.markdown(f"""
-                            <div style="text-align: center; margin-left: 50px; margin-top: -10px; margin-bottom: -20px;">
+                            <div style="text-align: center; margin-left: 50px;">
                                 <h3 style='color: white; display: inline-block;'>{pais_seleccionado}</h3>
                             </div>
                                 """, unsafe_allow_html=True)
