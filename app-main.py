@@ -995,7 +995,7 @@ elif menu == "Visualización de datos":
 
 
             # Crear un multiselect para seleccionar países
-            selected_countries = st.multiselect('Selecciona los países', countries)
+            selected_countries = st.multiselect('Selecciona los países', country_data)
 
             # Actualizar el gráfico según selección de países
             if selected_countries:
