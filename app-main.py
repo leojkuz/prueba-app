@@ -667,7 +667,7 @@ elif menu == "Visualización de datos":
         """)
 
         # Cargar los datos históricos
-        data_historico_est = pd.read_csv(r"world_bank_anemia_mundial_listo.csv")
+        data_historico_est = pd.read_csv("data/world_bank_anemia_mundial_listo.csv")
 
         # Ordenamos los datos por año de forma ascendente (aseguramos que estén en orden cronológico)
         data_historico_est = data_historico_est.sort_values(by='year', ascending=True)
