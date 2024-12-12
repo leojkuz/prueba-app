@@ -431,11 +431,27 @@ elif menu == "Visualización de datos":
                 arrowcolor="#e3e7e8"
             )
 
+            fig.add_annotation(
+                ax=ax,
+                ay=ay,
+                axref='x',
+                ayref='y',
+                x=x,
+                y=y,
+                xref='x',
+                yref='y',
+                showarrow=True,
+                arrowhead=3,
+                arrowsize=1,
+                arrowwidth=4,
+                arrowcolor="#e3e7e8"
+            )
+
             # Agregar el texto del valor debajo del gráfico
             fig.add_annotation(
-                text=f"<b>{value}</b>",
-                x=0,  # Centrado en el eje X
-                y=-0.2,  # Ajustado para aparecer debajo del gráfico
+                text=f"<b>{estado}</b>",
+                x=(1.2 * unit)[0],  # Centrado en el eje X
+                y=(1.2 * unit)[1],  # Ajustado para aparecer debajo del gráfico
                 font=dict(size=20, color="white"),
                 showarrow=False,
             )
