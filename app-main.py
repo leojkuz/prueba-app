@@ -411,7 +411,7 @@ elif menu == "Visualización de datos":
             angle_rad = np.radians(angle)  # Convertir a radianes
             unit = np.array([np.cos(angle), np.sin(angle)])
             ro = 0.8
-            ri = 0.3
+            ri = 0
             ax, ay = ri * unit
             x, y = ro * unit
             radius = 0.8  # Longitud de la flecha (relativa al radio del gauge)
