@@ -436,6 +436,8 @@ elif menu == "Visualización de datos":
                 width=300,
                 margin=dict(t=50, b=50, l=50, r=50),  # Márgenes compactos
                 font=dict(color="white", family="Arial"),  # Estilo tipográfico (limpio)
+                xaxis=dict(scaleanchor="y"),  # Vincular la escala del eje X con el eje Y
+
             )
             # Mostrar cuadrícula para facilitar el debug
             fig.update_xaxes(range=[0, 1], zeroline=False, showgrid=False)  # Fijar rango del eje X
