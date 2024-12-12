@@ -735,7 +735,7 @@ elif menu == "Visualización de datos":
             ),
             yaxis=dict(
                 title="Prevalencia (%)",
-                range=[y_historico.min() - 5, y_historico.max() + 5],
+                range=[25, 50],
                 ticksuffix="%",  # Añadimos símbolo de porcentaje al eje Y
             ),
             legend=dict(
