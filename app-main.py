@@ -281,12 +281,7 @@ elif menu == "Visualización de datos":
 
             # Configurar diseño del gráfico
             fig.update_layout(
-                title={
-                    'text': 'Prevalencia histórica de anemia por nivel de ingresos',
-                    'x': 0.5,  # Centrar título horizontalmente
-                    'xanchor': 'center',
-                    'font': dict(size=16),  # Tamaño de la fuente del título
-                },
+                title= None,
                 xaxis=dict(
                     title='Año',
                     tickmode='array',
