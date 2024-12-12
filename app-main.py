@@ -735,7 +735,6 @@ elif menu == "Visualización de datos":
         fig.update_layout(
             title=dict(
                 text="<span style='font-size:24px; color:#1f77b4; font-family:Arial;'><b>📉 Prevalencia Global de Anemia Infantil (2000-2030)</b></span>",
-                x=0.5  # Centrar el título
             ),
             xaxis=dict(
                 title="Año",
@@ -778,7 +777,22 @@ elif menu == "Visualización de datos":
             hovermode="x",  # Mostrar tooltip alineado a los valores en X
             template="simple_white"
         )
-
+        # Leyenda
+        fig.update_layout(
+            legend=dict(
+                orientation="v",  # Leyenda en formato vertical
+                yanchor="top",  # Alinear la parte superior con el margen
+                y=1,  # Mantener la posición de la leyenda en la parte superior
+                xanchor="left",  # Anclar al lado izquierdo
+                x=1.02,  # Empujar la leyenda fuera de la gráfica (a la derecha)
+                font=dict(
+                    size=12,  # Ajustar tamaño de la fuente
+                    color="black"  # Establecer el color de la fuente como negro
+                ),
+                bordercolor="gray",  # (opcional) Borde alrededor de la leyenda para resaltarla
+                borderwidth=1  # Ancho del borde de la leyenda (opcional)
+            )
+        )
         # Mostrar el gráfico en Streamlit
         st.plotly_chart(fig, use_container_width=True)
 
