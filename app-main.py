@@ -11,6 +11,7 @@ from tqdm import tqdm
 from folium.plugins import MarkerCluster
 import  streamlit_toggle as tog
 import random
+from matplotlib.patches import Wedge
 
 # Configuración inicial de la página
 st.set_page_config(page_title="Análisis Global de la Anemia", layout="wide")
@@ -352,6 +353,116 @@ elif menu == "Visualización de datos":
             plot_selected_countries_plotly(selected_countries)
         else:
             st.warning("Por favor selecciona al menos un país.")
+        # Cargar los datos
+        data_ind_anemia = pd.read_csv(r"dhs_anemia_final.csv")
+        data_ind_anemia.drop(data_ind_anemia.columns[[3, 4, 5, 6, 7, 8, 9, 10]], axis=1, inplace=True)
+        data_ind_anemia.rename(
+            columns={
+                'Valor Cualquier': 'Valor\nReal',
+                'Valor Severo': 'Valor\nsevero',
+                '# Encuestas (sev, sin ponderar)': '# Encuestas\n(sin ponderar)',
+                '# Encuestas (sev, ponderadas)': '# Encuestas\n(ponderadas)'
+            },
+            inplace=True
+        )
+
+
+        # Función para crear un velocímetro estilizado
+        def plot_stylized_gauge(ax, value, country, min_val=0, max_val=100):
+            levels = ["Baja", "Moderada", "Alta"]
+            colors = ["#32CD32", "#FFD700", "#FF4D4D"]  # Verde -> Amarillo -> Rojo
+            thresholds = [0, 20, 40, 100]
+
+            start_angle = 180  # Inicio del semicírculo en 180° (sentido antihorario)
+            end_angle = 0  # Fin del semicírculo
+
+            for i, (level, color) in enumerate(zip(levels, colors)):
+                # Calcular los ángulos para cada nivel en función de los umbrales
+                start = start_angle - (start_angle - end_angle) * (thresholds[i + 1] - min_val) / (max_val - min_val)
+                end = start_angle - (start_angle - end_angle) * (thresholds[i] - min_val) / (max_val - min_val)
+
+                # Dibujar sección usando Wedge
+                wedge = Wedge(center=(0, 0), r=1, theta1=start, theta2=end, facecolor=color, edgecolor="white")
+                ax.add_patch(wedge)
+
+                # Posicionar texto
+                mid_angle = (start + end) / 2
+                x_text = np.cos(np.radians(mid_angle)) * 0.7
+                y_text = np.sin(np.radians(mid_angle)) * 0.7
+                ax.text(x_text, y_text, level, ha="center", va="center", fontsize=12, color="white")
+
+            # Dibujar la aguja (en sentido antihorario)
+            value_angle = start_angle - (start_angle - end_angle) * (value - min_val) / (max_val - min_val)
+            x_needle = np.cos(np.radians(value_angle)) * 0.9
+            y_needle = np.sin(np.radians(value_angle)) * 0.9
+            ax.plot([0, x_needle], [0, y_needle], color="black", linewidth=2)
+
+            # Agregar valor al centro
+            ax.text(0, -0.2, f"{value}", ha="center", va="center", fontsize=18, weight="bold")
+            ax.text(0, -0.35, country, ha="center", va="center", fontsize=12, style="italic")
+
+            # Ajustar límites y ocultar ejes
+            ax.set_xlim(-1.2, 1.2)
+            ax.set_ylim(-0.0025, 1.2)  # Mostrar solo el semicírculo superior
+            ax.set_aspect('equal')  # Relación de aspecto 1:1 para un semicírculo perfecto
+            ax.axis("off")
+
+
+        # Función para graficar la tabla de prevalencia y el velocímetro
+        def plot_paises(paises):
+            # Filtrar los datos para el país seleccionado
+            data_paises = data_ind_anemia[data_ind_anemia['Pais'] == paises]
+
+            # Obtener el valor "real" más reciente para el velocímetro
+            latest_year = data_paises['Year'].max()
+            severe_value = data_paises[data_paises['Year'] == latest_year]['Valor\nReal'].values[0]
+
+            # Crear figura con dos subgráficos (uno para la tabla y otro para el velocímetro)
+            fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))  # Ajusta figura a Streamlit
+
+            # Mostrar la tabla en el primer subgráfico
+            ax1.axis('off')  # Apagar los ejes para la tabla
+
+            # Crear la tabla usando ax.table
+            table_data = data_paises.values
+            table_columns = data_paises.columns
+            table = ax1.table(cellText=table_data, colLabels=table_columns, loc='center', cellLoc='center')
+
+            # Personalizar el estilo de la tabla
+            table.auto_set_font_size(False)
+            table.set_fontsize(12)
+
+            # Ajustar las celdas
+            for (i, j), cell in table.get_celld().items():
+                cell.set_edgecolor('black')
+                cell.set_linewidth(1.2)
+                if i == 0:  # Encabezados
+                    cell.set_facecolor('#4CAF50')
+                    cell.set_text_props(ha='center', va='center', color='white', weight='bold', fontsize=10)
+                else:  # Filas de datos
+                    cell.set_facecolor('#f9f9f9')
+                    cell.set_text_props(color='black', fontsize=10)
+
+            # Mostrar el velocímetro en el segundo subgráfico
+            plot_stylized_gauge(ax2, severe_value, paises)
+
+            plt.tight_layout()
+            return fig
+
+
+        # Configurar Streamlit con selector y gráficos interactivos
+        st.title("Velocímetro de Prevalencia de Anemia")
+        st.sidebar.header("Selecciona un País")
+
+        # Crear selector interactivo de país en el sidebar
+        lista_paises = sorted(data_ind_anemia['Pais'].unique())
+        pais_seleccionado = st.sidebar.selectbox('País', options=lista_paises)
+
+        # Renderizar el gráfico dependiendo del país seleccionado
+        if pais_seleccionado:
+            st.subheader(f"Análisis del País: {pais_seleccionado}")
+            figura = plot_paises(pais_seleccionado)
+            st.pyplot(figura)
 
 
     elif viz_menu == "Análisis geográfico":
