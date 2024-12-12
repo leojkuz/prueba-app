@@ -381,7 +381,7 @@ elif menu == "Visualización de datos":
                 go.Indicator(
                     mode="gauge+number",
                     value=value,
-                    title={'text': f"<b>{country}</b><br>Prevalencia de Anemia", 'font': {'size': 20}},
+                    title={'text': f"<b>{country}</b><br>Prevalencia de Anemia", 'font': {'size': 20, 'color': "white"}},
                     gauge={
                         'axis': {'range': [0, 100], 'tickwidth': 2, 'tickcolor': "#000"},
                         'bar': {'color': "#295491"},  # Barra roja
@@ -412,7 +412,7 @@ elif menu == "Visualización de datos":
                 type="line",
                 x0=x_center, y0=y_center,
                 x1=x_arrow, y1=y_arrow,
-                line=dict(color="black", width=4)
+                line=dict(color="white", width=4)
             )
 
             # Configuración del diseño
