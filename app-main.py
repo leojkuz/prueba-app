@@ -712,24 +712,12 @@ elif menu == "Visualización de datos":
         # Datos históricos (2000-2019)
         fig.add_trace(
             go.Scatter(
-                x=data_historico_est[data_historico_est['year'] < 2020]['year'],
-                y=data_historico_est[data_historico_est['year'] < 2020]['prevalencia (%)'],
+                x=data_historico_est['year'],
+                y=data_historico_est['prevalencia (%)'],
                 mode='lines+markers',
                 line=dict(color='#1f77b4', width=3),  # Línea sólida azul oscura
                 marker=dict(size=6),
                 name="Datos Históricos"
-            )
-        )
-
-        # Datos proyectados (2020-2030)
-        fig.add_trace(
-            go.Scatter(
-                x=data_historico_est[data_historico_est['year'] >= 2020]['year'],
-                y=data_historico_est[data_historico_est['year'] >= 2020]['prevalencia (%)'],
-                mode='lines+markers',
-                line=dict(dash='dot', color='#FF5733', width=3),  # Punteada naranja
-                marker=dict(size=6),
-                name="Proyección"
             )
         )
 
@@ -740,7 +728,8 @@ elif menu == "Visualización de datos":
                 'y': 0.9,
                 'x': 0.5,
                 'xanchor': 'center',
-                'yanchor': 'top'
+                'yanchor': 'top',
+                'font': dict(color="white")
             },
             xaxis=dict(
                 title="Año",
