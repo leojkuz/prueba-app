@@ -225,7 +225,7 @@ elif menu == "Visualización de datos":
 
             st.plotly_chart(fig_bar)
 
-        col1, col2 = st.columns([1.5, 0.5])
+        col1, col2 = st.columns([1.2, 0.8])
         with col1:
             # Cargar los datos
             st.subheader("Comparador histórico de anemia infantil para cada país")
@@ -483,7 +483,7 @@ elif menu == "Visualización de datos":
 
             # Datos del país seleccionado
             if pais_seleccionado:
-                st.title(f"Prevalencia de Anemia en {pais_seleccionado}")
+                st.subheader(f"Prevalencia de Anemia en {pais_seleccionado}")
 
                 # Filtrar datos del país
                 data_paises = data_ind_anemia[data_ind_anemia["Pais"] == pais_seleccionado]
