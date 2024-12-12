@@ -374,8 +374,9 @@ elif menu == "Visualización de datos":
         # Crear la Gauge con Plotly
         def create_gauge(value, country):
             """
-            Crear un velocímetro circular estilizado con Plotly.
+            Crear un velocímetro circular estilizado con Plotly y una flecha personalizada.
             """
+            # Crear la figura base del gauge
             fig = go.Figure(
                 go.Indicator(
                     mode="gauge+number",
@@ -397,6 +398,24 @@ elif menu == "Visualización de datos":
                     }
                 )
             )
+
+            # Calcular la posición de la flecha en coordenadas polares
+            angle = (value / 100) * 180  # Convertir el valor a un ángulo en grados
+            angle_rad = np.radians(angle)  # Convertir a radianes
+            radius = 0.5  # Longitud de la flecha (relativa al radio del gauge)
+            x_center, y_center = 0.5, 0.5  # Centro del gauge (en coordenadas normalizadas)
+            x_arrow = x_center + radius * np.cos(np.pi - angle_rad)
+            y_arrow = y_center + radius * np.sin(np.pi - angle_rad)
+
+            # Agregar la flecha al gráfico
+            fig.add_shape(
+                type="line",
+                x0=x_center, y0=y_center,
+                x1=x_arrow, y1=y_arrow,
+                line=dict(color="black", width=4)
+            )
+
+            # Configuración del diseño
             fig.update_layout(
                 height=400,  # Altura del gráfico
                 margin=dict(t=50, b=0, l=50, r=50),  # Márgenes compactos
