@@ -478,7 +478,7 @@ elif menu == "Visualización de datos":
 
 
             # Sidebar interactivo para seleccionar el país
-            st.subheader("Análisis de Anemia")
+            st.subheader("Reportes de la gravedad de anemia")
             pais_seleccionado = st.selectbox("Selecciona un país:", data_ind_anemia["Pais"].unique())
 
             # Datos del país seleccionado
