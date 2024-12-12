@@ -385,7 +385,7 @@ elif menu == "Visualización de datos":
             # Crear la figura base del gauge
             fig = go.Figure(
                 go.Indicator(
-                    mode="gauge+number",
+                    mode="gauge",
                     value=value,
                     domain={'x': [0, 1], 'y': [0, 1]},
                     title={'text': f"<b>{estado}</b>", 'font': {'size': 20, 'color': "white"}},
@@ -429,6 +429,15 @@ elif menu == "Visualización de datos":
                 arrowhead=3,
                 arrowsize=1,
                 arrowwidth=4
+            )
+
+            # Agregar el texto del valor debajo del gráfico
+            fig.add_annotation(
+                text=f"<b>{value}</b>",
+                x=0,  # Centrado en el eje X
+                y=-0.2,  # Ajustado para aparecer debajo del gráfico
+                font=dict(size=20, color="white"),
+                showarrow=False,
             )
 
             # Configuración del diseño
