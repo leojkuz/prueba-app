@@ -406,7 +406,7 @@ elif menu == "Visualización de datos":
             )
 
             # Calcular la posición de la flecha en coordenadas polares
-            angle = (value / 100) * 180  # Convertir el valor a un ángulo en grados
+            angle = (71.5 / 100) * 180  # Convertir el valor a un ángulo en grados
             angle_rad = np.radians(angle)  # Convertir a radianes
             radius = 0.2  # Longitud de la flecha (relativa al radio del gauge)
             x_center, y_center = 0.5, 0  # Centro del gauge (en coordenadas normalizadas)
