@@ -409,6 +409,11 @@ elif menu == "Visualización de datos":
             # Calcular la posición de la flecha en coordenadas polares
             angle = (value / 100) * 180  # Convertir el valor a un ángulo en grados
             angle_rad = np.radians(angle)  # Convertir a radianes
+            unit = np.array([np.cos(angle), np.sin(angle)])
+            ro = 0.8
+            ri = 0.3
+            ax, ay = ri * unit
+            x, y = ro * unit
             radius = 0.8  # Longitud de la flecha (relativa al radio del gauge)
             x_center, y_center = 1.25, 0  # Centro del gauge (en coordenadas normalizadas)
             x_arrow = x_center + radius*np.cos(np.pi - angle_rad)
@@ -416,12 +421,12 @@ elif menu == "Visualización de datos":
 
             # Agregar la flecha al gráfico
             fig.add_annotation(
-                ax=x_arrow,
-                ay=y_center,
+                ax=ax,
+                ay=ay,
                 axref='x',
                 ayref='y',
-                x=x_arrow,
-                y=y_arrow,
+                x=x,
+                y=y,
                 xref='x',
                 yref='y',
                 showarrow=True,
