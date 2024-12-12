@@ -453,7 +453,7 @@ elif menu == "Visualización de datos":
                 y=(0.95 * unit)[1],  # Ajustado para aparecer debajo del gráfico
                 font=dict(size=20, color="white"),
                 showarrow=False,
-                textangle=angle
+                textangle=angle-90
             )
 
             # Configuración del diseño
