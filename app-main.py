@@ -896,11 +896,19 @@ elif menu == "Visualización de datos":
                 else:
                     annual_decrease_rate = 0
 
+                # Determinar si la prevalencia sube o baja
+                if annual_decrease_rate < 0:
+                    tendencia = "disminuirá"  # Caso mayoritario: la prevalencia disminuye
+                elif annual_decrease_rate > 0:
+                    tendencia = "aumentará"
+                else:
+                    tendencia = "se mantendrá estable"
+                rate_abs = abs(annual_decrease_rate)
                 mensaje = (
                     f"Para {country_df['pais'].iloc[0]}, la prevalencia de anemia tuvo un promedio de "
                     f"{avg_prevalence_2000_2019:.2f}% entre 2000 y 2019. "
-                    f"Con base en las proyecciones, se estima que la prevalencia disminuirá a una tasa promedio anual de "
-                    f"{annual_decrease_rate:.2f}% hacia el año 2030."
+                    f"Con base en las proyecciones, se estima que la prevalencia {tendencia} a una tasa promedio anual de "
+                    f"{rate_abs:.2f}% hacia el año 2030."
                 )
                 return mensaje
 
@@ -969,7 +977,6 @@ elif menu == "Visualización de datos":
                     },
                     xaxis=dict(
                         title=None,
-                        tickangle=-90,
                         showline=True,
                         linecolor='black',
                         ticks='outside',
