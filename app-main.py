@@ -231,10 +231,11 @@ elif menu == "Visualización de datos":
 
             # Asignar colores personalizados a cada nivel de ingresos
             colors = {
-                "Ingresos bajos": "#EF553B",
-                "Ingresos medianos bajos": "#00CC96",
-                "Ingresos medianos altos": "#636EFA",
-                "Ingresos altos": "#AB63FA"
+                "Bajos ingresos": "#FF5733",  # Rojo ladrillo
+                "Ingresos bajos y medios": "#FFBD33",  # Amarillo cálido
+                "Ingreso medio": "#33FF57",  # Verde vibrante
+                "Ingreso medio alto": "#3380FF",  # Azul moderno
+                "Ingresos altos": "#9B33FF"  # Morado sofisticado
             }
 
             # Crear la figura Plotly
