@@ -408,10 +408,10 @@ elif menu == "Visualización de datos":
             # Calcular la posición de la flecha en coordenadas polares
             angle = (value / 100) * 180  # Convertir el valor a un ángulo en grados
             angle_rad = np.radians(angle)  # Convertir a radianes
-            radius = 0.2  # Longitud de la flecha (relativa al radio del gauge)
+            radius = 0.8  # Longitud de la flecha (relativa al radio del gauge)
             x_center, y_center = 0.5, 0  # Centro del gauge (en coordenadas normalizadas)
-            x_arrow = x_center + np.cos(np.pi - angle_rad)
-            y_arrow = y_center + np.sin(np.pi - angle_rad)
+            x_arrow = x_center + radius*np.cos(np.pi - angle_rad)
+            y_arrow = y_center + radius*np.sin(np.pi - angle_rad)
 
             fig.add_trace(go.Scatter(
                 x=[x_center, x_arrow],
