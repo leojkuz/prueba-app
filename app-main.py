@@ -424,10 +424,8 @@ elif menu == "Visualización de datos":
             # Configuración del diseño
             fig.update_layout(
                 height=300,  # Altura del gráfico
-                margin=dict(t=50, b=0, l=50, r=50),  # Márgenes compactos
+                margin=dict(t=50, b=50, l=50, r=50),  # Márgenes compactos
                 font=dict(color="white", family="Arial"),  # Estilo tipográfico (limpio)
-                paper_bgcolor="white",
-                plot_bgcolor="white"
             )
             # Mostrar cuadrícula para facilitar el debug
             fig.update_xaxes(range=[0, 1], zeroline=True, showgrid=True)
