@@ -483,7 +483,7 @@ elif menu == "Visualización de datos":
 
             # Datos del país seleccionado
             if pais_seleccionado:
-                st.subheader(f"Prevalencia de Anemia en {pais_seleccionado}")
+                st.subheader(f"Prevalencia de Anemia en {pais_seleccionado} según el reporte más reciente")
 
                 # Filtrar datos del país
                 data_paises = data_ind_anemia[data_ind_anemia["Pais"] == pais_seleccionado]
