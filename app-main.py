@@ -410,8 +410,8 @@ elif menu == "Visualización de datos":
             angle_rad = np.radians(angle)  # Convertir a radianes
             radius = 0.2  # Longitud de la flecha (relativa al radio del gauge)
             x_center, y_center = 0.5, 0  # Centro del gauge (en coordenadas normalizadas)
-            x_arrow = x_center + radius * np.cos(180 - angle)
-            y_arrow = y_center + radius * np.sin(180 - angle)
+            x_arrow = x_center + radius * np.cos(np.pi - angle_rad)
+            y_arrow = y_center + radius * np.sin(np.pi - angle_rad)
 
             # Agregar la flecha al gráfico
             fig.add_shape(
@@ -427,7 +427,9 @@ elif menu == "Visualización de datos":
                 margin=dict(t=50, b=0, l=50, r=50),  # Márgenes compactos
                 font=dict(color="white", family="Arial"),  # Estilo tipográfico (limpio)
                 paper_bgcolor="#1E1E1E",  # Fondo oscuro profesional
-                plot_bgcolor="#1E1E1E"
+                plot_bgcolor="#1E1E1E",
+                xaxis=dict(title="X", range=[0, 1], zeroline=True, showgrid=True),
+                yaxis=dict(title="Y", range=[0, 1], zeroline=True, showgrid=True),
             )
             return fig
 
