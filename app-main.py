@@ -366,9 +366,7 @@ elif menu == "Visualización de datos":
             data_ind_anemia.rename(
                 columns={
                     'Valor Cualquier': 'Valor General',
-                    'Valor Leve': 'Valor Leve',
-                    'Valor Moderado': 'Valor Moderado',
-                    'Valor Severo': 'Valor Severo'
+                    'Year': 'Año'
                 },
                 inplace=True
             )
