@@ -83,7 +83,7 @@ if menu == "Introducción":
     """
 
     # Creación del layout con columnas
-    col1, col2, col3 = st.columns([0.9, 0.8, 1.3])  # Relación: 1:2:1 para centrar
+    col1, col2, col3 = st.columns([1, 2, 1])  # Relación: 1:2:1 para centrar
 
     with col2:  # Contenido en la columna central
         response_dict = rs.slides(content_markdown, height=500, markdown_props={"data-separator-vertical":"^--$"})
@@ -139,7 +139,7 @@ elif menu == "Visualización de datos":
         st.write("### Indicadores de resumen en 2019")
 
         # Indicadores (Méritos)
-        col1, col2, col3 = st.columns(3)
+        col1, col2, col3 = st.columns([0.9, 0.8, 1.3])
 
         with col1:
             st.metric(label="Prevalencia Global (%)", value="39.8%", delta="-0.5% respecto al año 2015")
