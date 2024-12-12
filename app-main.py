@@ -414,10 +414,6 @@ elif menu == "Visualización de datos":
             ri = 0
             ax, ay = ri * unit
             x, y = ro * unit
-            radius = 0.8  # Longitud de la flecha (relativa al radio del gauge)
-            x_center, y_center = 1.25, 0  # Centro del gauge (en coordenadas normalizadas)
-            x_arrow = x_center + radius*np.cos(np.pi - angle_rad)
-            y_arrow = y_center + radius*np.sin(np.pi - angle_rad)
 
             # Agregar la flecha al gráfico
             fig.add_annotation(
