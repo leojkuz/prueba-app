@@ -449,8 +449,8 @@ elif menu == "Visualización de datos":
             # Agregar el texto del valor debajo del gráfico
             fig.add_annotation(
                 text=f"<b>{estado}</b>",
-                x=(0.95 * unit)[0],  # Centrado en el eje X
-                y=(0.95 * unit)[1],  # Ajustado para aparecer debajo del gráfico
+                x=(1.05 * unit)[0],  # Centrado en el eje X
+                y=(1.05 * unit)[1],  # Ajustado para aparecer debajo del gráfico
                 font=dict(size=20, color="white"),
                 showarrow=False,
                 textangle=angle-90
