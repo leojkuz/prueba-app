@@ -407,7 +407,7 @@ elif menu == "Visualización de datos":
             # Calcular la posición del texto basado en el ángulo de la aguja
             angle = (value / 100) * 180  # Convertir el valor a un ángulo en grados
             angle_rad = np.radians(angle)  # Convertir a radianes
-            radius = 0.35  # Determinar qué tan lejos del centro estará el texto
+            radius = 0.01  # Determinar qué tan lejos del centro estará el texto
             x_center, y_center = 0.5, 0.5  # Centro del gauge
             x_text = x_center + radius * np.cos(np.pi - angle_rad)
             y_text = y_center + radius * np.sin(np.pi - angle_rad)
