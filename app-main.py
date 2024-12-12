@@ -689,9 +689,8 @@ elif menu == "Visualización de datos":
                     'nivel geográfico': row['nivel geográfico'],  # Usar nivel_geografico
                     'prevalencia (%)': row['prevalencia (%)']
                 })
-
-            # Proyectar valores desde 2020 hasta 2030 usando el factor de crecimiento
-            ultima_prevalencia = data_historico_est['prevalencia (%)'].iloc[-1]  # Último valor conocido (2019)
+                # Proyectar valores desde 2020 hasta 2030 usando el factor de crecimiento
+                ultima_prevalencia = data_historico_est['prevalencia (%)'].iloc[-1]  # Último valor conocido (2019)
 
             # El último valor de 'nivel_geografico' será el mismo en las proyecciones
             nivel_geografico = data_historico_est['nivel geográfico'].iloc[0]
