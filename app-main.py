@@ -501,7 +501,7 @@ elif menu == "Visualización de datos":
                     "Valor Leve": "{:.2f}%",
                     "Valor Moderado": "{:.2f}%",
                     "Valor Severo": "{:.2f}%"
-                }).background_gradient(cmap="YlOrRd", vmin=0, vmax=100,
+                }).background_gradient(cmap="YlOrRd", vmin=0, vmax=60,
                                        subset=["Valor Leve", "Valor Moderado", "Valor Severo"])
                              .set_properties(**{"text-align": "center"}))  # Centrar contenido de la tabla
 
