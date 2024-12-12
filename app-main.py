@@ -414,11 +414,19 @@ elif menu == "Visualización de datos":
             y_arrow = y_center + radius*np.sin(np.pi - angle_rad)
 
             # Agregar la flecha al gráfico
-            fig.add_shape(
-                type="line",
-                x0=x_center, y0=y_center,
-                x1=x_arrow, y1=y_arrow,
-                line=dict(color="white", width=4)
+            fig.add_annotation(
+                ax=x_arrow,
+                ay=y_center,
+                axref='x',
+                ayref='y',
+                x=x_arrow,
+                y=y_arrow,
+                xref='x',
+                yref='y',
+                showarrow=True,
+                arrowhead=3,
+                arrowsize=1,
+                arrowwidth=4
             )
 
             # Configuración del diseño
