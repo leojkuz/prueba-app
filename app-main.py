@@ -302,6 +302,7 @@ elif menu == "Visualización de datos":
                 template="plotly_white",
                 width=900,
                 height=600,  # Ajustar el tamaño del gráfico en Streamlit
+                margin=dict(t=10)
             )
 
             # Mostrar gráfico en Streamlit
