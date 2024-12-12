@@ -410,7 +410,7 @@ elif menu == "Visualización de datos":
             angle = (value / 100) * 180  # Convertir el valor a un ángulo en grados
             angle_rad = np.radians(angle)  # Convertir a radianes
             unit = np.array([np.cos(angle), np.sin(angle)])
-            ro = 0.8
+            ro = 0.5
             ri = 0
             ax, ay = ri * unit
             x, y = ro * unit
