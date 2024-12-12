@@ -443,18 +443,12 @@ elif menu == "Visualización de datos":
                 arrowhead=3,
                 arrowsize=1,
                 arrowwidth=4,
-                arrowcolor="#e3e7e8"
+                arrowcolor="#e3e7e8",
+                hovertext=f"Estado: {estado}<br>Valor: {value}%",  # Texto interactivo dentro del popup
+                hoverlabel=dict(bgcolor="black", font_size=14)  # Estilo del popup
+            )
             )
 
-            # Agregar el texto del valor debajo del gráfico
-            fig.add_annotation(
-                text=f"<b>{estado}</b>",
-                x=(1.05 * unit)[0],  # Centrado en el eje X
-                y=(1.05 * unit)[1],  # Ajustado para aparecer debajo del gráfico
-                font=dict(size=20, color="white"),
-                showarrow=False,
-                textangle=angle-90
-            )
 
             # Configuración del diseño
             fig.update_layout(
