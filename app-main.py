@@ -816,7 +816,7 @@ elif menu == "Visualización de datos":
         #### Puntos Clave:
         1. **Tendencia General:** La prevalencia promedio a nivel mundial ha disminuido desde niveles cercanos al 45% en el año 2000 hasta valores alrededor del 35% al cierre del 2019 (según los datos históricos). Sin embargo, esta reducción representa menos del 1% anual en promedio.
         
-        2. **Proyección Futura:** El modelo predictivo sugiere que, si las condiciones observadas en las últimas dos décadas permanecen constantes, el porcentaje global podría alcanzar valores cercanos al 30% para el año 2030. Aunque esto indica una mejora progresiva en términos absolutos, podría argumentarse que el ritmo no es lo suficientemente acelerado para cumplir objetivos globales más ambiciosos.
+        2. **Proyección Futura:** El modelo predictivo sugiere que, si las condiciones observadas en las últimas dos décadas permanecen constantes, el porcentaje global podría alcanzar valores cercanos al 35% para el año 2030. Aunque esto indica una mejora progresiva en términos absolutos, podría argumentarse que el ritmo no es lo suficientemente acelerado para cumplir objetivos globales más ambiciosos.
         
         3. **Limitaciones del Análisis:** Es crucial tener presente que las proyecciones aquí expuestas asumen que las tendencias pasadas continuarán inalteradas. Factores disruptivos —por ejemplo, pandemias globales o intervenciones masivas— podrían cambiar radicalmente las trayectorias proyectadas.
         
