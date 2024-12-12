@@ -405,29 +405,13 @@ elif menu == "Visualización de datos":
                 )
             )
 
-            # Calcular la posición del texto basado en el ángulo de la aguja
+            # Calcular la posición de la flecha en coordenadas polares
             angle = (value / 100) * 180  # Convertir el valor a un ángulo en grados
             angle_rad = np.radians(angle)  # Convertir a radianes
-            radius = 0.35  # Determinar qué tan lejos del centro estará el texto
-            x_center, y_center = 0.5, 0.5  # Centro del gauge
-            x_text = x_center + radius * np.cos(np.pi - angle_rad)
-            y_text = y_center + radius * np.sin(np.pi - angle_rad)
-
-            # Agregar el texto dinámico (leve, moderada o alta) sobre el valor
-            fig.add_trace(
-                go.Scatter(
-                    x=[x_text],
-                    y=[y_text],
-                    mode="text",
-                    text=[estado],  # El texto basado en los niveles
-                    textfont=dict(size=14, color="white", family="Arial"),  # Fuente estilizada
-                )
-            )
-
-            # Calcular la posición de la flecha en coordenadas polares (mismo sistema que antes)
-            radius_arrow = 0.4  # Longitud de la flecha (relativa al radio)
-            x_arrow = x_center + radius_arrow * np.cos(np.pi - angle_rad)
-            y_arrow = y_center + radius_arrow * np.sin(np.pi - angle_rad)
+            radius = 0.5  # Longitud de la flecha (relativa al radio del gauge)
+            x_center, y_center = 0.5, 0.5  # Centro del gauge (en coordenadas normalizadas)
+            x_arrow = x_center + radius * np.cos(np.pi - angle_rad)
+            y_arrow = y_center + radius * np.sin(np.pi - angle_rad)
 
             # Agregar la flecha al gráfico
             fig.add_shape(
@@ -439,13 +423,10 @@ elif menu == "Visualización de datos":
 
             # Configuración del diseño
             fig.update_layout(
-                height=300,  # Altura del gráfico más compacto
+                height=300,  # Altura del gráfico
                 margin=dict(t=50, b=0, l=50, r=50),  # Márgenes compactos
-                font=dict(color="black", family="Arial"),  # Estilo tipográfico limpio
-                paper_bgcolor="#1E1E1E",  # Fondo oscuro profesional
-                plot_bgcolor="#1E1E1E"  # Fondo oscuro del gráfico
+                font=dict(color="white", family="Arial"),  # Estilo tipográfico (limpio)
             )
-
             return fig
 
 
