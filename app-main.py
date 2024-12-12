@@ -7,7 +7,7 @@ import reveal_slides as rs
 import folium
 from streamlit_folium import st_folium
 from geopy.geocoders import Nominatim
-from sklearn.linear_model import LinearRegression
+from scipy.stats import linregress
 from folium.plugins import MarkerCluster
 import  streamlit_toggle as tog
 import random
@@ -889,6 +889,29 @@ elif menu == "Visualización de datos":
 
             # Generar colores aleatorios para cada país
             colors = {country: f"#{random.randint(0, 0xFFFFFF):06x}" for country in country_data}
+
+
+            # Función para obtener estadísticas y generar mensajes
+            def obtener_estadisticas_mensaje(country_df):
+                # Calcular el promedio histórico entre 2000 y 2019
+                historical_data = country_df[(country_df['year'] >= 2000) & (country_df['year'] <= 2019)]
+                avg_prevalence_2000_2019 = historical_data['prevalencia (%)'].mean()
+
+                # Calcular la tasa de disminución promedio anual hasta 2030
+                future_data = country_df[(country_df['year'] > 2019) & (country_df['year'] <= 2030)]
+                if len(future_data) > 1:
+                    slope, _, _, _, _ = linregress(future_data['year'], future_data['prevalencia (%)'])
+                    annual_decrease_rate = -slope
+                else:
+                    annual_decrease_rate = 0
+
+                mensaje = (
+                    f"Para {country_df['pais'].iloc[0]}, la prevalencia de anemia tuvo un promedio de "
+                    f"{avg_prevalence_2000_2019:.2f}% entre 2000 y 2019. "
+                    f"Con base en las proyecciones, se estima que la prevalencia disminuirá a una tasa promedio anual de "
+                    f"{annual_decrease_rate:.2f}% hacia el año 2030."
+                )
+                return mensaje
             # Crear checkbox para seleccionar países
             selected_countries = st.multiselect('Selecciona los países', countries)
 
