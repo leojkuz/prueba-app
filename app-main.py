@@ -362,13 +362,13 @@ elif menu == "Visualización de datos":
             data_ind_anemia = pd.read_csv("data/dhs_anemia_final.csv")
 
             # Limpiar y renombrar columnas
-            data_ind_anemia.drop(data_ind_anemia.columns[[3, 4, 5, 6, 7, 8, 9, 10]], axis=1, inplace=True)
+            data_ind_anemia.drop(data_ind_anemia.columns[[3, 4, 6, 7, 9, 10, 11, 12]], axis=1, inplace=True)
             data_ind_anemia.rename(
                 columns={
-                    'Valor Cualquier': 'Valor Real',
-                    'Valor Severo': 'Valor Severo',
-                    '# Encuestas (sev, sin ponderar)': 'Encuestas Sin Ponderar',
-                    '# Encuestas (sev, ponderadas)': 'Encuestas Ponderadas',
+                    'Valor Cualquier': 'Valor General',
+                    'Valor Leve': 'Valor Leve',
+                    'Valor Moderado': 'Valor Moderado',
+                    'Valor Severo': 'Valor Severo'
                 },
                 inplace=True
             )
@@ -490,7 +490,7 @@ elif menu == "Visualización de datos":
 
                 # Obtener el valor más reciente de "Valor Real"
                 latest_year = data_paises["Year"].max()
-                valor_real = data_paises[data_paises["Year"] == latest_year]["Valor Real"].values[0]
+                valor_real = data_paises[data_paises["Year"] == latest_year]["Valor General"].values[0]
 
                 # Gauge para el valor actual
                 st.plotly_chart(create_gauge(valor_real, pais_seleccionado), use_container_width=True)
@@ -499,11 +499,11 @@ elif menu == "Visualización de datos":
                 st.subheader("Detalles por Año")
                 st.dataframe(data_paises.style.format({
                     "Year": "{:.0f}",
-                    "Valor Real": "{:.2f}%",
-                    "Valor Severo": "{:.2f}%",
-                    "Encuestas Sin Ponderar": "{:.0f}",
-                    "Encuestas Ponderadas": "{:.0f}"
-                }).background_gradient(cmap="Reds", subset=["Valor Real", "Valor Severo"])
+                    "Valor General": "{:.2f}%",
+                    "Valor Leve": "{:.2f}%",
+                    "Valor Moderado": "{:.2f}%",
+                    "Valor Severo": "{:.2f}%"
+                }).background_gradient(cmap="Reds", subset=["Valor General", "Valor Leve", "Valor Moderado", "Valor Severo"])
                              .set_properties(**{"text-align": "center"}))  # Centrar contenido de la tabla
 
 
