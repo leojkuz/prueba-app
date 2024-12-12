@@ -148,7 +148,8 @@ elif menu == "Visualización de datos":
             st.metric(label="Continente más afectado", value="Asia (???? %) Pendiente")
 
         with col3:
-            print("s")
+            st.subheader("Prevalencia histórica de anemia por niveles de ingresos")
+            st.markdown("Los datos muestran una diferencia en los niveles de anemia infantil según el nivel de ingresos")
 
         col1, col2 = st.columns([1.9, 1.1])
 
@@ -216,7 +217,6 @@ elif menu == "Visualización de datos":
             st.plotly_chart(fig)
 
         with col2:
-            st.subheader("Prevalencia histórica de anemia por niveles de ingresos")
 
             # Cargar datos del CSV
             data_nivelingresos = pd.read_csv("data/world_bank_anemia_ingresos_listo.csv")
