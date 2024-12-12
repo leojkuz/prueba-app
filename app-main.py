@@ -376,12 +376,18 @@ elif menu == "Visualización de datos":
             """
             Crear un velocímetro circular estilizado con Plotly y una flecha personalizada.
             """
+            if value < 20:
+                estado = "Anemia leve"
+            elif 20 <= value < 40:
+                estado = "Anemia moderada"
+            else:
+                estado = "Anemia alta"
             # Crear la figura base del gauge
             fig = go.Figure(
                 go.Indicator(
                     mode="gauge+number",
                     value=value,
-                    title={'text': f"<b>{country}</b><br>Prevalencia de Anemia", 'font': {'size': 20, 'color': "white"}},
+                    title={'text': f"<b>{estado}</b>", 'font': {'size': 20, 'color': "white"}},
                     gauge={
                         'axis': {'range': [0, 100], 'tickwidth': 2, 'tickcolor': "#000"},
                         'bar': {'color': "#295491"},  # Barra roja
