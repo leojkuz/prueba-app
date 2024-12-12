@@ -662,7 +662,7 @@ elif menu == "Visualización de datos":
         - **Asignación de recursos:** Países con falta de progreso podrían recibir atención focalizada para cambiar su trayectoria.
         - **Creación de políticas públicas:** Las proyecciones generan argumentos sólidos para justificar acciones inmediatas en salud pública.
 
-        En este capítulo, se presenta una **combinación gráfica y analítica** que muestra:
+        El siguiente gráfico, presenta datos a comparar que muestra:
         1. Los datos históricos disponibles desde el año 2000 hasta el 2019.
         2. Una extrapolación proyectada de esos patrones basada en tendencias observadas, extendiendo el análisis hasta el 2030.
         """)
