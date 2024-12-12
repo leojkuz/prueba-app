@@ -426,8 +426,6 @@ elif menu == "Visualización de datos":
                 height=300,  # Altura del gráfico
                 margin=dict(t=50, b=0, l=50, r=50),  # Márgenes compactos
                 font=dict(color="white", family="Arial"),  # Estilo tipográfico (limpio)
-                paper_bgcolor="#1E1E1E",  # Fondo oscuro profesional
-                plot_bgcolor="#1E1E1E",
                 xaxis=dict(title="X", range=[0, 1], zeroline=True, showgrid=True),
                 yaxis=dict(title="Y", range=[0, 1], zeroline=True, showgrid=True),
             )
