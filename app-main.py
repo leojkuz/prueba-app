@@ -7,7 +7,7 @@ import reveal_slides as rs
 import folium
 from streamlit_folium import st_folium
 from geopy.geocoders import Nominatim
-from tqdm import tqdm
+from sklearn.linear_model import LinearRegression
 from folium.plugins import MarkerCluster
 import  streamlit_toggle as tog
 import random
@@ -669,53 +669,43 @@ elif menu == "Visualización de datos":
         # Cargar los datos históricos
         data_historico_est = pd.read_csv("data/world_bank_anemia_mundial_listo.csv")
 
-        # Ordenamos los datos por año de forma ascendente (aseguramos que estén en orden cronológico)
+        # Ordenar los datos por año (aseguramos que estén en orden cronológico)
         data_historico_est = data_historico_est.sort_values(by='year', ascending=True)
 
-        # Calcular el factor de crecimiento promedio (promedio de las variaciones porcentuales año tras año)
-        factor_crecimiento = (data_historico_est[
-                                  'prevalencia (%)'].pct_change().mean() + 1)  # Para que sea un factor de multiplicación
+        # Extraer los datos de entrada para la regresión lineal
+        X_historico = data_historico_est[data_historico_est['year'] <= 2019]['year'].values.reshape(-1,
+                                                                                                    1)  # Variable independiente
+        y_historico = data_historico_est[data_historico_est['year'] <= 2019][
+            'prevalencia (%)'].values  # Variable dependiente
 
-        # Lista para almacenar los datos con las estimaciones proyectadas
-        datos_con_estimaciones = []
+        # Crear y entrenar un modelo de regresión lineal
+        modelo_regresion = LinearRegression()
+        modelo_regresion.fit(X_historico, y_historico)
 
-        # Agregar los datos originales al conjunto de datos de estimaciones
-        for _, row in data_historico_est.iterrows():
-            datos_con_estimaciones.append({
-                'year': row['year'],
-                'nivel geográfico': row['nivel geográfico'],  # Usar nivel_geografico
-                'prevalencia (%)': row['prevalencia (%)']
-            })
+        # Obtener los valores proyectados para 2020-2030
+        años_futuros = np.arange(2020, 2031).reshape(-1, 1)  # Años del futuro
+        predicciones_futuras = modelo_regresion.predict(años_futuros)  # Valores proyectados basados en la regresión
 
-        # Proyectar valores desde 2020 hasta 2030 usando el factor de crecimiento
-        ultima_prevalencia = data_historico_est['prevalencia (%)'].iloc[-1]  # Último valor conocido (2019)
+        # Insertar las proyecciones en el DataFrame original
+        datos_proyectados = pd.DataFrame({
+            'year': años_futuros.flatten(),
+            'prevalencia (%)': predicciones_futuras,
+            'nivel geográfico': 'Mundial'  # Se mantiene constante como "Mundial"
+        })
 
-        # El último valor de 'nivel_geografico' será el mismo en las proyecciones
-        nivel_geografico = data_historico_est['nivel geográfico'].iloc[0]
+        # Combinar los datos históricos con los datos proyectados
+        data_historico_y_proyectado = pd.concat([data_historico_est, datos_proyectados], ignore_index=True)
 
-        for year in range(2020, 2031):
-            ultima_prevalencia *= factor_crecimiento  # Aplicar el factor de crecimiento
-            datos_con_estimaciones.append({
-                'year': year,
-                'nivel geográfico': 'Mundial',  # Mantener el mismo nivel_geografico
-                'prevalencia (%)': ultima_prevalencia
-            })
-
-        # Convertir los datos con estimaciones a un DataFrame
-        data_historico_est = pd.DataFrame(datos_con_estimaciones)
-
-        # Reordenar las columnas para que aparezcan como 'year', 'prevalencia (%)' y 'nivel_geografico'
-        data_historico_est = data_historico_est[['year', 'prevalencia (%)', 'nivel geográfico']]
-        # Crear el gráfico de línea con estimaciones
+        # Crear el gráfico con Plotly
         fig = go.Figure()
 
         # Datos históricos (2000-2019)
         fig.add_trace(
             go.Scatter(
-                x=data_historico_est[data_historico_est['year'] < 2020]['year'],
-                y=data_historico_est[data_historico_est['year'] < 2020]['prevalencia (%)'],
+                x=data_historico_est['year'],
+                y=data_historico_est['prevalencia (%)'],
                 mode='lines+markers',
-                line=dict(color='#1f77b4', width=3),  # Línea sólida azul oscura
+                line=dict(color='blue', width=3),  # Línea sólida azul
                 marker=dict(size=6),
                 name="Datos Históricos"
             )
@@ -724,46 +714,37 @@ elif menu == "Visualización de datos":
         # Datos proyectados (2020-2030)
         fig.add_trace(
             go.Scatter(
-                x=data_historico_est[data_historico_est['year'] >= 2020]['year'],
-                y=data_historico_est[data_historico_est['year'] >= 2020]['prevalencia (%)'],
+                x=años_futuros.flatten(),
+                y=predicciones_futuras,
                 mode='lines+markers',
-                line=dict(dash='dot', color='#FF5733', width=3),  # Punteada naranja
+                line=dict(dash='dot', color='orange', width=3),  # Línea punteada naranja
                 marker=dict(size=6),
-                name="Proyección"
+                name="Proyecciones"
             )
         )
 
-        # Personalización del diseño general
+        # Personalización adicional del diseño del gráfico
         fig.update_layout(
-            title={
-                'text': "📉 Prevalencia Global de Anemia Infantil (2000-2030)",
-                'y': 0.9,
-                'x': 0.5,
-                'xanchor': 'center',
-                'yanchor': 'top'
-            },
+            title="Prevalencia Global de Anemia Infantil (2000-2030)",
             xaxis=dict(
                 title="Año",
-                tickangle=-90,  # Inclinar etiquetas del eje X para mayor claridad
+                tickangle=-45,
                 tickmode='array',
-                tickvals=list(range(2000, 2031)),  # Desde 2000 a 2030
-                gridcolor='rgba(200, 200, 200, 0.4)',  # Línea sutil del grid
+                tickvals=list(range(2000, 2031)),
+                showgrid=True,
             ),
             yaxis=dict(
                 title="Prevalencia (%)",
-                range=[10, 50],  # Ajusta según el rango de interés
-                ticksuffix="%",  # Añade símbolo de porcentaje a las etiquetas del eje Y
-                gridcolor='rgba(200, 200, 200, 0.4)'
+                range=[y_historico.min() - 5, y_historico.max() + 5],
+                ticksuffix="%",  # Añadimos símbolo de porcentaje al eje Y
             ),
             legend=dict(
-                orientation="h",  # Leyenda horizontal
+                orientation="h",
                 x=0.5,
-                y=-0.15,
-                xanchor="center"
+                y=-0.2,
+                xanchor="center",
             ),
-            plot_bgcolor='rgba(245, 246, 249, 1)',  # Fondo muy claro
-            margin=dict(t=50, b=50, l=50, r=50),
-            template="simple_white",
+            plot_bgcolor="white"
         )
 
         # Configuración del tooltip para el hover
