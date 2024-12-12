@@ -445,7 +445,7 @@ elif menu == "Visualización de datos":
                 margin=dict(t=50, b=50, l=50, r=50),  # Márgenes compactos
                 font=dict(color="white", family="Arial"),  # Estilo tipográfico (limpio)
                 xaxis={'showgrid': False, 'showticklabels': False, 'range': [-1, 1]},
-                yaxis={'showgrid': False, 'showticklabels': False, 'range': [-0.2, 1]},
+                yaxis={'showgrid': False, 'showticklabels': False, 'range': [0, 1]},
 
             )
             # Mostrar cuadrícula para facilitar el debug
