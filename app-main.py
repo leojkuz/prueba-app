@@ -443,9 +443,17 @@ elif menu == "Visualización de datos":
                 arrowhead=3,
                 arrowsize=1,
                 arrowwidth=4,
-                arrowcolor="#e3e7e8",
-                hovertext=f"Estado: {estado}<br>Valor: {value}%",  # Texto interactivo dentro del popup
-                hoverlabel=dict(bgcolor="black", font_size=14)  # Estilo del popup
+                arrowcolor="#e3e7e8"
+            )
+
+            fig.add_trace(
+                go.Scatter(
+                    x=[x], y=[y],  # Coordenadas ficticias para hover centralizado
+                    mode="markers",
+                    marker=dict(size=1, opacity=0),
+                    hoverinfo="text",  # Muestra solo texto definido en hovertext
+                    hovertext=f"<b>{estado}</b><br>Prevalencia: {value}%"
+                )
             )
 
 
