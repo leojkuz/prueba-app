@@ -1022,12 +1022,7 @@ elif menu == "Visualización de datos":
             2. **Proyección Futura:** El modelo predictivo sugiere que, si las condiciones observadas en las últimas dos décadas permanecen constantes, el porcentaje global podría alcanzar valores cercanos al 35% para el año 2030. Aunque esto indica una mejora progresiva en términos absolutos, podría argumentarse que el ritmo no es lo suficientemente acelerado para cumplir objetivos globales más ambiciosos.
             
             3. **Limitaciones del Análisis:** Es crucial tener presente que las proyecciones aquí expuestas asumen que las tendencias pasadas continuarán inalteradas. Factores disruptivos —por ejemplo, pandemias globales o intervenciones masivas— podrían cambiar radicalmente las trayectorias proyectadas.
-            
-            #### Conclusión:
-            El principal aprendizaje extraído de este análisis es que los esfuerzos por combatir la anemia infantil globalmente han tenido un impacto positivo pero **marginal** en términos estadísticos. El descenso observado en las últimas dos décadas da lugar a una tendencia predecible pero insuficiente para la eliminación total del problema a mediano plazo.
-            
-            Este comportamiento resalta la importancia de continuar monitoreando indicadores clave y ajustar periódicamente estos modelos predictivos utilizando información actualizada. De esta manera, se pueden construir escenarios futuros más dinámicos que reflejen mejor los contextos globales cambiantes.
-    
+
             """)
 
 
