@@ -434,12 +434,15 @@ elif menu == "Visualización de datos":
                 height=300,  # Altura del gráfico
                 margin=dict(t=50, b=50, l=50, r=50),  # Márgenes compactos
                 font=dict(color="white", family="Arial"),  # Estilo tipográfico (limpio)
-                xaxis=dict(scaleanchor="y"),  # Vincular la escala del eje X con el eje Y
+                xaxis={'showgrid': False, 'showticklabels': False, 'range': [-1, 1]},
+                yaxis={'showgrid': False, 'showticklabels': False, 'range': [0, 1]},
 
             )
             # Mostrar cuadrícula para facilitar el debug
-            fig.update_xaxes(range=[0, 1], zeroline=False, showgrid=False)  # Fijar rango del eje X
-            fig.update_yaxes(range=[0, 1], zeroline=False, showgrid=False)  # Fijar rango del eje Y
+            fig.update_yaxes(
+                scaleanchor="x",
+                scaleratio=1,
+            )
             return fig
 
 
