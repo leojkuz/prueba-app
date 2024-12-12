@@ -809,25 +809,22 @@ elif menu == "Visualización de datos":
         st.plotly_chart(fig, use_container_width=True)
 
         st.markdown("""
-        ## 🔍 Reflexiones y Observaciones
+        ## 📊 Reflexiones sobre los Datos y Proyecciones
 
-        📉 Al analizar los datos históricos, podemos observar que **la anemia infantil ha mostrado una tendencia a la disminución en las últimas dos décadas**, aunque este progreso ha sido notablemente lento y desigual entre regiones.
+        El análisis de los datos históricos revela un comportamiento importante: si bien la prevalencia global de la anemia infantil ha mostrado una **tendencia decreciente desde los años 2000**, esta mejora ha ocurrido a un ritmo **moderado a lento**. Este hecho es significativo porque refleja que, aunque existen avances globales en nutrición y desarrollo infantil, estos no han sido lo suficientemente acelerados como para lograr una reducción más sustancial.
 
-        Si las condiciones actuales se mantienen sin cambios significativos, las proyecciones sugieren que esta lenta reducción continuará. A pesar de ello, la prevalencia global de anemia infantil podría seguir afectando **cientos de millones de niños** hacia el 2030.
+        #### Puntos Clave:
+        1. **Tendencia General:** La prevalencia promedio a nivel mundial ha disminuido desde niveles cercanos al 45% en el año 2000 hasta valores alrededor del 35% al cierre del 2019 (según los datos históricos). Sin embargo, esta reducción representa menos del 1% anual en promedio.
+        
+        2. **Proyección Futura:** El modelo predictivo sugiere que, si las condiciones observadas en las últimas dos décadas permanecen constantes, el porcentaje global podría alcanzar valores cercanos al 30% para el año 2030. Aunque esto indica una mejora progresiva en términos absolutos, podría argumentarse que el ritmo no es lo suficientemente acelerado para cumplir objetivos globales más ambiciosos.
+        
+        3. **Limitaciones del Análisis:** Es crucial tener presente que las proyecciones aquí expuestas asumen que las tendencias pasadas continuarán inalteradas. Factores disruptivos —por ejemplo, pandemias globales o intervenciones masivas— podrían cambiar radicalmente las trayectorias proyectadas.
+        
+        #### Conclusión:
+        El principal aprendizaje extraído de este análisis es que los esfuerzos por combatir la anemia infantil globalmente han tenido un impacto positivo pero **marginal** en términos estadísticos. El descenso observado en las últimas dos décadas da lugar a una tendencia predecible pero insuficiente para la eliminación total del problema a mediano plazo.
+        
+        Este comportamiento resalta la importancia de continuar monitoreando indicadores clave y ajustar periódicamente estos modelos predictivos utilizando información actualizada. De esta manera, se pueden construir escenarios futuros más dinámicos que reflejen mejor los contextos globales cambiantes.
 
-        ### 🚨 Principales Implicaciones:
-        - La ritmo actual de reducción es insuficiente para alcanzar metas ambiciosas mundiales, como las establecidas por los Objetivos de Desarrollo Sostenible (ODS).
-        - Sin intervenciones específicas, áreas con menores ingresos seguirán enfrentándose a una carga desproporcionada de anemia.
-        - Las proyecciones no solo refuerzan la necesidad de acción global, sino que también subrayan la importancia de focalizar los esfuerzos en los países más afectados.
-
-        ### 🌟 Potencial para Cambiar Tendencias Futuras:
-        Aunque estas proyecciones pueden parecer desalentadoras, también reflejan algo importante: **el futuro no está escrito**. Acciones concretas, tales como:
-        1. Mejorar la nutrición materno-infantil.
-        2. Incrementar el acceso a intervenciones médicas preventivas y tratamientos.
-        3. Combatir desigualdades en áreas más vulnerables.
-        ... podrían acelerar significativamente la reducción global de anemia infantil y cambiar el camino proyectado hacia uno más optimista.
-
-        Este capítulo sirve como un recordatorio: los datos históricos y las proyecciones no son un destino inevitable; son una oportunidad para tomar decisiones informadas hoy para moldear mañana.
         """)
 
 
