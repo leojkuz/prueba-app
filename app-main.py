@@ -954,6 +954,16 @@ elif menu == "Visualización de datos":
                         line=dict(color=country_color, dash='dot')
                     ))
 
+                    #Interseccion
+                    fig.add_trace(go.Scatter(
+                        x=country_data[(country_data['year'] >= 2019) & (country_data['year'] <= 2020)]['year'],
+                        y=country_data[(country_data['year'] >= 2019) & (country_data['year'] <= 2020)]['prevalencia (%)'],
+                        mode='lines+markers',
+                        line=dict(color=country_color, dash='dot'),
+                        hoverinfo="skip",
+                        showlegend=False
+                    ))
+
                     # Etiqueta desplazada hacia la derecha de 2030
                     year_2030_data = from_2020_onwards[from_2020_onwards['year'] == 2030]
                     if not year_2030_data.empty:
