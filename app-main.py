@@ -837,11 +837,58 @@ elif menu == "Visualización de datos":
                 En esta sección, hemos adaptado el gráfico interactivo presentado en el capítulo anterior, que permitía comparar la prevalencia de anemia infantil entre diferentes países hasta el año 2019.
                 Ahora, este gráfico no solo sigue permitiendo la selección y comparación de múltiples países, sino que también **incorpora las proyecciones calculadas para cada uno**, basándonos en las tendencias estimadas. Esta extensión resulta esencial para evaluar cómo podrían afectar los patrones globales y locales a cada región, permitiéndonos identificar posibles diferencias entre naciones en el futuro cercano.
                 """)
-            # Obtener la lista de países únicos
-            countries = sorted(data_historico_est['pais'].unique())
+            data = pd.read_csv(r"world_bank_anemia_paises_listo.csv")
 
-            # Asignar un color único a cada país
-            colors = assign_colors(countries)
+            # Limpiar nombres de columnas (por si tienen espacios adicionales)
+            data.columns = data.columns.str.strip()
+
+            # Lista para almacenar los datos originales y las estimaciones
+            datos_con_estimaciones = []
+
+            # Obtener la lista de países únicos
+            paises_unicos = data['pais'].unique()
+
+            for pais in paises_unicos:
+                # Filtrar los datos para el país actual
+                datos_pais = data[data['pais'] == pais].sort_values(by='year')
+
+                # Calcular las variaciones anuales porcentuales
+                datos_pais['variacion'] = datos_pais['prevalencia (%)'].pct_change()
+
+                # Calcular el promedio de la variación porcentual (ignorando valores nulos)
+                factor_crecimiento = datos_pais[
+                                         'variacion'].mean() + 1  # Agregar 1 para obtener el factor multiplicativo
+
+                # Agregar los datos originales del país al conjunto de datos
+                for _, row in datos_pais.iterrows():
+                    datos_con_estimaciones.append({
+                        'year': row['year'],
+                        'pais': row['pais'],
+                        'prevalencia (%)': row['prevalencia (%)']
+                    })
+
+                # Proyectar valores desde 2020 hasta 2030 usando el factor de crecimiento
+                ultima_prevalencia = datos_pais['prevalencia (%)'].iloc[-1]  # Último valor conocido (2019)
+                for year in range(2020, 2031):
+                    ultima_prevalencia *= factor_crecimiento  # Aplicar el factor de crecimiento
+                    datos_con_estimaciones.append({
+                        'year': year,
+                        'pais': pais,
+                        'prevalencia (%)': ultima_prevalencia
+                    })
+
+            # Convertir los resultados a un DataFrame
+            data_historico_pais_est = pd.DataFrame(datos_con_estimaciones)  # Data con estimación hasta el 2030
+
+            # Transformar la variable 'year' a entero
+            data_historico_pais_est['year'] = pd.to_numeric(data_historico_pais_est['year'], errors='coerce')
+            data_historico_pais_est['year'] = data_historico_pais_est['year'].astype(int)
+
+            # Obtener la lista de países únicos
+            country_data = sorted(data_historico_pais_est['pais'].unique())
+
+            # Generar colores aleatorios para cada país
+            colors = {country: f"#{random.randint(0, 0xFFFFFF):06x}" for country in country_data}
             # Crear checkbox para seleccionar países
             selected_countries = st.multiselect('Selecciona los países', countries)
 
