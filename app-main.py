@@ -428,6 +428,7 @@ elif menu == "Visualización de datos":
                 font=dict(color="white", family="Arial"),  # Estilo tipográfico (limpio)
                 xaxis=dict(title="X", range=[0, 1], zeroline=True, showgrid=True),
                 yaxis=dict(title="Y", range=[0, 1], zeroline=True, showgrid=True),
+                template="plotly_white"
             )
             return fig
 
