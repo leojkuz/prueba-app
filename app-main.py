@@ -726,9 +726,9 @@ elif menu == "Visualización de datos":
                 x=data_historico_est[(data_historico_est['year'] >= 2019) & (data_historico_est['year'] <= 2020)]['year'],
                 y=data_historico_est[(data_historico_est['year'] >= 2019) & (data_historico_est['year'] <= 2020)]['prevalencia (%)'],
                 mode='lines+markers',
-                name='Datos Históricos',
-                line=dict(color='#636efa', width=3, shape='spline'),  # Agregamos 'spline' para suavizar la línea
-                marker=dict(size=7, color='#636efa', symbol='circle', line=dict(color='white', width=2)),
+                name='Proyección',
+                line=dict(color='#EF553B', width=3, dash='dot'),  # Línea punteada para diferenciar los proyectados
+                marker=dict(size=7, color='#EF553B', symbol='diamond', line=dict(color='white', width=2)),
                 hoverinfo="skip",
                 showlegend=False
             ))
