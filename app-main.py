@@ -276,19 +276,14 @@ elif menu == "Visualización de datos":
                 # Completar los años faltantes
                 country_data = completar_anios(data_historico_pais_est, country)
 
-                # Dividir los datos en tres segmentos
-                before_2020 = country_data[country_data['year'] < 2020]
-                between_2020_2030 = country_data[(country_data['year'] >= 2020) & (country_data['year'] <= 2030)]
-                after_2030 = country_data[country_data['year'] > 2030]
-
                 # Obtener el color para el país
                 country_color = colors[country]
 
                 # Añadir el segmento antes de 2020 (línea continua)
                 fig.add_trace(
                     go.Scatter(
-                        x=before_2020['year'],
-                        y=before_2020['prevalencia (%)'],
+                        x=country_data['year'],
+                        y=country_data['prevalencia (%)'],
                         mode='lines+markers',
                         name=country,
                         hovertemplate="Prevalencia: %{y:.2f}<extra></extra>",
@@ -297,34 +292,7 @@ elif menu == "Visualización de datos":
                     )
                 )
 
-                # Añadir el segmento entre 2020 y 2030 (línea punteada)
-                fig.add_trace(
-                    go.Scatter(
-                        x=between_2020_2030['year'],
-                        y=between_2020_2030['prevalencia (%)'],
-                        mode='lines+markers',
-                        name=country,
-                        hovertemplate="Prevalencia: %{y:.2f}<extra></extra>",
-                        # Personalizar el tooltip sin el símbolo '%'
-                        line=dict(dash='dot', color=country_color)
-                        # Usamos el mismo color del país para la línea punteada
-                    )
-                )
-
-                # Añadir el segmento después de 2030 (línea continua)
-                fig.add_trace(
-                    go.Scatter(
-                        x=after_2030['year'],
-                        y=after_2030['prevalencia (%)'],
-                        mode='lines+markers',
-                        name=country,
-                        hovertemplate="Prevalencia: %{y:.2f}<extra></extra>",
-                        # Personalizar el tooltip sin el símbolo '%'
-                        line=dict(color=country_color)  # Usamos el color del país
-                    )
-                )
-
-                # Colocar el nombre del país ligeramente desplazado a la derecha de 2030
+                # Colocar el nombre del país ligeramente desplazado a la derecha
                 year_2019_data = country_data[country_data['year'] == 2019]
                 if not year_2019_data.empty:
                     # Obtenemos el valor de prevalencia para 2019
