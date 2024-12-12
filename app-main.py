@@ -501,8 +501,8 @@ elif menu == "Visualización de datos":
                     "Year": "{:.0f}",
                     "Valor Real": "{:.2f}%",
                     "Valor Severo": "{:.2f}%",
-                    "Encuentas sin ponderar": "{:.0f}",
-                    "Encuestas ponderadas": "{:.0f}"
+                    "Encuentas Sin Ponderar": "{:.0f}",
+                    "Encuestas Ponderadas": "{:.0f}"
                 }).background_gradient(cmap="Reds", subset=["Valor Real", "Valor Severo"])
                              .set_properties(**{"text-align": "center"}))  # Centrar contenido de la tabla
 
