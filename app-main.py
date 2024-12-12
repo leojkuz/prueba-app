@@ -428,8 +428,8 @@ elif menu == "Visualización de datos":
                 font=dict(color="white", family="Arial"),  # Estilo tipográfico (limpio)
             )
             # Mostrar cuadrícula para facilitar el debug
-            fig.update_xaxes(range=[0, 1], zeroline=True, showgrid=True)
-            fig.update_yaxes(range=[0, 1], zeroline=True, showgrid=True)
+            fig.update_xaxes(zeroline=True, showgrid=True)
+            fig.update_yaxes(zeroline=True, showgrid=True)
             return fig
 
 
