@@ -492,9 +492,12 @@ elif menu == "Visualización de datos":
 
                 # Gauge para el valor actual
                 st.plotly_chart(create_gauge(valor_real, pais_seleccionado), use_container_width=True)
-                st.markdown(f"<h1 style='text-align: center; color: white;'>{valor_real}%</h1>", unsafe_allow_html=True)
-                st.markdown(f"<h3 style='text-align: center; color: white;'>{pais_seleccionado}</h3>",
-                            unsafe_allow_html=True)
+                st.markdown(f"""
+                    <div style="text-align: left; margin-left: 50px; margin-top: -10px; margin-bottom: -20px;">
+                        <h1 style='color: white; display: inline-block;'>{valor_real}%</h1>
+                        <p style='color: white; font-size: 18px; display: inline;'><b>{pais_seleccionado}</b></p>
+                    </div>
+                """, unsafe_allow_html=True)
 
                 # Tabla bonita con Streamlit
                 st.subheader("Reportes de gravedad por año")
