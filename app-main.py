@@ -809,22 +809,27 @@ elif menu == "Visualización de datos":
         st.plotly_chart(fig, use_container_width=True)
 
         st.markdown("""
-        ## 🤔 Reflexiones
+        ## 🔍 Reflexiones y Observaciones
 
-        Este análisis destaca cómo hemos estado afectados por la anemia infantil en las últimas dos décadas y cómo, bajo las mismas condiciones observadas hasta ahora, podríamos enfrentarnos a un panorama preocupante si no actuamos prontamente.
+        📉 Al analizar los datos históricos, podemos observar que **la anemia infantil ha mostrado una tendencia a la disminución en las últimas dos décadas**, aunque este progreso ha sido notablemente lento y desigual entre regiones.
 
-        📌 **Datos Clave:**
-        1. Las tasas globales de anemia infantil han mostrado una disminución modesta desde el año 2000.
-        2. Si bien las proyecciones hacia el futuro sugieren una tendencia hacia mejoras continuas, aún existen riesgos significativos en regiones más vulnerables.
+        Si las condiciones actuales se mantienen sin cambios significativos, las proyecciones sugieren que esta lenta reducción continuará. A pesar de ello, la prevalencia global de anemia infantil podría seguir afectando **cientos de millones de niños** hacia el 2030.
 
-        🔍 **¿Qué sigue?**
-        Este no es solo un ejercicio informativo. Este tipo de modelos nos permite:
-        - **Evaluar riesgos futuros y planificar soluciones proactivas.**
-        - Identificar áreas donde la intervención es más urgente.
-        - Monitorear el impacto de políticas específicas a lo largo del tiempo.
+        ### 🚨 Principales Implicaciones:
+        - La ritmo actual de reducción es insuficiente para alcanzar metas ambiciosas mundiales, como las establecidas por los Objetivos de Desarrollo Sostenible (ODS).
+        - Sin intervenciones específicas, áreas con menores ingresos seguirán enfrentándose a una carga desproporcionada de anemia.
+        - Las proyecciones no solo refuerzan la necesidad de acción global, sino que también subrayan la importancia de focalizar los esfuerzos en los países más afectados.
 
-        🌟 **¿Cuáles son tus ideas?** Si alguna región o tendencia llama tu atención, ¡profundicemos juntos!
+        ### 🌟 Potencial para Cambiar Tendencias Futuras:
+        Aunque estas proyecciones pueden parecer desalentadoras, también reflejan algo importante: **el futuro no está escrito**. Acciones concretas, tales como:
+        1. Mejorar la nutrición materno-infantil.
+        2. Incrementar el acceso a intervenciones médicas preventivas y tratamientos.
+        3. Combatir desigualdades en áreas más vulnerables.
+        ... podrían acelerar significativamente la reducción global de anemia infantil y cambiar el camino proyectado hacia uno más optimista.
+
+        Este capítulo sirve como un recordatorio: los datos históricos y las proyecciones no son un destino inevitable; son una oportunidad para tomar decisiones informadas hoy para moldear mañana.
         """)
+
 
 
 
