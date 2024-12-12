@@ -281,7 +281,7 @@ elif menu == "Visualización de datos":
 
             # Configurar diseño del gráfico
             fig.update_layout(
-                title= None,
+                title= "",
                 xaxis=dict(
                     title='Año',
                     tickmode='array',
