@@ -653,17 +653,18 @@ elif menu == "Visualización de datos":
 
     elif viz_menu == "Proyecciones":
         st.markdown("""
-        # 🌍 Proyección Global: La Anemia Infantil hasta el 2030
+        # 🌍 Estimaciones Futuras: Mirando hacia el 2030
 
-        Previamente hemos explorado los datos históricos que reflejan la prevalencia de anemia infantil a nivel global. Estos análisis permiten entender cómo los niveles de anemia han afectado a nuestra población en las últimas décadas.
+        El análisis de datos históricos no solo nos permite comprender lo que ha sucedido, sino que también nos da las herramientas necesarias para **proyectar escenarios futuros**. Al observar cómo han evolucionado los niveles globales de anemia infantil en el pasado, es posible extrapolar esas tendencias para anticipar qué rumbo podrían tomar las próximas décadas.
 
-        Sin embargo, para poder planificar estrategias efectivas de mitigación, también es fundamental **mirar hacia el futuro**. Si las condiciones actuales persisten, podemos hacer estimaciones basadas en los patrones históricos que nos permitan anticiparnos y actuar.
+        La capacidad de realizar estas estimaciones no es trivial. La posibilidad de **predecir escenarios futuros**, por simplificados que sean, ofrece una base importante para:
+        - **Planificación preventiva:** Si entendemos cómo podría comportarse la prevalencia según las tendencias actuales, es más fácil priorizar estrategias a largo plazo.
+        - **Asignación de recursos:** Países con falta de progreso podrían recibir atención focalizada para cambiar su trayectoria.
+        - **Creación de políticas públicas:** Las proyecciones generan argumentos sólidos para justificar acciones inmediatas en salud pública.
 
-        A continuación, se presenta un análisis combinado: los datos históricos desde el año 2000 hasta 2019 y **una proyección hasta el año 2030** si las tasas de crecimiento observadas se mantienen constantes.
-
-        🌟 **¿Qué esperarás ver aquí?**
-        - Una representación clara de cómo hemos estado afectados hasta ahora.
-        - Una estimación tentativa para comprender dónde podríamos estar en el futuro.
+        En este capítulo, se presenta una **combinación gráfica y analítica** que muestra:
+        1. Los datos históricos disponibles desde el año 2000 hasta el 2019.
+        2. Una extrapolación proyectada de esos patrones basada en tendencias observadas, extendiendo el análisis hasta el 2030.
         """)
 
         # Cargar los datos históricos
