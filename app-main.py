@@ -410,8 +410,8 @@ elif menu == "Visualización de datos":
             angle_rad = np.radians(angle)  # Convertir a radianes
             radius = 0.2  # Longitud de la flecha (relativa al radio del gauge)
             x_center, y_center = 0.5, 0  # Centro del gauge (en coordenadas normalizadas)
-            x_arrow = x_center - radius * np.cos(angle_rad)
-            y_arrow = y_center + radius * np.sin(np.pi - angle_rad)
+            x_arrow = x_center + radius * np.cos(180 - angle)
+            y_arrow = y_center + radius * np.sin(180 - angle)
 
             # Agregar la flecha al gráfico
             fig.add_shape(
