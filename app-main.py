@@ -453,12 +453,13 @@ elif menu == "Visualización de datos":
                 y=(0.95 * unit)[1],  # Ajustado para aparecer debajo del gráfico
                 font=dict(size=20, color="white"),
                 showarrow=False,
+                textangle = angle_rad
             )
 
             # Configuración del diseño
             fig.update_layout(
                 height=300,  # Altura del gráfico
-                margin=dict(t=50, b=50, l=50, r=50),  # Márgenes compactos
+                margin=dict(t=70, b=70, l=70, r=70),  # Márgenes compactos
                 font=dict(color="white", family="Arial"),  # Estilo tipográfico (limpio)
                 xaxis={'showgrid': False, 'showticklabels': False, 'range': [-1, 1]},
                 yaxis={'showgrid': False, 'showticklabels': False, 'range': [0, 1]},
