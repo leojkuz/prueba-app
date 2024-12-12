@@ -734,7 +734,7 @@ elif menu == "Visualización de datos":
         # Personalización del diseño general
         fig.update_layout(
             title=dict(
-                text="<span style='font-size:24px; color:#1f77b4; font-family:Arial;'><b>📉 Prevalencia Global de Anemia Infantil (2000-2030)</b></span>",
+                text="<span style='font-size:24px; color:#1f77b4; font-family:Arial;'><b>📉 Estimación Futura de Anemia Infantil (2000-2030)</b></span>",
                 x=0.2),
             xaxis=dict(
                 title="Año",
