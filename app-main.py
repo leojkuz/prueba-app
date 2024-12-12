@@ -689,8 +689,8 @@ elif menu == "Visualización de datos":
                     'nivel geográfico': row['nivel geográfico'],  # Usar nivel_geografico
                     'prevalencia (%)': row['prevalencia (%)']
                 })
-                # Proyectar valores desde 2020 hasta 2030 usando el factor de crecimiento
-                ultima_prevalencia = data_historico_est['prevalencia (%)'].iloc[-1]  # Último valor conocido (2019)
+            # Proyectar valores desde 2020 hasta 2030 usando el factor de crecimiento
+            ultima_prevalencia = data_historico_est['prevalencia (%)'].iloc[-1]  # Último valor conocido (2019)
 
             # El último valor de 'nivel_geografico' será el mismo en las proyecciones
             nivel_geografico = data_historico_est['nivel geográfico'].iloc[0]
@@ -817,45 +817,78 @@ elif menu == "Visualización de datos":
                 """)
 
             st.subheader("Comparador futuro de anemia infantil para cada país")
-            data_historico_pais_est = pd.read_csv("data/world_bank_anemia_paises_listo.csv")
+            # Cargar datos del CSV original
+            data = pd.read_csv("data/world_bank_anemia_paises_listo.csv")
+
+            # Limpiar nombres de columnas (por si tienen espacios adicionales)
+            data.columns = data.columns.str.strip()
+
+            # Lista para almacenar los datos originales y las estimaciones
+            datos_con_estimaciones = []
+
+            # Obtener la lista de países únicos
+            paises_unicos = data['pais'].unique()
+
+            for pais in paises_unicos:
+                # Filtrar los datos para el país actual
+                datos_pais = data[data['pais'] == pais].sort_values(by='year')
+
+                # Calcular las variaciones anuales porcentuales
+                datos_pais['variacion'] = datos_pais['prevalencia (%)'].pct_change()
+
+                # Calcular el promedio de la variación porcentual (ignorando valores nulos)
+                factor_crecimiento = datos_pais[
+                                         'variacion'].mean() + 1  # Agregar 1 para obtener el factor multiplicativo
+
+                # Agregar los datos originales del país al conjunto de datos
+                for _, row in datos_pais.iterrows():
+                    datos_con_estimaciones.append({
+                        'year': row['year'],
+                        'pais': row['pais'],
+                        'prevalencia (%)': row['prevalencia (%)']
+                    })
+
+                # Proyectar valores desde 2020 hasta 2030 usando el factor de crecimiento
+                ultima_prevalencia = datos_pais['prevalencia (%)'].iloc[-1]  # Último valor conocido (2019)
+                for year in range(2020, 2031):
+                    ultima_prevalencia *= factor_crecimiento  # Aplicar el factor de crecimiento
+                    datos_con_estimaciones.append({
+                        'year': year,
+                        'pais': pais,
+                        'prevalencia (%)': ultima_prevalencia
+                    })
+
+            # Convertir los resultados a un DataFrame
+            data_historico_pais_est = pd.DataFrame(datos_con_estimaciones)  # Data con estimación hasta el 2030
+
+            # Transformar la variable 'year' a entero
             data_historico_pais_est['year'] = pd.to_numeric(data_historico_pais_est['year'], errors='coerce')
             data_historico_pais_est['year'] = data_historico_pais_est['year'].astype(int)
 
-            # Lista de países únicos
-            countries = sorted(data_historico_pais_est['pais'].unique())
-
+            # Obtener la lista de países únicos
+            country_data = sorted(data_historico_pais_est['pais'].unique())
 
             # Generar colores aleatorios para cada país
-            def assign_colors(countries):
-                return {
-                    country: f'rgba({random.randint(0, 255)},{random.randint(0, 255)},{random.randint(0, 255)}, 0.8)'
-                    for country in countries}
+            colors = {country: f"#{random.randint(0, 0xFFFFFF):06x}" for country in country_data}
 
 
-            colors = assign_colors(countries)
-
-
-            # Función para completar años (históricos y proyectados)
-            def completar_anios_con_proyecciones(df, country):
+            # Función para completar los años faltantes
+            def completar_anios(df, country):
                 country_data = df[df['pais'] == country]
-
-                # Rango completo de años (incluye hasta 2030)
-                all_years = pd.DataFrame({'year': range(country_data['year'].min(), 2031)})
-
-                # Merge para llenar valores faltantes y utilizar interpolación
+                all_years = pd.DataFrame({'year': range(df['year'].min(), df['year'].max() + 1)})
                 completed_data = pd.merge(all_years, country_data, on='year', how='left')
                 completed_data['prevalencia (%)'] = completed_data['prevalencia (%)'].interpolate()
                 completed_data['pais'] = completed_data['pais'].fillna(country)
                 return completed_data
 
 
-            # Función para calcular estadísticas y generar mensaje
+            # Función para obtener estadísticas y generar mensajes
             def obtener_estadisticas_mensaje(country_df):
-                # Promedio histórico entre 2000 y 2019
+                # Calcular el promedio histórico entre 2000 y 2019
                 historical_data = country_df[(country_df['year'] >= 2000) & (country_df['year'] <= 2019)]
                 avg_prevalence_2000_2019 = historical_data['prevalencia (%)'].mean()
 
-                # Tasa de disminución promedio anual entre 2020 y 2030
+                # Calcular la tasa de disminución promedio anual hasta 2030
                 future_data = country_df[(country_df['year'] > 2019) & (country_df['year'] <= 2030)]
                 if len(future_data) > 1:
                     slope, _, _, _, _ = linregress(future_data['year'], future_data['prevalencia (%)'])
@@ -863,11 +896,13 @@ elif menu == "Visualización de datos":
                 else:
                     annual_decrease_rate = 0
 
-                return (f"Para {country_df['pais'].iloc[0]}, la prevalencia de anemia tuvo un promedio de "
-                        f"{avg_prevalence_2000_2019:.2f}% entre 2000 y 2019. "
-                        f"Con base en las proyecciones, se estima que la prevalencia disminuirá a una tasa promedio anual de "
-                        f"{annual_decrease_rate:.2f}% hacia el año 2030.")
-
+                mensaje = (
+                    f"Para {country_df['pais'].iloc[0]}, la prevalencia de anemia tuvo un promedio de "
+                    f"{avg_prevalence_2000_2019:.2f}% entre 2000 y 2019. "
+                    f"Con base en las proyecciones, se estima que la prevalencia disminuirá a una tasa promedio anual de "
+                    f"{annual_decrease_rate:.2f}% hacia el año 2030."
+                )
+                return mensaje
 
             # Función para graficar prevalencias en base a países seleccionados
             def plot_selected_countries_plotly(countries_selected):
@@ -879,9 +914,6 @@ elif menu == "Visualización de datos":
                 mensajes = []
 
                 for country in countries_selected:
-                    # Completar datos históricos y proyectados
-                    country_data = completar_anios_con_proyecciones(data_historico_pais_est, country)
-
                     # Generar el mensaje estadístico
                     mensaje = obtener_estadisticas_mensaje(country_data)
                     mensajes.append(mensaje)
