@@ -652,7 +652,6 @@ elif menu == "Visualización de datos":
                 st.components.v1.html(html_data, width=1200, height=700)
 
     elif viz_menu == "Proyecciones":
-        st.subheader("Proyecciones Futuras")
         st.markdown("""
         # 🌍 Proyección Global: La Anemia Infantil hasta el 2030
 
@@ -666,6 +665,47 @@ elif menu == "Visualización de datos":
         - Una representación clara de cómo hemos estado afectados hasta ahora.
         - Una estimación tentativa para comprender dónde podríamos estar en el futuro.
         """)
+
+        # Cargar los datos históricos
+        data_historico_est = pd.read_csv(r"world_bank_anemia_mundial_listo.csv")
+
+        # Ordenamos los datos por año de forma ascendente (aseguramos que estén en orden cronológico)
+        data_historico_est = data_historico_est.sort_values(by='year', ascending=True)
+
+        # Calcular el factor de crecimiento promedio (promedio de las variaciones porcentuales año tras año)
+        factor_crecimiento = (data_historico_est[
+                                  'prevalencia (%)'].pct_change().mean() + 1)  # Para que sea un factor de multiplicación
+
+        # Lista para almacenar los datos con las estimaciones proyectadas
+        datos_con_estimaciones = []
+
+        # Agregar los datos originales al conjunto de datos de estimaciones
+        for _, row in data_historico_est.iterrows():
+            datos_con_estimaciones.append({
+                'year': row['year'],
+                'nivel geográfico': row['nivel geográfico'],  # Usar nivel_geografico
+                'prevalencia (%)': row['prevalencia (%)']
+            })
+
+        # Proyectar valores desde 2020 hasta 2030 usando el factor de crecimiento
+        ultima_prevalencia = data_historico_est['prevalencia (%)'].iloc[-1]  # Último valor conocido (2019)
+
+        # El último valor de 'nivel_geografico' será el mismo en las proyecciones
+        nivel_geografico = data_historico_est['nivel geográfico'].iloc[0]
+
+        for year in range(2020, 2031):
+            ultima_prevalencia *= factor_crecimiento  # Aplicar el factor de crecimiento
+            datos_con_estimaciones.append({
+                'year': year,
+                'nivel geográfico': 'Mundial',  # Mantener el mismo nivel_geografico
+                'prevalencia (%)': ultima_prevalencia
+            })
+
+        # Convertir los datos con estimaciones a un DataFrame
+        data_historico_est = pd.DataFrame(datos_con_estimaciones)
+
+        # Reordenar las columnas para que aparezcan como 'year', 'prevalencia (%)' y 'nivel_geografico'
+        data_historico_est = data_historico_est[['year', 'prevalencia (%)', 'nivel geográfico']]
         # Crear el gráfico de línea con estimaciones
         fig = go.Figure()
 
