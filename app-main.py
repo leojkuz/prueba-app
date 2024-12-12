@@ -417,9 +417,10 @@ elif menu == "Visualización de datos":
 
             # Configuración del diseño
             fig.update_layout(
-                height=400,  # Altura del gráfico
+                height=200,  # Altura del gráfico
                 margin=dict(t=50, b=0, l=50, r=50),  # Márgenes compactos
-                font=dict(color="white", family="Arial")  # Estilo tipográfico (limpio)
+                font=dict(color="white", family="Arial"),  # Estilo tipográfico (limpio)
+                align="left"
             )
             return fig
 
