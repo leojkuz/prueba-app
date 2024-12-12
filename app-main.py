@@ -430,6 +430,9 @@ elif menu == "Visualización de datos":
                 xaxis=dict(scaleanchor="y"),  # Vincular la escala del eje X con el eje Y
 
             )
+            # Mostrar cuadrícula para facilitar el debug
+            fig.update_xaxes(range=[0, 1], zeroline=False, showgrid=False)  # Fijar rango del eje X
+            fig.update_yaxes(range=[0, 1], zeroline=False, showgrid=False)  # Fijar rango del eje Y
             return fig
 
 
