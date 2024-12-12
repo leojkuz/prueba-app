@@ -487,8 +487,8 @@ elif menu == "Visualización de datos":
                 data_paises = data_ind_anemia[data_ind_anemia["Pais"] == pais_seleccionado].reset_index(drop=True)
 
                 # Obtener el valor más reciente de "Valor Real"
-                latest_year = data_paises["Year"].max()
-                valor_real = data_paises[data_paises["Year"] == latest_year]["Valor General"].values[0]
+                latest_year = data_paises["Año"].max()
+                valor_real = data_paises[data_paises["Año"] == latest_year]["Valor General"].values[0]
 
                 # Gauge para el valor actual
                 st.plotly_chart(create_gauge(valor_real, pais_seleccionado), use_container_width=True)
@@ -496,7 +496,7 @@ elif menu == "Visualización de datos":
                 # Tabla bonita con Streamlit
                 st.subheader("Detalles por Año")
                 st.dataframe(data_paises.style.format({
-                    "Year": "{:.0f}",
+                    "Año": "{:.0f}",
                     "Valor General": "{:.2f}%",
                     "Valor Leve": "{:.2f}%",
                     "Valor Moderado": "{:.2f}%",
