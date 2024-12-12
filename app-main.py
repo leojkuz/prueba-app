@@ -914,6 +914,7 @@ elif menu == "Visualización de datos":
                 mensajes = []
 
                 for country in countries_selected:
+                    country_data = completar_anios(data_historico_pais_est, country)
                     # Generar el mensaje estadístico
                     mensaje = obtener_estadisticas_mensaje(country_data)
                     mensajes.append(mensaje)
