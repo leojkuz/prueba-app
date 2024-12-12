@@ -652,7 +652,7 @@ elif menu == "Visualización de datos":
                 st.components.v1.html(html_data, width=1200, height=700)
 
     elif viz_menu == "Proyecciones":
-        c1, c2 = st.columns([1.2, 0.8])
+        c1, c2 = st.columns([1.4, 0.6])
         with c1:
             st.markdown("""
             # 🌍 Estimaciones Futuras: Mirando hacia el 2030
