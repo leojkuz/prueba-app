@@ -12,6 +12,7 @@ from folium.plugins import MarkerCluster
 import  streamlit_toggle as tog
 import random
 from matplotlib.patches import Wedge
+import numpy as np
 
 # Configuración inicial de la página
 st.set_page_config(page_title="Análisis Global de la Anemia", layout="wide")
@@ -354,7 +355,7 @@ elif menu == "Visualización de datos":
         else:
             st.warning("Por favor selecciona al menos un país.")
         # Cargar los datos
-        data_ind_anemia = pd.read_csv(r"dhs_anemia_final.csv")
+        data_ind_anemia = pd.read_csv("data/dhs_anemia_final.csv")
         data_ind_anemia.drop(data_ind_anemia.columns[[3, 4, 5, 6, 7, 8, 9, 10]], axis=1, inplace=True)
         data_ind_anemia.rename(
             columns={
