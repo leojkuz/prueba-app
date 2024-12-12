@@ -486,8 +486,7 @@ elif menu == "Visualización de datos":
                 st.subheader(f"Prevalencia de anemia en {pais_seleccionado} según el reporte más reciente")
 
                 # Filtrar datos del país
-                data_paises = data_ind_anemia[data_ind_anemia["Pais"] == pais_seleccionado]
-                data_paises=data_paises.reset_index()
+                data_paises = data_ind_anemia[data_ind_anemia["Pais"] == pais_seleccionado].reset_index(drop=True)
 
                 # Obtener el valor más reciente de "Valor Real"
                 latest_year = data_paises["Year"].max()
