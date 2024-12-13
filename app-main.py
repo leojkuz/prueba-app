@@ -216,7 +216,9 @@ if menu == "Introducción":
 
     ---
     ## Argentina
-    ![](https://i.pinimg.com/736x/2b/1b/96/2b1b961dffad584769549a42eb0fc943.jpg)
+    <div style="text-align: center;">
+        <img src="https://i.pinimg.com/736x/2b/1b/96/2b1b961dffad584769549a42eb0fc943.jpg" width="300" height="400">
+    </div>
     --
     
     <!-- .slide: data-background-color="#283747" -->
@@ -247,7 +249,7 @@ if menu == "Introducción":
 https://www.minsalud.gov.co/Paginas/Minsalud-cuenta-con-estrategia-para-prevenir-anemia-en-primera-infancia-.aspx
     ---
     ## Guatemala
-    ![](https://i0.wp.com/viajerosporcolombia.com/wp-content/uploads/Cartagena-de-Indias.jpg?w=1200&ssl=1)
+    ![](https://i.pinimg.com/736x/6c/45/cb/6c45cba616d0aca213f9d91db522bfed.jpg)
     --
     
     <!-- .slide: data-background-color="#283747" -->
@@ -261,6 +263,7 @@ https://www.minsalud.gov.co/Paginas/Minsalud-cuenta-con-estrategia-para-prevenir
 
     ---
     ## México
+    ![](https://www.landuum.com/wp-content/uploads/2023/09/pexels-luis-ariza-13808918landuum-scaled.jpg)
     --
     
     <!-- .slide: data-background-color="#283747" -->
@@ -274,6 +277,7 @@ https://www.minsalud.gov.co/Paginas/Minsalud-cuenta-con-estrategia-para-prevenir
 
     ---
     ## Bolivia
+    ![](https://as1.ftcdn.net/jpg/01/40/10/50/1000_F_140105071_ia43Nfs23jz1O2eezuDdFYRvfL6dudpS.jpg)
     --
     
     <!-- .slide: data-background-color="#283747" -->
