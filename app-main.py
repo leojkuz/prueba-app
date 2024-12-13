@@ -1315,7 +1315,7 @@ elif menu == "Visualización de datos":
             )
         ])
         fig_no.update_layout(
-            title=dict(text='Consumo de hierro: No', x=0.5, font=dict(size=16)),
+            title=dict(text='Consumo de hierro: No', x=0.1, font=dict(size=16)),
             showlegend=False
         )
 
