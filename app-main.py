@@ -145,7 +145,7 @@ elif menu == "Visualización de datos":
             st.metric(label="Prevalencia Global (%)", value="39.8%", delta="-0.5% respecto al año 2015")
 
         with col2:
-            st.metric(label="Continente más afectado", value="Asia (???? %) Pendiente")
+            st.metric(label="Continente más afectado", value="Africa (60.2 %)")
 
         with col3:
             st.subheader("Prevalencia histórica de anemia por niveles de ingresos")
