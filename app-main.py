@@ -1541,8 +1541,8 @@ elif menu == "Visualización de datos":
             barmode='relative',  # Permitir valores positivos y negativos apilados horizontalmente
             xaxis=dict(
                 title="Niños contabilizados",
-                titlefont=dict(size=14, color='white'),
-                tickfont=dict(size=12, color='white'),
+                titlefont=dict(size=14, color='black'),
+                tickfont=dict(size=12, color='black'),
                 showgrid=False,
                 gridcolor='lightgray',
                 zeroline=True,
@@ -1567,8 +1567,6 @@ elif menu == "Visualización de datos":
                 yanchor="bottom",
                 y=-0.3,
                 xanchor="center",
-                titlefont=dict(size=14, color='black'),
-                tickfont=dict(size=12, color='black'),
                 x=0.05,
             ),
             plot_bgcolor='white',
