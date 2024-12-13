@@ -196,20 +196,28 @@ if menu == "Introducción":
         st.write("im")
         pass
 
-    ### Un vistazo a la situación de la anemia en el mundo
-    st.write("")
-    st.write("")
+    st.subheader("¿Cómo se ha vivido la anemia alrededor del mundo?")
+
+    st.write("La anemia infantil es un problema que afecta a millones de niños en todo el mundo, con impactos duraderos en su salud, "
+             "desarrollo y calidad de vida. Sin embargo, diferentes gobiernos han emprendido iniciativas específicas para abordar "
+             "este desafío, implementando políticas públicas, programas de suplementación y campañas educativas contra esta condición. "
+             "En esta sección, exploraremos un conjunto de noticias que destacan las acciones gubernamentales más relevantes y "
+             "algunos momentos históricos clave en la lucha contra la anemia infantil, permitiéndonos reflexionar sobre los "
+             "esfuerzos globales realizados y los aprendizajes obtenidos en diversos contextos.")
+
     # Configuración del contenido en Markdown para los slides
     content_markdown = """
     # Noticias de la anemia en el mundo
     ---
-    ## País 1: Brasil 🌴
+    ## Perú
     --
     
     <!-- .slide: data-background-color="#283747" -->
-    🌎 **Ubicación:** América del Sur
-    🍖 **Cultura:** Famoso por su Carnaval y la samba.
-    🏞 **Dato relevante:** Es uno de los principales productores de hierro y acero en el mundo.
+    **"Tan Fuertes como el Hierro": Iniciativa ha ayudado en la recuperación de niños diagnosticados con anemia (PERU)**
+    _8 de septiembre del 2023_ 
+    La campaña “Tan Fuertes como el Hierro” ya está cosechando resultados impresionantes. Más de 1,000 familias han sido educadas en alimentación nutritiva y más de 1,200 frascos de suplemento nutricional de hierro han sido entregados gratuitamente para el tratamiento de la anemia infantil. Además, las proyecciones apuntan a la recuperación de, por lo menos, el 70% de los niños diagnosticados con anemia después del tratamiento y la implementación de las estrategias educativas.
+    https://rpp.pe/campanas/valor-compartido/tan-fuertes-como-el-hierro-iniciativa-ha-ayudado-en-la-recuperacion-de-ninos-diagnosticados-con-anemia-noticia-1504586?ref=rpp
+
     ---
     ## País 2: Japón 🗾
     --
