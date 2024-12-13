@@ -1338,20 +1338,18 @@ elif menu == "Visualización de datos":
                                 """)
 
         # Contar las observaciones por combinación de 'Anemia_Level' y 'Residence_Type', especificando 'observed=False'
+        # Contar las observaciones por combinación de 'Anemia_Level' y 'Residence_Type', especificando 'observed=False'
         data_count_res = data.groupby(['Anemia_Level', 'Residence_Type'], observed=False).size().reset_index(
             name='count')
 
-        # Total por nivel de anemia para calcular porcentajes relativos
-        total_per_severity = data_count_res.groupby('Anemia_Level', observed=False)['count'].transform('sum')
+        # Modificar los valores de 'count' a negativos cuando 'Residence_Type' sea 'Rural'
+        data_count_res['count'] = data_count_res.apply(
+            lambda row: -row['count'] if row['Residence_Type'] == 'Rural' else row['count'], axis=1)
 
-        # Calcular los porcentajes dentro de cada severidad de anemia
-        data_count_res['percentage'] = (data_count_res['count'] / total_per_severity) * 100
-
-        # Convertir porcentajes de Rural a negativos para la representación simétrica
-        data_count_res['percentage'] = data_count_res.apply(
-            lambda row: -row['percentage'] if row['Residence_Type'] == 'Rural' else row['percentage'],
-            axis=1
-        )
+        # Calcular el porcentaje tomando el valor absoluto de 'count'
+        total_per_anemia = data_count_res.groupby('Anemia_Level', observed=False)['count'].transform(
+            lambda x: x.abs().sum())
+        data_count_res['percentage'] = (data_count_res['count'].abs() / total_per_anemia) * 100
 
         # Crear el gráfico con Plotly Go
         fig = go.Figure()
@@ -1362,7 +1360,7 @@ elif menu == "Visualización de datos":
         for residence in ['Rural', 'Urbana']:
             residencia_data = data_count_res[data_count_res['Residence_Type'] == residence]
             fig.add_trace(go.Bar(
-                x=residencia_data['percentage'],
+                x=residencia_data['count'],
                 y=residencia_data['Anemia_Level'],
                 name=residence,
                 orientation='h',
