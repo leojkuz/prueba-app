@@ -1394,7 +1394,7 @@ elif menu == "Visualización de datos":
             },
             barmode='relative',  # Permitir valores positivos y negativos apilados horizontalmente
             xaxis=dict(
-                title="Porcentaje de tipo de anemia",
+                title="Niños contabilizados",
                 titlefont=dict(size=14, color='white'),
                 tickfont=dict(size=12, color='white'),
                 showgrid=False,
