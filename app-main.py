@@ -258,6 +258,46 @@ if menu == "Introducción":
     5.   Suplementación con Micronutrientes
     
 https://www.minsalud.gov.co/Paginas/Minsalud-cuenta-con-estrategia-para-prevenir-anemia-en-primera-infancia-.aspx
+    ---
+    ## Guatemala
+    --
+    
+    <!-- .slide: data-background-color="#283747" -->
+    **Campamentos Nutrimóviles: exitoso proyecto impulsado en Guatemala para erradicar la desnutrición infantil**
+    
+    <u>21 de marzo de 2024</u>
+    
+    La iniciativa de Guatemaltecos por la Nutrición pasó por instalar lo que sus promotores han bautizado como “Campamentos Nutrimóviles”, que son unas clínicas equipadas con la última tecnología para facilitar atención médica y nutricional a las comunidades guatemaltecas.
+    Según datos de la organización, el 79 % de los niños vencieron la desnutrición aguda después de implantar este proyecto en algunas zonas del país en su fase inicial. Ahora, la organización ha anunciado un segundo campamento que beneficiará a más de 19.000 residentes de San Pedro Soloma y Santa Eulalia, en Huehuetanango.
+    https://www.vozdeamerica.com/a/campamentos-nutrimoviles-exitoso-proyecto-guatemala-erradicar-desnutricion-infantil/7536588.html
+
+    ---
+    ## México
+    --
+    
+    <!-- .slide: data-background-color="#283747" -->
+    **IMSS desarrolla campañas para prevenir anemia entre menores**
+    
+    <u>18 de mayo de 2012</u>
+    
+    El IMSS desarrolla diversas campañas para prevenir la anemia entre los grupos más vulnerables, a través de suplementos de hierro y de pláticas sobre nutrición en las Unidades de Medicina Familiar (UMF).
+    La anemia crónica en menores puede generar consecuencias severas para su desarrollo físico, intelectual y emocional, advirtió Miguel Ángel Andrade Padilla, médico pediatra y profesor del Centro de Investigación Educativa y Formación Docente de la Delegación Norte del Distrito Federal del IMSS.
+    https://www.sinembargo.mx/238279/imss-desarrolla-campanas-para-prevenir-anemia-entre-menores/
+
+    ---
+    ## Bolivia
+    --
+    
+    <!-- .slide: data-background-color="#283747" -->
+    **La anemia en niños disminuyó en 7,6 puntos porcentuales **
+    
+    <u>07 de abril de 2018</u>
+    
+    En el Día Mundial de la Salud, El Instituto Nacional de Estadística (INE), informó que la anemia en niños de 6 a 59 meses disminuyo en 7,6 puntos porcentuales, de acuerdo a la Encuesta de Demografía y Salud (EDSA) 2016, el porcentaje de anemia es de 53,7% mientras que para la ENDSA 2008 fue de 61,3%.
+    Según el nivel de hemoglobina, los tipos de anemia se miden en leve 26,0 %, moderada 25,6% y severa 2,1%. Según la EDSA 2016, se registra una disminución de 7,6 puntos porcentuales en la anemia moderada y 1,1 puntos en la severa, así como un incremento de 1,1 puntos porcentuales en la anemia leve, en relación a la ENDSA 2008.
+    https://www.ine.gob.bo/index.php/la-anemia-en-ninos-disminuyo-en-76-puntos-porcentuales/
+
+
 
     """
 
