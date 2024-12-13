@@ -138,8 +138,7 @@ if menu == "Introducción":
         )
 
     with col1:
-        #st.image("imagenes/2.jpg", use_container_width=True)
-        st.write("im")
+        st.image("https://elcomercio.pe/resizer/xTR28Ck_-oiLTyn23B7uMPCtrHM=/1200x0/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/ZQWV7YV4N5GFPGQDX2PS7DNYXI.jpg", use_container_width=True)
 
     # Concepto 3: Tipos de Anemia
     col1, col2 = st.columns([3, 2])  # Relación 3:2 para que el texto esté a la izquierda y la imagen a la derecha
