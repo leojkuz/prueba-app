@@ -1328,6 +1328,14 @@ elif menu == "Visualización de datos":
         with col3:
             st.plotly_chart(fig_no, use_container_width=True)
 
+        st.markdown("""
+        ## 3. Factor Tipo de Residencia
+
+        El lugar en el que viven los niños, ya sea en áreas **rurales** o **urbanas**, juega un papel crucial en su desarrollo y bienestar, incluyendo su estado de salud. En el caso de la anemia infantil en Nigeria, este aspecto no es una excepción. El **tipo de residencia** puede influir en factores como el acceso a alimentos nutritivos, servicios básicos de salud, agua potable, saneamiento y, por supuesto, a suplementos de hierro.
+        Históricamente, se ha observado que las áreas rurales tienden a estar en desventaja respecto a las urbanas por múltiples razones: recursos más limitados, falta de infraestructura y menores ingresos promedio. Esto podría traducirse en **mayores niveles de anemia infantil** en estas regiones. Por otro lado, las zonas urbanas, aunque cuentan con más recursos, también tienen desafíos propios: densidad poblacional elevada, contraste en la distribución de recursos entre barrios y, en algunos casos, dependencia de dietas menos naturales.
+        A continuación, para explorar este factor, se presentará un gráfico comparativo de **barras apiladas horizontales**, donde se analizará la distribución porcentual de los diferentes **niveles de anemia** según el tipo de residencia (**Urbana** y **Rural**).        
+                                """)
+
 
 
 elif menu == "Conclusiones":
