@@ -1320,12 +1320,12 @@ elif menu == "Visualización de datos":
         )
 
         # Combinar los gráficos lado a lado con subplots usando Streamlit
-        col1, col2, col3 = st.columns(3)
-
-        with col1:
-            st.plotly_chart(fig_yes, use_container_width=True)
+        col1, col2, col3, col4 = st.columns(4)
 
         with col2:
+            st.plotly_chart(fig_yes, use_container_width=True)
+
+        with col3:
             st.plotly_chart(fig_no, use_container_width=True)
 
 
