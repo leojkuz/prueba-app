@@ -217,7 +217,7 @@ if menu == "Introducción":
     ---
     ## Argentina
     <div style="text-align: center;">
-        <img src="https://i.pinimg.com/736x/2b/1b/96/2b1b961dffad584769549a42eb0fc943.jpg" width="300" height="400">
+        <img src="https://i.pinimg.com/736x/2b/1b/96/2b1b961dffad584769549a42eb0fc943.jpg" width="400" height="500">
     </div>
     --
     
