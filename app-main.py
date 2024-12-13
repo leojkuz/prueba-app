@@ -337,7 +337,8 @@ elif menu == "Fuentes de datos":
 
         API utilizada: http://api.worldbank.org/v2/country/ALL/indicator/SH.ANM.CHLD.ZS
         
-        <img src="https://gustavo-godoy.com/wp-content/uploads/Banco-mundial-1536x864.jpeg"/>
+        ![](https://gustavo-godoy.com/wp-content/uploads/Banco-mundial-1536x864.jpeg)
+
         
         
         """)
