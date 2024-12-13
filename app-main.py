@@ -1407,7 +1407,7 @@ elif menu == "Visualización de datos":
                     showlegend=True,
                     legend_title='Países',
                     template="plotly_white",
-                    width=850,
+                    width=1200,
                 )
 
                 # Mostrar el gráfico en Streamlit
