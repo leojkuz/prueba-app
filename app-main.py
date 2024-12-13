@@ -1139,17 +1139,126 @@ elif menu == "Visualización de datos":
                 En este punto, el objetivo será analizar un gráfico de barras apiladas que nos permita visualizar las diferencias en los niveles de anemia infantil dentro de **varios niveles específicos de riqueza interna en Nigeria**.
 
                 Ahora bien, pasemos al gráfico para explorar estas diferencias.
-
                 """)
-        # Tabla bonita inventada
-        data = {
-            "Factor": ["Deficiencia de Hierro", "Malnutrición", "Enfermedades Crónicas"],
-            "Impacto Relativo (%)": [40, 30, 20],
-            "Relevancia": ["Alta", "Alta", "Media"]
+        data = pd.read_csv("data/datos_limpios_transformados.csv", sep=';')
+
+        # Tratar la variable 'Smokes' como categórica
+        data['Smokes'] = data['Smokes'].map({0: 'No', 1: 'Sí'})
+
+        # Tratar la variable 'Anemia_Level' como categórica
+        anemia_mapping = {0: 'Medio', 1: 'Moderado', 2: 'No anémico', 3: 'Severo'}
+        data['Anemia_Level'] = data['Anemia_Level'].map(anemia_mapping)
+
+        # Tratar la variable 'Wealth_Index' como categórica con las nuevas categorías
+        wealth_mapping = {
+            0: 'Medio',
+            1: 'Pobre',
+            2: 'Pobreza extrema',
+            3: 'Rico',
+            4: 'Riqueza alta'
+        }
+        data['Wealth_Index'] = data['Wealth_Index'].map(wealth_mapping)
+
+        # Tratar la variable 'Iron_Supplements' como categórica
+        data['Iron_Supplements'] = data['Iron_Supplements'].map({0: 'No sabe', 1: 'No', 2: 'Si'})
+
+        # Tratar la variable 'Iron_Supplements' como categórica
+        data['Residence_Type'] = data['Residence_Type'].map({0: 'Rural', 1: 'Urbana'})
+
+        # **PASOS PREVIOS DE TRANSFORMACIÓN DE LOS DATOS**
+
+        # Contar las observaciones para cada combinación de Anemia y Riqueza
+        contado = data.groupby(['Anemia_Level', 'Wealth_Index']).size().reset_index(name='Count')
+
+        # Calcular el total por cada categoría de Wealth_Index
+        contado['Total_Wealth_Index'] = contado.groupby('Wealth_Index')['Count'].transform('sum')
+
+        # Calcular el porcentaje dentro de cada Wealth_Index
+        contado['Percentage'] = (contado['Count'] / contado['Total_Wealth_Index']) * 100
+
+        # Redondear los porcentajes a un solo decimal
+        contado['Percentage'] = contado['Percentage'].round(1)
+
+        # Definir el orden específico para Wealth_Index y Anemia_Level
+        orden_wealth = ['Pobreza extrema', 'Pobre', 'Medio', 'Rico', 'Riqueza alta']
+        orden_anemia = ['No anémico', 'Moderado', 'Medio', 'Severo']
+
+        # Convertir Wealth_Index y Anemia_Level en variables categóricas con orden específico
+        contado['Wealth_Index'] = pd.Categorical(contado['Wealth_Index'], categories=orden_wealth, ordered=True)
+        contado['Anemia_Level'] = pd.Categorical(contado['Anemia_Level'], categories=orden_anemia, ordered=True)
+
+        # Ordenar los datos de acuerdo al orden categórico definido
+        contado = contado.sort_values(by=['Wealth_Index', 'Anemia_Level'])
+
+        # **CREAR GRÁFICO DE BARRAS APILADAS HORIZONTALES EN PLOTLY GO**
+
+        # Definir colores para los niveles de anemia
+        colores_anemia = {
+            'No anémico': '#34a853',  # Verde
+            'Moderado': '#fbbc05',  # Ambar/Dorado
+            'Medio': '#f29c33',  # Naranja intenso
+            'Severo': '#ea4335'  # Rojo fuerte
         }
 
-        df = pd.DataFrame(data)
-        st.table(df)
+        fig = go.Figure()
+
+        # Añadir trazas individuales por nivel de anemia
+        for anemia_level in orden_anemia:
+            nivel_data = contado[contado['Anemia_Level'] == anemia_level]
+            fig.add_trace(go.Bar(
+                x=nivel_data['Percentage'],
+                y=nivel_data['Wealth_Index'],
+                orientation='h',
+                name=anemia_level,
+                marker=dict(color=colores_anemia[anemia_level]),
+                text=nivel_data['Percentage'],  # Inserta porcentajes dentro de las barras
+                textposition='inside',  # Mostrar texto en el interior de las barras
+                hovertemplate=(f"<b>Anemia:</b> {anemia_level}<br>"
+                               "<b>Riqueza:</b> %{y}<br>"
+                               "<b>Porcentaje:</b> %{x:.1f}%<extra></extra>")
+            ))
+
+        # Configurar el diseño del gráfico
+        fig.update_layout(
+            title={
+                'text': 'Nivel de anemia infantil según nivel de riqueza',
+                'x': 0.5,  # Centrar título horizontalmente
+                'xanchor': 'center',
+                'font': dict(size=20)
+            },
+            barmode='stack',  # Apilar las barras
+            xaxis=dict(
+                title='Porcentaje (%)',
+                tickformat='.1f',
+                showgrid=True,
+                gridcolor='lightgray',
+                zeroline=False,
+                linecolor='black',
+                showline=True
+            ),
+            yaxis=dict(
+                title=None,
+                categoryorder='array',
+                categoryarray=orden_wealth,  # Asegurar orden lógico en eje Y
+                showline=True,
+                linecolor='black'
+            ),
+            plot_bgcolor='white',
+            legend=dict(
+                title='Niveles de anemia',
+                orientation="h",  # Leyenda horizontal debajo del gráfico
+                yanchor="top",
+                y=-0.2,
+                xanchor="center",
+                x=0.5,
+            ),
+            margin=dict(l=40, r=20, t=50, b=80),  # Ajuste de márgenes interno
+        )
+
+        # Mostrar gráfico en Streamlit
+        st.plotly_chart(fig)
+
+
 
 elif menu == "Conclusiones":
     st.title("Conclusiones")
