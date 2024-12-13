@@ -1536,7 +1536,7 @@ elif menu == "Visualización de datos":
                 'text': 'Nivel de anemia según el tipo de residencia',
                 'x': 0.5,
                 'xanchor': 'center',
-                'font': dict(size=18, color='white'),
+                'font': dict(size=18, color='black'),
             },
             barmode='relative',  # Permitir valores positivos y negativos apilados horizontalmente
             xaxis=dict(
@@ -1555,8 +1555,8 @@ elif menu == "Visualización de datos":
             ),
             yaxis=dict(
                 title="Nivel de Anemia",
-                titlefont=dict(size=14, color='white'),
-                tickfont=dict(size=12, color='white'),
+                titlefont=dict(size=14, color='black'),
+                tickfont=dict(size=12, color='black'),
                 showgrid=False,
                 linecolor='white',
                 linewidth=1,
