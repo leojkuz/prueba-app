@@ -389,7 +389,7 @@ elif menu == "Visualización de datos":
                             y=prev_2019,
                             text=country,
                             showarrow=False,
-                            font=dict(size=10, color='black'),
+                            font=dict(size=10, color=country_color),
                             xanchor='left',  # Alineación del texto a la izquierda
                             align='left'  # Alineación del texto a la izquierda
                         )
