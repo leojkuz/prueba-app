@@ -1718,7 +1718,35 @@ elif menu == "Visualización de datos":
 
 elif menu == "Conclusiones":
     st.title("Conclusiones")
-    st.write("Conclusiones: Sí")
+    st.markdown(
+        """
+        ## Conclusiones
+
+        Tras realizar un análisis exhaustivo de los datos relacionados con la anemia infantil, hemos obtenido varios hallazgos significativos que arrojan luz sobre este problema de salud pública desde diferentes perspectivas.
+
+        **1. Resultados Generales y Tendencias Históricas:**
+        - Observamos una tendencia decreciente en la prevalencia global de anemia infantil a lo largo de las últimas dos décadas, aunque esta disminución ha sido moderada.
+        - Se identificaron ciertas regiones donde las tasas de anemia han disminuido de manera más pronunciada, mientras que en otras, el cambio ha sido marginal o inexistente.
+
+        **2. Análisis Geográficos:**
+        - A nivel mundial, África y el sur de Asia presentan las tasas más altas de anemia infantil, reflejando disparidades significativas en comparación con regiones como América del Norte y Europa.
+        - Las diferencias intrarregionales también son notables, donde ciertos países en vías de desarrollo muestran tasas alarmantes debido a factores socioeconómicos y disponibilidad de recursos.
+
+        **3. Análisis Predictivo:**
+        - Las proyecciones hacia el año 2030 indican una leve mejora en la reducción de los casos de anemia infantil globalmente, sin embargo, el ritmo proyectado de mejora no es suficiente para erradicar la condición por completo en varios países vulnerables.
+        - Factores emergentes, como cambios climáticos y económicos, podrían impactar nuestras proyecciones actuales y merecen atención para futuras evaluaciones.
+
+        **4. Factores Relacionados con la Anemia Infantil:**
+        - El nivel de riqueza mostró una correlación directa con los niveles de anemia, destacando que los niños en los sectores más pobres son los más afectados.
+        - El consumo de suplementos de hierro se correlaciona con una disminución en los niveles de anemia, subrayando la importancia de programas nutricionales y suplementarios.
+        - Los análisis geográficos indicaron que las áreas rurales están significativamente más afectadas que las urbanas, reflejando desigualdades en el acceso a recursos como la educación y servicios de salud.
+
+        **Conclusión Final:**
+        Es crucial continuar monitoreando y entendiendo los factores que influencian la anemia infantil. Nuestros hallazgos sugieren la implementación de medidas personalizadas que aborden tanto la dimensión socioeconómica como la distribución geográfica del problema. La colaboración entre gobiernos, organizaciones no gubernamentales y comunidades locales será esencial para desarrollar estrategias efectivas que aseguren un futuro más saludable para todos los niños.
+
+        En el próximo informe presentaremos recomendaciones específicas basadas en nuestra investigación para mitigar la anemia infantil de manera efectiva y sostenible.
+        """
+    )
 
 elif menu == "Equipo":
     st.title("El equipo detrás del proyecto")
