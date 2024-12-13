@@ -291,7 +291,7 @@ elif menu == "Visualización de datos":
             st.subheader("Prevalencia histórica de anemia por niveles de ingresos")
             st.markdown("Los datos muestran una diferencia en los niveles de anemia infantil según el nivel de ingresos promedio de los países")
 
-        col1, col2 = st.columns([1.5, 1.5])
+        col1, col2 = st.columns([1.55, 1.45])
 
         with col1:
             # Cargar los datos desde el archivo CSV
