@@ -1195,7 +1195,7 @@ elif menu == "Visualización de datos":
         # Definir colores para los niveles de anemia
         colores_anemia = {
             'No anémico': '#626efa',
-            'Moderado': '#ee543b', 
+            'Moderado': '#ee543b',
             'Medio': '#01cc95',
             'Severo': '#aa62fb'
         }
@@ -1230,18 +1230,19 @@ elif menu == "Visualización de datos":
             xaxis=dict(
                 title='Porcentaje (%)',
                 tickformat='.1f',
-                showgrid=True,
+                showgrid=False,
                 gridcolor='lightgray',
                 zeroline=False,
                 linecolor='black',
-                showline=True
+                showline=True,
             ),
             yaxis=dict(
                 title=None,
                 categoryorder='array',
                 categoryarray=orden_wealth,  # Asegurar orden lógico en eje Y
                 showline=True,
-                linecolor='black'
+                linecolor='black',
+                showgrid=False
             ),
             plot_bgcolor='white',
             legend=dict(
@@ -1253,6 +1254,7 @@ elif menu == "Visualización de datos":
                 x=0.5,
             ),
             margin=dict(l=40, r=20, t=50, b=80),  # Ajuste de márgenes interno
+
         )
 
         # Mostrar gráfico en Streamlit
