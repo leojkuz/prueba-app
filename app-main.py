@@ -1403,7 +1403,7 @@ elif menu == "Visualización de datos":
                 zerolinecolor="white",
                 linecolor='white',
                 linewidth=1,
-                range=[-50, 50]
+                range=[-100, 100]
             ),
             yaxis=dict(
                 title="Nivel de Anemia",
