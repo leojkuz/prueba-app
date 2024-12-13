@@ -1421,7 +1421,7 @@ elif menu == "Visualización de datos":
                 yanchor="bottom",
                 y=-0.3,
                 xanchor="center",
-                x=0,
+                x=0.05,
             ),
             plot_bgcolor='white',
             template="simple_white",
