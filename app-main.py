@@ -216,6 +216,7 @@ if menu == "Introducción":
 
     ---
     ## Argentina
+    ![](https://x.com/turisargentina/status/1499114383745687559/photo/1)
     --
     
     <!-- .slide: data-background-color="#283747" -->
@@ -228,6 +229,7 @@ if menu == "Introducción":
     https://www.argentina.gob.ar/noticias/el-presidente-presento-el-programa-fierritas-para-prevenir-la-anemia-infantil-mediante-un
     ---
     ## Colombia
+    ![](https://i0.wp.com/viajerosporcolombia.com/wp-content/uploads/Cartagena-de-Indias.jpg?w=1200&ssl=1)
     --
     
     <!-- .slide: data-background-color="#283747" -->
@@ -245,6 +247,7 @@ if menu == "Introducción":
 https://www.minsalud.gov.co/Paginas/Minsalud-cuenta-con-estrategia-para-prevenir-anemia-en-primera-infancia-.aspx
     ---
     ## Guatemala
+    ![](https://i0.wp.com/viajerosporcolombia.com/wp-content/uploads/Cartagena-de-Indias.jpg?w=1200&ssl=1)
     --
     
     <!-- .slide: data-background-color="#283747" -->
