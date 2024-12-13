@@ -234,7 +234,7 @@ if menu == "Introducción":
     --
     
     <!-- .slide: data-background-color="#283747" -->
-    **El presidente presentó el programa Fierritas para prevenir la anemia infantil mediante un complemento producido en laboratorio público **
+    **El presidente presentó el programa Fierritas para prevenir la anemia infantil mediante un complemento producido en laboratorio público**
     
     <u>07 de septiembre de 2022</u>
     
