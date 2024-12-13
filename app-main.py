@@ -348,23 +348,20 @@ elif menu == "Fuentes de datos":
     elif sub_menu == "Fuente 2":
         st.subheader("Global Health Observatory (GHO)")
         st.markdown("""
-                La plataforma World Bank (Banco Mundial) es una fuente global y confiable de datos socioeconómicos y de desarrollo. Proporciona una amplia variedad de indicadores que permiten comprender los desafíos y avances en áreas cruciales como salud, educación, economía y medio ambiente.
-                En el estudio de la anemia infantil, el World Bank ofrece información valiosa para evaluar la magnitud de esta condición y los factores asociados en distintos países y regiones. Estos datos están disponibles a través de su API de Datos Abiertos, una herramienta eficaz para acceder automáticamente a indicadores recopilados por gobiernos, organizaciones de salud y estudios científicos a nivel global.
-                Esta es una breve descripción de la plataforma World Bank (Banco Mundial) y cómo se ha usado para la extracción de información sobre la anemia infantil mediante su API:
+        El Global Health Observatory (GHO) es una plataforma de la Organización Mundial de la Salud (OMS) dedicada a recopilar, analizar y difundir datos sobre temas de salud a nivel mundial. Proporciona acceso a una extensiva colección de indicadores, reportes y análisis que permiten tener una visión holística de las condiciones de salud a nivel global, regional y nacional.
+        Para el análisis de la anemia infantil, el GHO ofrece datos detallados y actualizados que ayudan a comprender la prevalencia de esta afección y sus implicaciones en la salud pública. Esta información es crucial para investigadores, formuladores de políticas y profesionales de la salud que buscan implementar intervenciones eficaces y monitorear avances hacia metas globales como los Objetivos de Desarrollo Sostenible (ODS).
+        
+        **Características del Global Health Observatory**
+        1.	Amplia Cobertura de Indicadores de Salud: El GHO ofrece indicadores específicos relacionados con la anemia infantil, como:
+            -Prevalencia de anemia en niños menores de 5 años (%).
+            -Desglose por país, ingresos, zona geográfica, etc.
+        2.	Acceso a Datos en Tiempo Real: A través de su API y su portal de datos, el GHO permite acceder a información actualizada, lo que facilita el seguimiento de tendencias emergentes en la salud infantil.
+        3.	Formatos de Datos Flexibles: Los datos del GHO se pueden descargar en formatos como CSV, JSON y XML, facilitando su integración con herramientas de análisis de datos como Python, R y Excel.
+        4.	Datos Comparativos y Desglosados: Permite realizar comparaciones entre países, regiones y grupos demográficos, ayudando a identificar brechas en la atención de la salud y desigualdades en la prevalencia de anemia.
 
-                **Características de la API del World Bank**
-                1. Acceso a Indicadores de Salud: La API ofrece información detallada sobre indicadores específicos relacionados con la anemia infantil, como:
-                    - Prevalencia de anemia en niños menores de 5 años (%).
-                    - Desglose por país, ingresos, zona geográfica, etc.
-                    - Relación con otros determinantes sociales y económicos.
-
-                2.	Datos Históricos y Comparativos: Es posible acceder a datos históricos, lo que permite analizar tendencias a lo largo del tiempo y realizar comparaciones entre distintos países o regiones.
-                3.	Formato Estándar: La API entrega la información en formatos como JSON y XML, facilitando la integración con herramientas de análisis y visualización como Python, R, o plataformas de business intelligence.
-                4.	Actualizaciones Frecuentes: Los datos se actualizan periódicamente, garantizando información actualizada y relevante para estudios e investigaciones sobre salud pública.
-
-                API utilizada: http://api.worldbank.org/v2/country/ALL/indicator/SH.ANM.CHLD.ZS
-
-                ![](https://gustavo-godoy.com/wp-content/uploads/Banco-mundial-1536x864.jpeg)
+        API utilizada: https://ghoapi.azureedge.net/api/NUTRITION_ANAEMIA_CHILDREN_NUM
+        
+        ![](https://static.euronews.com/articles/stories/06/44/64/20/1920x1080_cmsv2_62a1dfd1-f77f-5f69-83e7-f6bc7f6d2cb9-6446420.jpg)
 
 
 
