@@ -1051,7 +1051,7 @@ elif menu == "Visualización de datos":
                     if not year_2030_data.empty:
                         prev_2030 = year_2030_data['prevalencia (%)'].values[0]
                         fig.add_annotation(
-                            x=2031,  # Etiqueta fuera de los límites de 2030
+                            x=2030.6,  # Etiqueta fuera de los límites de 2030
                             y=prev_2030,
                             text=country,
                             showarrow=False,
