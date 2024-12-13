@@ -1384,21 +1384,21 @@ elif menu == "Visualización de datos":
             barmode='relative',  # Permitir valores positivos y negativos apilados horizontalmente
             xaxis=dict(
                 title="Número de Observaciones",
-                titlefont=dict(size=14, color='black'),
-                tickfont=dict(size=12, color='black'),
+                titlefont=dict(size=14, color='white'),
+                tickfont=dict(size=12, color='white'),
                 showgrid=True,
                 gridcolor='lightgray',
                 zeroline=True,
-                zerolinecolor="black",
-                linecolor='black',
+                zerolinecolor="white",
+                linecolor='white',
                 linewidth=1
             ),
             yaxis=dict(
                 title="Nivel de Anemia",
-                titlefont=dict(size=14, color='black'),
-                tickfont=dict(size=12, color='black'),
+                titlefont=dict(size=14, color='white'),
+                tickfont=dict(size=12, color='white'),
                 showgrid=False,
-                linecolor='black',
+                linecolor='white',
                 linewidth=1,
             ),
             legend=dict(
