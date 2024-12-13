@@ -18,7 +18,16 @@ import numpy as np
 st.set_page_config(page_title="Análisis Global de la Anemia", layout="wide")
 
 # Colocar el logo de la universidad en la parte superior
-st.sidebar.image("imagenes/escudo-unalm.png", use_container_width=True)
+st.sidebar.image("imagenes/escudo-unalm.png", use_container_width=False, width=200)
+st.sidebar.markdown(
+    """
+    <div style="text-align: center; font-size: 20px; font-weight: bold; color: #4A7BB7;">
+        Análisis de la anemia infantil en el mundo
+    </div>
+    """,
+    unsafe_allow_html=True,  # Permitir HTML para personalización avanzada
+)
+
 with st.sidebar:
     # Menú principal (vertical) en el sidebar
     menu = option_menu(
