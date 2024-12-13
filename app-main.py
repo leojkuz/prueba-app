@@ -1735,14 +1735,11 @@ elif menu == "Conclusiones":
         - Factores emergentes, como cambios climáticos y económicos, podrían impactar nuestras proyecciones actuales y merecen atención para futuras evaluaciones.
 
         **4. Factores Relacionados con la Anemia Infantil:**
-        - El nivel de riqueza mostró una correlación directa con los niveles de anemia, destacando que los niños en los sectores más pobres son los más afectados.
-        - El consumo de suplementos de hierro se correlaciona con una disminución en los niveles de anemia, subrayando la importancia de programas nutricionales y suplementarios.
-        - Los análisis geográficos indicaron que las áreas rurales están significativamente más afectadas que las urbanas, reflejando desigualdades en el acceso a recursos como la educación y servicios de salud.
+        - Aunque la muestra de análisis es aproximadamente homogénea al tratarse del país de Nigeria, los datos han mostrado diferencias lo suficientemente significativas como para definir factores relacionados con la anemia.
+        - El nivel de riqueza mostró una correlación con los niveles de anemia, destacando que los niños en los sectores más pobres son los más afectados.
+        - El consumo de suplementos de hierro se correlaciona con una disminución en los niveles de anemia, lo cual destaca la importancia de programas nutricionales y suplementarios.
+        - Los análisis residenciales indicaron que los casos de anemia existentes, corresponden a niños que residen en áreas rurales por sobre los que viven en zonas urbanas, reflejando desigualdades en el acceso a recursos como la educación y servicios de salud.
 
-        **Conclusión Final:**
-        Es crucial continuar monitoreando y entendiendo los factores que influencian la anemia infantil. Nuestros hallazgos sugieren la implementación de medidas personalizadas que aborden tanto la dimensión socioeconómica como la distribución geográfica del problema. La colaboración entre gobiernos, organizaciones no gubernamentales y comunidades locales será esencial para desarrollar estrategias efectivas que aseguren un futuro más saludable para todos los niños.
-
-        En el próximo informe presentaremos recomendaciones específicas basadas en nuestra investigación para mitigar la anemia infantil de manera efectiva y sostenible.
         """
     )
 
