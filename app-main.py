@@ -1761,7 +1761,7 @@ elif menu == "Conclusiones":
     st.write("Aquí puedes listar las principales ideas obtenidas a partir del análisis!")
 
 elif menu == "Equipo":
-    st.title("El Equipo Detrás del Proyecto")
+    st.title("El equipo detrás del proyecto")
     # Datos del equipo
     equipo = [
         {"nombre": "Segio Santillan Tsejem", "Código": "20191314", "github": "https://github.com/SergioSantillan"},
