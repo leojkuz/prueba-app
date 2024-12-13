@@ -1397,7 +1397,7 @@ elif menu == "Visualización de datos":
             },
             barmode='relative',  # Permitir valores positivos y negativos apilados horizontalmente
             xaxis=dict(
-                title="Número de Observaciones",
+                title="Porcentaje de tipo de anemia",
                 titlefont=dict(size=14, color='white'),
                 tickfont=dict(size=12, color='white'),
                 showgrid=False,
@@ -1405,7 +1405,8 @@ elif menu == "Visualización de datos":
                 zeroline=True,
                 zerolinecolor="white",
                 linecolor='white',
-                linewidth=1
+                linewidth=1,
+                range=[-50, 50]
             ),
             yaxis=dict(
                 title="Nivel de Anemia",
