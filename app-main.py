@@ -1758,7 +1758,7 @@ elif menu == "Visualización de datos":
 
 elif menu == "Conclusiones":
     st.title("Conclusiones")
-    st.write("Aquí puedes listar las principales ideas obtenidas a partir del análisis!")
+    st.write("Conclusiones: Sí")
 
 elif menu == "Equipo":
     st.title("El equipo detrás del proyecto")
