@@ -19,11 +19,7 @@ st.set_page_config(page_title="Análisis Global de la Anemia", layout="wide")
 
 # Colocar el logo de la universidad en la parte superior
 
-st.sidebar.markdown(
-    """
-    ![]("imagenes/escudo-unalm.png")
-    """
-)
+st.sidebar.image("imagenes/escudo-unalm.png", use_container_width=False, width=200)
 # Agregar texto en markdown con un estilo de fuente distintivo
 st.sidebar.markdown(
     """
