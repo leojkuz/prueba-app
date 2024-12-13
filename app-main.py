@@ -1350,6 +1350,9 @@ elif menu == "Visualización de datos":
         total_per_anemia = data_count_res.groupby('Anemia_Level', observed=False)['count'].transform(
             lambda x: x.abs().sum())
         data_count_res['percentage'] = (data_count_res['count'].abs() / total_per_anemia) * 100
+        # Invertir los porcentajes cuando 'Residence_Type' sea 'Rural'
+        data_count_res['percentage'] = data_count_res.apply(
+            lambda row: -row['percentage'] if row['Residence_Type'] == 'Rural' else row['percentage'], axis=1)
 
         # Crear el gráfico con Plotly Go
         fig = go.Figure()
@@ -1360,7 +1363,7 @@ elif menu == "Visualización de datos":
         for residence in ['Rural', 'Urbana']:
             residencia_data = data_count_res[data_count_res['Residence_Type'] == residence]
             fig.add_trace(go.Bar(
-                x=residencia_data['count'],
+                x=residencia_data['percentage'],
                 y=residencia_data['Anemia_Level'],
                 name=residence,
                 orientation='h',
