@@ -1378,12 +1378,12 @@ elif menu == "Visualización de datos":
                 name=residence,
                 orientation='h',
                 marker_color=color_map[residence],
-                customdata=residencia_data[['percentage', 'count']],  # Para el hover personalizado
+                customdata=residencia_data[['percentage', 'count']].abs(),  # Para el hover personalizado
                 hovertemplate=(
                     "<b>Tipo de Residencia:</b> " + residence + "<br>"
                     "<b>Nivel de Anemia:</b> %{y}<br>"
                     "<b>Número de Observaciones:</b> %{customdata[1]}<br>"
-                    "<b>Porcentaje:</b> %{customdata[0]|abs:.1f}%<extra></extra>"
+                    "<b>Porcentaje:</b> %{customdata[0]:.1f}%<extra></extra>"
                 )
             ))
 
