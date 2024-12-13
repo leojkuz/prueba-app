@@ -1419,7 +1419,7 @@ elif menu == "Visualización de datos":
                 title="Tipo de Residencia",
                 orientation="h",
                 yanchor="bottom",
-                y=-0.1,
+                y=-0.3,
                 xanchor="center",
                 x=0.1,
             ),
