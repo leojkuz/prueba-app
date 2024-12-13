@@ -216,7 +216,7 @@ if menu == "Introducción":
 
     ---
     ## Argentina
-    ![](https://x.com/turisargentina/status/1499114383745687559/photo/1)
+    ![](https://i.pinimg.com/736x/2b/1b/96/2b1b961dffad584769549a42eb0fc943.jpg)
     --
     
     <!-- .slide: data-background-color="#283747" -->
