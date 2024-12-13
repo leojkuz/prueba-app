@@ -26,7 +26,7 @@ st.markdown(
             display: block;
             margin-left: auto;
             margin-right: auto;
-            width: 70%;
+            width: 65%;
         }
     </style>
     """, unsafe_allow_html=True
