@@ -1724,7 +1724,7 @@ elif menu == "Conclusiones":
 
         **1. Resultados Generales y Tendencias Históricas:**
         - Observamos una tendencia decreciente en la prevalencia global de anemia infantil a lo largo de las últimas dos décadas, aunque esta disminución ha sido suave.
-        - Se identificaron ciertas regiones donde las tasas de anemia han disminuido de manera más pronunciada, mientras que en otras, el cambio ha sido marginal o inexistente.
+        - Se identificaron ciertas regiones donde las tasas de anemia han disminuido de manera más pronunciada, mientras que en otras, el cambio ha sido mínimo o inexistente.
 
         **2. Análisis Geográficos:**
         - A nivel mundial, África y el sur de Asia presentan las tasas más altas de anemia infantil, reflejando disparidades significativas en comparación con regiones como América del Norte y Europa.
