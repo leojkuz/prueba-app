@@ -1337,6 +1337,85 @@ elif menu == "Visualización de datos":
         A continuación, para explorar este factor, se presentará un gráfico comparativo de **barras apiladas horizontales**, donde se analizará la distribución porcentual de los diferentes **niveles de anemia** según el tipo de residencia (**Urbana** y **Rural**).        
                                 """)
 
+        # Contar las observaciones por combinación de Anemia_Level y Residence_Type
+        data_count_res = data.groupby(['Anemia_Level', 'Residence_Type']).size().reset_index(name='count')
+
+        # Modificar los valores de 'count' a negativos cuando el tipo de residencia sea 'Rural'
+        data_count_res['count'] = data_count_res.apply(
+            lambda row: -row['count'] if row['Residence_Type'] == 'Rural' else row['count'],
+            axis=1
+        )
+
+        # Calcular el porcentaje tomando el valor absoluto de 'count'
+        total_per_anemia = data_count_res.groupby('Anemia_Level')['count'].transform(lambda x: x.abs().sum())
+        data_count_res['percentage'] = (data_count_res['count'].abs() / total_per_anemia) * 100
+        data_count_res['percentage'] = data_count_res['percentage'].round(1)
+
+        # Ordenar los niveles de anemia
+        orden_anemia = ["Severo", "Medio", "Moderado", "No anémico"]
+        data_count_res['Anemia_Level'] = pd.Categorical(data_count_res['Anemia_Level'], categories=orden_anemia,
+                                                        ordered=True)
+        data_count_res = data_count_res.sort_values('Anemia_Level')
+
+        # Crear el gráfico con Plotly Go
+        fig = go.Figure()
+
+        color_map = {"Rural": "#ff7f0e", "Urbana": "#1f77b4"}
+
+        for residence in ['Rural', 'Urbana']:
+            residencia_data = data_count_res[data_count_res['Residence_Type'] == residence]
+            fig.add_trace(go.Bar(
+                x=residencia_data['count'],
+                y=residencia_data['Anemia_Level'],
+                name=residence,
+                orientation='h',
+                marker_color=color_map[residence],
+                customdata=residencia_data[['percentage', 'count']],  # Para el hover personalizado
+                hovertemplate=(
+                    "<b>Residencia:</b> %{name}<br>"
+                    "<b>Nivel de Anemia:</b> %{y}<br>"
+                    "<b>Número de Observaciones:</b> %{customdata[1]}<br>"
+                    "<b>Porcentaje:</b> %{customdata[0]:.1f}%<extra></extra>"
+                )
+            ))
+
+        # Configurar diseño del gráfico
+        fig.update_layout(
+            title={
+                'text': 'Nivel de anemia según el tipo de residencia',
+                'x': 0.5,
+                'xanchor': 'center',
+                'font': dict(size=18, color='black'),
+            },
+            barmode='relative',  # Permitir valores positivos y negativos apilados horizontalmente
+            xaxis=dict(
+                showticklabels=False,
+                title="Número de Observaciones",
+                linecolor='black',
+                linewidth=1
+            ),
+            yaxis=dict(
+                title="Nivel de Anemia",
+                tickfont=dict(color='black'),
+                linecolor='black',
+                linewidth=1,
+            ),
+            legend=dict(
+                title="Tipo de Residencia",
+                orientation="h",
+                yanchor="bottom",
+                y=-0.3,
+                xanchor="center",
+                x=0.5
+            ),
+            plot_bgcolor='white',
+            template="simple_white",
+            margin=dict(t=50, b=80)
+        )
+
+        # Mostrar el gráfico en Streamlit
+        st.plotly_chart(fig)
+
 
 
 elif menu == "Conclusiones":
