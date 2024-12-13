@@ -346,8 +346,29 @@ elif menu == "Fuentes de datos":
         """)
 
     elif sub_menu == "Fuente 2":
-        st.subheader("Descripción Fuente 2")
-        st.write("Información extraída del reporte anual de salud pública global por OMS.")
+        st.subheader("Global Health Observatory (GHO)")
+        st.markdown("""
+                La plataforma World Bank (Banco Mundial) es una fuente global y confiable de datos socioeconómicos y de desarrollo. Proporciona una amplia variedad de indicadores que permiten comprender los desafíos y avances en áreas cruciales como salud, educación, economía y medio ambiente.
+                En el estudio de la anemia infantil, el World Bank ofrece información valiosa para evaluar la magnitud de esta condición y los factores asociados en distintos países y regiones. Estos datos están disponibles a través de su API de Datos Abiertos, una herramienta eficaz para acceder automáticamente a indicadores recopilados por gobiernos, organizaciones de salud y estudios científicos a nivel global.
+                Esta es una breve descripción de la plataforma World Bank (Banco Mundial) y cómo se ha usado para la extracción de información sobre la anemia infantil mediante su API:
+
+                **Características de la API del World Bank**
+                1. Acceso a Indicadores de Salud: La API ofrece información detallada sobre indicadores específicos relacionados con la anemia infantil, como:
+                    - Prevalencia de anemia en niños menores de 5 años (%).
+                    - Desglose por país, ingresos, zona geográfica, etc.
+                    - Relación con otros determinantes sociales y económicos.
+
+                2.	Datos Históricos y Comparativos: Es posible acceder a datos históricos, lo que permite analizar tendencias a lo largo del tiempo y realizar comparaciones entre distintos países o regiones.
+                3.	Formato Estándar: La API entrega la información en formatos como JSON y XML, facilitando la integración con herramientas de análisis y visualización como Python, R, o plataformas de business intelligence.
+                4.	Actualizaciones Frecuentes: Los datos se actualizan periódicamente, garantizando información actualizada y relevante para estudios e investigaciones sobre salud pública.
+
+                API utilizada: http://api.worldbank.org/v2/country/ALL/indicator/SH.ANM.CHLD.ZS
+
+                ![](https://gustavo-godoy.com/wp-content/uploads/Banco-mundial-1536x864.jpeg)
+
+
+
+                """)
 
     elif sub_menu == "Fuente 3":
         st.subheader("Descripción Fuente 3")
@@ -1554,12 +1575,12 @@ elif menu == "Visualización de datos":
         )
 
         # Combinar los gráficos lado a lado con subplots usando Streamlit
-        col1, col2, col3, col4 = st.columns(4)
+        col1, col2, col3, col4, col5 = st.columns(5)
 
         with col2:
             st.plotly_chart(fig_yes, use_container_width=True)
 
-        with col3:
+        with col4:
             st.plotly_chart(fig_no, use_container_width=True)
 
         st.markdown("""
