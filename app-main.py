@@ -1121,7 +1121,15 @@ elif menu == "Visualización de datos":
 
 
     elif viz_menu == "Factores Relacionados":
-        st.subheader("Factores Relacionados")
+        st.markdown("""
+        # Factores relacionados con la anemia infantil
+
+        En los análisis anteriores, hemos explorado una serie de visualizaciones descriptivas enfocándonos en el panorama general de la anemia infantil. Hasta este punto, hemos identificado que **el nivel de ingresos es un factor con potencial impacto** en la prevalencia de esta enfermedad. Sin embargo, para profundizar más allá de este primer enfoque, es crucial preguntarnos: ¿qué otros factores socioeconómicos podrían estar conectados con la anemia infantil?
+
+        En esta sección, vamos a centrar nuestra atención en **Nigeria**, un caso relevante dado el contexto socioeconómico del país y los datos disponibles. Para este caso, contamos con valores específicos de **niveles de anemia** y una amplia variedad de indicadores socioeconómicos que pueden ayudarnos a entender mejor este fenómeno.
+
+        El objetivo principal no es solo observar una relación entre variables, sino también empezar a explorar patrones y posibles correlaciones que nos permitan **enriquecer el análisis**. Esto no solo nos lleva a interpretar con mayor profundidad la situación de Nigeria, sino también a generar insights aplicables para otros contextos.   
+        """)
 
         # Tabla bonita inventada
         data = {
