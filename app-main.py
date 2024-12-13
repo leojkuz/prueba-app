@@ -35,22 +35,168 @@ with st.sidebar:
 # Contenido dinámico según opción seleccionada
 if menu == "Introducción":
     st.title("Introducción")
-    st.markdown("""
-    ## ¿Qué es la anemia?
-    La **anemia** es una condición médica caracterizada por un nivel bajo de hemoglobina en la sangre, lo que resulta en una capacidad reducida para transportar oxígeno al cuerpo. Esto puede ocasionar fatiga, debilidad y otros problemas de salud.
 
-    ### Principales causas y tipos
-    - **Deficiencia de hierro (anemia ferropénica):** La causa más común a nivel mundial.
-    - **Anemia megaloblástica:** Por deficiencias de vitamina B12 o ácido fólico.
-    - **Anemia hemolítica:** Resultado de la destrucción prematura de los glóbulos rojos.
+    # Concepto 1: ¿Qué es la Anemia?
+    col1, col2 = st.columns([3, 2])  # Relación 3:2 para que el texto esté a la izquierda y la imagen a la derecha
 
-    ### Importancia del análisis global
-    Evaluar la prevalencia global y los factores asociados a la anemia es esencial para informar políticas públicas que mejoren la calidad de vida de las personas.
+    with col1:
+        st.markdown(
+            f"""
+                <style>
+                .concepto-container {{
+                    background-color: rgba(0, 0, 0, 0.7);  /* Fondo semi-transparente */
+                    padding: 40px;
+                    border-radius: 15px;
+                    color: white;
+                    margin-bottom: 30px;
+                    height: auto;
+                }}
+                .concepto-container h3 {{
+                    text-align: center;
+                    font-size: 1.8em;
+                }}
+                .concepto-container p {{
+                    text-align: justify;
+                    font-size: 1.2em;
+                }}
+                </style>
+                <div class="concepto-container">
+                    <h3>¿Qué es la Anemia?</h3>
+                    <p>
+                    La **anemia** es una condición médica caracterizada por un nivel bajo de hemoglobina en la sangre, lo que resulta en una capacidad reducida para transportar oxígeno al cuerpo. Esto puede ocasionar fatiga, debilidad y otros problemas de salud.
+                    </p>
+                </div>
+                """, unsafe_allow_html=True
+        )
 
-    *(¡Inserta aquí más texto académico o markdown estilizado si lo necesitas!)*
-    
+    with col2:
+        #st.image("imagenes/2.jpg", use_container_width=True)
+        st.write("im")
+
+    # Concepto 2: Causas Comunes de la Anemia
+    col1, col2 = st.columns([2, 3])  # Relación 3:2 para que el texto esté a la izquierda y la imagen a la derecha
+
+    with col2:
+        st.markdown(
+            f"""
+                <style>
+                .concepto-container {{
+                    background-color: rgba(0, 0, 0, 0.7);  /* Fondo semi-transparente */
+                    padding: 40px;
+                    border-radius: 15px;
+                    color: white;
+                    margin-bottom: 30px;
+                    height: auto;
+                }}
+                .concepto-container h3 {{
+                    text-align: center;
+                    font-size: 1.8em;
+                }}
+                .concepto-container p {{
+                    text-align: justify;
+                    font-size: 1.2em;
+                }}
+                </style>
+                <div class="concepto-container">
+                    <h3>Causas Comunes de la Anemia</h3>
+                    <p>
+                    Las causas comunes de la anemia incluyen:
+                    - **Deficiencia de hierro** (anemia ferropénica).
+                    - **Deficiencia de vitamina B12** o ácido fólico (anemia megaloblástica).
+                    - **Pérdida excesiva de sangre**, como en las menstruaciones abundantes.
+                    - **Enfermedades crónicas**, como insuficiencia renal.
+                    </p>
+                </div>
+                """, unsafe_allow_html=True
+        )
+
+    with col1:
+        #st.image("imagenes/2.jpg", use_container_width=True)
+        st.write("im")
+
+    # Concepto 3: Tipos de Anemia
+    col1, col2 = st.columns([3, 2])  # Relación 3:2 para que el texto esté a la izquierda y la imagen a la derecha
+
+    with col1:
+        st.markdown(
+            f"""
+                <style>
+                .concepto-container {{
+                    background-color: rgba(0, 0, 0, 0.7);  /* Fondo semi-transparente */
+                    padding: 40px;
+                    border-radius: 15px;
+                    color: white;
+                    margin-bottom: 30px;
+                    height: auto;
+                }}
+                .concepto-container h3 {{
+                    text-align: center;
+                    font-size: 1.8em;
+                }}
+                .concepto-container p {{
+                    text-align: justify;
+                    font-size: 1.2em;
+                }}
+                </style>
+                <div class="concepto-container">
+                    <h3>Tipos de Anemia</h3>
+                    <p>
+                    Existen varios tipos de anemia, entre ellos:
+                    - **Anemia Ferropénica**: Causada por falta de hierro.
+                    - **Anemia Megaloblástica**: Debido a la falta de vitamina B12 o ácido fólico.
+                    - **Anemia Hemolítica**: Destrucción prematura de glóbulos rojos.
+                    - **Anemia Aplásica**: Fallo de la médula ósea para producir glóbulos rojos.
+                    </p>
+                </div>
+                """, unsafe_allow_html=True
+        )
+
+    with col2:
+        #st.image("imagenes/2.jpg", use_container_width=True)
+        st.write("im")
+
+    # Concepto 4: Tratamiento y Prevención
+    col1, col2 = st.columns([2, 3])  # Relación 3:2 para que el texto esté a la izquierda y la imagen a la derecha
+
+    with col2:
+        st.markdown(
+            """
+            <style>
+            .concepto-container {
+                background-image: url('imagenes/2.jpg');  /* Imagen de fondo */
+                background-size: cover;
+                background-position: center;
+                padding: 40px;
+                border-radius: 15px;
+                color: white;
+                margin-bottom: 30px;
+                height: auto;
+            }
+            .concepto-container h3 {
+                text-align: center;
+                font-size: 1.8em;
+            }
+            .concepto-container p {
+                text-align: justify;
+                font-size: 1.2em;
+            }
+            </style>
+            <div class="concepto-container">
+                <h3>Tratamiento y Prevención</h3>
+                <p>
+                - **Tratamiento**: Suplementos de hierro o vitaminas, transfusiones en casos graves.
+                - **Prevención**: Consumir alimentos ricos en hierro (carne, espinacas) y vitaminas.
+                </p>
+            </div>
+            """, unsafe_allow_html=True
+        )
+
+    with col1:
+        #st.image("imagenes/2.jpg", use_container_width=True)
+        st.write("im")
+        pass
+
     ### Un vistazo a la situación de la anemia en el mundo
-    """)
     st.write("")
     st.write("")
     # Configuración del contenido en Markdown para los slides
