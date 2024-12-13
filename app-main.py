@@ -241,19 +241,23 @@ if menu == "Introducción":
     Fierritas es un complemento nutricional de hierro, zinc y vitamina A para niñas y niños entre los 6 y 24 meses de vida con falta de adherencia al tratamiento con Sulfato Ferroso. Se presenta en sobres individuales de 1 gramo y contiene micronutrientes en polvo que se pueden mezclar fácilmente con los alimentos de los lactantes cuando comienzan con la alimentación sólida.
     Para esta primera etapa, el ministerio de Salud definió la producción de sobres de Fierritas por una inversión de casi $250.000.000 que serán distribuidos dentro de la canasta de los 1.000 días del Remediar, comenzando en las regiones de mayor prevalencia de anemia: NOA y NEA.
     https://www.argentina.gob.ar/noticias/el-presidente-presento-el-programa-fierritas-para-prevenir-la-anemia-infantil-mediante-un
-
-    
-    <u>20 de mayo de 2022</u>
-    
-    Pese al cont
     ---
-    ## País 3: Egipto 🏺
+    ## Colombia
     --
     
     <!-- .slide: data-background-color="#283747" -->
-    🌅 **Ubicación:** África (Noroeste)
-    🕌 **Cultura:** Hogar de las pirámides y la rica historia faraónica.
-    🛤 **Dato relevante:** El Nilo es la principal fuente de agua del país.
+    **Minsalud cuenta con estrategia para prevenir anemia en primera infancia**
+    
+    <u>04 de noviembre de 2020</u>
+    
+    La Estrategia Nacional para la prevención y control de las deficiencias de Micronutrientes en Colombia 2014-2021, que tiene como principal objetivo "Prevenir y reducir las deficiencias de micronutrientes en la población colombiana, con énfasis en niños y niñas hasta 12 años, gestantes y mujeres en edad fértil", propone 5 líneas de acción:
+    1.   Diversificación de la alimentación
+    2.   Fortalecimiento de acciones prioritarias
+    3.   Fortificación
+    4.   Biofortificación o fortificación biológica de los alimentos
+    5.   Suplementación con Micronutrientes
+    https://www.minsalud.gov.co/Paginas/Minsalud-cuenta-con-estrategia-para-prevenir-anemia-en-primera-infancia-.aspx
+
     """
 
     # Creación del layout con columnas
