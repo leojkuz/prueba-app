@@ -353,8 +353,8 @@ elif menu == "Fuentes de datos":
         
         **Características del Global Health Observatory**
         1.	Amplia Cobertura de Indicadores de Salud: El GHO ofrece indicadores específicos relacionados con la anemia infantil, como:
-            -Prevalencia de anemia en niños menores de 5 años (%).
-            -Desglose por país, ingresos, zona geográfica, etc.
+            - Prevalencia de anemia en niños menores de 5 años (%).
+            - Desglose por país, ingresos, zona geográfica, etc.
         2.	Acceso a Datos en Tiempo Real: A través de su API y su portal de datos, el GHO permite acceder a información actualizada, lo que facilita el seguimiento de tendencias emergentes en la salud infantil.
         3.	Formatos de Datos Flexibles: Los datos del GHO se pueden descargar en formatos como CSV, JSON y XML, facilitando su integración con herramientas de análisis de datos como Python, R y Excel.
         4.	Datos Comparativos y Desglosados: Permite realizar comparaciones entre países, regiones y grupos demográficos, ayudando a identificar brechas en la atención de la salud y desigualdades en la prevalencia de anemia.
