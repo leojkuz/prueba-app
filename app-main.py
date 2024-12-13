@@ -1567,6 +1567,8 @@ elif menu == "Visualización de datos":
                 yanchor="bottom",
                 y=-0.3,
                 xanchor="center",
+                titlefont=dict(size=14, color='black'),
+                tickfont=dict(size=12, color='black'),
                 x=0.05,
             ),
             plot_bgcolor='white',
