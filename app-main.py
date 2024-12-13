@@ -1194,10 +1194,10 @@ elif menu == "Visualización de datos":
 
         # Definir colores para los niveles de anemia
         colores_anemia = {
-            'No anémico': '#34a853',  # Verde
-            'Moderado': '#fbbc05',  # Ambar/Dorado
-            'Medio': '#f29c33',  # Naranja intenso
-            'Severo': '#ea4335'  # Rojo fuerte
+            'No anémico': '#626efa',
+            'Moderado': '#ee543b', 
+            'Medio': '#01cc95',
+            'Severo': '#aa62fb'
         }
 
         fig = go.Figure()
