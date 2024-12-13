@@ -363,8 +363,6 @@ elif menu == "Fuentes de datos":
         
         ![](https://static.euronews.com/articles/stories/06/44/64/20/1920x1080_cmsv2_62a1dfd1-f77f-5f69-83e7-f6bc7f6d2cb9-6446420.jpg)
 
-
-
                 """)
 
     elif sub_menu == "Fuente 3":
@@ -373,17 +371,28 @@ elif menu == "Fuentes de datos":
             La plataforma Demographic and Health Surveys (DHS) es una iniciativa respaldada por la Agencia de los Estados Unidos para el Desarrollo Internacional (USAID) y gestionada por ICF International. Desde 1984, se especializa en recopilar datos detallados y precisos sobre salud, población y nutrición en más de 90 países en desarrollo.
             En investigaciones relacionadas con la anemia infantil, los datos de DHS son invaluables gracias a sus encuestas exhaustivas y su rigor metodológico. Estas encuestas proporcionan información desglosada por edad, sexo y factores socioeconómicos, lo que permite identificar patrones de prevalencia y los determinantes de esta condición. La información de DHS es ampliamente utilizada por científicos, responsables de políticas y organismos de salud para diseñar e implementar estrategias de intervención efectivas.
 
-            **Características del Global Health Observatory**
-            1.	Amplia Cobertura de Indicadores de Salud: El GHO ofrece indicadores específicos relacionados con la anemia infantil, como:
-                    - Prevalencia de anemia en niños menores de 5 años (%).
-                    - Desglose por país, ingresos, zona geográfica, etc.
-            2.	Acceso a Datos en Tiempo Real: A través de su API y su portal de datos, el GHO permite acceder a información actualizada, lo que facilita el seguimiento de tendencias emergentes en la salud infantil.
-            3.	Formatos de Datos Flexibles: Los datos del GHO se pueden descargar en formatos como CSV, JSON y XML, facilitando su integración con herramientas de análisis de datos como Python, R y Excel.
-            4.	Datos Comparativos y Desglosados: Permite realizar comparaciones entre países, regiones y grupos demográficos, ayudando a identificar brechas en la atención de la salud y desigualdades en la prevalencia de anemia.
+            **Datos detallados y desglosados:**
+            - DHS ofrece datos sobre la prevalencia de anemia en niños, medidos a través de pruebas de hemoglobina realizadas durante las encuestas.
+            - Los datos están desglosados por edad, sexo, país, y número de encuestas realizadas como el nivel educativo de los padres y el acceso a servicios de salud.
+            
+            **Acceso a microdatos:**
+            - DHS permite descargar microdatos (datos a nivel individual) para realizar análisis personalizados.
+            - La API permite extraer datos en formatos como JSON y CSV para su análisis con lenguajes como Python o R.
+            
+            **Cobertura geográfica amplia:**
+            - Los datos de DHS abarcan más de 90 países, especialmente en regiones de África, Asia, América Latina y el Caribe, permitiendo comparaciones internacionales y análisis regionales.
+            
+            **Actualizaciones periódicas:**
+            - Las encuestas se realizan aproximadamente cada 5 años en los países participantes, lo que facilita el seguimiento de tendencias a lo largo del tiempo.
+            
+            
+            APIs utilizadas: 
+            - https://api.dhsprogram.com/rest/dhs/data/CN_ANMC_C_ANY
+            - https://api.dhsprogram.com/rest/dhs/data/CN_ANMC_C_MLD
+            - https://api.dhsprogram.com/rest/dhs/data/CN_ANMC_C_MOD
+            - https://api.dhsprogram.com/rest/dhs/data/CN_ANMC_C_SEV
 
-            API utilizada: https://ghoapi.azureedge.net/api/NUTRITION_ANAEMIA_CHILDREN_NUM
-
-            ![](https://static.euronews.com/articles/stories/06/44/64/20/1920x1080_cmsv2_62a1dfd1-f77f-5f69-83e7-f6bc7f6d2cb9-6446420.jpg)
+            ![](https://data.humdata.org/image/2022-01-08-033748.794232Screen-Shot-2022-01-08-at-10.37.03.png)
         """)
 
 elif menu == "Visualización de datos":
