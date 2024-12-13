@@ -289,7 +289,7 @@ https://www.minsalud.gov.co/Paginas/Minsalud-cuenta-con-estrategia-para-prevenir
     --
     
     <!-- .slide: data-background-color="#283747" -->
-    **La anemia en niños disminuyó en 7,6 puntos porcentuales **
+    **La anemia en niños disminuyó en 7,6 puntos porcentuales**
     
     <u>07 de abril de 2018</u>
     
