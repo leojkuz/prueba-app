@@ -1315,7 +1315,7 @@ elif menu == "Visualización de datos":
             )
         ])
         fig_no.update_layout(
-            title=dict(text='Anemia en no consumidores de hierro', x=0.15, font=dict(size=16)),
+            title=dict(text='Anemia en no consumidores de hierro', x=0.12, font=dict(size=16)),
             showlegend=False
         )
 
