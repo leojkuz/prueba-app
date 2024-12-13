@@ -1359,7 +1359,7 @@ elif menu == "Visualización de datos":
         for residence in ['Rural', 'Urbana']:
             residencia_data = data_count_res[data_count_res['Residence_Type'] == residence]
             fig.add_trace(go.Bar(
-                x=residencia_data['count'],
+                x=residencia_data['percentage'],
                 y=residencia_data['Anemia_Level'],
                 name=residence,
                 orientation='h',
