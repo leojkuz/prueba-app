@@ -21,11 +21,12 @@ st.set_page_config(page_title="Análisis Global de la Anemia", layout="wide")
 st.sidebar.markdown(
     """
     <div style="display: flex; justify-content: center;">
-        <img src="imagenes/escudo-unalm.png" width="200"/>
+        <img src=imagenes/escudo-unalm.png width="200"/>
     </div>
     """,
     unsafe_allow_html=True
 )
+
 # Agregar texto en markdown con un estilo de fuente distintivo
 st.sidebar.markdown(
     """
