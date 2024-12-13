@@ -226,7 +226,7 @@ if menu == "Introducción":
     
     <u>20 de mayo de 2022</u>
     
-    Pese al contexto de la pandemia por la COVID-19, los resultados alcanzados durante el 2021 en la reducción de la prevalencia de anemia de 40.1 % a 38.8 % en menores de 6 a 35 meses a nivel nacional (Encuesta Endes 2021), el Ministerio de Salud (Minsa) viene proyectando, para fines del 2022, mejores resultados en la lucha contra la anemia, debido a la reactivación de acciones multisectoriales para reforzar la estrategia de prevención y control de la enfermedad en el país. “Si se detecta que el niño o la niña tienen anemia, el tratamiento debe cumplirse por 6 meses para garantizar su recuperación, además de incrementar el consumo de alimentos ricos en hierro”, finalizó el doctor Mario Izquierdo Hernández.
+    Pese al contexto de la pandemia por la COVID-19, los resultados alcanzados durante el 2021 en la reducción de la prevalencia de anemia de 40.1 % a 38.8 % en menores de 6 a 35 meses a nivel nacional (Encuesta Endes 2021), el Ministerio de Salud (Minsa) viene proyectando, para fines del 2022, mejores resultados en la lucha contra la anemia, debido a la reactivación de acciones multisectoriales para reforzar la estrategia de prevención y control de la enfermedad en el país.
     https://www.gob.pe/institucion/minsa/noticias/608484-minsa-proyecta-mejores-resultados-en-lucha-contra-la-anemia-para-el-2022
 
     ---
