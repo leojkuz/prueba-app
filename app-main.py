@@ -194,6 +194,7 @@ if menu == "Introducción":
     # Noticias de la anemia en el mundo
     ---
     ## Perú
+    ![](https://resources.sbcnoticias.com/sbcnoticias/2020/11/shutterstock_1780081652-696x350.jpg)
     --
     
     <!-- .slide: data-background-color="#283747" -->
