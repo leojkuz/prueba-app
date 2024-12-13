@@ -108,36 +108,35 @@ if menu == "Introducción":
 
     with col2:
         st.markdown(
-            f"""
-                <style>
-                .concepto-container {{
-                    background-color: rgba(0, 0, 0, 0.7);  /* Fondo semi-transparente */
-                    padding: 40px;
-                    border-radius: 15px;
-                    color: white;
-                    margin-bottom: 30px;
-                    height: auto;
-                }}
-                .concepto-container h3 {{
-                    text-align: center;
-                    font-size: 1.8em;
-                }}
-                .concepto-container p {{
-                    text-align: justify;
-                    font-size: 1.2em;
-                }}
-                </style>
-                <div class="concepto-container">
-                    <h3>Causas Comunes de la Anemia</h3>
-                    <p>
-                    Las causas comunes de la anemia incluyen:
-                    - **Deficiencia de hierro** (anemia ferropénica).
-                    - **Deficiencia de vitamina B12** o ácido fólico (anemia megaloblástica).
-                    - **Pérdida excesiva de sangre**, como en las menstruaciones abundantes.
-                    - **Enfermedades crónicas**, como insuficiencia renal.
-                    </p>
-                </div>
-                """, unsafe_allow_html=True
+            """
+            <style>
+            .effect-container {
+                background-color: rgba(0, 0, 0, 0.7);  /* Fondo semi-transparente */
+                padding: 30px;
+                border-radius: 15px;
+                color: white;
+                margin-bottom: 30px;
+                height: auto;
+            }
+            .effect-container h3 {
+                text-align: center;
+                font-size: 1.8em;
+            }
+            .effect-container p {
+                text-align: justify;
+                font-size: 1.2em;
+            }
+            </style>
+            <div class="effect-container">
+                <h3>Efectos y condiciones de vulnerabilidad</h3>
+                <p>La <strong>anemia</strong> se asocia con una variedad de efectos adversos en la salud y puede incrementar la vulnerabilidad a otras condiciones médicas. Entre los efectos más destacados se encuentran la <strong>disminución de la capacidad física y la función cognitiva</strong>, que puede impactar en el rendimiento laboral y académico.</p>
+
+                <p>A nivel celular, la falta de oxígeno afecta el <strong>metabolismo energético</strong>, lo que puede provocar una disminución en la capacidad de regeneración celular y una mayor susceptibilidad a infecciones. Esto se debe a que las células inmunitarias también requieren oxígeno para funcionar eficazmente.</p>
+
+                <p>En general, las poblaciones vulnerables, como los niños, mujeres gestantes y las personas mayores, son especialmente susceptibles a los efectos de la anemia debido a necesidades fisiológicas particulares o disminución de la capacidad de absorción de nutrientes esenciales.</p>
+            </div>
+            """,
+            unsafe_allow_html=True
         )
 
     with col1:
