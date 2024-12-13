@@ -1798,7 +1798,7 @@ elif menu == "Equipo":
             margin-bottom: 20px;
         }
         .group-title {
-            background-color: rgba(0, 0, 0, 0.9);  /* Fondo semi-transparente */
+            background-color: rgba(0, 0, 0, 0.8);  /* Fondo semi-transparente */
             color: white;
             border-radius: 15px;
             padding: 15px;
@@ -1811,7 +1811,7 @@ elif menu == "Equipo":
             width: 48%;  /* Aproximadamente la mitad del ancho con espacio */
         }
         .team-member {
-            background-color: rgba(0, 0, 0, 0.9);  /* Fondo semi-transparente */
+            background-color: rgba(0, 0, 0, 0.8);  /* Fondo semi-transparente */
             color: white;
             border-radius: 15px;
             padding: 20px;
