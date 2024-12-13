@@ -1122,7 +1122,7 @@ elif menu == "Visualización de datos":
 
     elif viz_menu == "Factores Relacionados":
         st.markdown("""
-        # Factores relacionados con la anemia infantil
+        # 🛠️ Factores relacionados con la anemia infantil
 
         En los análisis anteriores, hemos explorado una serie de visualizaciones descriptivas enfocándonos en el panorama general de la anemia infantil. Hasta este punto, hemos identificado que **el nivel de ingresos es un factor con potencial impacto** en la prevalencia de esta enfermedad. Sin embargo, para profundizar más allá de este primer enfoque, es crucial preguntarnos: ¿qué otros factores socioeconómicos podrían estar conectados con la anemia infantil?
 
@@ -1131,6 +1131,16 @@ elif menu == "Visualización de datos":
         El objetivo principal no es solo observar una relación entre variables, sino también empezar a explorar patrones y posibles correlaciones que nos permitan **enriquecer el análisis**. Esto no solo nos lleva a interpretar con mayor profundidad la situación de Nigeria, sino también a generar insights aplicables para otros contextos.   
         """)
 
+        st.markdown("""
+                ## 1. Factor Riqueza
+
+                La riqueza, como indicador socioeconómico, siempre ha estado bajo el reflector cuando hablamos de salud pública y bienestar infantil. Aunque previamente hemos explorado el nivel de ingresos a nivel nacional utilizando datos de World Bank, esta perspectiva es más **macroeconómica** y se centra en recibir información respecto a los grupos económicos generales de un país. Sin embargo, el panorama se vuelve más interesante cuando comenzamos a analizar cómo los niveles específicos de riqueza en las familias y comunidades afectan directamente la prevalencia de anemia en niños.
+
+                En este punto, el objetivo será analizar un gráfico de barras apiladas que nos permita visualizar las diferencias en los niveles de anemia infantil dentro de **varios niveles específicos de riqueza interna en Nigeria**.
+
+                Ahora bien, pasemos al gráfico para explorar estas diferencias.
+
+                """)
         # Tabla bonita inventada
         data = {
             "Factor": ["Deficiencia de Hierro", "Malnutrición", "Enfermedades Crónicas"],
