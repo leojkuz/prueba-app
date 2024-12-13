@@ -1359,7 +1359,7 @@ elif menu == "Visualización de datos":
             lambda row: -row['percentage'] if row['Residence_Type'] == 'Rural' else row['percentage'], axis=1)
 
         # Cambiar el orden de los niveles de anemia: "Severo" arriba y "No anémico" abajo
-        orden_anemia = ["Severo", "Medio", "Moderado", "No anémico"]
+        orden_anemia = ["No anémico", "Moderado", "Medio", "Severo"]
         data_count_res['Anemia_Level'] = pd.Categorical(
             data_count_res['Anemia_Level'], categories=orden_anemia, ordered=True
         )
