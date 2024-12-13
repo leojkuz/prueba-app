@@ -1386,7 +1386,7 @@ elif menu == "Visualización de datos":
                 title="Número de Observaciones",
                 titlefont=dict(size=14, color='white'),
                 tickfont=dict(size=12, color='white'),
-                showgrid=True,
+                showgrid=False,
                 gridcolor='lightgray',
                 zeroline=True,
                 zerolinecolor="white",
