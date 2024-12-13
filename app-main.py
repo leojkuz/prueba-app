@@ -1055,7 +1055,7 @@ elif menu == "Visualización de datos":
                             y=prev_2030,
                             text=country,
                             showarrow=False,
-                            font=dict(size=10, color='black'),
+                            font=dict(size=10, color=country_color),
                             xanchor='left',
                             align='left'
                         )
