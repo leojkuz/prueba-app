@@ -1350,6 +1350,12 @@ elif menu == "Visualización de datos":
             lambda x: x.abs().sum())
         data_count_res['percentage'] = (data_count_res['count'].abs() / total_per_anemia) * 100
 
+        # Convertir los porcentajes de Rural a negativos para crear simetría
+        data_count_res['percentage'] = data_count_res.apply(
+            lambda row: -row['percentage'] if row['Residence_Type'] == 'Rural' else row['percentage'],
+            axis=1
+        )
+
         # Crear el gráfico con Plotly Go
         fig = go.Figure()
 
