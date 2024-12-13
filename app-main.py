@@ -313,8 +313,8 @@ elif menu == "Fuentes de datos":
     # Submenú Horizontal
     sub_menu = option_menu(
         menu_title="",  # Sin título en el menú horizontal
-        options=["Fuente 1", "Fuente 2", "Fuente 3"],
-        icons=["link-45deg", "link-45deg", "link-45deg"],
+        options=["Fuente 1", "Fuente 2", "Fuente 3", "Fuente 4"],
+        icons=["link-45deg", "link-45deg", "link-45deg", "link-45deg"],
         menu_icon="cast",
         default_index=0,
         orientation="horizontal",
@@ -393,6 +393,29 @@ elif menu == "Fuentes de datos":
             - https://api.dhsprogram.com/rest/dhs/data/CN_ANMC_C_SEV
 
             ![](https://data.humdata.org/image/2022-01-08-033748.794232Screen-Shot-2022-01-08-at-10.37.03.png)
+        """)
+    elif sub_menu == "Fuente 4":
+        st.subheader("Kaggle")
+        st.markdown("""
+            Kaggle es una plataforma en línea perteneciente a Google que se destaca por su enfoque en el análisis de datos, aprendizaje automático (machine learning) y competencias de ciencia de datos. Es reconocida por su activa comunidad de científicos de datos y su extenso repositorio de datasets de alta calidad y fácil acceso.
+            En el análisis de la anemia infantil, Kaggle facilita la adquisición de datasets compartidos tanto por instituciones oficiales como por la comunidad de usuarios. Gracias a su API, los usuarios pueden descargar estos datasets directamente a sus entornos de trabajo, como Python o Jupyter Notebooks, agilizando el proceso de extracción y análisis de datos. Además, la plataforma ofrece notebooks y scripts de referencia que ayudan a desarrollar modelos predictivos y visualizaciones informativas.
+
+            **Características clave de Kaggle:**
+            1. Acceso a datasets diversos:
+                - Datasets sobre salud infantil, anemia, nutrición y otros factores relevantes.
+                - Datos aportados por investigadores, organizaciones de salud y proyectos académicos.
+
+            2. API de Kaggle:
+                - Facilita la descarga automatizada de datasets mediante comandos simples.
+                - Integración sencilla con entornos de ciencia de datos como Python y bibliotecas como pandas y scikit-learn.
+
+            3. Comunidad y recursos:
+                - Acceso a notebooks, scripts y discusiones de otros usuarios para inspiración y colaboración en proyectos relacionados con la anemia infantil.
+
+            Data utilizada: 
+            https://www.kaggle.com/datasets/adeolaadesina/factors-affecting-children-anemia-level
+
+            ![](https://opendatascience.com/wp-content/uploads/2018/12/kaggle-640x300.png)
         """)
 
 elif menu == "Visualización de datos":
