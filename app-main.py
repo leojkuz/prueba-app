@@ -1723,7 +1723,7 @@ elif menu == "Conclusiones":
         Tras realizar un análisis exhaustivo de los datos relacionados con la anemia infantil, hemos obtenido varios hallazgos significativos que arrojan luz sobre este problema de salud pública desde diferentes perspectivas.
 
         **1. Resultados Generales y Tendencias Históricas:**
-        - Observamos una tendencia decreciente en la prevalencia global de anemia infantil a lo largo de las últimas dos décadas, aunque esta disminución ha sido moderada.
+        - Observamos una tendencia decreciente en la prevalencia global de anemia infantil a lo largo de las últimas dos décadas, aunque esta disminución ha sido suave.
         - Se identificaron ciertas regiones donde las tasas de anemia han disminuido de manera más pronunciada, mientras que en otras, el cambio ha sido marginal o inexistente.
 
         **2. Análisis Geográficos:**
