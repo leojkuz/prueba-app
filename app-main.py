@@ -368,8 +368,23 @@ elif menu == "Fuentes de datos":
                 """)
 
     elif sub_menu == "Fuente 3":
-        st.subheader("Descripción Fuente 3")
-        st.write("Estudios académicos con datos centrados en poblaciones específicas para análisis detallado.")
+        st.subheader("Demographic and Health Surveys (DHS)")
+        st.markdown("""
+            La plataforma Demographic and Health Surveys (DHS) es una iniciativa respaldada por la Agencia de los Estados Unidos para el Desarrollo Internacional (USAID) y gestionada por ICF International. Desde 1984, se especializa en recopilar datos detallados y precisos sobre salud, población y nutrición en más de 90 países en desarrollo.
+            En investigaciones relacionadas con la anemia infantil, los datos de DHS son invaluables gracias a sus encuestas exhaustivas y su rigor metodológico. Estas encuestas proporcionan información desglosada por edad, sexo y factores socioeconómicos, lo que permite identificar patrones de prevalencia y los determinantes de esta condición. La información de DHS es ampliamente utilizada por científicos, responsables de políticas y organismos de salud para diseñar e implementar estrategias de intervención efectivas.
+
+            **Características del Global Health Observatory**
+            1.	Amplia Cobertura de Indicadores de Salud: El GHO ofrece indicadores específicos relacionados con la anemia infantil, como:
+                    - Prevalencia de anemia en niños menores de 5 años (%).
+                    - Desglose por país, ingresos, zona geográfica, etc.
+            2.	Acceso a Datos en Tiempo Real: A través de su API y su portal de datos, el GHO permite acceder a información actualizada, lo que facilita el seguimiento de tendencias emergentes en la salud infantil.
+            3.	Formatos de Datos Flexibles: Los datos del GHO se pueden descargar en formatos como CSV, JSON y XML, facilitando su integración con herramientas de análisis de datos como Python, R y Excel.
+            4.	Datos Comparativos y Desglosados: Permite realizar comparaciones entre países, regiones y grupos demográficos, ayudando a identificar brechas en la atención de la salud y desigualdades en la prevalencia de anemia.
+
+            API utilizada: https://ghoapi.azureedge.net/api/NUTRITION_ANAEMIA_CHILDREN_NUM
+
+            ![](https://static.euronews.com/articles/stories/06/44/64/20/1920x1080_cmsv2_62a1dfd1-f77f-5f69-83e7-f6bc7f6d2cb9-6446420.jpg)
+        """)
 
 elif menu == "Visualización de datos":
     st.title("Visualización de Datos")
@@ -986,8 +1001,6 @@ elif menu == "Visualización de datos":
                 st.components.v1.html(html_data, width=1200, height=700)
 
     elif viz_menu == "Proyecciones":
-        c1, c2 = st.columns([1.8, 0.2])
-        with c1:
             st.markdown("""
             # 🌍 Estimaciones Futuras: Mirando hacia el 2030
     
