@@ -1349,7 +1349,11 @@ elif menu == "Visualización de datos":
         # Calcular el porcentaje tomando el valor absoluto de 'count'
         total_per_anemia = data_count_res.groupby('Anemia_Level', observed=False)['count'].transform(
             lambda x: x.abs().sum())
-        data_count_res['percentage'] = (data_count_res['count'].abs() / total_per_anemia) * 100
+        # Calcular el porcentaje dentro de cada 'Residence_Type'
+        total_per_residence = data_count_res.groupby('Residence_Type', observed=False)['count'].transform(
+            lambda x: x.abs().sum())
+        data_count_res['percentage'] = (data_count_res['count'].abs() / total_per_residence) * 100
+
         # Invertir los porcentajes cuando 'Residence_Type' sea 'Rural'
         data_count_res['percentage'] = data_count_res.apply(
             lambda row: -row['percentage'] if row['Residence_Type'] == 'Rural' else row['percentage'], axis=1)
