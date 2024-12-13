@@ -1,17 +1,13 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 import pandas as pd
-import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import reveal_slides as rs
 import folium
 from streamlit_folium import st_folium
-from geopy.geocoders import Nominatim
 from scipy.stats import linregress
-from folium.plugins import MarkerCluster
-import  streamlit_toggle as tog
+import streamlit_toggle as tog
 import random
-from matplotlib.patches import Wedge
 import numpy as np
 
 # Configuración inicial de la página
