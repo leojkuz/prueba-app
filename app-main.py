@@ -18,10 +18,19 @@ import numpy as np
 st.set_page_config(page_title="Análisis Global de la Anemia", layout="wide")
 
 # Colocar el logo de la universidad en la parte superior
-st.sidebar.image("imagenes/escudo-unalm.png", use_container_width=False, width=200)
 st.sidebar.markdown(
     """
-    <div style="text-align: center; font-size: 20px; font-weight: bold; color: #4A7BB7;">
+    <div style="text-align: center;">
+        <img src="imagenes/escudo-unalm.png" width="150">
+    </div>
+    """,
+    unsafe_allow_html=True,  # Permitir HTML para personalización avanzada
+)
+
+# Agregar texto en markdown con un estilo de fuente distintivo
+st.sidebar.markdown(
+    """
+    <div style="text-align: center; font-size: 24px; font-family: 'Georgia'; font-weight: bold; color: #2C3E50; margin-top: 15px;">
         Análisis de la anemia infantil en el mundo
     </div>
     """,
