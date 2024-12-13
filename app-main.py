@@ -215,7 +215,7 @@ if menu == "Introducción":
     <!-- .slide: data-background-color="#283747" -->
     **"Tan Fuertes como el Hierro": Iniciativa ha ayudado en la recuperación de niños diagnosticados con anemia (PERU)**
     
-    \_8 de septiembre del 2023\_
+    <u>8 de septiembre del 2023</u>
     
     La campaña “Tan Fuertes como el Hierro” ya está cosechando resultados impresionantes. Más de 1,000 familias han sido educadas en alimentación nutritiva y más de 1,200 frascos de suplemento nutricional de hierro han sido entregados gratuitamente para el tratamiento de la anemia infantil. Además, las proyecciones apuntan a la recuperación de, por lo menos, el 70% de los niños diagnosticados con anemia después del tratamiento y la implementación de las estrategias educativas.
     https://rpp.pe/campanas/valor-compartido/tan-fuertes-como-el-hierro-iniciativa-ha-ayudado-en-la-recuperacion-de-ninos-diagnosticados-con-anemia-noticia-1504586?ref=rpp
