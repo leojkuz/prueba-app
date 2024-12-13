@@ -1273,6 +1273,61 @@ elif menu == "Visualización de datos":
         2. El segundo mostrará la distribución de niveles de anemia en niños que **no consumen suplementos de hierro**
                         """)
 
+        # Filtrar datos según el valor de Iron_Supplements
+        data_yes = data[data['Iron_Supplements'] == 'Si']
+        data_no = data[data['Iron_Supplements'] == 'No']
+
+        # Contar la frecuencia de cada categoría de Anemia_Level
+        counts_yes = data_yes['Anemia_Level'].value_counts().reset_index()
+        counts_yes.columns = ['Anemia_Level', 'Count']
+
+        counts_no = data_no['Anemia_Level'].value_counts().reset_index()
+        counts_no.columns = ['Anemia_Level', 'Count']
+
+
+        # Crear gráfico de pie para Iron_Supplements = "Sí"
+        fig_yes = go.Figure(data=[
+            go.Pie(
+                labels=counts_yes['Anemia_Level'],
+                values=counts_yes['Count'],
+                marker=dict(colors=[colores_anemia[level] for level in counts_yes['Anemia_Level']]),
+                hole=0.4,  # Hacerlo tipo dona
+                textinfo='label+percent',  # Mostrar etiquetas y porcentaje
+                hoverinfo='label+value',  # Mostrar etiquetas y valores en el hover
+                pull=[0.05] * len(counts_yes)  # Separar ligeramente cada segmento
+            )
+        ])
+        fig_yes.update_layout(
+            title=dict(text='Consumo de hierro: Sí', x=0.5, font=dict(size=16)),
+            showlegend=False
+        )
+
+        # Crear gráfico de pie para Iron_Supplements = "No"
+        fig_no = go.Figure(data=[
+            go.Pie(
+                labels=counts_no['Anemia_Level'],
+                values=counts_no['Count'],
+                marker=dict(colors=[colores_anemia[level] for level in counts_no['Anemia_Level']]),
+                hole=0.4,  # Hacerlo tipo dona
+                textinfo='label+percent',
+                hoverinfo='label+value',
+                pull=[0.05] * len(counts_no)
+            )
+        ])
+        fig_no.update_layout(
+            title=dict(text='Consumo de hierro: No', x=0.5, font=dict(size=16)),
+            showlegend=False
+        )
+
+        # Combinar los gráficos lado a lado con subplots usando Streamlit
+        col1, col2 = st.columns(2)
+
+        with col1:
+            st.plotly_chart(fig_yes, use_container_width=True)
+
+        with col2:
+            st.plotly_chart(fig_no, use_container_width=True)
+
 
 
 elif menu == "Conclusiones":
