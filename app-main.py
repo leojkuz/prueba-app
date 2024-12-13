@@ -1358,10 +1358,14 @@ elif menu == "Visualización de datos":
         data_count_res['percentage'] = data_count_res.apply(
             lambda row: -row['percentage'] if row['Residence_Type'] == 'Rural' else row['percentage'], axis=1)
 
-        # Crear el gráfico con Plotly Go
-        fig = go.Figure()
-
         color_map = {"Rural": "#ff7f0e", "Urbana": "#1f77b4"}
+
+        # Cambiar el orden de los niveles de anemia: "Severo" arriba y "No anémico" abajo
+        orden_anemia = ["Severo", "Medio", "Moderado", "No anémico"]
+        data_count_res['Anemia_Level'] = pd.Categorical(
+            data_count_res['Anemia_Level'], categories=orden_anemia, ordered=True
+        )
+        data_count_res = data_count_res.sort_values(by='Anemia_Level')
 
         # Añadir trazas para cada tipo de residencia
         for residence in ['Rural', 'Urbana']:
@@ -1374,10 +1378,10 @@ elif menu == "Visualización de datos":
                 marker_color=color_map[residence],
                 customdata=residencia_data[['percentage', 'count']],  # Para el hover personalizado
                 hovertemplate=(
-                    "<b>Residencia:</b> %{name}<br>"
-                    "<b>Nivel de Anemia:</b> %{y}<br>"
-                    "<b>Número de Observaciones:</b> %{customdata[1]}<br>"
-                    "<b>Porcentaje:</b> %{customdata[0]:.1f}%<extra></extra>"
+                        "<b>Tipo de Residencia:</b> " + residence + "<br>"
+                                                                    "<b>Nivel de Anemia:</b> %{y}<br>"
+                                                                    "<b>Número de Observaciones:</b> %{customdata[1]}<br>"
+                                                                    "<b>Porcentaje:</b> %{customdata[0]:.1f}%<extra></extra>"
                 )
             ))
 
@@ -1389,20 +1393,19 @@ elif menu == "Visualización de datos":
                 'xanchor': 'center',
                 'font': dict(size=18, color='white'),
             },
-            barmode='relative',  # Permitir valores positivos y negativos apilados horizontalmente
+            barmode='relative',  # Barras apiladas positivas y negativas
             xaxis=dict(
-                title="Número de Observaciones",
+                title="Porcentaje (%)",
                 titlefont=dict(size=14, color='white'),
                 tickfont=dict(size=12, color='white'),
                 showgrid=False,
-                gridcolor='lightgray',
                 zeroline=True,
                 zerolinecolor="white",
                 linecolor='white',
                 linewidth=1
             ),
             yaxis=dict(
-                title="Nivel de Anemia",
+                title="Niveles de Anemia",
                 titlefont=dict(size=14, color='white'),
                 tickfont=dict(size=12, color='white'),
                 showgrid=False,
@@ -1412,14 +1415,13 @@ elif menu == "Visualización de datos":
             legend=dict(
                 title="Tipo de Residencia",
                 orientation="h",
-                yanchor="bottom",
-                y=-0.3,
+                yanchor="top",  # Mover la leyenda para evitar que se superponga al título del eje X
+                y=-0.15,
                 xanchor="center",
-                x=0.5,
+                x=0.5
             ),
             plot_bgcolor='white',
-            template="simple_white",
-            margin=dict(t=50, b=80)
+            margin=dict(t=50, b=100)  # Ajustar margen inferior
         )
 
         # Mostrar gráfico en Streamlit
