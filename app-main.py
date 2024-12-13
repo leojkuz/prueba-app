@@ -1213,6 +1213,7 @@ elif menu == "Visualización de datos":
                 marker=dict(color=colores_anemia[anemia_level]),
                 text=nivel_data['Percentage'],  # Inserta porcentajes dentro de las barras
                 textposition='inside',  # Mostrar texto en el interior de las barras
+                insidetextanchor='middle',
                 hovertemplate=(f"<b>Anemia:</b> {anemia_level}<br>"
                                "<b>Riqueza:</b> %{y}<br>"
                                "<b>Porcentaje:</b> %{x:.1f}%<extra></extra>")
