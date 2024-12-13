@@ -242,7 +242,7 @@ if menu == "Introducción":
     col1, col2, col3 = st.columns([1, 2, 1])  # Relación: 1:2:1 para centrar
 
     with col2:  # Contenido en la columna central
-        response_dict = rs.slides(content_markdown, height=700, markdown_props={"data-separator-vertical":"^--$"})
+        response_dict = rs.slides(content_markdown, height=700, markdown_props={"data-separator-vertical":"^--$"}, config={"height": 1200})
 
 elif menu == "Fuentes de datos":
     st.title("Fuentes de Datos")
