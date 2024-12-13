@@ -1367,7 +1367,7 @@ elif menu == "Visualización de datos":
         # Crear el gráfico con Plotly Go
         fig = go.Figure()
 
-        color_map = {"Rural": "#ff7f0e", "Urbana": "#1f77b4"}
+        color_map = {"Rural": "#1f77b4", "Urbana": "#ff7f0e"}
 
         # Añadir trazas para cada tipo de residencia
         for residence in ['Rural', 'Urbana']:
