@@ -1406,7 +1406,6 @@ elif menu == "Visualización de datos":
                 range=[-3000, 3000],
                 tickvals=[-3000, -2000, -1000, 0, 1000, 2000, 3000],  # Personalizar valores del eje X
                 ticktext=["3000", "2000", "1000", "0", "1000", "2000","3000"],  # Mostrar los valores sin signos negativos
-            )
             ),
             yaxis=dict(
                 title="Nivel de Anemia",
