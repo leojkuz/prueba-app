@@ -326,7 +326,8 @@ elif menu == "Fuentes de datos":
         La plataforma World Bank (Banco Mundial) es una fuente global y confiable de datos socioeconómicos y de desarrollo. Proporciona una amplia variedad de indicadores que permiten comprender los desafíos y avances en áreas cruciales como salud, educación, economía y medio ambiente.
         En el estudio de la anemia infantil, el World Bank ofrece información valiosa para evaluar la magnitud de esta condición y los factores asociados en distintos países y regiones. Estos datos están disponibles a través de su API de Datos Abiertos, una herramienta eficaz para acceder automáticamente a indicadores recopilados por gobiernos, organizaciones de salud y estudios científicos a nivel global.
         Esta es una breve descripción de la plataforma World Bank (Banco Mundial) y cómo se ha usado para la extracción de información sobre la anemia infantil mediante su API:
-        *Características de la API del World Bank*
+        
+        **Características de la API del World Bank**
         1. Acceso a Indicadores de Salud: La API ofrece información detallada sobre indicadores específicos relacionados con la anemia infantil, como:
             - Prevalencia de anemia en niños menores de 5 años (%).
             - Desglose por país, ingresos, zona geográfica, etc.
