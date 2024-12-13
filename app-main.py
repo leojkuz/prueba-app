@@ -336,6 +336,7 @@ elif menu == "Fuentes de datos":
         4.	Actualizaciones Frecuentes: Los datos se actualizan periódicamente, garantizando información actualizada y relevante para estudios e investigaciones sobre salud pública.
 
         API utilizada: http://api.worldbank.org/v2/country/ALL/indicator/SH.ANM.CHLD.ZS
+        
         <img src="https://gustavo-godoy.com/wp-content/uploads/Banco-mundial-1536x864.jpeg"/>
         
         
