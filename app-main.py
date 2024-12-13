@@ -438,7 +438,7 @@ elif menu == "Visualización de datos":
         st.write("### Indicadores de resumen en 2019")
 
         # Indicadores (Méritos)
-        col1, col2, col3 = st.columns([0.95, 0.8, 1.35])
+        col1, col2, col3 = st.columns([0.95, 0.7, 1.35])
 
         with col1:
             st.metric(label="Prevalencia Global (%)", value="39.8%", delta="-0.5% respecto al año 2015")
