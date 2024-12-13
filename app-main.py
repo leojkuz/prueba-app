@@ -1385,9 +1385,9 @@ elif menu == "Visualización de datos":
         fig.update_layout(
             title={
                 'text': 'Nivel de anemia según el tipo de residencia',
-                'x': 0.5,
+                'x': 0.2,
                 'xanchor': 'center',
-                'font': dict(size=18, color='black'),
+                'font': dict(size=18, color='white'),
             },
             barmode='relative',  # Permitir valores positivos y negativos apilados horizontalmente
             xaxis=dict(
