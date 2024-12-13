@@ -570,10 +570,10 @@ elif menu == "Visualización de datos":
 
                     # Añadir la anotación
                     fig.add_annotation(
-                        x=last_year - 2,  # Un poco a la derecha del último año
-                        y=last_value + 2,  # Ajuste vertical por nivel
+                        x=last_year - 3,  # Un poco a la derecha del último año
+                        y=last_value + 1.5,  # Ajuste vertical por nivel
                         text=f"<b>{level}</b>",  # Texto del nivel de ingresos
-                        font=dict(size=10, color="black"),  # Personalización de la fuente
+                        font=dict(size=10, color=colors.get(level, "gray")),  # Personalización de la fuente
                         showarrow=False,
                         xanchor="left",
                         align="left",
@@ -590,6 +590,7 @@ elif menu == "Visualización de datos":
                     linecolor='black',
                     ticks='outside',  # Marcas fuera del eje
                     tickwidth=1,
+                    tickangle=45
                 ),
                 yaxis=dict(
                     title='Prevalencia (%)',
