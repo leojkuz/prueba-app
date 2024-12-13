@@ -230,13 +230,22 @@ if menu == "Introducción":
     https://www.gob.pe/institucion/minsa/noticias/608484-minsa-proyecta-mejores-resultados-en-lucha-contra-la-anemia-para-el-2022
 
     ---
-    ## País 2: Japón 🗾
+    ## Argentina
     --
     
     <!-- .slide: data-background-color="#283747" -->
-    🎌 **Ubicación:** Asia Oriental
-    🍣 **Cultura:** Punto focal de innovación tecnológica y cuna del sushi.
-    🚄 **Dato relevante:** Poseen uno de los sistemas ferroviarios más veloces y precisos.
+    **El presidente presentó el programa Fierritas para prevenir la anemia infantil mediante un complemento producido en laboratorio público **
+    
+    <u>07 de septiembre de 2022</u>
+    
+    Fierritas es un complemento nutricional de hierro, zinc y vitamina A para niñas y niños entre los 6 y 24 meses de vida con falta de adherencia al tratamiento con Sulfato Ferroso. Se presenta en sobres individuales de 1 gramo y contiene micronutrientes en polvo que se pueden mezclar fácilmente con los alimentos de los lactantes cuando comienzan con la alimentación sólida.
+    Para esta primera etapa, el ministerio de Salud definió la producción de sobres de Fierritas por una inversión de casi $250.000.000 que serán distribuidos dentro de la canasta de los 1.000 días del Remediar, comenzando en las regiones de mayor prevalencia de anemia: NOA y NEA.
+    https://www.argentina.gob.ar/noticias/el-presidente-presento-el-programa-fierritas-para-prevenir-la-anemia-infantil-mediante-un
+
+    
+    <u>20 de mayo de 2022</u>
+    
+    Pese al cont
     ---
     ## País 3: Egipto 🏺
     --
