@@ -1371,6 +1371,7 @@ elif menu == "Visualización de datos":
                         linecolor='black',
                         ticks='outside',
                         tickwidth=1,
+                        tickangle=45
                     ),
                     yaxis=dict(
                         title="Prevalencia (%)",
