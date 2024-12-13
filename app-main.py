@@ -176,7 +176,7 @@ if menu == "Introducción":
         )
 
     with col2:
-        st.image("https://sni.org.pe/wp-content/uploads/2024/03/ninosperuanos.jpg", use_container_width=True)
+        st.image("images/anemia.jpg", use_container_width=True)
 
 
     st.subheader("¿Cómo se ha vivido la anemia alrededor del mundo?")
