@@ -273,12 +273,6 @@ elif menu == "Visualización de datos":
     )
 
     if viz_menu == "Situación Global":
-        # Datos ficticios
-        years = [2015, 2016, 2017, 2018, 2019, 2020, 2021]
-        anemia_global = [30.1, 29.8, 29.3, 28.7, 28.4, 28.1, 27.8]  # Tendencia Mundial
-        countries = ['India', 'Nigeria', 'Pakistán', 'Bangladés', 'Etiopía',
-                     'República del Congo', 'Sudán', 'Afganistán', 'Angola', 'Yemen']
-        prevalence = [51.3, 49.2, 45.0, 44.8, 42.1, 41.3, 40.5, 39.8, 38.8, 37.3]
 
         # Dashboard Principal
         st.write("### Análisis visual más detallado de la situación global e histórica de la anemia infantil")
@@ -673,7 +667,7 @@ elif menu == "Visualización de datos":
                     arrowhead=3,
                     arrowsize=1,
                     arrowwidth=4,
-                    arrowcolor="#e3e7e8"
+                    arrowcolor="black"
                 )
 
                 fig.add_trace(
