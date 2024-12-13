@@ -572,7 +572,7 @@ elif menu == "Visualización de datos":
 
 
             # Crear checkbox para seleccionar países
-            selected_countries = st.multiselect('Selecciona los países', countries)
+            selected_countries = st.multiselect('Selecciona los países', countries, placeholder="Elija un país")
 
             # Actualizar y mostrar gráfico dinámicamente según selección de países
             if selected_countries:
@@ -1235,7 +1235,7 @@ elif menu == "Visualización de datos":
 
 
             # Crear un multiselect para seleccionar países
-            selected_countries = st.multiselect('Selecciona los países', country_data)
+            selected_countries = st.multiselect('Selecciona los países', country_data, placeholder="Elija un país")
 
             # Actualizar el gráfico según selección de países
             if selected_countries:
