@@ -691,7 +691,7 @@ elif menu == "Visualización de datos":
                 fig.update_layout(
                     height=300,  # Altura del gráfico
                     margin=dict(t=70, b=10, l=70, r=70),  # Márgenes compactos
-                    font=dict(color="white", family="Arial"),  # Estilo tipográfico (limpio)
+                    font=dict(color="black", family="Arial"),  # Estilo tipográfico (limpio)
                     xaxis={'showgrid': False, 'showticklabels': False, 'range': [-1, 1]},
                     yaxis={'showgrid': False, 'showticklabels': False, 'range': [0, 1]},
 
@@ -723,12 +723,12 @@ elif menu == "Visualización de datos":
                 st.plotly_chart(create_gauge(valor_real, pais_seleccionado), use_container_width=True)
                 st.markdown(f"""
                     <div style="text-align: center; margin-left: 35px; margin-top: -30px; margin-bottom: -20px;">
-                        <h2 style='color: white; display: inline-block;'>{valor_real}%</h2>
+                        <h2 style='color: black; display: inline-block;'>{valor_real}%</h2>
                     </div>
                 """, unsafe_allow_html=True)
                 st.markdown(f"""
                             <div style="text-align: center; margin-left: 35px; margin-top: -20px; margin-bottom: -20px;">
-                                <h3 style='color: white; display: inline-block;'>{pais_seleccionado}</h3>
+                                <h3 style='color: black; display: inline-block;'>{pais_seleccionado}</h3>
                             </div>
                                 """, unsafe_allow_html=True)
 
