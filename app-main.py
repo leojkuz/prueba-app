@@ -141,7 +141,7 @@ if menu == "Introducción":
         st.image("https://elcomercio.pe/resizer/xTR28Ck_-oiLTyn23B7uMPCtrHM=/1200x0/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/ZQWV7YV4N5GFPGQDX2PS7DNYXI.jpg", use_container_width=True)
 
     # Concepto 3: Anemia infantil
-    col1, col2 = st.columns([2, 3])  # Relación 3:2 para que el texto esté a la izquierda y la imagen a la derecha
+    col1, col2 = st.columns([2.5, 2.5])  # Relación 3:2 para que el texto esté a la izquierda y la imagen a la derecha
 
     with col1:
         st.markdown(
