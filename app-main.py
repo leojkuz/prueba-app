@@ -1408,8 +1408,6 @@ elif menu == "Visualización de datos":
                 xanchor="center",
                 x=0.5
             ),
-            plot_bgcolor='white',
-            template="simple_white",
             margin=dict(t=50, b=80)
         )
 
