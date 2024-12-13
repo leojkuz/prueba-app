@@ -130,9 +130,7 @@ if menu == "Introducción":
             <div class="effect-container">
                 <h3>Efectos y condiciones de vulnerabilidad</h3>
                 <p>La <strong>anemia</strong> se asocia con una variedad de efectos adversos en la salud y puede incrementar la vulnerabilidad a otras condiciones médicas. Entre los efectos más destacados se encuentran la <strong>disminución de la capacidad física y la función cognitiva</strong>, que puede impactar en el rendimiento laboral y académico.</p>
-
                 <p>A nivel celular, la falta de oxígeno afecta el <strong>metabolismo energético</strong>, lo que puede provocar una disminución en la capacidad de regeneración celular y una mayor susceptibilidad a infecciones. Esto se debe a que las células inmunitarias también requieren oxígeno para funcionar eficazmente.</p>
-
                 <p>En general, las poblaciones vulnerables, como los niños, mujeres gestantes y las personas mayores, son especialmente susceptibles a los efectos de la anemia debido a necesidades fisiológicas particulares o disminución de la capacidad de absorción de nutrientes esenciales.</p>
             </div>
             """,
