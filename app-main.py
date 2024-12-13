@@ -1385,7 +1385,7 @@ elif menu == "Visualización de datos":
         fig.update_layout(
             title={
                 'text': 'Nivel de anemia según el tipo de residencia',
-                'x': 0.2,
+                'x': 0.5,
                 'xanchor': 'center',
                 'font': dict(size=18, color='white'),
             },
