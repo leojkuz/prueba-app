@@ -176,7 +176,7 @@ if menu == "Introducción":
         )
 
     with col2:
-        st.markdown("<br><br><br>")
+        st.markdown("<style><br><br><br></style>")
         st.image("imagenes/anemia.jpg", use_container_width=True)
 
 
