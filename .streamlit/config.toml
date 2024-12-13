@@ -4,7 +4,7 @@ primaryColor = "#f63366"
 backgroundColor = "white"
 # secondaryBackgroundColor = "#154360"
 secondaryBackgroundColor = "#393939"
-textColor = "#fafafa"
+textColor = "black"
 font = "sans serif"
 
 [server]
