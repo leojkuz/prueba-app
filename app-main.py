@@ -101,8 +101,7 @@ if menu == "Introducción":
         )
 
     with col2:
-        #st.image("imagenes/2.jpg", use_container_width=True)
-        st.write("im")
+        st.image("https://elmen.pe/wp-content/uploads/2023/03/Anemia-scaled.jpg", use_container_width=True)
 
     # Concepto 2: Causas Comunes de la Anemia
     col1, col2 = st.columns([2, 3])  # Relación 3:2 para que el texto esté a la izquierda y la imagen a la derecha
