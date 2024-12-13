@@ -570,7 +570,7 @@ elif menu == "Visualización de datos":
 
                     # Añadir la anotación
                     fig.add_annotation(
-                        x=last_year - 3,  # Un poco a la derecha del último año
+                        x=last_year - 2,  # Un poco a la derecha del último año
                         y=last_value + 2,  # Ajuste vertical por nivel
                         text=f"<b>{level}</b>",  # Texto del nivel de ingresos
                         font=dict(size=10, color="black"),  # Personalización de la fuente
