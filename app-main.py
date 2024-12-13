@@ -1261,6 +1261,18 @@ elif menu == "Visualización de datos":
         # Mostrar gráfico en Streamlit
         st.plotly_chart(fig)
 
+        st.markdown("""
+        ## 2. Factor Consumo de Hierro
+
+        El consumo de suplementos de hierro es un tema clave en la discusión sobre la anemia infantil, no solo en Nigeria, sino a nivel global. En el caso de Nigeria, contamos con datos específicos que nos permiten explorar cuántos niños han recibido **suplementos de hierro**, un elemento esencial en la prevención y tratamiento de la anemia. Este dato es valioso porque nos brinda una perspectiva práctica: **¿realmente el acceso a suplementos mejora los niveles de anemia infantil?**
+
+        La anemia infantil en países como Nigeria, aunque asociada a múltiples factores socioeconómicos, también está profundamente influenciada por **deficiencias en micronutrientes esenciales como el hierro**. La suplementación adecuada podría ser una herramienta efectiva para reducir los niveles de anemia, especialmente en poblaciones vulnerables. Sin embargo, para validar esta hipótesis, es necesario analizar los datos directamente.
+
+        En este apartado, presentaremos dos gráficos de pie con el propósito de abordar desde dos ángulos diferentes la relación entre el consumo de suplementos de hierro y los niveles de anemia infantil:
+        1. El primero mostrará la distribución de niveles de anemia en niños que **sí consumen suplementos de hierro**
+        2. El segundo mostrará la distribución de niveles de anemia en niños que **no consumen suplementos de hierro**
+                        """)
+
 
 
 elif menu == "Conclusiones":
