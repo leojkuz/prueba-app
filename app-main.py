@@ -26,13 +26,13 @@ st.markdown(
             display: block;
             margin-left: auto;
             margin-right: auto;
-            width: 100%;
+            width: 50%;
         }
     </style>
     """, unsafe_allow_html=True
 )
 
-st.sidebar.image("imagenes/escudo-unalm.png", use_container_width=False, width=200)
+st.sidebar.image("imagenes/escudo-unalm.png", use_container_width=True)
 # Agregar texto en markdown con un estilo de fuente distintivo
 st.sidebar.markdown(
     """
