@@ -298,9 +298,8 @@ elif menu == "Visualización de datos":
                     linewidth=1,
                     linecolor='black',
                 ),
-                plot_bgcolor='white',  # Fondo blanco para mayor legibilidad
+                plot_bgcolor='rgba(240,240,240,0.95)',  # Fondo blanco para mayor legibilidad
                 showlegend=False,  # Eliminamos la leyenda; usamos anotaciones dinámicas
-                template="plotly_white",
                 width=900,
                 height=600,  # Ajustar el tamaño del gráfico en Streamlit
                 margin=dict(t=10)
