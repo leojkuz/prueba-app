@@ -1720,8 +1720,6 @@ elif menu == "Conclusiones":
     st.title("Conclusiones")
     st.markdown(
         """
-        ## Conclusiones
-
         Tras realizar un análisis exhaustivo de los datos relacionados con la anemia infantil, hemos obtenido varios hallazgos significativos que arrojan luz sobre este problema de salud pública desde diferentes perspectivas.
 
         **1. Resultados Generales y Tendencias Históricas:**
