@@ -103,7 +103,7 @@ if menu == "Introducción":
     with col2:
         st.image("https://elmen.pe/wp-content/uploads/2023/03/Anemia-scaled.jpg", use_container_width=True)
 
-    # Concepto 2: Causas Comunes de la Anemia
+    # Concepto 2: Efectos y poblacion vulnerable
     col1, col2 = st.columns([2, 3])  # Relación 3:2 para que el texto esté a la izquierda y la imagen a la derecha
 
     with col2:
@@ -140,87 +140,44 @@ if menu == "Introducción":
     with col1:
         st.image("https://elcomercio.pe/resizer/xTR28Ck_-oiLTyn23B7uMPCtrHM=/1200x0/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/ZQWV7YV4N5GFPGQDX2PS7DNYXI.jpg", use_container_width=True)
 
-    # Concepto 3: Tipos de Anemia
+    # Concepto 3: Anemia infantil
     col1, col2 = st.columns([3, 2])  # Relación 3:2 para que el texto esté a la izquierda y la imagen a la derecha
 
     with col1:
         st.markdown(
-            f"""
-                <style>
-                .concepto-container {{
-                    background-color: rgba(0, 0, 0, 0.7);  /* Fondo semi-transparente */
-                    padding: 40px;
-                    border-radius: 15px;
-                    color: white;
-                    margin-bottom: 30px;
-                    height: auto;
-                }}
-                .concepto-container h3 {{
-                    text-align: center;
-                    font-size: 1.8em;
-                }}
-                .concepto-container p {{
-                    text-align: justify;
-                    font-size: 1.2em;
-                }}
-                </style>
-                <div class="concepto-container">
-                    <h3>Tipos de Anemia</h3>
-                    <p>
-                    Existen varios tipos de anemia, entre ellos:
-                    - **Anemia Ferropénica**: Causada por falta de hierro.
-                    - **Anemia Megaloblástica**: Debido a la falta de vitamina B12 o ácido fólico.
-                    - **Anemia Hemolítica**: Destrucción prematura de glóbulos rojos.
-                    - **Anemia Aplásica**: Fallo de la médula ósea para producir glóbulos rojos.
-                    </p>
-                </div>
-                """, unsafe_allow_html=True
-        )
-
-    with col2:
-        #st.image("imagenes/2.jpg", use_container_width=True)
-        st.write("im")
-
-    # Concepto 4: Tratamiento y Prevención
-    col1, col2 = st.columns([2, 3])  # Relación 3:2 para que el texto esté a la izquierda y la imagen a la derecha
-
-    with col2:
-        st.markdown(
             """
             <style>
-            .concepto-container {
-                background-image: url('imagenes/2.jpg');  /* Imagen de fondo */
-                background-size: cover;
-                background-position: center;
-                padding: 40px;
+            .infantil-container {
+                background-color: rgba(0, 0, 0, 0.7);  /* Fondo semi-transparente */
+                padding: 30px;
                 border-radius: 15px;
                 color: white;
                 margin-bottom: 30px;
                 height: auto;
             }
-            .concepto-container h3 {
+            .infantil-container h3 {
                 text-align: center;
                 font-size: 1.8em;
             }
-            .concepto-container p {
+            .infantil-container p {
                 text-align: justify;
                 font-size: 1.2em;
             }
             </style>
-            <div class="concepto-container">
-                <h3>Tratamiento y Prevención</h3>
-                <p>
-                - **Tratamiento**: Suplementos de hierro o vitaminas, transfusiones en casos graves.
-                - **Prevención**: Consumir alimentos ricos en hierro (carne, espinacas) y vitaminas.
-                </p>
+            <div class="infantil-container">
+                <h3>Anemia Infantil</h3>
+                <p>La <strong>anemia infantil</strong> es una condición particularmente preocupante debido a los efectos graves que puede tener en el desarrollo físico y mental de los niños. Durante los primeros años de vida, el crecimiento rápido y el desarrollo cerebral demandan una cantidad adecuada de oxígeno, y la anemia compromete este suministro crítico.</p>
+                <p>Los niños con anemia severa pueden sufrir retrasos en el crecimiento, dificultades en el aprendizaje, y una baja capacidad de respuesta inmunológica, haciéndolos más vulnerables a infecciones. Además, la anemia infantil puede presentar síntomas menos evidentes como irritabilidad, falta de concentración y apatía, que muchas veces pasan inadvertidos pero afectan significativamente la calidad de vida y aprovechamiento escolar del niño.</p>
+                <p>La causa principal de anemia infantil es la <strong>deficiencia de hierro</strong>, pero también hay que considerar que factores socioeconómicos juegan un rol crítico, ya que los niños en hogares con limitados recursos tienen mayor riesgo de sufrir esta condición debido a una dieta inadecuada y acceso limitado a servicios de salud.</p>
+                <p>En este informe, se presentará información detallada sobre la prevalencia de la anemia infantil en diferentes regiones del mundo, los esfuerzos gubernamentales y comunitarios realizados para abordar este problema, así como algunos estudios que nos proporcionen un panorama más completo de este problema.</p>
             </div>
-            """, unsafe_allow_html=True
+            """,
+            unsafe_allow_html=True
         )
 
-    with col1:
-        #st.image("imagenes/2.jpg", use_container_width=True)
-        st.write("im")
-        pass
+    with col2:
+        st.image("https://sni.org.pe/wp-content/uploads/2024/03/ninosperuanos.jpg", use_container_width=True)
+
 
     st.subheader("¿Cómo se ha vivido la anemia alrededor del mundo?")
 
