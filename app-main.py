@@ -21,7 +21,7 @@ st.set_page_config(page_title="Análisis Global de la Anemia", layout="wide")
 
 st.sidebar.markdown(
     """
-    ![]("imagenes/escudo-unalm.png"){width="200"}
+    ![]("imagenes/escudo-unalm.png")
     """
 )
 # Agregar texto en markdown con un estilo de fuente distintivo
