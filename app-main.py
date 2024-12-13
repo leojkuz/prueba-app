@@ -86,9 +86,14 @@ if menu == "Introducción":
                 </style>
                 <div class="concepto-container">
                     <h3>¿Qué es la Anemia?</h3>
-                    <p>
-                    La **anemia** es una condición médica caracterizada por un nivel bajo de hemoglobina en la sangre, lo que resulta en una capacidad reducida para transportar oxígeno al cuerpo. Esto puede ocasionar fatiga, debilidad y otros problemas de salud.
-                    </p>
+                    La **anemia** es una condición médica caracterizada por una insuficiencia de glóbulos rojos o hemoglobina en la sangre.
+                    Esta carencia provoca que los tejidos del cuerpo no reciban suficiente oxígeno, lo cual puede generar síntomas como fatiga,
+                    debilidad, mareos y palidez. En los niños, la anemia puede afectar seriamente su desarrollo físico y cognitivo, ya que durante
+                    sus primeros años de vida, el crecimiento y el desarrollo cerebral necesitan niveles adecuados de oxígeno.
+
+                    Existen diferentes tipos de anemia, siendo la más común la **anemia ferropénica**, causada por una deficiencia de hierro.
+                    El hierro es un componente crucial de la hemoglobina, la proteína que permite a los glóbulos rojos transportar oxígeno. Sin
+                    suficiente hierro, el cuerpo produce menos hemoglobina y, por ende, menos glóbulos rojos saludables.
                 </div>
                 """, unsafe_allow_html=True
         )
