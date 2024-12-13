@@ -1,9 +1,7 @@
 [theme]
 primaryColor = "#f63366"
-# backgroundColor = "white"
 backgroundColor = "white"
-# secondaryBackgroundColor = "#154360"
-secondaryBackgroundColor = "#393939"
+secondaryBackgroundColor = "grey"
 textColor = "black"
 font = "sans serif"
 
