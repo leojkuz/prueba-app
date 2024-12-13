@@ -1761,7 +1761,113 @@ elif menu == "Conclusiones":
     st.write("Aquí puedes listar las principales ideas obtenidas a partir del análisis!")
 
 elif menu == "Equipo":
-    st.title("Equipo")
-    st.write("Coloca los nombres del equipo y roles aquí si lo necesitas.")
+    st.title("Nuestro Equipo")
+    st.write("El Equipo Detrás del Proyecto")
+    # Datos del equipo
+    equipo = [
+        {"nombre": "Segio Santillan Tsejem", "Código": "20191314", "github": "https://github.com/SergioSantillan"},
+        {"nombre": "Brisa Cielo Paredes Ballenas", "Código": "20221411", "github": "https://github.com/BrisaParedes"},
+        {"nombre": "Marcell Enrique Rojas Molina", "Código": "20230411", "github": "https://github.com/marcellRojas91"},
+        {"nombre": "Nagiely Sandoval Hurtado", "Código": "20220780", "github": "https://github.com/Brigiely"},
+        {"nombre": "Leonardo Joaquín Frías Gómez ", "Código": "20230394", "github": "https://github.com/leonardo3010f"},
+        {"nombre": "Andrea Vanesa Mamani Taipe", "Código": "20211819", "github": "https://github.com/Andrea-Mamani"},
+        {"nombre": "Marcial Homero Reyes Robles", "Código": "20240731", "github": "https://github.com/Marcial03reyes"},
+        {"nombre": "Giannella Teresa Galvez-Durand Bravo ", "Código": "20210945",
+         "github": "https://github.com/GiaBravo"},
+        {"nombre": "Catherine Antonia Ramirez Gutierrez", "Código": "20220742",
+         "github": "https://github.com/CatherineandHachi"},
+        {"nombre": "Justin Wess Sam Vasquez Vega", "Código": "20230416", "github": "https://github.com/JustinWessSam"},
+        {"nombre": "José Ignacio Gamarra Rivas", "Código": "20180319", "github": "https://github.com/eljose1998"},
+        {"nombre": "Jorge Abel Sencara Maldonado", "Código": "20231508", "github": "https://github.com/Jorge-Abel"},
+        {"nombre": "Omar Zenon Sanchez Perez", "Código": "20211938", "github": "https://github.com/OmarSanchez-UNALM"},
+        {"nombre": "Leonardo Jesús Ccorahua Madera", "Código": "20240701", "github": "https://github.com/leojkuz"},
+        {"nombre": "Daniel Mauricio Quiroz Acho", "Código": "20220776", "github": "https://github.com/daniel-quiroz-a"}
+    ]
+
+    # Personalizar los nombres de los grupos
+    group_titles = ["Módulo de Extracción de datos", "Módulo de Análisis de Datos", "Módulo de Visualización",
+                    "Módulo de Documentación", "Integradores de código"]
+
+    # Añadir CSS para mejorar el estilo de los subtítulos y miembros del equipo
+    st.markdown(
+        """
+        <style>
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .group-title {
+            background-color: rgba(0, 0, 0, 0.7);  /* Fondo semi-transparente */
+            color: white;
+            border-radius: 15px;
+            padding: 15px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        .team-column {
+            width: 48%;  /* Aproximadamente la mitad del ancho con espacio */
+        }
+        .team-member {
+            background-color: rgba(0, 0, 0, 0.7);  /* Fondo semi-transparente */
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 15px;
+            text-align: center;  /* Centrar el texto */
+        }
+        .team-member h3 {
+            margin: 0;
+            border-bottom: 2px solid white;
+            padding-bottom: 5px;
+            font-size: 1.2em;
+        }
+        .team-member p {
+            margin: 0;
+            font-size: 1em;
+        }
+        </style>
+        """, unsafe_allow_html=True
+    )
+
+
+    # Función para mostrar cada miembro del equipo
+    def mostrar_miembro(nombre, codigo, github):
+        return f"""
+            <div class="team-member">
+                <h3>{nombre}</h3>
+                <p>Código: {codigo}</p>
+                <p>GitHub: <a href="{github}" target="_blank">{github}</a></p>
+            </div>
+            """
+
+
+    # Organizar miembros en cinco grupos específicos
+    team_groups = [
+        equipo[0:3],  # Primer grupo con 3 integrantes
+        equipo[3:6],  # Segundo grupo con 3 integrantes
+        equipo[6:9],  # Tercer grupo con 3 integrantes
+        equipo[9:12],  # Cuarto grupo con 3 integrantes
+        equipo[12:15]  # Quinto grupo con 3 integrantes
+    ]
+
+    st.markdown('<div class="team-container">', unsafe_allow_html=True)
+    for i, group in enumerate(team_groups):
+        st.markdown(f'<div class="group-title">{group_titles[i]}</div>', unsafe_allow_html=True)
+        col1, col2 = st.columns(2)
+        with col1:
+            for miembro in group[:2]:  # Primeros 2 miembros en la primera columna
+                st.markdown(mostrar_miembro(miembro["nombre"], miembro["Código"], miembro["github"]),
+                            unsafe_allow_html=True)
+        with col2:
+            for miembro in group[2:]:  # Últimos miembros en la segunda columna (puede ser 1 o 2 miembros)
+                st.markdown(mostrar_miembro(miembro["nombre"], miembro["Código"], miembro["github"]),
+                            unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
 
 
