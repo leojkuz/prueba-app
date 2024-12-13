@@ -703,7 +703,7 @@ elif menu == "Visualización de datos":
                     },
                     xaxis=dict(
                         title=None,  # Quitar el título del eje X
-                        tickangle=-90,
+                        tickangle=45,
                         showline=True,
                         linecolor='black',
                         ticks='outside',  # Mostrar marcas de graduación principales hacia el exterior
