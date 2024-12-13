@@ -1384,7 +1384,7 @@ elif menu == "Visualización de datos":
                     "<b>Nivel de Anemia:</b> %{y}<br>"
                     "<b>Número de Observaciones:</b> %{customdata[1]}<br>"
                     "<b>Porcentaje:</b> %{customdata[0]:.1f}%<extra></extra>"
-                )
+                ).replace("%{customdata[0]:.1f}", "%{customdata[0]:.1f}".lstrip('-'))
             ))
 
         # Configurar diseño del gráfico con ejes claros
