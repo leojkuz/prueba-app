@@ -385,7 +385,7 @@ elif menu == "Visualización de datos":
                         # Obtenemos el valor de prevalencia para 2019
                         prev_2019 = year_2019_data['prevalencia (%)'].values[0]
                         fig.add_annotation(
-                            x=2019 + 1.2,  # Desplazamos un poco a la derecha de 2030
+                            x=2019 + 0.5,  # Desplazamos un poco a la derecha de 2030
                             y=prev_2019,
                             text=country,
                             showarrow=False,
